@@ -16,11 +16,12 @@
         <script src='js/prism.js'></script>
         <script src='js/popper.min.js'></script>
         <script src='js/bootstrap.js'></script>
+        <script src='js/sidenote.js'></script>
         <script src='js/book.js'></script>
     </head>
     <body>
         <main>
-<div data-column='0' class='column'>
+<div data-name='root' data-column='0' class='column'>
     <div class='title-page'>
         <h1 class='title'>JavaScript</h1>
         <div class='subtitle'>Overview &amp; Details</div>
@@ -63,7 +64,12 @@
     <div class='padded'>
         <table class='snippets-table'>
             <tr>
-                <td><a href='#'>Step&nbsp;1</a></td><td><code class='language-javascript'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl</td>
+                <td>
+                    <a href='#note-repl'>Step&nbsp;1</a>
+                </td>
+                <td>
+                    <code class='language-javascript'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl
+                </td>
             </tr>
         </table>
     </div>
@@ -76,7 +82,7 @@
 
 <div id='staging-area'>
 
-<div class='column padded' data-name='repl'>
+<div class='column padded' data-name='note-repl'>
     <div class='close-button'>×</div>
     <h2>Step 1. Repl</h2>
 
@@ -97,7 +103,7 @@
     <p>At any time, you can click the &ldquo;clear&rdquo; button to restart your repl session. And, I will explain the &ldquo;multiline input&rdquo; button later on.</p>
 </div>
 
-<div class='column padded' data-name='values'>
+<div class='column padded' data-name='note-values'>
     <div class='close-button'>×</div>
     <h2>Step 2. Numbers and values</h2>
 
@@ -119,7 +125,15 @@
         </main>
     </body>
     <script type='text/javascript'>
+        let SIDENOTE = undefined;
         $(window).on('load', function() {
+            SIDENOTE = new Sidenote();
+
+            $('a[href^="#note-"]').click(function() {
+                var note = findNoteAncestor(this);
+                console.log($(note).data('column'));
+            });
+            
             setupScrollAnchors();
             colorSnippets();
         });

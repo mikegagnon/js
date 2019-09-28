@@ -4,8 +4,10 @@
      $('a[href^="#"]').click(function(e) {
         e.preventDefault();
         var dest = $(this).attr('href');
-        var aname = `a[name='${dest.substr(1)}']`;
-        $('html,body').animate({ scrollTop: $(aname).offset().top }, 'slow');
+        if (!dest.startsWith('#note-')) {
+            var aname = `a[name='${dest.substr(1)}']`;
+            $('html,body').animate({ scrollTop: $(aname).offset().top }, 'slow');
+        }
     });
  }
 

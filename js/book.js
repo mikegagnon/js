@@ -8,3 +8,9 @@
         $('html,body').animate({ scrollTop: $(aname).offset().top }, 'slow');
     });
  }
+
+ function colorSnippets() {
+    $(".snippets-table").each(function(i, elem){
+        $(elem).find('tr').filter(":even").css('background-color', "#eee");
+    })
+ }

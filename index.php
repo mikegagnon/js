@@ -59,8 +59,13 @@
         
     </div>
 
-    <h1 class='part-title'><a name='snippets'>Snippets</a></h1>
-    <div class='padded'>
+    <div>
+        <h1 class='part-title'><a name='snippets'>Snippets</a></h1>
+        <table class="snippets-table">
+            <tr>
+                <td><a href="#">Step&nbsp;1</a></td><td><code class="language-javascript">1 + 2</code> produces <code class="language-javascript">3</code>, in the repl</td>
+            </tr>
+        </table>
     </div>
 </div>
 
@@ -71,6 +76,7 @@
     <script type='text/javascript'>
         $(window).on('load', function() {
             setuoScrollAnchors();
+            colorSnippets();
         });
     </script>
 </html>

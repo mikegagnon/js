@@ -16,6 +16,7 @@
         <script src='js/prism.js'></script>
         <script src='js/popper.min.js'></script>
         <script src='js/bootstrap.js'></script>
+        <script src='js/book.js'></script>
     </head>
     <body>
         <main>
@@ -67,4 +68,9 @@
 </div>
         </main>
     </body>
+    <script type='text/javascript'>
+        $(window).on("load", function() {
+            setuoScrollAnchors();
+        });
+    </script>
 </html>

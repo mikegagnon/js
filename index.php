@@ -61,9 +61,9 @@
 
     <h1 class='part-title'><a name='snippets'>Snippets</a></h1>
     <div class='padded'>
-        <table class="snippets-table">
+        <table class='snippets-table'>
             <tr>
-                <td><a href="#">Step&nbsp;1</a></td><td><code class="language-javascript">1 + 2</code> produces <code class="language-javascript">3</code>, in the repl</td>
+                <td><a href='#'>Step&nbsp;1</a></td><td><code class='language-javascript'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl</td>
             </tr>
         </table>
     </div>
@@ -80,11 +80,11 @@
     <div class='close-button'>×</div>
     <h2>Step 1. Repl</h2>
 
-    <p>On the repl, click the black area, just to the right of the green dollar sign. Then type in <code class="language-javascript">1 + 2</code>, and press enter. At this point,
+    <p>On the repl, click the black area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
     your repl should look like this:</p>
 
-    <p>What happened here? Your browser executed the statement <code class="language-javascript">1 + 2</code>,
-        and then the repl displayed the result <code class="language-javascript">3</code>.
+    <p>What happened here? Your browser executed the statement <code class='language-javascript'>1 + 2</code>,
+        and then the repl displayed the result <code class='language-javascript'>3</code>.
      </p>
 
     <p>A <i>repl</i> is a piece of software that allows you
@@ -101,16 +101,16 @@
     <div class='close-button'>×</div>
     <h2>Step 2. Numbers and values</h2>
 
-    <p>In JavaScript, the number <code class="language-javascript">1</code> is a &ldquo;value.&rdquo;
-    The number <code class="language-javascript">2</code> is also a value, and so is the number <code class="language-javascript">105.72</code>, and so on. Every number is a value, but there are also values other than just numbers, as we&rsquo;ll see quite often in later steps as well. For now, though, we&rsquo;ll just focus on number values.</p>
+    <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
+    The number <code class='language-javascript'>2</code> is also a value, and so is the number <code class='language-javascript'>105.72</code>, and so on. Every number is a value, but there are also values other than just numbers, as we&rsquo;ll see quite often in later steps as well. For now, though, we&rsquo;ll just focus on number values.</p>
 
 
-    <div class="exercise">
+    <div class='exercise'>
         <h3>Exercises</h3>
         <ol>
-        <li>What happens if you execute <code class="language-javascript">3.7</code>?</li>
-        <li>What happens if you execute <code class="language-javascript">2938</code>?</li>
-        <li>What happens if you execute <code class="language-javascript">7349902384908234</code>?</li>
+        <li>What happens if you execute <code class='language-javascript'>3.7</code>?</li>
+        <li>What happens if you execute <code class='language-javascript'>2938</code>?</li>
+        <li>What happens if you execute <code class='language-javascript'>7349902384908234</code>?</li>
         </ol>
     </div>
 </div>

@@ -1,0 +1,21 @@
+.title-page {
+    background-color: #FFDC00;   
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.title {
+    font-family: "Helvetica", sans-serif;
+    font-size: 50pt;
+}
+
+.subtitle {
+    font-family: "Helvetica", sans-serif;
+    font-size: 20pt;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.author {
+    font-size: 10pt;
+}

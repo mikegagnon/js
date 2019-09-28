@@ -42,6 +42,21 @@
             If you&rsquo;re inclined, feel free to enrich your understanding of JavaScript by diving deep into the sidenotes. Or, feel free to stay shallow, which is all you need for us to build a chess AI together.
         </p>
     </div>
+
+    <div class='contents padded'>
+        <h2>Contents</h2>
+
+        <p>This left-most column contains three parts:</p>
+
+        <ol>
+            <li>Front matter, including the title, preface, and this table of contents</li>
+            <li><a href="#">Snippets</a>, which contains a &ldquo;snippet&rdquo; of code each from each step in the book, along with a link from each snippet to its associated step</li>
+            <li><a href="#">Linear narrative</a>, which contains each step, one after the other, including a table of contents.  This part is for you, if you would like to read, skim, or scrutinize the book in an old fashioned, page-by-page fashion.
+        </ol>
+
+        <p>Lastly, as you can see, there is a &ldquo;repl&rdquo; on the side of your window. We begin our study of JavaScript, by describing and demonstrating the repl in Step 1.</p>
+        
+    </div>
 </div>
 
 <div id='staging-area'>

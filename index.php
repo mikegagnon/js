@@ -80,6 +80,21 @@
     <div class='close-button'>×</div>
     <h2>Step 1. Repl</h2>
 
+    <p>On the repl, click the black area, just to the right of the green dollar sign. Then type in <code class="language-javascript">1 + 2</code>, and press enter. At this point,
+    your repl should look like this:</p>
+
+    <p>What happened here? Your browser executed the statement <code class="language-javascript">1 + 2</code>,
+        and then the repl displayed the result <code class="language-javascript">3</code>.
+     </p>
+
+    <p>A <i>repl</i> is a piece of software that allows you
+    to experiment with coding. The way it works, is you type in one (or more)
+    &ldquo;statements&rdquo; in the repl, and press enter. Then, your browser
+    will &ldquo;execute&rdquo; your statement, and then the repl will display the result of executing your statement.
+    Repeat.
+    </p>
+
+    <p>At any time, you can click the &ldquo;clear&rdquo; button to restart your repl session. And, I will explain the &ldquo;multiline input&rdquo; button later on.</p>
 
 </div>
 

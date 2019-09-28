@@ -22,7 +22,7 @@
     <body>
         <main>
 <div data-column='0' class='column'>
-    <div data-note-name='root' class='note'>
+    <div data-note-name='note-root' class='note'>
         <div class='title-page'>
             <h1 class='title'>JavaScript</h1>
             <div class='subtitle'>Overview &amp; Details</div>
@@ -134,7 +134,7 @@
             $('a[href^="#note-"]').click(function() {
                 var columnNumber = findColumnNumber(this);
                 var noteName = findNoteName(this);
-                console.log(columnNumber, noteName);
+                SIDENOTE.clickNoteLink(columnNumber, noteName);
             });
 
             setupScrollAnchors();

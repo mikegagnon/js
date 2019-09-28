@@ -18,4 +18,11 @@ function findNoteName(elem) {
     return $(ancestor).data('note-name');
 }
 
-class Sidenote {}
+
+class Sidenote {
+    constructor() {}
+
+    clickNoteLink(fromColumnNumber, fromNoteName) {
+        console.log(fromColumnNumber, fromNoteName);
+    }
+}

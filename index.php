@@ -52,20 +52,25 @@
         <ol>
             <li>Front matter, including the title, preface, and this table of contents</li>
             <li><a href='#snippets'>Snippets</a>, which contains a &ldquo;snippet&rdquo; of code from each step in the book, along with a link from each snippet to its associated step</li>
-            <li><a href='#'>Steps enumerated</a>, which contains each step, one after the other, including a table of contents.  This part is for you, if you would like to read, skim, or scrutinize the book in an old fashioned, page-by-page fashion.
+            <li><a href='#steps'>Steps</a>, which contains each step, one after the other, including a table of contents.  This part is for you, if you would like to read, skim, or scrutinize the book in an old fashioned, page-by-page fashion.
         </ol>
 
         <p>Lastly, as you can see, there is a &ldquo;repl&rdquo; on the side of your window. We begin our study of JavaScript, by describing and demonstrating the repl in Step 1.</p>
         
     </div>
 
-    <div>
-        <h1 class='part-title'><a name='snippets'>Snippets</a></h1>
+    <h1 class='part-title'><a name='snippets'>Snippets</a></h1>
+    <div class='padded'>
         <table class="snippets-table">
             <tr>
                 <td><a href="#">Step&nbsp;1</a></td><td><code class="language-javascript">1 + 2</code> produces <code class="language-javascript">3</code>, in the repl</td>
             </tr>
         </table>
+    </div>
+
+    <h1 class='part-title'><a name='steps'>Steps</a></h1>
+    <div class='padded'>
+        <p>Step 1</p>
     </div>
 </div>
 

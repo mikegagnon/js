@@ -19,3 +19,17 @@
 .author {
     font-size: 10pt;
 }
+
+.padded {
+    padding: 10px;
+}
+
+main {
+    font-family: "Times New Roman", serif;
+}
+
+h2 {
+    font-family: "Helvetica", sans-serif;
+    font-size: 22pt;
+    border-bottom: 2px dotted #346eeb;
+}

@@ -26,6 +26,22 @@
         <div class='subtitle'>Volume 1</div>
         <div class='author'>Michael N. Gagnon, 2019</div>
     </div>
+
+    <div class='preface padded'>
+        <h2>Preface</h2>
+
+        <p>This book represents the first volume in a series of three. This series, and this book in particular, is for you if you&rsquo;ve never programmed before and you would like to learn JavaScript. By the conclusion of this first book, you will have learned 100% of the JavaScript you need to know in order to write a chess game, complete with an AI. And, by the conclusion of the third book, we will have programmed the game and AI, together.</p>
+
+        <p>JavaScript is a gnarly language. There are many nooks and crannies
+        that book authors can either explore or ignore. Consequently,
+         JavaScript books tend to either skip over the nitty-gritty details of the language, or they tediously expound upon the minutiae.</p>
+
+        <p>This book presents the big picture, along with the option to ignore, skim, or scrutinize many of the finer details of JavaScript. The way I&rsquo;ve managed to pull this off, is that I&rsquo;ve made extensive use of sidenotes.</p>
+
+        <p>
+            If you&rsquo;re inclined, feel free to enrich your understanding of JavaScript by diving deep into the sidenotes. Or, feel free to stay shallow, which is all you need for us to build a chess AI together.
+        </p>
+    </div>
 </div>
 
 <div id='staging-area'>

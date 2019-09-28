@@ -69,7 +69,7 @@
         </main>
     </body>
     <script type='text/javascript'>
-        $(window).on("load", function() {
+        $(window).on('load', function() {
             setuoScrollAnchors();
         });
     </script>

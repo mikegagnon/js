@@ -75,6 +75,14 @@
 </div>
 
 <div id='staging-area'>
+
+<div class='column padded' data-name='repl'>
+    <div class='close-button'>×</div>
+    <h2>Step 1. Repl</h2>
+
+
+</div>
+
 </div>
         </main>
     </body>

@@ -1,5 +1,5 @@
  
- function setuoScrollAnchors() {
+ function setupScrollAnchors() {
      //https://stackoverflow.com/questions/8579643/how-to-scroll-up-or-down-the-page-to-an-anchor-using-jquery
      $('a[href^="#"]').click(function(e) {
         e.preventDefault();

@@ -120,7 +120,7 @@
     </body>
     <script type='text/javascript'>
         $(window).on('load', function() {
-            setuoScrollAnchors();
+            setupScrollAnchors();
             colorSnippets();
         });
     </script>

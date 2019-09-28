@@ -95,7 +95,24 @@
     </p>
 
     <p>At any time, you can click the &ldquo;clear&rdquo; button to restart your repl session. And, I will explain the &ldquo;multiline input&rdquo; button later on.</p>
+</div>
 
+<div class='column padded' data-name='values'>
+    <div class='close-button'>×</div>
+    <h2>Step 2. Numbers and values</h2>
+
+    <p>In JavaScript, the number <code class="language-javascript">1</code> is a &ldquo;value.&rdquo;
+    The number <code class="language-javascript">2</code> is also a value, and so is the number <code class="language-javascript">105.72</code>, and so on. Every number is a value, but there are also values other than just numbers, as we&rsquo;ll see quite often in later steps as well. For now, though, we&rsquo;ll just focus on number values.</p>
+
+
+    <div class="exercise">
+        <h3>Exercises</h3>
+        <ol>
+        <li>What happens if you execute <code class="language-javascript">3.7</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">2938</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">7349902384908234</code>?</li>
+        </ol>
+    </div>
 </div>
 
 </div>

@@ -34,6 +34,11 @@ h2 {
     border-bottom: 2px dotted #346eeb;
 }
 
+h3 {
+    font-family: "Helvetica", sans-serif;
+    font-size: 16pt;
+}
+
 .part-title {
     background-color: #FFDC00;
     font-size: 30pt;

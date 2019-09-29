@@ -24,7 +24,7 @@ const SidenoteSetup = {
     sidenoteId: 'sidenote',
     stagingId: 'staging-area',
     padBetweenColumns: 20,
-    padVertBetweenNotes: 0,
+    padVertBetweenNotes: 20,
 
 }
 
@@ -110,7 +110,7 @@ class Sidenote {
         const belowNoteTop = parseInt($(belowNoteSelector).css('top'));
 
         const newNoteSelector = `${columnSelector} [data-note-name='${newNoteName}']`;
-        const newNoteHeight = $(newNoteSelector).height();
+        const newNoteHeight = $(newNoteSelector).outerHeight(true);
 
         const top = belowNoteTop - this.setup.padVertBetweenNotes - newNoteHeight;
         $(newNoteSelector).css('top', top);

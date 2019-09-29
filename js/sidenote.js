@@ -22,7 +22,8 @@ function findNoteName(elem) {
 
 const SidenoteSetup = {
     sidenoteId: 'sidenote',
-    stagingId: 'staging-area'
+    stagingId: 'staging-area',
+    padBetweenColumns: 20,
 }
 
 class Sidenote {
@@ -37,9 +38,7 @@ class Sidenote {
         const newColumnNumber = fromColumnNumber + 1;
         this.newColumn(newColumnNumber);
         this.cloneNote(toNoteName, newColumnNumber);
-
-        const top = $(`[data-note-name='${fromNoteName}']`).offset().top;
-        this.positionNewColumn(newColumnNumber, top);
+        this.positionNewNote(newColumnNumber, fromNoteName, toNoteName);
     }
 
     clearAfter(fromColumnNumber) {
@@ -57,10 +56,24 @@ class Sidenote {
         clone.appendTo(`[data-column='${newColumnNumber}']`);
     }
 
-    positionNewColumn(newColumnNumber, top) {
-        const selector = `[data-column='${newColumnNumber}']`;
-        $(selector).css('top', top);
-        $(selector).css('left', 100);
+    positionNewNote(newColumnNumber, fromNoteName, toNoteName) {
+        const fromNoteSelector =`[data-note-name='${fromNoteName}']`;
+        let top = $(fromNoteSelector).css('top');
+        //top -= parseInt($(selector).css('margin-top'));
+        //console.log($(selector).css('margin-top'));
+
+        const oldColumnNumber = newColumnNumber - 1;
+        const oldColumnSelector = `[data-column='${oldColumnNumber}']`;
+        const oldColumnWidth = parseInt($(oldColumnSelector).css('width'));
+        const oldColumnLeft = parseInt($(oldColumnSelector).css('left'));
+        
+        const newColumnLeft = oldColumnLeft + oldColumnWidth + this.setup.padBetweenColumns;
+        const newColumnSelector = `[data-column='${newColumnNumber}']`;
+        $(newColumnSelector).css('left', newColumnLeft);
+
+        const newNoteSelector =`[data-note-name='${toNoteName}']`;
+        $(newNoteSelector).css('top', top);
+
 
     }
 }

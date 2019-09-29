@@ -1,7 +1,8 @@
 'use strict'
+
 function findColumnNumber(elem) {
-    var ancestor = $(elem).parent()[0];
-    var i = 0;
+    let ancestor = $(elem).parent()[0];
+    let i = 0;
     while (i < 100 && $(ancestor).data('column') === undefined) {
         ancestor = $(ancestor).parent()[0];
         i++;
@@ -10,8 +11,8 @@ function findColumnNumber(elem) {
 }
 
 function findNoteName(elem) {
-    var ancestor = $(elem).parent()[0];
-    var i = 0;
+    let ancestor = $(elem).parent()[0];
+    let i = 0;
     while (i < 100 && $(ancestor).data('note-name') === undefined) {
         ancestor = $(ancestor).parent()[0];
         i++;
@@ -19,7 +20,7 @@ function findNoteName(elem) {
     return $(ancestor).data('note-name');
 }
 
-var SidenoteSetup = {
+const SidenoteSetup = {
     sidenoteId: 'sidenote'
 }
 
@@ -32,7 +33,7 @@ class Sidenote {
         console.log(fromColumnNumber, fromNoteName, toNoteName);
         this.clearAfter(fromColumnNumber);
         console.log($(`[data-note-name='${fromNoteName}']`).offset().top);
-        var newColumnNumber = fromColumnNumber + 1;
+        const newColumnNumber = fromColumnNumber + 1;
         this.newColumn(newColumnNumber);
     }
 
@@ -40,7 +41,7 @@ class Sidenote {
     }
 
     newColumn(newColumnNumber) {
-        var html = `<div data-column='${newColumnNumber}' class='column'></div>`
+        const html = `<div data-column='${newColumnNumber}' class='column'></div>`
         $('#' + this.setup.sidenoteId).append(html);
     }
 }

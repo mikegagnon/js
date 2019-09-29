@@ -60,8 +60,6 @@ class Sidenote {
     positionNewNote(newColumnNumber, fromNoteName, toNoteName) {
         const fromNoteSelector =`[data-note-name='${fromNoteName}']`;
         let top = $(fromNoteSelector).css('top');
-        //top -= parseInt($(selector).css('margin-top'));
-        //console.log($(selector).css('margin-top'));
 
         const oldColumnNumber = newColumnNumber - 1;
         const oldColumnSelector = `[data-column='${oldColumnNumber}']`;

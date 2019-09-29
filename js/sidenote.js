@@ -21,7 +21,8 @@ function findNoteName(elem) {
 }
 
 const SidenoteSetup = {
-    sidenoteId: 'sidenote'
+    sidenoteId: 'sidenote',
+    stagingId: 'staging-area'
 }
 
 class Sidenote {
@@ -35,6 +36,7 @@ class Sidenote {
         console.log($(`[data-note-name='${fromNoteName}']`).offset().top);
         const newColumnNumber = fromColumnNumber + 1;
         this.newColumn(newColumnNumber);
+        this.cloneNote(toNoteName, newColumnNumber);
     }
 
     clearAfter(fromColumnNumber) {
@@ -43,5 +45,12 @@ class Sidenote {
     newColumn(newColumnNumber) {
         const html = `<div data-column='${newColumnNumber}' class='column'></div>`
         $('#' + this.setup.sidenoteId).append(html);
+    }
+
+    cloneNote(toNoteName, newColumnNumber) {
+        const stagedNote = $(`#${this.setup.stagingId} [data-note-name='${toNoteName}']`);
+        console.log(stagedNote);
+        const clone = stagedNote.clone();
+        clone.appendTo(`[data-column=${newColumnNumber}]`);
     }
 }

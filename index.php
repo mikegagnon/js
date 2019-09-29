@@ -22,8 +22,8 @@
     <body>
         <main>
 <div id="sidenote">
-<div data-column='0' class='column' style='left: 0px'>
-    <div data-note-name='note-root' class='note' style='top: 0px'>
+<div data-column='0' class='column'>
+    <div data-note-name='note-root' class='note'>
         <div class='title-page'>
             <h1 class='title'>JavaScript</h1>
             <div class='subtitle'>Overview &amp; Details</div>

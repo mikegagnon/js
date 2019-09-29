@@ -33,10 +33,13 @@ class Sidenote {
     clickNoteLink(fromColumnNumber, fromNoteName, toNoteName) {
         console.log(fromColumnNumber, fromNoteName, toNoteName);
         this.clearAfter(fromColumnNumber);
-        console.log($(`[data-note-name='${fromNoteName}']`).offset().top);
+        //console.log();
         const newColumnNumber = fromColumnNumber + 1;
         this.newColumn(newColumnNumber);
         this.cloneNote(toNoteName, newColumnNumber);
+
+        const top = $(`[data-note-name='${fromNoteName}']`).offset().top;
+        this.positionNewColumn(newColumnNumber, top);
     }
 
     clearAfter(fromColumnNumber) {
@@ -51,6 +54,13 @@ class Sidenote {
         const stagedNote = $(`#${this.setup.stagingId} [data-note-name='${toNoteName}']`);
         console.log(stagedNote);
         const clone = stagedNote.clone();
-        clone.appendTo(`[data-column=${newColumnNumber}]`);
+        clone.appendTo(`[data-column='${newColumnNumber}']`);
+    }
+
+    positionNewColumn(newColumnNumber, top) {
+        const selector = `[data-column='${newColumnNumber}']`;
+        $(selector).css('top', top);
+        $(selector).css('left', 100);
+
     }
 }

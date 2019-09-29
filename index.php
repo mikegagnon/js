@@ -85,6 +85,9 @@
 </div> <!-- end #sidenote -->
 
 <div id='staging-area' class='column'>
+<script>
+const ORDERING = [];
+</script>
 <div class='padded note' data-note-name='note-repl'>
     <div class='close-button'>×</div> <div class="expand-button">⋮</div>
     <h2>Step 1. Repl</h2>
@@ -107,9 +110,12 @@
 
     <p>At any time, you can click the &ldquo;clear&rdquo; button to restart your repl session. And, I will explain the &ldquo;multiline input&rdquo; button later on.</p>
 </div>
+<script>
+ORDERING.push('note-repl');
+</script>
 
 <div class='padded note' data-note-name='note-values'>
-    <div class='close-button'>×</div>
+    <div class='close-button'>×</div> <div class="expand-button">⋮</div>
     <h2>Step 2. Numbers and values</h2>
 
     <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
@@ -125,13 +131,17 @@
         </ol>
     </div>
 </div>
+<script>
+ORDERING.push('note-values');
+</script>
+
 </div> <!-- end #staging-area -->
         </main>
     </body>
     <script type='text/javascript'>
         let SIDENOTE = undefined;
         $(window).on('load', function() {
-            SIDENOTE = new Sidenote();
+            SIDENOTE = new Sidenote(ORDERING);
 
             $('div[data-column="0"] a[href^="#note-"]').click(function() {
                 var fromColumnNumber = findColumnNumber(this);

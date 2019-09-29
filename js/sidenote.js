@@ -27,8 +27,9 @@ const SidenoteSetup = {
 }
 
 class Sidenote {
-    constructor() {
+    constructor(ordering) {
         this.setup = SidenoteSetup;
+        this.ordering = ordering;
     }
 
     clickNoteLink(fromColumnNumber, fromNoteName, toNoteName) {
@@ -68,8 +69,24 @@ class Sidenote {
     }
 
     expand(noteName, columnNumber) {
-        console.log("expand", noteName, columnNumber);
-    };
+        if (this.ordering.includes(noteName)) {
+            const index = this.ordering.findIndex(n => n === noteName);
+            if (index > 0) {
+                this.expandAbove(index, columnNumber);
+            }
+            if (index < this.ordering.length - 1) {
+                this.expandBelow(index, columnNumber);
+            }
+        }
+    }
+
+    expandAbove(index, columnNumber) {
+        console.log("expandAbove", index, columnNumber);
+    }
+
+    expandBelow(index, columnNumber) {
+        console.log("expandBelow", index, columnNumber);
+    }
 
     positionNewNote(newColumnNumber, fromNoteName, toNoteName) {
         const fromNoteSelector =`[data-note-name='${fromNoteName}']`;

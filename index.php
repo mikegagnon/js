@@ -89,6 +89,8 @@
     <div class='close-button'>×</div>
     <h2>Step 1. Repl</h2>
 
+    <p><a href="#note-values">Step 2</a></p>
+
     <p>On the repl, click the black area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
     your repl should look like this:</p>
 

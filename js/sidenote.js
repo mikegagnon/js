@@ -39,6 +39,7 @@ class Sidenote {
         this.newColumn(newColumnNumber);
         this.cloneNote(toNoteName, newColumnNumber);
         this.positionNewNote(newColumnNumber, fromNoteName, toNoteName);
+        this.setupNoteLinks(newColumnNumber, toNoteName);
     }
 
     clearAfter(fromColumnNumber) {
@@ -73,7 +74,12 @@ class Sidenote {
 
         const newNoteSelector =`[data-note-name='${toNoteName}']`;
         $(newNoteSelector).css('top', top);
+    }
 
-
+    setupNoteLinks(newColumnNumber, newNoteName) {
+        $(`[data-column='${newColumnNumber}'] div[data-note-name='${newNoteName}'] a[href^="#note-"]`).click(function() {
+            var toNoteName = $(this).attr('href').substr(1);
+            SIDENOTE.clickNoteLink(newColumnNumber, newNoteName, toNoteName);
+        });
     }
 }

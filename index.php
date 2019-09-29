@@ -86,7 +86,7 @@
 
 <div id='staging-area' class='column'>
 <div class='padded note' data-note-name='note-repl'>
-    <div class='close-button'>×</div>
+    <div class='close-button'>×</div> <div class="expand-button">⋮</div>
     <h2>Step 1. Repl</h2>
 
     <p><a href="#note-values">Step 2</a></p>

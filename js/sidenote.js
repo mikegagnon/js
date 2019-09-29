@@ -39,7 +39,7 @@ class Sidenote {
         this.newColumn(newColumnNumber);
         this.cloneNote(toNoteName, newColumnNumber);
         this.positionNewNote(newColumnNumber, fromNoteName, toNoteName);
-        this.setupNoteLinks(newColumnNumber, toNoteName);
+        //this.setupNoteLinks(newColumnNumber, toNoteName);
     }
 
     clearAfter(fromColumnNumber) {
@@ -55,12 +55,26 @@ class Sidenote {
         console.log(stagedNote);
         const clone = stagedNote.clone();
         clone.appendTo(`[data-column='${newColumnNumber}']`);
+
+        const THIS = this;
+        clone.find(`a[href^="#note-"]`).click(function() {
+            const linkToNoteName = $(this).attr('href').substr(1);
+            THIS.clickNoteLink(newColumnNumber, toNoteName, linkToNoteName);
+        });
+
+        clone.find('.expand-button').click(function() {
+            THIS.expand(toNoteName, newColumnNumber);
+        });
     }
+
+    expand(noteName, columnNumber) {
+        console.log("expand", noteName, columnNumber);
+    };
 
     positionNewNote(newColumnNumber, fromNoteName, toNoteName) {
         const fromNoteSelector =`[data-note-name='${fromNoteName}']`;
         let top = parseInt($(fromNoteSelector).css('top'));
-        var scrollTop = $(window).scrollTop();
+        const scrollTop = $(window).scrollTop();
         console.log("top", top);
         console.log("scrollTop", scrollTop);
 
@@ -82,11 +96,4 @@ class Sidenote {
         console.log($(newNoteSelector).css('top'));
     }
 
-    setupNoteLinks(newColumnNumber, newNoteName) {
-        var THIS = this;
-        $(`[data-column='${newColumnNumber}'] div[data-note-name='${newNoteName}'] a[href^="#note-"]`).click(function() {
-            var toNoteName = $(this).attr('href').substr(1);
-            THIS.clickNoteLink(newColumnNumber, newNoteName, toNoteName);
-        });
-    }
 }

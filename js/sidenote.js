@@ -81,7 +81,13 @@ class Sidenote {
     }
 
     expandAbove(index, columnNumber) {
-        console.log("expandAbove", index, columnNumber);
+        for (var i = index - 1; i >= 0; i--) {
+            this.expandAboveSingle(i, columnNumber);
+        }
+    }
+
+    expandAboveSingle(index, columnNumber) {
+        console.log("expandAboveSingle", index, columnNumber);
     }
 
     expandBelow(index, columnNumber) {

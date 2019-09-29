@@ -21,6 +21,7 @@
     </head>
     <body>
         <main>
+<div id="sidenote">
 <div data-column='0' class='column'>
     <div data-note-name='note-root' class='note'>
         <div class='title-page'>
@@ -80,10 +81,10 @@
             <p>Step 1</p>
         </div>
     </div>
-</div>
+</div> <!-- end data-column='0' -->
+</div> <!-- end #sidenote -->
 
 <div id='staging-area' class='column'>
-
 <div class='padded note' data-note-name='note-repl'>
     <div class='close-button'>×</div>
     <h2>Step 1. Repl</h2>
@@ -122,8 +123,7 @@
         </ol>
     </div>
 </div>
-
-</div>
+</div> <!-- end #staging-area -->
         </main>
     </body>
     <script type='text/javascript'>
@@ -131,10 +131,11 @@
         $(window).on('load', function() {
             SIDENOTE = new Sidenote();
 
-            $('a[href^="#note-"]').click(function() {
-                var columnNumber = findColumnNumber(this);
-                var noteName = findNoteName(this);
-                SIDENOTE.clickNoteLink(columnNumber, noteName);
+            $('div[data-column="0"] a[href^="#note-"]').click(function() {
+                var fromColumnNumber = findColumnNumber(this);
+                var fromNoteName = findNoteName(this);
+                var toNoteName = $(this).attr('href').substr(1);
+                SIDENOTE.clickNoteLink(fromColumnNumber, fromNoteName, toNoteName);
             });
 
             setupScrollAnchors();

@@ -1,3 +1,4 @@
+'use strict'
 function findColumnNumber(elem) {
     var ancestor = $(elem).parent()[0];
     var i = 0;
@@ -18,11 +19,28 @@ function findNoteName(elem) {
     return $(ancestor).data('note-name');
 }
 
+var SidenoteSetup = {
+    sidenoteId: 'sidenote'
+}
 
 class Sidenote {
-    constructor() {}
+    constructor() {
+        this.setup = SidenoteSetup;
+    }
 
-    clickNoteLink(fromColumnNumber, fromNoteName) {
-        console.log(fromColumnNumber, fromNoteName);
+    clickNoteLink(fromColumnNumber, fromNoteName, toNoteName) {
+        console.log(fromColumnNumber, fromNoteName, toNoteName);
+        this.clearAfter(fromColumnNumber);
+        console.log($(`[data-note-name='${fromNoteName}']`).offset().top);
+        var newColumnNumber = fromColumnNumber + 1;
+        this.newColumn(newColumnNumber);
+    }
+
+    clearAfter(fromColumnNumber) {
+    }
+
+    newColumn(newColumnNumber) {
+        var html = `<div data-column='${newColumnNumber}' class='column'></div>`
+        $('#' + this.setup.sidenoteId).append(html);
     }
 }

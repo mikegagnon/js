@@ -24,8 +24,7 @@ const SidenoteSetup = {
     sidenoteId: 'sidenote',
     stagingId: 'staging-area',
     padBetweenColumns: 20,
-    padVertBetweenNotes: 20,
-
+    padVertBetweenNotes: 0,//20,
 }
 
 class Sidenote {
@@ -39,7 +38,7 @@ class Sidenote {
         const columnSelector = `[data-column='${columnNumber}']`;
         const noteSelector = `${columnSelector} .note`;
         let height = -this.setup.padVertBetweenNotes;
-        var THIS = this;
+        const THIS = this;
         $(noteSelector).each(function(i, elem){
             height += $(elem).outerHeight(true) + THIS.setup.padVertBetweenNotes;
         });
@@ -103,7 +102,7 @@ class Sidenote {
     }
 
     expandAbove(index, columnNumber) {
-        for (var i = index - 1; i >= 0; i--) {
+        for (let i = index - 1; i >= 0; i--) {
             this.expandAboveSingle(i, columnNumber);
         }
     }
@@ -123,25 +122,32 @@ class Sidenote {
 
     positionNewNoteAbove(newNoteName, columnNumber, belowNoteName) {
         const columnSelector = `[data-column='${columnNumber}']`;
-        const columnWidth = parseInt($(columnSelector).css('width'));
-        const columnLeft = parseInt($(columnSelector).css('left'));
+        //const columnWidth = parseInt($(columnSelector).css('width'));
+        //const columnLeft = parseInt($(columnSelector).css('left'));
 
         const belowNoteSelector = `${columnSelector} [data-note-name='${belowNoteName}']`;
-        const belowNoteTop = parseInt($(belowNoteSelector).css('top'));
+        //const belowNoteTop = parseInt($(belowNoteSelector).css('top'));
 
         const newNoteSelector = `${columnSelector} [data-note-name='${newNoteName}']`;
         const newNoteHeight = $(newNoteSelector).outerHeight(true);
 
-        const top = belowNoteTop - this.setup.padVertBetweenNotes - newNoteHeight;
-        $(newNoteSelector).css('top', 0);
-        
+        const top = parseInt($(columnSelector).css('top')) - this.setup.padVertBetweenNotes - newNoteHeight;
         $(columnSelector).css('top', top);
 
-        const columnHeight = 200;
+        //const top = belowNoteTop - this.setup.padVertBetweenNotes - newNoteHeight;
+        $(newNoteSelector).css('top', -newNoteHeight - this.setup.padVertBetweenNotes);
+        
+        const columnHeight = this.getColumnHeight(columnNumber);
         $(columnSelector).css('height', columnHeight);
 
-
-
+        const noteSelector = `${columnSelector} .note`;
+        
+        const THIS = this;
+        $(noteSelector).each(function(i, elem){
+            const top = parseInt($(elem).css('top'));
+            const newTop = top + newNoteHeight + THIS.setup.padVertBetweenNotes;
+            $(elem).css('top', newTop);
+        });
     }
 
     positionNewNote(newColumnNumber, fromNoteName, toNoteName) {

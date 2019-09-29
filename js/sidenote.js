@@ -24,6 +24,8 @@ const SidenoteSetup = {
     sidenoteId: 'sidenote',
     stagingId: 'staging-area',
     padBetweenColumns: 20,
+    padVertBetweenNotes: 0,
+
 }
 
 class Sidenote {
@@ -87,15 +89,41 @@ class Sidenote {
     }
 
     expandAboveSingle(index, columnNumber) {
-        console.log("expandAboveSingle", index, columnNumber);
+        const newNoteName = this.ordering[index];
+        const belowNoteName = this.ordering[index + 1];
+        this.cloneNote(newNoteName, columnNumber);
+        this.positionNewNoteAbove(newNoteName, columnNumber, belowNoteName);
+   
+        //console.log("expandAboveSingle", index, columnNumber);
     }
 
     expandBelow(index, columnNumber) {
         console.log("expandBelow", index, columnNumber);
     }
 
+    positionNewNoteAbove(newNoteName, columnNumber, belowNoteName) {
+        const columnSelector = `[data-column='${columnNumber}']`;
+        const columnWidth = parseInt($(columnSelector).css('width'));
+        const columnLeft = parseInt($(columnSelector).css('left'));
+
+        const belowNoteSelector = `${columnSelector} [data-note-name='${belowNoteName}']`;
+        const belowNoteTop = parseInt($(belowNoteSelector).css('top'));
+
+        const newNoteSelector = `${columnSelector} [data-note-name='${newNoteName}']`;
+        const newNoteHeight = $(newNoteSelector).height();
+
+        const top = belowNoteTop - this.setup.padVertBetweenNotes - newNoteHeight;
+        $(newNoteSelector).css('top', top);
+        console.log($(newNoteSelector).css('top')); 
+    }
+
     positionNewNote(newColumnNumber, fromNoteName, toNoteName) {
-        const fromNoteSelector =`[data-note-name='${fromNoteName}']`;
+        const oldColumnNumber = newColumnNumber - 1;
+        const oldColumnSelector = `[data-column='${oldColumnNumber}']`;
+        const oldColumnWidth = parseInt($(oldColumnSelector).css('width'));
+        const oldColumnLeft = parseInt($(oldColumnSelector).css('left'));
+        
+        const fromNoteSelector =`${oldColumnSelector} [data-note-name='${fromNoteName}']`;
         let top = parseInt($(fromNoteSelector).css('top'));
         const scrollTop = $(window).scrollTop();
         console.log("top", top);
@@ -104,17 +132,12 @@ class Sidenote {
         if (top < scrollTop) {
             top = scrollTop;
         }
-
-        const oldColumnNumber = newColumnNumber - 1;
-        const oldColumnSelector = `[data-column='${oldColumnNumber}']`;
-        const oldColumnWidth = parseInt($(oldColumnSelector).css('width'));
-        const oldColumnLeft = parseInt($(oldColumnSelector).css('left'));
         
         const newColumnLeft = oldColumnLeft + oldColumnWidth + this.setup.padBetweenColumns;
         const newColumnSelector = `[data-column='${newColumnNumber}']`;
         $(newColumnSelector).css('left', newColumnLeft);
 
-        const newNoteSelector =`[data-note-name='${toNoteName}']`;
+        const newNoteSelector = `${newColumnSelector} [data-note-name='${toNoteName}']`;
         $(newNoteSelector).css('top', top);
         console.log($(newNoteSelector).css('top'));
     }

@@ -59,7 +59,14 @@ class Sidenote {
 
     positionNewNote(newColumnNumber, fromNoteName, toNoteName) {
         const fromNoteSelector =`[data-note-name='${fromNoteName}']`;
-        let top = $(fromNoteSelector).css('top');
+        let top = parseInt($(fromNoteSelector).css('top'));
+        var scrollTop = $(window).scrollTop();
+        console.log("top", top);
+        console.log("scrollTop", scrollTop);
+
+        if (top < scrollTop) {
+            top = scrollTop;
+        }
 
         const oldColumnNumber = newColumnNumber - 1;
         const oldColumnSelector = `[data-column='${oldColumnNumber}']`;
@@ -72,6 +79,7 @@ class Sidenote {
 
         const newNoteSelector =`[data-note-name='${toNoteName}']`;
         $(newNoteSelector).css('top', top);
+        console.log($(newNoteSelector).css('top'));
     }
 
     setupNoteLinks(newColumnNumber, newNoteName) {

@@ -75,9 +75,10 @@ class Sidenote {
     }
 
     setupNoteLinks(newColumnNumber, newNoteName) {
+        var THIS = this;
         $(`[data-column='${newColumnNumber}'] div[data-note-name='${newNoteName}'] a[href^="#note-"]`).click(function() {
             var toNoteName = $(this).attr('href').substr(1);
-            SIDENOTE.clickNoteLink(newColumnNumber, newNoteName, toNoteName);
+            THIS.clickNoteLink(newColumnNumber, newNoteName, toNoteName);
         });
     }
 }

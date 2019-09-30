@@ -24,11 +24,12 @@
     </head>
     <body>
         <main>
-<div id="sidenote">
-
-<div class="note repl-note" id="repl-console">
+<div id='sidenote'>
+<div id='repl-console-wrapper'>
+<div class='note repl-note' id='repl-console'>
     <h4>Console</h4>
-    <div id="repl"></div>
+    <div id='repl'></div>
+</div>
 </div>
 
 <div data-column='0' class='column'>
@@ -43,7 +44,7 @@
         <div class='padded'>
             <h2>Preface</h2>
 
-            <p><a href="#note-expressions2">Step 4</a></p>
+            <p><a href='#note-expressions2'>Step 4</a></p>
 
 
             <p>This book represents the first volume in a series of three. This series, and this book in particular, is for you if you&rsquo;ve never programmed before and you would like to learn JavaScript. By the conclusion of this first book, you will have learned 100% of the JavaScript you need to know in order to write a chess game, complete with an AI. And, by the conclusion of the third book, we will have programmed the game and AI, together.</p>
@@ -79,7 +80,7 @@
         </div>
 
         <h1 class='part-title'><a name='longform'>Long form</a></h1>
-        <div id="longform" class='padded'>
+        <div id='longform' class='padded'>
         </div>
     </div>
 </div> <!-- end data-column='0' -->
@@ -119,10 +120,10 @@ $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class=
 </p>`)*/
 </script>
 <div class='padded note' data-note-name='note-repl'>
-    <div class='close-button'>×</div> <div class="expand-button">⋮</div>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
     <h2>Step 1. Repl</h2>
 
-    <p><a href="#note-values">Step 2</a></p>
+    <p><a href='#note-values'>Step 2</a></p>
 
     <p>On the repl, click the black area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
     your repl should look like this:</p>
@@ -160,7 +161,7 @@ $(LONGFORM_TABLE).append(`<tr>
 </script>
 
 <div class='padded note' data-note-name='note-values'>
-    <div class='close-button'>×</div> <div class="expand-button">⋮</div>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
     <h2>Step 2. Numbers and values</h2>
 
     <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
@@ -196,13 +197,13 @@ $(LONGFORM_TABLE).append(`<tr>
 </script>
 
 <div class='padded note' data-note-name='note-expressions'>
-    <div class='close-button'>×</div> <div class="expand-button">⋮</div>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
     <h2>Step 3. Expressions</h2>
 
-    <p><code class="language-javascript">1 + 2</code> is not a value; rather, <code class="language-javascript">1 + 2</code> is a JavaScript &ldquo;expression.&rdquo; An <i>expression</i>, is anything in JavaScript that &ldquo;resolves&rdquo; to a value. In this case, <code class="language-javascript">1 + 2</code> <i>resolves</i> to the value <code class="language-javascript">3</code>.
+    <p><code class='language-javascript'>1 + 2</code> is not a value; rather, <code class='language-javascript'>1 + 2</code> is a JavaScript &ldquo;expression.&rdquo; An <i>expression</i>, is anything in JavaScript that &ldquo;resolves&rdquo; to a value. In this case, <code class='language-javascript'>1 + 2</code> <i>resolves</i> to the value <code class='language-javascript'>3</code>.
             </p>
 
-    <p>To be precise, every value is also an expression. To give a concrete example, the number <code class="language-javascript">4</code> is a value, and the value <code class="language-javascript">4</code> is also an expression&mdash;albeit, an expression that resolves to the value <code class="language-javascript">4</code>.</p>
+    <p>To be precise, every value is also an expression. To give a concrete example, the number <code class='language-javascript'>4</code> is a value, and the value <code class='language-javascript'>4</code> is also an expression&mdash;albeit, an expression that resolves to the value <code class='language-javascript'>4</code>.</p>
 
 </div>
 <script>
@@ -242,13 +243,13 @@ $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class=
 </table>`);
 </script>
 <div class='padded note' data-note-name='note-expressions2'>
-    <div class='close-button'>×</div> <div class="expand-button">⋮</div>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
     <h2>Step 4. Expressions2</h2>
 
-    <p><code class="language-javascript">1 + 2</code> is not a value; rather, <code class="language-javascript">1 + 2</code> is a JavaScript &ldquo;expression.&rdquo; An <i>expression</i>, is anything in JavaScript that &ldquo;resolves&rdquo; to a value. In this case, <code class="language-javascript">1 + 2</code> <i>resolves</i> to the value <code class="language-javascript">3</code>.
+    <p><code class='language-javascript'>1 + 2</code> is not a value; rather, <code class='language-javascript'>1 + 2</code> is a JavaScript &ldquo;expression.&rdquo; An <i>expression</i>, is anything in JavaScript that &ldquo;resolves&rdquo; to a value. In this case, <code class='language-javascript'>1 + 2</code> <i>resolves</i> to the value <code class='language-javascript'>3</code>.
             </p>
 
-    <p>To be precise, every value is also an expression. To give a concrete example, the number <code class="language-javascript">4</code> is a value, and the value <code class="language-javascript">4</code> is also an expression&mdash;albeit, an expression that resolves to the value <code class="language-javascript">4</code>.</p>
+    <p>To be precise, every value is also an expression. To give a concrete example, the number <code class='language-javascript'>4</code> is a value, and the value <code class='language-javascript'>4</code> is also an expression&mdash;albeit, an expression that resolves to the value <code class='language-javascript'>4</code>.</p>
 
 </div>
 <script>

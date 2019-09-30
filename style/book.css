@@ -121,6 +121,11 @@ code {
     font-weight: bold;
 }
 
+#repl-console-wrapper {
+    position: absolute;
+    width: 500px;
+}
+
 .repl-note {
     position: absolute;
     margin-right: 20px;

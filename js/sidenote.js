@@ -105,16 +105,24 @@ class Sidenote {
 
     expandAboveSingle(index, columnNumber) {
         const newNoteName = this.ordering[index];
-        const belowNoteName = this.ordering[index + 1];
         this.cloneNote(newNoteName, columnNumber);
-        this.positionNewNoteAbove(newNoteName, columnNumber, belowNoteName);
+        this.positionNewNoteAbove(newNoteName, columnNumber);
     }
 
     expandBelow(index, columnNumber) {
-        console.log("expandBelow", index, columnNumber);
+        //console.log("expandBelow", index, columnNumber);
+        for (let i = index + 1; i < this.ordering.length; i++) {
+            this.expandBelowSingle(i, columnNumber);
+        }
     }
 
-    positionNewNoteAbove(newNoteName, columnNumber, belowNoteName) {
+    expandBelowSingle(index, columnNumber) {
+        const newNoteName = this.ordering[index];
+        this.cloneNote(newNoteName, columnNumber);
+        this.positionNewNoteBelow(newNoteName, columnNumber);
+    }
+
+    positionNewNoteAbove(newNoteName, columnNumber) {
         const columnSelector = `[data-column='${columnNumber}']`;
         const newNoteSelector = `${columnSelector} [data-note-name='${newNoteName}']`;
         const newNoteHeight = $(newNoteSelector).outerHeight(true);
@@ -132,15 +140,26 @@ class Sidenote {
         });
     }
 
+    positionNewNoteBelow(newNoteName, columnNumber) {
+        const columnSelector = `[data-column='${columnNumber}']`;
+        const newNoteSelector = `${columnSelector} [data-note-name='${newNoteName}']`;
+        const columnHeight = this.getColumnHeight(columnNumber);
+        const newNoteHeight = $(newNoteSelector).outerHeight(true);
+        const columnTop = parseInt($(columnSelector).css('top'));
+        const newTop = columnHeight - newNoteHeight;
+        $(newNoteSelector).css('top', newTop);
+        $(columnSelector).css('height', columnHeight);
+    }
+
     positionNewNote(newColumnNumber, fromNoteName, toNoteName) {
         const oldColumnNumber = newColumnNumber - 1;
         const oldColumnSelector = `[data-column='${oldColumnNumber}']`;
         const oldColumnWidth = parseInt($(oldColumnSelector).css('width'));
         const oldColumnLeft = parseInt($(oldColumnSelector).css('left'));
         const fromNoteSelector =`${oldColumnSelector} [data-note-name='${fromNoteName}']`;
+        
         let top = parseInt($(oldColumnSelector).css('top'));
         const scrollTop = $(window).scrollTop();
- 
         if (top < scrollTop) {
             top = scrollTop;
         }

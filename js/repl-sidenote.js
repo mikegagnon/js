@@ -1,23 +1,23 @@
 class ReplSidenote extends Sidenote {
     constructor(ordering) {
         super(ordering);
-        this.replConsoleId = "repl-console";
+        this.replConsoleWrapperId = 'repl-console-wrapper';
         this.newRepl();
         this.positionRepl();
         this.setupScrollMonitor();
     }
 
     newRepl() {
-        const replSetup = { shellDivId: "repl" };
+        const replSetup = { shellDivId: 'repl' };
         this.repl = new ZDJS_Shell(replSetup);
         var top = $(window).scrollTop();
-        $(`#${this.replConsoleId}`).css('top', top);
+        $(`#${this.replConsoleWrapperId}`).css('top', top);
     }
 
     positionRepl() {
         const column = $('.column').filter(':last');
         const left = parseInt(column.css('left')) + parseInt(column.css('width')) + this.setup.padVertBetweenNotes;
-        $(`#${this.replConsoleId}`).css('left', left);
+        $(`#${this.replConsoleWrapperId}`).css('left', left);
     }
 
     clickNoteLink(fromColumnNumber, fromNoteName, toNoteName) {
@@ -34,7 +34,7 @@ class ReplSidenote extends Sidenote {
         var THIS = this;
         $(window).scroll(function(){
             var top = $(window).scrollTop();
-            $(`#${THIS.replConsoleId}`).css("top", top);
+            $(`#${THIS.replConsoleWrapperId}`).css('top', top);
         });
     }
 }

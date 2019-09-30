@@ -123,15 +123,14 @@ code {
 
 #repl-console-wrapper {
     position: absolute;
-    width: 500px;
+    width: 430px; /* must equal .repl-note:width + padBetweenColumns */
 }
 
 .repl-note {
-    position: absolute;
     margin-right: 20px;
     right: 10px;
     top: 0px;
-    left: 100px;
+    left: 0px;
     width: 400px;
     border-radius: 6px;
     padding: 8px;

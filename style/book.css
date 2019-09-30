@@ -107,6 +107,7 @@ code {
 .snippets-part-number {
     font-weight: bold;
     text-align: center;
+    font-family: "Helvetica", sans-serif;
 }
 
 .ptoc {

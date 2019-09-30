@@ -1,5 +1,6 @@
 <?
 
+$partNum = null;
 $stepNum = null;
 $currentStepName = null;
 $currentStepTitle = null;
@@ -61,6 +62,31 @@ function stepfooter() {
 html;
     echo $text;
 }
+
+function partheader($title) {
+    global $partNum;
+    $n = ++$partNum;
+    $text = <<<html
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-$n';
+
+LONGFORM_TABLE = '#longform-table-part-$n';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part $n. $title </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<table id='\${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</table>`);
+
+
+$(LONGFORM_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part $n. $title</p>`);
+
+$(LONGFORM_TABLE_WRAPPER).append(`<table id='\${LONGFORM_TABLE.substr(1)}' class='snippets-table'>
+</table>`);
+</script>
+html;
+    echo $text;
+}
+
 
 ?><!doctype html>
 <html lang='en'>
@@ -149,39 +175,51 @@ html;
 </div> <!-- end data-column='0' -->
 </div> <!-- end #sidenote -->
 
+<?
+    $partNum = 0;
+    $stepNum = 0;
+?>
+
 <div id='staging-area'>
 <script>
 const ORDERING = [];
+
 const SNIPPETS = '#snippets';
 const SNIPPETS_TABLE_WRAPPER = '#snippets-tables-wrapper';
-let SNIPPETS_TABLE = '#snippets-table-part-1';
+let SNIPPETS_TABLE = undefined; //'#snippets-table-part-1';
 
 const LONGFORM = '#longform';
 const LONGFORM_TABLE_WRAPPER = '#longform-tables-wrapper';
-let LONGFORM_TABLE = '#longform-table-part-1';
-</script>
-<script>
+let LONGFORM_TABLE = undefined; //'#longform-table-part-1';
 
 $(SNIPPETS).append(`<div id='${SNIPPETS_TABLE_WRAPPER.substr(1)}'>
 </div>`);
+
+$(LONGFORM).append(`<div id='${LONGFORM_TABLE_WRAPPER.substr(1)}'>
+</div>`);
+
+</script>
+<!--<script>
+
+SNIPPETS_TABLE = '#snippets-table-part-1';
+
+LONGFORM_TABLE = '#longform-table-part-1';
 
 $(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part 1. Expressions</p>`);
 
 $(SNIPPETS_TABLE_WRAPPER).append(`<table id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
 </table>`);
 
-$(LONGFORM).append(`<div id='${LONGFORM_TABLE_WRAPPER.substr(1)}'>
-</div>`);
+
 
 $(LONGFORM_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part 1. Expressions</p>`);
 
 $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class='snippets-table'>
 </table>`);
 </script>
+-->
 
-<?
-    $stepNum = 0;
-?>
+<? partheader('Expressions'); ?>
 
 <? #############################################################################
 stepheader('note-repl', 'Repl'); ?>
@@ -234,15 +272,9 @@ stepheader('note-expressions', 'Expressions'); ?>
     <code class='language-javascript'>3 + 5</code> produces <code class='language-javascript'>8</code>, in the repl
 <? stepfooter(); ?>
 
-$(LONGFORM_TABLE).append(`<tr>
-    <td style='width: 100%'>
-        <a href='#aname-note-expressions'>Step 3. Expressions</a>
-    </td>
-</tr>`);
-</script>
 
 
-<script>
+<!--<script>
 SNIPPETS_TABLE = '#snippets-table-part-2';
 
 LONGFORM_TABLE = '#longform-table-part-2';
@@ -258,6 +290,11 @@ $(LONGFORM_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part 2. Expres
 $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class='snippets-table'>
 </table>`);
 </script>
+-->
+
+<? partheader('Expressions 2'); ?>
+
+
 <div class='padded note' data-note-name='note-expressions2'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
     <h2>Step 4. Expressions2</h2>

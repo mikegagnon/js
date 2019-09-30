@@ -205,10 +205,10 @@ stepheader('repl', 'Repl'); ?>
 <? stepoverview(); ?>
     <code class='language-javascript'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl
 
-<? #############################################################################
-stepfooter(); ?>
+<? stepfooter(); ?>
 
-<? stepheader('values', 'Numbers and values'); ?>
+<? #############################################################################
+stepheader('values', 'Numbers and values'); ?>
     <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
     The number <code class='language-javascript'>2</code> is also a value, and so is the number <code class='language-javascript'>105.72</code>, and so on. Every number is a value, but there are also values other than just numbers, as we&rsquo;ll see quite often in later steps as well. For now, though, we&rsquo;ll just focus on number values.</p>
 

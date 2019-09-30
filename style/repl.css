@@ -1,0 +1,110 @@
+.CodeMirror {
+    font-family: "Menlo", "Lucida Console", Monaco, monospace;
+}
+
+.zdjs-terminal {
+    background-color: #002b36;
+    font-family: "Menlo", "Lucida Console", Monaco, monospace;
+    line-height: 120%; 
+    font-size: 12pt;
+    color: #ccc;
+/*    width: 100%; */
+}
+
+.zdjs-input {
+    color: #0d0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.zdjs-multiline-cell {
+    border-left: 1px solid gold;
+}
+
+.zdjs-dollar {
+    padding-top: 5px;
+    display: inline-block;
+}
+
+.zdjs-input-box {
+    color: #0d0;
+    border: none;
+    outline: none;
+    width: 90%;
+    background: black;
+}
+
+.zfjs-pad-shell {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.zdjs-multiline-border {
+    border: 1px solid #B8860B;
+}
+
+.zdjs-oldcommand {
+    color: #0d0;
+}
+
+.zdjs-output-noerror {
+    word-break: break-word;
+    color: #ccc;
+}
+
+.zdjs-output-error {
+    color: #d00;
+    word-break: break-word;
+}
+
+.zdjs-output-log {
+    color: yellow;
+    word-break: break-word;
+}
+
+.zdjs-btn-multi {
+    margin-top: 5px;
+}
+.zdjs-btn-multi-cancel {
+    margin-top: 5px;
+}
+.zdjs-btn-multi-submit {
+    margin-top: 5px;
+}
+
+/*.zdjs-gold {
+    color: gold;
+}*/
+
+.zdjs-btn-xs {
+    height: 25px;
+    font-size: 9pt;
+    margin-bottom: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+
+.zdjs-multiline-input-box {
+    width: 100%;
+    resize: none;
+    box-sizing: border-box;
+    background-color: black;
+    color: #0d0;
+    border: 1px solid #080;
+}
+
+.zdjs-multiline-oldcommand-box {
+    width: 100%;
+    resize: none;
+    box-sizing: border-box;
+    background-color: black;
+    color: #0d0;
+    border: 0px;
+}
+
+.hidden {
+    display: none;
+}

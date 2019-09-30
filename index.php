@@ -8,6 +8,7 @@
         <link rel='stylesheet' href='style/solarized.css'>
         <link href='style/bootstrap.css' rel='stylesheet'>
         <link href='style/prism.css' rel='stylesheet'>
+        <link href='style/repl.css' rel='stylesheet'>
         <link href='style/book.css' rel='stylesheet'>
         <link href='style/sidenote.css' rel='stylesheet'>
         <script src='js/codemirror.js'></script>
@@ -16,7 +17,9 @@
         <script src='js/prism.js'></script>
         <script src='js/popper.min.js'></script>
         <script src='js/bootstrap.js'></script>
+        <script src='js/repl.js'></script>
         <script src='js/sidenote.js'></script>
+        <script src='js/repl-sidenote.js'></script>
         <script src='js/book.js'></script>
     </head>
     <body>
@@ -267,7 +270,7 @@ $(LONGFORM_TABLE).append(`<tr>
     <script type='text/javascript'>
         let SIDENOTE = undefined;
         $(window).on('load', function() {
-            SIDENOTE = new Sidenote(ORDERING);
+            SIDENOTE = new ReplSidenote(ORDERING);
             setupLinksToNotes(SIDENOTE);
             setupScrollAnchors(SIDENOTE);
             colorSnippets();

@@ -219,15 +219,7 @@ $(LONGFORM_TABLE).append(`<tr>
         let SIDENOTE = undefined;
         $(window).on('load', function() {
             SIDENOTE = new Sidenote(ORDERING);
-
-            // TODO: put in function
-            $('div[data-column="0"] a[href^="#note-"]').click(function() {
-                var fromColumnNumber = findColumnNumber(this);
-                var fromNoteName = findNoteName(this);
-                var toNoteName = $(this).attr('href').substr(1);
-                SIDENOTE.clickNoteLink(fromColumnNumber, fromNoteName, toNoteName);
-            });
-
+            setupLinksToNotes(SIDENOTE);
             setupScrollAnchors(SIDENOTE);
             colorSnippets();
             colorLongform();

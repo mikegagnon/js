@@ -41,3 +41,12 @@ function copyStepsAfterRoot(sidenote, firstStepName) {
         $(elem).find('h2').wrap(html);
     });
 }
+
+function setupLinksToNotes(sidenote) {
+    $('div[data-column="0"] a[href^="#note-"]').click(function() {
+        var fromColumnNumber = findColumnNumber(this);
+        var fromNoteName = findNoteName(this);
+        var toNoteName = $(this).attr('href').substr(1);
+        sidenote.clickNoteLink(fromColumnNumber, fromNoteName, toNoteName);
+    });
+}

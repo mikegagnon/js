@@ -25,6 +25,7 @@ const SidenoteSetup = {
     stagingId: 'staging-area',
     padBetweenColumns: 20,
     padVertBetweenNotes: 0, //20,
+    autoExpand: true,
 }
 
 class Sidenote {
@@ -59,6 +60,16 @@ class Sidenote {
         this.newColumn(newColumnNumber);
         this.cloneNote(toNoteName, newColumnNumber);
         this.positionNewNote(newColumnNumber, fromNoteName, toNoteName);
+        if (this.setup.autoExpand) {
+            console.log(toNoteName, newColumnNumber);
+            const columnSelector = `[data-column='${newColumnNumber}']`;
+            const newNoteSelector = `${columnSelector} [data-note-name='${toNoteName}']`;
+            $(newNoteSelector).addClass('expanded')
+
+            this.expand(toNoteName, newColumnNumber);
+
+        
+        }
     }
 
     clearAfter(columnNumber) {

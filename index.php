@@ -64,15 +64,7 @@
 
         <h1 class='part-title'><a name='snippets'>Snippets</a></h1>
         <div class='padded'>
-            <table class='snippets-table'>
-                <tr>
-                    <td>
-                        <a href='#note-repl'>Step&nbsp;1</a>
-                    </td>
-                    <td>
-                        <code class='language-javascript'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl
-                    </td>
-                </tr>
+            <table id='snippets-table-part1' class='snippets-table'>
             </table>
         </div>
 
@@ -87,6 +79,7 @@
 <div id='staging-area' class='column'>
 <script>
 const ORDERING = [];
+let SNIPPETS_TABLE = '#snippets-table-part1';
 </script>
 <div class='padded note' data-note-name='note-repl'>
     <div class='close-button'>×</div> <div class="expand-button">⋮</div>
@@ -112,6 +105,16 @@ const ORDERING = [];
 </div>
 <script>
 ORDERING.push('note-repl');
+
+$(SNIPPETS_TABLE).append(`<tr>
+    <td>
+        <a href='#note-repl'>Step&nbsp;1</a>
+    </td>
+    <td>
+        <code class='language-javascript'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl
+    </td>
+</tr>`);
+
 </script>
 
 <div class='padded note' data-note-name='note-values'>
@@ -133,6 +136,15 @@ ORDERING.push('note-repl');
 </div>
 <script>
 ORDERING.push('note-values');
+
+$(SNIPPETS_TABLE).append(`<tr>
+    <td>
+        <a href='#note-values'>Step&nbsp;2</a>
+    </td>
+    <td>
+        <code class='language-javascript'>5 + 2</code> produces <code class='language-javascript'>7</code>, in the repl
+    </td>
+</tr>`);
 </script>
 
 </div> <!-- end #staging-area -->

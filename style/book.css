@@ -125,11 +125,14 @@ code {
     position: absolute;
     margin-right: 20px;
     right: 10px;
-    top: 50px;
+    top: 0px;
     left: 100px;
-    width: 500px;
-    border-radius: 4px;
+    width: 400px;
+    border-radius: 6px;
     padding: 8px;
+    margin-left: 10px; /* must match .column margin-left */
+    margin-top: 10px;/* must match .column margin-top */
+
 }
 
 .repl-note h4 {

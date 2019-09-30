@@ -183,13 +183,7 @@ $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class=
     $stepNum = 0;
 ?>
 
-<!--<div class='padded note' data-note-name='note-repl'>
-    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
-    <h2>Step 1. Repl</h2>
--->
-
 <? stepheader('repl', 'Repl'); ?>
-
     <p><a href='#note-values'>Step 2</a></p>
 
     <p>On the repl, click the black area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
@@ -207,32 +201,9 @@ $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class=
     </p>
 
     <p>At any time, you can click the &ldquo;clear&rdquo; button to restart your repl session. And, I will explain the &ldquo;multiline input&rdquo; button later on.</p>
-
 <? stepoverview(); ?>
-
     <code class='language-javascript'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl
-
 <? stepfooter(); ?>
-
-<!--</div>
-<script>
-ORDERING.push('note-repl');
-
-$(SNIPPETS_TABLE).append(`<tr>
-    <td>
-        <a href='#note-repl'>Step&nbsp;1</a>
-    </td>
-    <td>
-        <code class='language-javascript'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl
-    </td>
-</tr>`);
-
-$(LONGFORM_TABLE).append(`<tr>
-    <td style='width: 100%'>
-        <a href='#aname-note-repl'>Step 1. Repl</a>
-    </td>
-</tr>`);
-</script>-->
 
 <div class='padded note' data-note-name='note-values'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>

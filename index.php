@@ -45,7 +45,7 @@ $(LONGFORM_TABLE).append(`<tr>
 
 $(SNIPPETS_TABLE).append(`<tr>
     <td>
-        <a href='#note-repl'>Step&nbsp;$stepNum</a>
+        <a href='#note-$currentStepName'>Step&nbsp;$stepNum</a>
     </td>
     <td>
 html;
@@ -183,7 +183,8 @@ $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class=
     $stepNum = 0;
 ?>
 
-<? stepheader('repl', 'Repl'); ?>
+<? #############################################################################
+stepheader('repl', 'Repl'); ?>
     <p><a href='#note-values'>Step 2</a></p>
 
     <p>On the repl, click the black area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
@@ -203,15 +204,13 @@ $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class=
     <p>At any time, you can click the &ldquo;clear&rdquo; button to restart your repl session. And, I will explain the &ldquo;multiline input&rdquo; button later on.</p>
 <? stepoverview(); ?>
     <code class='language-javascript'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl
-<? stepfooter(); ?>
 
-<div class='padded note' data-note-name='note-values'>
-    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
-    <h2>Step 2. Numbers and values</h2>
+<? #############################################################################
+stepfooter(); ?>
 
+<? stepheader('values', 'Numbers and values'); ?>
     <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
     The number <code class='language-javascript'>2</code> is also a value, and so is the number <code class='language-javascript'>105.72</code>, and so on. Every number is a value, but there are also values other than just numbers, as we&rsquo;ll see quite often in later steps as well. For now, though, we&rsquo;ll just focus on number values.</p>
-
 
     <div class='exercise'>
         <h3>Exercises</h3>
@@ -221,25 +220,10 @@ $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class=
         <li>What happens if you execute <code class='language-javascript'>7349902384908234</code>?</li>
         </ol>
     </div>
-</div>
-<script>
-ORDERING.push('note-values');
+<? stepoverview(); ?>
+    <code class='language-javascript'>5 + 2</code> produces <code class='language-javascript'>7</code>, in the repl
+<? stepfooter(); ?>
 
-$(SNIPPETS_TABLE).append(`<tr>
-    <td>
-        <a href='#note-values'>Step&nbsp;2</a>
-    </td>
-    <td>
-        <code class='language-javascript'>5 + 2</code> produces <code class='language-javascript'>7</code>, in the repl
-    </td>
-</tr>`);
-
-$(LONGFORM_TABLE).append(`<tr>
-    <td style='width: 100%'>
-        <a href='#aname-note-values'>Step 2. Values and numbers</a>
-    </td>
-</tr>`);
-</script>
 
 <div class='padded note' data-note-name='note-expressions'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>

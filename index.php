@@ -141,17 +141,10 @@ $(SNIPPETS_TABLE).append(`<tr>
 </tr>`);
 
 $(LONGFORM_TABLE).append(`<tr>
-    <td>
-        <a href='#note-repl'>Step&nbsp;1.</a>
-    </td>
     <td style='width: 100%'>
-        <a href='#note-repl'>Repl</a>
+        <a href='#note-repl'>Step 1. Repl</a>
     </td>
 </tr>`);
-
-/*$(LONGFORM).append(`<p class='ptoc'>
-    <a href="#note-repl">Step 1. Repl</a>
-</p>`)*/
 </script>
 
 <div class='padded note' data-note-name='note-values'>
@@ -184,17 +177,10 @@ $(SNIPPETS_TABLE).append(`<tr>
 </tr>`);
 
 $(LONGFORM_TABLE).append(`<tr>
-    <td>
-        <a href='#note-repl'>Step&nbsp;2.</a>
-    </td>
     <td style='width: 100%'>
-        <a href='#note-repl'>Values and numbers</a>
+        <a href='#note-repl'>Step 2. Values and numbers</a>
     </td>
 </tr>`);
-
-/*$(LONGFORM).append(`<p class='ptoc'>
-    <a href="#note-values">Step 2. Values and numbers</a>
-</p>`)*/
 </script>
 
 <div class='padded note' data-note-name='note-expressions'>
@@ -219,15 +205,9 @@ $(SNIPPETS_TABLE).append(`<tr>
     </td>
 </tr>`);
 
-/*$(LONGFORM).append(`<p class='ptoc'>
-    <a href="#note-values">Step 3. Expressions</a>
-</p>`)*/
 $(LONGFORM_TABLE).append(`<tr>
-    <td>
-        <a href='#note-repl'>Step&nbsp;3.</a>
-    </td>
     <td style='width: 100%'>
-        <a href='#note-repl'>Expressions</a>
+        <a href='#note-repl'>Step 3. Expressions</a>
     </td>
 </tr>`);
 </script>

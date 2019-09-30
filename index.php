@@ -89,11 +89,15 @@ let LONGFORM_TABLE = '#longform-table-part-1';
 $(SNIPPETS).append(`<div id='${SNIPPETS_TABLE_WRAPPER.substr(1)}'>
 </div>`);
 
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part 1. Expressions</p>`);
+
 $(SNIPPETS_TABLE_WRAPPER).append(`<table id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
 </table>`);
 
 $(LONGFORM).append(`<div id='${LONGFORM_TABLE_WRAPPER.substr(1)}'>
 </div>`);
+
+$(LONGFORM_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part 1. Expressions</p>`);
 
 $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class='snippets-table'>
 </table>`);

@@ -104,6 +104,11 @@ code {
     padding-right: 5px;
 }
 
+.snippets-part-number {
+    font-weight: bold;
+    text-align: center;
+}
+
 .ptoc {
     /*padding-left: 0px;*/
     margin-bottom: 0px;

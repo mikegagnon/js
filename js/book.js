@@ -1,12 +1,17 @@
  
-function setupScrollAnchors() {
+function setupScrollAnchors(sidenote) {
      //https://stackoverflow.com/questions/8579643/how-to-scroll-up-or-down-the-page-to-an-anchor-using-jquery
     $('a[href^="#"]').click(function(e) {
         e.preventDefault();
-        var dest = $(this).attr('href');
+        const dest = $(this).attr('href');
         if (!dest.startsWith('#note-')) {
-            var aname = `a[name='${dest.substr(1)}']`;
-            $('html,body').animate({ scrollTop: $(aname).offset().top }, 'slow');
+            const aname = `a[name='${dest.substr(1)}']`;
+            let top = $(aname).offset().top;
+            console.log(aname);
+            if (dest.startsWith('#aname-')) {
+                top -= sidenote.setup.padVertBetweenNotes;
+            }
+            $('html,body').animate({ scrollTop: top }, 'slow');
         }
     });
 }

@@ -228,7 +228,7 @@ $(LONGFORM_TABLE).append(`<tr>
                 SIDENOTE.clickNoteLink(fromColumnNumber, fromNoteName, toNoteName);
             });
 
-            setupScrollAnchors();
+            setupScrollAnchors(SIDENOTE);
             colorSnippets();
             colorLongform();
             copyStepsAfterRoot(SIDENOTE, 'note-repl');

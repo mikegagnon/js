@@ -152,6 +152,20 @@ class Sidenote {
             const newTop = top + newNoteHeight + THIS.setup.padVertBetweenNotes;
             $(elem).css('top', newTop);
         });
+
+        const columnTop = parseInt($(columnSelector).css('top'));
+
+        if (columnTop < 0) {
+            const scrollTop = $(window).scrollTop();
+            $('.column').each(function(i, elem){
+                let currentColumnTop = parseInt($(elem).css('top'));
+                currentColumnTop -= columnTop;
+                $(elem).css('top', currentColumnTop);
+            });
+            const newScrollTop = scrollTop - columnTop;
+            $(window).scrollTop(newScrollTop);
+        }
+
     }
 
     positionNewNoteBelow(newNoteName, columnNumber) {

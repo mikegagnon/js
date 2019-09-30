@@ -8,7 +8,7 @@
         <link rel='stylesheet' href='style/solarized.css'>
         <link href='style/bootstrap.css' rel='stylesheet'>
         <link href='style/prism.css' rel='stylesheet'>
-        <link href='style/repl.css' rel='stylesheet'>
+        <link href='style/repl-light.css' rel='stylesheet'>
         <link href='style/book.css' rel='stylesheet'>
         <link href='style/sidenote.css' rel='stylesheet'>
         <script src='js/codemirror.js'></script>

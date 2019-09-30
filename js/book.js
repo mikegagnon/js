@@ -27,4 +27,12 @@ function copyStepsAfterRoot(sidenote, firstStepName) {
     sidenote.cloneNote(firstStepName, 0);
     sidenote.positionNewNoteBelow(firstStepName, 0);
     sidenote.expand(firstStepName, 0);
+
+    const columnSelector = `[data-column='0']`;
+    const noteSelector = `${columnSelector} .note`;
+    $(noteSelector).each(function(i, elem){
+        const noteName = $(elem).data('note-name');
+        const html = `<a name='aname-${noteName}'></a>`;
+        $(elem).find('h2').wrap(html);
+    });
 }

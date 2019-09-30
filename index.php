@@ -142,7 +142,7 @@ $(SNIPPETS_TABLE).append(`<tr>
 
 $(LONGFORM_TABLE).append(`<tr>
     <td style='width: 100%'>
-        <a href='#note-repl'>Step 1. Repl</a>
+        <a href='#aname-note-repl'>Step 1. Repl</a>
     </td>
 </tr>`);
 </script>
@@ -178,7 +178,7 @@ $(SNIPPETS_TABLE).append(`<tr>
 
 $(LONGFORM_TABLE).append(`<tr>
     <td style='width: 100%'>
-        <a href='#note-repl'>Step 2. Values and numbers</a>
+        <a href='#aname-note-values'>Step 2. Values and numbers</a>
     </td>
 </tr>`);
 </script>
@@ -207,7 +207,7 @@ $(SNIPPETS_TABLE).append(`<tr>
 
 $(LONGFORM_TABLE).append(`<tr>
     <td style='width: 100%'>
-        <a href='#note-repl'>Step 3. Expressions</a>
+        <a href='#aname-note-expressions'>Step 3. Expressions</a>
     </td>
 </tr>`);
 </script>

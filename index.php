@@ -69,8 +69,7 @@
         </div>
 
         <h1 class='part-title'><a name='longform'>Long form</a></h1>
-        <div class='padded'>
-            <p>Step 1</p>
+        <div id="longform" class='padded'>
         </div>
     </div>
 </div> <!-- end data-column='0' -->
@@ -80,6 +79,7 @@
 <script>
 const ORDERING = [];
 let SNIPPETS_TABLE = '#snippets-table-part1';
+const LONGFORM_TOC = '#longform';
 </script>
 <div class='padded note' data-note-name='note-repl'>
     <div class='close-button'>×</div> <div class="expand-button">⋮</div>
@@ -115,6 +115,9 @@ $(SNIPPETS_TABLE).append(`<tr>
     </td>
 </tr>`);
 
+$(LONGFORM_TOC).append(`<p class='ptoc'>
+    <a href="#note-repl">Step 1. Repl</a>
+</p>`)
 </script>
 
 <div class='padded note' data-note-name='note-values'>
@@ -145,6 +148,10 @@ $(SNIPPETS_TABLE).append(`<tr>
         <code class='language-javascript'>5 + 2</code> produces <code class='language-javascript'>7</code>, in the repl
     </td>
 </tr>`);
+
+$(LONGFORM_TOC).append(`<p class='ptoc'>
+    <a href="#note-values">Step 2. Values and numbers</a>
+</p>`)
 </script>
 
 </div> <!-- end #staging-area -->

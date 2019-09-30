@@ -94,6 +94,27 @@ class Sidenote {
 
     close(columnNumber) {
         this.clearAfter(columnNumber - 1);
+
+        let tallestColumnTop = undefined;
+        $('.column').each(function(i, elem){
+            if (tallestColumnTop === undefined) {
+                tallestColumnTop = parseInt($(elem).css('top'));
+            } else {
+                const thisTop = parseInt($(elem).css('top'))
+                tallestColumnTop = Math.min(tallestColumnTop, thisTop);
+            }
+        });
+
+        if (tallestColumnTop > 0) {
+            $('.column').each(function(i, elem){
+                const thisTop = parseInt($(elem).css('top'))
+                const newTop = thisTop - tallestColumnTop;
+                $(elem).css('top', newTop);
+            });
+            $(window).scrollTop(0);
+        }
+
+
     }
 
     expand(noteName, columnNumber) {

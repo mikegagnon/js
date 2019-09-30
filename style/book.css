@@ -120,3 +120,19 @@ code {
 .ptoc-part-title {
     font-weight: bold;
 }
+
+.repl-note {
+    position: absolute;
+    margin-right: 20px;
+    right: 10px;
+    top: 50px;
+    left: 100px;
+    width: 500px;
+    border-radius: 4px;
+}
+
+.repl-note h4 {
+    font-family: "Helvetica", sans-serif;
+    font-size: 14pt;
+    padding: 8px;
+}

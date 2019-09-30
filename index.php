@@ -25,6 +25,10 @@
     <body>
         <main>
 <div id="sidenote">
+<div class="note repl-note" id="repl-console">
+    <h4>Repl</h4>
+    <div id="zd-repl"></div>
+</div>
 <div data-column='0' class='column'>
     <div data-note-name='note-root' class='note'>
         <div class='title-page'>

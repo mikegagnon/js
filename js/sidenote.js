@@ -24,7 +24,7 @@ const SidenoteSetup = {
     sidenoteId: 'sidenote',
     stagingId: 'staging-area',
     padBetweenColumns: 20,
-    padVertBetweenNotes: 0,
+    padVertBetweenNotes: 20,
 }
 
 class Sidenote {

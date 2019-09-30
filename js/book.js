@@ -16,3 +16,10 @@
         $(elem).find('tr').filter(":even").css('background-color', "#eee");
     })
  }
+
+ function copyStepsAfterRoot(sidenote, firstStepName) {
+    sidenote.cloneNote(firstStepName, 0);
+    sidenote.positionNewNoteBelow(firstStepName, 0);
+    sidenote.expand(firstStepName, 0);
+ }
+

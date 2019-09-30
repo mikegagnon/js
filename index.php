@@ -189,6 +189,7 @@ $(LONGFORM_TOC).append(`<p class='ptoc'>
         $(window).on('load', function() {
             SIDENOTE = new Sidenote(ORDERING);
 
+            // TODO: put in function
             $('div[data-column="0"] a[href^="#note-"]').click(function() {
                 var fromColumnNumber = findColumnNumber(this);
                 var fromNoteName = findNoteName(this);
@@ -198,6 +199,7 @@ $(LONGFORM_TOC).append(`<p class='ptoc'>
 
             setupScrollAnchors();
             colorSnippets();
+            copyStepsAfterRoot(SIDENOTE, 'note-repl');
         });
     </script>
 </html>

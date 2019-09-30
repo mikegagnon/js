@@ -19,7 +19,7 @@ function stepheader($stepName, $stepTitle) {
     $currentStepTitle = $stepTitle;
     $n = ++$stepNum;
     $text = <<<html
-<div class='padded note' data-note-name='note-$stepName'>
+<div class='padded note' data-note-name='$stepName'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
     <h2>Step $stepNum. $stepTitle</h2>
 html;
@@ -35,17 +35,17 @@ function stepoverview() {
     $text = <<<html
 </div>
 <script>
-ORDERING.push('note-$currentStepName');
+ORDERING.push('$currentStepName');
 
 $(LONGFORM_TABLE).append(`<tr>
     <td style='width: 100%'>
-        <a href='#aname-note-$currentStepName'>Step $stepNum. $currentStepTitle</a>
+        <a href='#aname-$currentStepName'>Step $stepNum. $currentStepTitle</a>
     </td>
 </tr>`);
 
 $(SNIPPETS_TABLE).append(`<tr>
     <td>
-        <a href='#note-$currentStepName'>Step&nbsp;$stepNum</a>
+        <a href='#$currentStepName'>Step&nbsp;$stepNum</a>
     </td>
     <td>
 html;
@@ -184,7 +184,7 @@ $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class=
 ?>
 
 <? #############################################################################
-stepheader('repl', 'Repl'); ?>
+stepheader('note-repl', 'Repl'); ?>
     <p><a href='#note-values'>Step 2</a></p>
 
     <p>On the repl, click the black area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
@@ -208,7 +208,7 @@ stepheader('repl', 'Repl'); ?>
 <? stepfooter(); ?>
 
 <? #############################################################################
-stepheader('values', 'Numbers and values'); ?>
+stepheader('note-values', 'Numbers and values'); ?>
     <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
     The number <code class='language-javascript'>2</code> is also a value, and so is the number <code class='language-javascript'>105.72</code>, and so on. Every number is a value, but there are also values other than just numbers, as we&rsquo;ll see quite often in later steps as well. For now, though, we&rsquo;ll just focus on number values.</p>
 

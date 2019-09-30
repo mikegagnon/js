@@ -1,4 +1,68 @@
-<!doctype html>
+<?
+
+$stepNum = null;
+$currentStepName = null;
+$currentStepTitle = null;
+
+//$currentTablePartId = null;
+//$currentTocPartId = null;
+//$currentSubStepName = null;
+//$currentFrac = null;
+//$currentSubStepTitle = null;
+
+function stepheader($stepName, $stepTitle) {
+    global $stepNum;
+    global $currentStepName;
+    global $currentStepTitle;
+
+    $currentStepName = $stepName;
+    $currentStepTitle = $stepTitle;
+    $n = ++$stepNum;
+    $text = <<<html
+<div class='padded note' data-note-name='note-$stepName'>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step $stepNum. $stepTitle</h2>
+html;
+
+    echo $text;
+}
+
+function stepoverview() {
+    global $stepNum;
+    global $currentStepName;
+    global $currentStepTitle;
+
+    $text = <<<html
+</div>
+<script>
+ORDERING.push('note-$currentStepName');
+
+$(LONGFORM_TABLE).append(`<tr>
+    <td style='width: 100%'>
+        <a href='#aname-note-$currentStepName'>Step $stepNum. $currentStepTitle</a>
+    </td>
+</tr>`);
+
+$(SNIPPETS_TABLE).append(`<tr>
+    <td>
+        <a href='#note-repl'>Step&nbsp;$stepNum</a>
+    </td>
+    <td>
+html;
+
+    echo $text;
+}
+
+function stepfooter() {
+    $text = <<<html
+    </td>
+</tr>`);
+</script>
+html;
+    echo $text;
+}
+
+?><!doctype html>
 <html lang='en'>
     <head>
         <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
@@ -45,7 +109,6 @@
             <h2>Preface</h2>
 
             <p><a href='#note-expressions2'>Step 4</a></p>
-
 
             <p>This book represents the first volume in a series of three. This series, and this book in particular, is for you if you&rsquo;ve never programmed before and you would like to learn JavaScript. By the conclusion of this first book, you will have learned 100% of the JavaScript you need to know in order to write a chess game, complete with an AI. And, by the conclusion of the third book, we will have programmed the game and AI, together.</p>
 
@@ -114,14 +177,18 @@ $(LONGFORM_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part 1. Expres
 
 $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class='snippets-table'>
 </table>`);
-
-/*$(LONGFORM).append(`<p class='ptoc-part-title'>
-    <a href="#">Part 1. Expressions</a>
-</p>`)*/
 </script>
-<div class='padded note' data-note-name='note-repl'>
+
+<?
+    $stepNum = 0;
+?>
+
+<!--<div class='padded note' data-note-name='note-repl'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
     <h2>Step 1. Repl</h2>
+-->
+
+<? stepheader('repl', 'Repl'); ?>
 
     <p><a href='#note-values'>Step 2</a></p>
 
@@ -140,7 +207,14 @@ $(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class=
     </p>
 
     <p>At any time, you can click the &ldquo;clear&rdquo; button to restart your repl session. And, I will explain the &ldquo;multiline input&rdquo; button later on.</p>
-</div>
+
+<? stepoverview(); ?>
+
+    <code class='language-javascript'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl
+
+<? stepfooter(); ?>
+
+<!--</div>
 <script>
 ORDERING.push('note-repl');
 
@@ -158,7 +232,7 @@ $(LONGFORM_TABLE).append(`<tr>
         <a href='#aname-note-repl'>Step 1. Repl</a>
     </td>
 </tr>`);
-</script>
+</script>-->
 
 <div class='padded note' data-note-name='note-values'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>

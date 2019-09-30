@@ -80,14 +80,35 @@ code {
     white-space: nowrap!important;
 }
 
+.snippets {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.snippets-tables-wrapper {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
 .snippets-table {
     width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 .snippets-table td {
-    padding: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .ptoc {
-    padding-left: 25px;
+    /*padding-left: 0px;*/
     margin-bottom: 0px;
+}
+
+.ptoc-part-title {
+    font-weight: bold;
 }

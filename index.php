@@ -63,9 +63,7 @@
         </div>
 
         <h1 class='part-title'><a name='snippets'>Snippets</a></h1>
-        <div class='padded'>
-            <table id='snippets-table-part1' class='snippets-table'>
-            </table>
+        <div id='snippets' class='padded' >
         </div>
 
         <h1 class='part-title'><a name='longform'>Long form</a></h1>
@@ -78,8 +76,22 @@
 <div id='staging-area' class='column'>
 <script>
 const ORDERING = [];
-let SNIPPETS_TABLE = '#snippets-table-part1';
-const LONGFORM_TOC = '#longform';
+let SNIPPETS_TABLE = '#snippets-table-part-1';
+const LONGFORM = '#longform';
+const SNIPPETS = '#snippets';
+const SNIPPETS_TABLE_WRAPPER = '#snippets-tables-wrapper';
+</script>
+<script>
+
+$(SNIPPETS).append(`<div id='${SNIPPETS_TABLE_WRAPPER.substr(1)}'>
+</div>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<table id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</table>`);
+
+$(LONGFORM).append(`<p class='ptoc-part-title'>
+    <a href="#">Part 1. Expressions</a>
+</p>`)
 </script>
 <div class='padded note' data-note-name='note-repl'>
     <div class='close-button'>×</div> <div class="expand-button">⋮</div>
@@ -115,7 +127,7 @@ $(SNIPPETS_TABLE).append(`<tr>
     </td>
 </tr>`);
 
-$(LONGFORM_TOC).append(`<p class='ptoc'>
+$(LONGFORM).append(`<p class='ptoc'>
     <a href="#note-repl">Step 1. Repl</a>
 </p>`)
 </script>
@@ -149,7 +161,7 @@ $(SNIPPETS_TABLE).append(`<tr>
     </td>
 </tr>`);
 
-$(LONGFORM_TOC).append(`<p class='ptoc'>
+$(LONGFORM).append(`<p class='ptoc'>
     <a href="#note-values">Step 2. Values and numbers</a>
 </p>`)
 </script>
@@ -176,7 +188,7 @@ $(SNIPPETS_TABLE).append(`<tr>
     </td>
 </tr>`);
 
-$(LONGFORM_TOC).append(`<p class='ptoc'>
+$(LONGFORM).append(`<p class='ptoc'>
     <a href="#note-values">Step 3. Expressions</a>
 </p>`)
 </script>
@@ -199,6 +211,7 @@ $(LONGFORM_TOC).append(`<p class='ptoc'>
 
             setupScrollAnchors();
             colorSnippets();
+            colorLongform();
             copyStepsAfterRoot(SIDENOTE, 'note-repl');
         });
     </script>

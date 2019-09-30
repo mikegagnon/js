@@ -212,6 +212,23 @@ $(LONGFORM_TABLE).append(`<tr>
 </tr>`);
 </script>
 
+
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-2';
+
+LONGFORM_TABLE = '#longform-table-part-2';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part 2. Expressions2 </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<table id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</table>`);
+
+
+$(LONGFORM_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part 2. Expressions 2</p>`);
+
+$(LONGFORM_TABLE_WRAPPER).append(`<table id='${LONGFORM_TABLE.substr(1)}' class='snippets-table'>
+</table>`);
+</script>
 <div class='padded note' data-note-name='note-expressions2'>
     <div class='close-button'>×</div> <div class="expand-button">⋮</div>
     <h2>Step 4. Expressions2</h2>

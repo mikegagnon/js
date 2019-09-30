@@ -96,7 +96,9 @@ code {
     width: 100%;
     margin-left: 0px;
     margin-right: 0px;
+    margin-bottom: 15px;
 }
+
 .snippets-table td {
     padding-top: 5px;
     padding-bottom: 5px;

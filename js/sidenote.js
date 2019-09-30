@@ -86,6 +86,14 @@ class Sidenote {
         clone.find('.expand-button').click(function() {
             THIS.expand(toNoteName, newColumnNumber);
         });
+
+        clone.find('.close-button').click(function() {
+            THIS.close(newColumnNumber);
+        });
+    }
+
+    close(columnNumber) {
+        this.clearAfter(columnNumber - 1);
     }
 
     expand(noteName, columnNumber) {

@@ -61,7 +61,10 @@ class Sidenote {
         this.positionNewNote(newColumnNumber, fromNoteName, toNoteName);
     }
 
-    clearAfter(fromColumnNumber) {
+    clearAfter(columnNumber) {
+        $('.column')
+            .filter(function(i){ console.log(i, i > columnNumber); return i > columnNumber; })
+            .remove();
     }
 
     newColumn(newColumnNumber) {

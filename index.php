@@ -73,7 +73,7 @@
 </div> <!-- end data-column='0' -->
 </div> <!-- end #sidenote -->
 
-<div id='staging-area' class='column'>
+<div id='staging-area'>
 <script>
 const ORDERING = [];
 const SNIPPETS = '#snippets';

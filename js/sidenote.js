@@ -95,6 +95,10 @@ class Sidenote {
                 this.expandBelow(index, columnNumber);
             }
         }
+
+        const columnSelector = `[data-column='${columnNumber}']`;
+        const expandButtonSelector = `${columnSelector} .expand-button`;
+        $(expandButtonSelector).remove();
     }
 
     expandAbove(index, columnNumber) {
@@ -110,7 +114,6 @@ class Sidenote {
     }
 
     expandBelow(index, columnNumber) {
-        //console.log("expandBelow", index, columnNumber);
         for (let i = index + 1; i < this.ordering.length; i++) {
             this.expandBelowSingle(i, columnNumber);
         }

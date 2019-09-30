@@ -34,7 +34,7 @@ ORDERING.push('$currentStepName');
 
 $(LONGFORM_TABLE).append(`<tr>
     <td style='width: 100%'>
-        <a href='#aname-$currentStepName'>Step $stepNum. $currentStepTitle</a>
+        <a href='#$currentStepName'>Step $stepNum. $currentStepTitle</a>
     </td>
 </tr>`);
 
@@ -281,7 +281,7 @@ stepheader('note-expressions2', 'Expressions2'); ?>
             setupScrollAnchors(SIDENOTE);
             colorSnippets();
             colorLongform();
-            copyStepsAfterRoot(SIDENOTE, 'note-repl');
+            //copyStepsAfterRoot(SIDENOTE, 'note-repl');
         });
     </script>
 </html>

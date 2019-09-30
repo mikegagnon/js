@@ -212,6 +212,35 @@ $(LONGFORM_TABLE).append(`<tr>
 </tr>`);
 </script>
 
+<div class='padded note' data-note-name='note-expressions2'>
+    <div class='close-button'>×</div> <div class="expand-button">⋮</div>
+    <h2>Step 4. Expressions2</h2>
+
+    <p><code class="language-javascript">1 + 2</code> is not a value; rather, <code class="language-javascript">1 + 2</code> is a JavaScript &ldquo;expression.&rdquo; An <i>expression</i>, is anything in JavaScript that &ldquo;resolves&rdquo; to a value. In this case, <code class="language-javascript">1 + 2</code> <i>resolves</i> to the value <code class="language-javascript">3</code>.
+            </p>
+
+    <p>To be precise, every value is also an expression. To give a concrete example, the number <code class="language-javascript">4</code> is a value, and the value <code class="language-javascript">4</code> is also an expression&mdash;albeit, an expression that resolves to the value <code class="language-javascript">4</code>.</p>
+
+</div>
+<script>
+ORDERING.push('note-expressions2');
+
+$(SNIPPETS_TABLE).append(`<tr>
+    <td>
+        <a href='#note-expressions2'>Step&nbsp;4</a>
+    </td>
+    <td>
+        <code class='language-javascript'>3 + 5</code> produces <code class='language-javascript'>8</code>, in the repl
+    </td>
+</tr>`);
+
+$(LONGFORM_TABLE).append(`<tr>
+    <td style='width: 100%'>
+        <a href='#aname-note-expressions2'>Step 4. Expressions 2</a>
+    </td>
+</tr>`);
+</script>
+
 </div> <!-- end #staging-area -->
         </main>
     </body>

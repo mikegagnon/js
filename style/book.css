@@ -136,6 +136,7 @@ code {
     padding: 8px;
     margin-left: 10px; /* must match .column margin-left */
     margin-top: 10px;/* must match .column margin-top */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 

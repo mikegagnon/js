@@ -16,7 +16,7 @@ class ReplSidenote extends Sidenote {
 
     positionRepl() {
         const column = $('.column').filter(':last');
-        const left = parseInt(column.css('left')) + parseInt(column.css('width')) + this.setup.padVertBetweenNotes;
+        const left = parseInt(column.css('left')) + parseInt(column.css('width')) + this.setup.padBetweenColumns;
         $(`#${this.replConsoleWrapperId}`).css('left', left);
     }
 

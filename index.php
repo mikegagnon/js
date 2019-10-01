@@ -215,7 +215,6 @@ stepheader('note-values', 'Numbers and values'); ?>
 
 <? #############################################################################
 substepheader('note-values-exercises', '&frac12;', 'Exercises'); ?>
-    <h3>Exercises</h3>
     <ol>
     <li>What happens if you execute <code class='language-javascript'>3.7</code>?</li>
     <li>What happens if you execute <code class='language-javascript'>2938</code>?</li>

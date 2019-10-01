@@ -241,7 +241,13 @@ stepheader('note-expressions2', 'Expressions2'); ?>
             setupLinksToNotes(SIDENOTE);
             setupScrollAnchors(SIDENOTE);
             colorSnippets();
-            SIDENOTE.loadViewFromUrl();
+
+            // Note sure why this timeout is needed,
+            // but makes loadViewFromUrl in my dev
+            // environment
+            setTimeout(function(){
+                SIDENOTE.loadViewFromUrl();
+            }, 0);
         });
     </script>
 </html>

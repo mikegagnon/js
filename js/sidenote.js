@@ -304,33 +304,19 @@ class Sidenote {
             }
         }
 
-        /*var target = $("#" + this.setup.rootId).children(":not(.sidenote-column):not(.repl-note)")[pIndex];
-        var top = $(target).offset().top;
-        $('html, body').animate({scrollTop: top}, this.setup.scrollVertTime);
-
-        var prev = stack[0];
-        for (var i = 1; i < stack.length; i++) {
-            var next = stack[i];
-            var doNotAnimate = i < stack.length - 1;
-            clickLink(prev, next, top, doNotAnimate);
-            prev = next;
-        }*/
-
-
         for (let i = 0; i < stack.length; i++) {
             const linkId = parseInt(stack[i]);
             const columnSelector = `[data-column='${i}']`;
             const linkSelector = `${columnSelector} [data-link-id='${linkId}']`;
             const link = $(linkSelector)[0];
             const fromNoteName = findNoteName(link);
-            console.log(linkSelector);
-            console.log(link);
-            console.log(fromNoteName);
             const toNoteName = $(linkSelector).attr('href').substr(1);
+            const top =  $(linkSelector).offset().top;
+            $(window).scrollTop(top);
             this.clickNoteLink(i, fromNoteName, toNoteName, linkId);
         }
 
-        //this.constructUrl(pIndex);
+        $(window).scrollLeft(99999999);
     }
 
 }

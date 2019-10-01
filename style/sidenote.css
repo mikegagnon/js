@@ -47,12 +47,12 @@
 }
 
 .expanded {
-    background-color: #6fc041;
+    background-color: #9ce673;
     padding: 8px;
 }
 
 .link-clicked {
-    background-color: #6fc041;
+    background-color: #9ce673;
     color: black;
     padding: 4px;
 }

@@ -72,6 +72,7 @@ class Sidenote {
         this.newColumn(newColumnNumber);
         this.cloneNote(toNoteName, newColumnNumber);
         this.positionNewNote(newColumnNumber, fromNoteName, toNoteName);
+        this.highlightLink(fromColumnNumber, linkId);
         if (this.setup.autoExpand) {
             console.log(toNoteName, newColumnNumber);
             const columnSelector = `[data-column='${newColumnNumber}']`;
@@ -79,6 +80,15 @@ class Sidenote {
             $(newNoteSelector + ' h2').addClass('expanded')
             this.expand(toNoteName, newColumnNumber);
         }
+    }
+
+    highlightLink(columnNumber, linkId) {
+        const columnSelector = `[data-column='${columnNumber}']`;
+
+        $(columnSelector).find('a').removeClass('link-clicked');
+
+        const linkSelector = `${columnSelector} [data-link-id='${linkId}']`;
+        $(linkSelector).addClass('link-clicked');
     }
 
     clearAfter(columnNumber) {

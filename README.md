@@ -1,0 +1,1 @@
+Copyright Michael N. Gagnon, 2019

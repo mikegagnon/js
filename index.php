@@ -105,10 +105,10 @@ html;
         <script src='js/prism.js'></script>
         <script src='js/popper.min.js'></script>
         <script src='js/bootstrap.js'></script>
-        <script src='js/repl.js'></script>
-        <script src='js/sidenote.js'></script>
-        <script src='js/repl-sidenote.js'></script>
-        <script src='js/book.js'></script>
+        <script src='js/my/repl.js'></script>
+        <script src='js/my/sidenote.js'></script>
+        <script src='js/my/repl-sidenote.js'></script>
+        <script src='js/my/book.js'></script>
     </head>
     <body>
         <main>

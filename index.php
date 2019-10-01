@@ -34,6 +34,18 @@ html;
     echo $text;
 }
 
+function noteheader($noteName) {
+    global $stepNum;
+
+    $text = <<<html
+<div class='padded note' data-note-name='$noteName'>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Note</h2>
+html;
+
+    echo $text;
+}
+
 function stepoverview() {
     global $stepNum;
     global $currentStepName;
@@ -62,6 +74,13 @@ html;
 }
 
 function substepfooter() {
+    $text = <<<html
+</div>
+html;
+    echo $text;
+}
+
+function notefooter() {
     $text = <<<html
 </div>
 html;
@@ -115,7 +134,7 @@ html;
 <div id='sidenote'>
 <div id='repl-console-wrapper'>
 <div class='note repl-note' id='repl-console'>
-    <h4>Console</h4>
+    <h4>Repl</h4>
     <div id='repl'></div>
 </div>
 </div>
@@ -180,25 +199,25 @@ partheader('Expressions'); #####################################################
 ?>
 
 <? #############################################################################
-stepheader('note-repl', 'Console'); ?>
+stepheader('note-repl', 'Repl'); ?>
 
-    <p>The right side of the window contains a &ldquo;console.&rdquo;
+    <p>The right side of the window contains a &ldquo;repl.&rdquo;
         Click the dark-colored area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
-    your console should look like this:</p>
+    your repl should look like this:</p>
 
     <p>What happened here? Your browser executed the statement <code class='language-javascript'>1 + 2</code>,
-        and then the console displayed the result <code class='language-javascript'>3</code>.
+        and then the repl displayed the result <code class='language-javascript'>3</code>.
      </p>
 
-    <p>The <i>console</i> allows you to experiment with coding. The way it works, is you type in one (or more)
-    lines of code in your console, and press enter. Then, your browser
-    will &ldquo;execute&rdquo; your code, and then the console will display the result of executing your code.
+    <p>The <i>repl</i> allows you to experiment with coding. The way it works, is you type in one (or more)
+    lines of code in your repl, and press enter. Then, your browser
+    will &ldquo;execute&rdquo; your code, and then the repl will display the result of executing your code.
     Repeat.
     </p>
 
-    <p>At any time, you can click the &ldquo;clear&rdquo; button to restart your console session. And, I will explain the &ldquo;multiline input&rdquo; button later on.</p>
+    <p>At any time, you can click the &ldquo;clear&rdquo; button to restart your repl session. And, I will explain the &ldquo;multiline input&rdquo; button later on.</p>
 <? stepoverview(); ?>
-    <code class='language-javascript no-left-margin'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the console
+    <code class='language-javascript no-left-margin'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl
 
 <? stepfooter(); ?>
 
@@ -207,19 +226,97 @@ stepheader('note-values', 'Numbers and values'); ?>
     <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
     The number <code class='language-javascript'>2</code> is also a value, and so is the number <code class='language-javascript'>105.72</code>, and so on. Every number is a value, but there are also values beyond just numbers, as we&rsquo;ll see quite often in later steps. For now, though, we&rsquo;ll just focus on number values.</p>
 
-    <p><a href="#note-values-exercises">Step 2&frac12;. Exercises</a></p>
+    <p><a href="#note-values-exercises">Step 2&frac13;. Exercises</a></p>
+    <p><a href="#note-num-oddities">Step 2&frac23;. Number oddities</a></p>
+
 <? stepoverview(); ?>
     <code class='language-javascript'>5 + 2</code> produces <code class='language-javascript'>7</code>, in the repl
 <? stepfooter(); ?>
 
 <? #############################################################################
-substepheader('note-values-exercises', '&frac12;', 'Exercises'); ?>
+substepheader('note-values-exercises', '&frac13;', 'Exercises'); ?>
     <ol>
     <li>What happens if you execute <code class='language-javascript'>3.7</code>?</li>
     <li>What happens if you execute <code class='language-javascript'>2938</code>?</li>
     <li>What happens if you execute <code class='language-javascript'>7349902384908234</code>?</li>
     </ol>
 <? substepfooter(); ?>
+
+<? #############################################################################
+substepheader('note-num-oddities', '&frac23;', 'Number oddities'); ?>
+    <p>JavaScript numbers have several oddities. For example:</p>
+
+    <ol>
+        <li><code class="language-javascript">9999999999999999</code> resolves to <code class="language-javascript">10000000000000000</code>. <a href="#note-int-too-big">Note</a></li>
+        <li><code class="language-javascript">90837408234902839048290348920</code> resolves to <code class="language-javascript">9.083740823490283e+28</code>. <a href="#note-big-num">Note</a></li>
+        <li><code class="language-javascript">1.7e+308</code> resolves to <code class="language-javascript">1.7e+308</code>. <a href="#note-biggest-num">Note</a></li>
+        <li><code class="language-javascript">1.8e+308</code> resolves to <code class="language-javascript">Infinity</code>. <a href="#note-num-too-big">Note</a></li>
+    </ol>
+<? substepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-int-too-big'); ?>
+    <p>When you enter the number <code class="language-javascript">9999999999999999</code> into the repl,
+        the repl responds with <code class="language-javascript">10000000000000000</code>, because <code class="language-javascript">9999999999999999</code> is larger 
+        than the largest <a href="#note-int">integer</a> that JavaScript can handle. Once you
+        go beyond the max, integers become approximate. Also,
+        decimal numbers in JavaScript are generally approximate.
+    </p>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-int'); ?>
+    <p>An integer is a whole number.</p>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-big-num'); ?>
+    <p>When you enter the number <code class="language-javascript">90837408234902839048290348920</code> into the repl,
+        the repl responds with <code class="language-javascript">9.083740823490283e+28</code>, which is equivalent to scientific notation 9.083740823490283 &times; 10<sup>28</sup>.
+    </p>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-biggest-num'); ?>
+    <p>When you enter the number <code class="language-javascript">1.7e+308</code> into the repl,
+        the repl responds with <code class="language-javascript">1.7e+308</code>, which is equivalent to scientific notation 1.7 &times; 10<sup>308</sup>. This is a stupefyingly large number. It is far larger than the number of atoms in the universe. This number is pretty close to the largest number JavaScript can handle. The largest number JavaScript can handle is: <code class="language-javascript">1.7976931348623157e+308</code>.
+    </p>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-num-too-big'); ?>
+    <p>When you enter the number <code class="language-javascript">1.8e+308</code> into the repl,
+        the repl responds with <code class="language-javascript">Infinity</code>, because <code class="language-javascript">1.8e+308</code> is larger than JavaScript can handle. The largest number JavaScript can handle is close to <code class="language-javascript">1.7976931348623157e+308</code>.
+    </p>
+<? notefooter(); ?>
+
+<!--
+                <div class="sidenote-column hidden tutorial-note" id="biggest-number">
+                    <h4>Note</h4>
+                    
+                </div>
+
+                <div class="sidenote-column hidden tutorial-note" id="too-big-number">
+                    <h4>Note</h4>
+
+                </div>
+
+                <div class="sidenote-column hidden tutorial-note" id="too-big-int">
+                    <h4>Note</h4>
+                    <p>When you enter the number <code class="language-javascript">9999999999999999</code> into the repl,
+                        the repl responds with <code class="language-javascript">10000000000000000</code>, because <code class="language-javascript">9999999999999999</code> is larger 
+                        than the largest <a href="javascript:$$('too-big-int', 'int')">integer</a> that JavaScript can handle. Once you
+                        go beyond the max, integers become approximate. Also,
+                        decimal numbers in JavaScript are generally approximate.
+                    </p>
+                </div>
+
+                <div class="sidenote-column hidden tutorial-note" id="int">
+                    <h4>Note</h4>
+                    <p>An integer is a whole number.
+                    </p>
+                </div>
+            -->
 
 <? #############################################################################
 stepheader('note-expressions', 'Expressions'); ?>

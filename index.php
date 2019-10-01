@@ -258,6 +258,7 @@ stepheader('note-expressions2', 'Expressions2'); ?>
     </body>
     <script type='text/javascript'>
         var SIDENOTE = undefined;
+        var log = undefined;
         $(window).on('load', function() {
             SIDENOTE = new ReplSidenote(ORDERING);
             setupLinksToNotes(SIDENOTE);

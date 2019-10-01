@@ -50,7 +50,16 @@ function (_Sidenote) {
       var replSetup = {
         shellDivId: 'repl'
       };
-      this.repl = new ZDJS_Shell(replSetup);
+      this.repl = new ZDJS_Shell(replSetup); // log is declared in index.html
+
+      var THIS = this;
+
+      log = function log() {
+        var _THIS$repl;
+
+        (_THIS$repl = THIS.repl).consoleLog.apply(_THIS$repl, arguments);
+      };
+
       var top = $(window).scrollTop();
       $("#".concat(this.replConsoleWrapperId)).css('top', top);
     }

@@ -15,26 +15,7 @@ var ZDJS_Shell = function(setup) {
 
 ZDJS_Shell.prototype.init = function() {
     this.appendDiv();
-    //this.registerEvents();
-    this.interceptConsoleLog();
 }
-
-ZDJS_Shell.prototype.interceptConsoleLog = function() {
-    // Unfortunately, this hack means we can only have one shell per page
-    // TODO: perhaps we can register and unregister log interception
-    // whenever a shell gets or loses focus? Maybe not.
-    this.ZDJS_origin_log = console.log;
-    var THIS = this;
-    function ZDJS_console_log (...args) {
-        THIS.consoleLog(...args);
-        THIS.ZDJS_origin_log(...args);
-    }
-    console.log = ZDJS_console_log;
-};
-
-ZDJS_Shell.prototype.deInterceptConsoleLog = function() {
-    console.log = this.ZDJS_origin_log;
-};
 
 ZDJS_Shell.prototype.consoleLog = function(...args) {
     if (this.consoleLogBuffer !== undefined) {
@@ -95,8 +76,6 @@ ZDJS_Shell.prototype.appendDiv = function() {
 
     $("#" + this.setup.divId + " .zdjs-cm-multiline-input-box .CodeMirror").css("height", "auto");
 
-
-
     if (!this.setup.showMultiLinkButton) {
         $("#" + this.setup.divId + " .zdjs-btn-multi").addClass("hidden");
     }
@@ -128,7 +107,6 @@ ZDJS_Shell.prototype.appendDiv = function() {
 
 ZDJS_Shell.prototype.clickClearButton = function() {
     $("#" + this.setup.divId).empty();
-    this.deInterceptConsoleLog();
     this.init();
 }
 
@@ -178,16 +156,14 @@ ZDJS_Shell.prototype.runMultilineCommand = function() {
     }
     this.outputOldMultilineCommand(command);
     for (var i = 0; i < this.consoleLogBuffer.length; i++) {
-        var log = this.consoleLogBuffer[i];
-        this.outputLog(log, false);
+        var logged = this.consoleLogBuffer[i];
+        this.outputLog(logged, false);
     }
     this.outputResult(result, error);
     this.freshPrompt();
 };
 
 ZDJS_Shell.prototype.outputOldMultilineCommand = function(command) {
-    // \u00a0 == no-break-space
-    //command = command.replace(/ /g, '\u00a0');
     var newOutput = `
         <div class="zdjs-oldcommand zfjs-pad-shell">
             <table>
@@ -204,11 +180,6 @@ ZDJS_Shell.prototype.outputOldMultilineCommand = function(command) {
     var selector = "#" + this.setup.divId + " .zdjs-output";
     $(selector).append(newOutput);
 
-    /*$("#" + this.setup.divId + " .zdjs-multiline-oldcommand-box").each(function() {
-        var offset = this.offsetHeight - this.clientHeight;
-        $(this).css('height', 'auto').css('height', this.scrollHeight + offset);
-    });*/
-
     var cmMultilineInputBoxes = $("#" + this.setup.divId + " .zdjs-cm-disabled-mutliline-input-box textarea");
     var cmMultilineInputBox = cmMultilineInputBoxes[cmMultilineInputBoxes.length - 1];
     var cm = CodeMirror.fromTextArea(cmMultilineInputBox, {
@@ -222,22 +193,10 @@ ZDJS_Shell.prototype.outputOldMultilineCommand = function(command) {
     cm.setValue(command);
 };
 
-/*ZDJS_Shell.prototype.registerEvents = function() {
-    var THIS = this;
-    $("#" + this.setup.divId + " .zdjs-input-box").on('keyup', function (e) {
-        // if enter
-        if (e.keyCode === 13) {
-            THIS.runCommand();
-        }
-    });
-};
-*/
-
 // TODO: catch syntax errors, and other specific errors for better error-presenation
 // to user.
 ZDJS_Shell.prototype.runCommand = function(command) {
     this.consoleLogBuffer = [];
-    //var command = $("#" + this.setup.divId + " .zdjs-input-box").val();
     var result;
     var error = false;
     try {
@@ -253,8 +212,8 @@ ZDJS_Shell.prototype.runCommand = function(command) {
     }
     this.outputOldCommand(command);
     for (var i = 0; i < this.consoleLogBuffer.length; i++) {
-        var log = this.consoleLogBuffer[i];
-        this.outputLog(log, false);
+        var logged = this.consoleLogBuffer[i];
+        this.outputLog(logged, false);
     }
     this.outputResult(result, error);
     this.freshPrompt();
@@ -262,12 +221,9 @@ ZDJS_Shell.prototype.runCommand = function(command) {
 
 ZDJS_Shell.prototype.freshPrompt = function() {
     this.cm.setValue("");
-    //$("#" + this.setup.divId + " .zdjs-input-box").val("");
 };
 
 ZDJS_Shell.prototype.outputOldCommand = function(command) {
-    // \u00a0 == no-break-space
-    //command = command.replace(/ /g, '\u00a0');
     var newOutput = `
         <div class="zdjs-oldcommand zfjs-pad-shell">
             <table>
@@ -303,9 +259,9 @@ ZDJS_Shell.prototype.htmlEscape = function(text) {
 ZDJS_Shell.prototype.outputLog = function(result, error) {
     var html;
     if (error) {
-        html = `<div class="zdjs-output-error zfjs-pad-shell">${result}</div>`
+        html = `<div class="zdjs-output-error zfjs-pad-shell">log: ${result}</div>`
     } else {
-        html = `<div class="zdjs-output-log zfjs-pad-shell">${result}</div>`
+        html = `<div class="zdjs-output-log zfjs-pad-shell">log: ${result}</div>`
     }
    
     var selector = "#" + this.setup.divId + " .zdjs-output";

@@ -10,6 +10,11 @@ class ReplSidenote extends Sidenote {
     newRepl() {
         const replSetup = { shellDivId: 'repl' };
         this.repl = new ZDJS_Shell(replSetup);
+        // log is declared in index.html
+        const THIS = this;
+        log = function(...args) {
+            THIS.repl.consoleLog(...args);
+        };
         var top = $(window).scrollTop();
         $(`#${this.replConsoleWrapperId}`).css('top', top);
     }

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel source -d js/my"
+    "build": "babel source -d js/my",
+    "watch": "npm-watch"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,10 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.6.2",
-    "@babel/preset-es2015": "^7.0.0-beta.53"
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "npm-watch": "^0.6.0"
+  },
+  "watch": {
+    "build": "source/*.js"
   }
 }

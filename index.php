@@ -32,17 +32,12 @@ function stepoverview() {
 <script>
 ORDERING.push('$currentStepName');
 
-$(LONGFORM_TABLE).append(`<tr>
-    <td style='width: 100%'>
-        <a href='#$currentStepName'>Step $stepNum. $currentStepTitle</a>
-    </td>
-</tr>`);
-
 $(SNIPPETS_TABLE).append(`<tr>
     <td>
-        <a href='#$currentStepName'>Step&nbsp;$stepNum</a>
-    </td>
-    <td>
+        <a href='#$currentStepName'>Step&nbsp;$stepNum. $currentStepTitle</a>
+    </tr>
+    <tr>
+    <td colspan=2>
 html;
 
     echo $text;
@@ -64,18 +59,11 @@ function partheader($title) {
 <script>
 SNIPPETS_TABLE = '#snippets-table-part-$n';
 
-LONGFORM_TABLE = '#longform-table-part-$n';
-
 $(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part $n. $title </p>`);
 
 $(SNIPPETS_TABLE_WRAPPER).append(`<table id='\${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
 </table>`);
 
-
-$(LONGFORM_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part $n. $title</p>`);
-
-$(LONGFORM_TABLE_WRAPPER).append(`<table id='\${LONGFORM_TABLE.substr(1)}' class='snippets-table'>
-</table>`);
 </script>
 html;
     echo $text;
@@ -141,24 +129,10 @@ html;
             </p>
         </div>
 
-        <h1 class='part-title'>Contents</h1>
-        <div class='padded'>
-            <p>This book contains three tables of contents:</p>
-
-            <ol>
-                <li>This one</li>
-                <li><a href='#snippets'>Snippets</a>, which lists a snippet of code from each step</li>
-                <li><a href='#longform'>Step names</a>, which lists the name for each step</li>
-            </ol>
-        </div>
-
-        <h1 class='part-title'><a name='snippets'>Snippets</a></h1>
+        <h1 class='part-title'><a name='snippets'>Contents</a></h1>
         <div id='snippets' class='padded' >
         </div>
 
-        <h1 class='part-title'><a name='longform'>Step names</a></h1>
-        <div id='longform' class='padded'>
-        </div>
     </div>
 </div> <!-- end data-column='0' -->
 </div> <!-- end #sidenote -->
@@ -171,13 +145,8 @@ const SNIPPETS = '#snippets';
 const SNIPPETS_TABLE_WRAPPER = '#snippets-tables-wrapper';
 let SNIPPETS_TABLE = undefined;
 
-const LONGFORM = '#longform';
-const LONGFORM_TABLE_WRAPPER = '#longform-tables-wrapper';
-let LONGFORM_TABLE = undefined;
-
 $(SNIPPETS).append(`<div id='${SNIPPETS_TABLE_WRAPPER.substr(1)}'></div>`);
 
-$(LONGFORM).append(`<div id='${LONGFORM_TABLE_WRAPPER.substr(1)}'></div>`);
 </script>
 
 <?
@@ -273,8 +242,6 @@ stepheader('note-expressions2', 'Expressions2'); ?>
             setupLinksToNotes(SIDENOTE);
             setupScrollAnchors(SIDENOTE);
             colorSnippets();
-            colorLongform();
-            //copyStepsAfterRoot(SIDENOTE, 'note-repl');
         });
     </script>
 </html>

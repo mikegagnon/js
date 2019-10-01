@@ -20,8 +20,8 @@ class ReplSidenote extends Sidenote {
         $(`#${this.replConsoleWrapperId}`).css('left', left);
     }
 
-    clickNoteLink(fromColumnNumber, fromNoteName, toNoteName) {
-        super.clickNoteLink(fromColumnNumber, fromNoteName, toNoteName);
+    clickNoteLink(fromColumnNumber, fromNoteName, toNoteName, linkId) {
+        super.clickNoteLink(fromColumnNumber, fromNoteName, toNoteName, linkId);
         this.positionRepl();
     }
 

@@ -38,9 +38,10 @@ function copyStepsAfterRoot(sidenote, firstStepName) {
 
 function setupLinksToNotes(sidenote) {
     $('div[data-column="0"] a[href^="#note-"]').click(function() {
-        var fromColumnNumber = findColumnNumber(this);
-        var fromNoteName = findNoteName(this);
-        var toNoteName = $(this).attr('href').substr(1);
-        sidenote.clickNoteLink(fromColumnNumber, fromNoteName, toNoteName);
+        const fromColumnNumber = findColumnNumber(this);
+        const fromNoteName = findNoteName(this);
+        const toNoteName = $(this).attr('href').substr(1);
+        const linkId = parseInt($(this).attr('data-link-id'));
+        sidenote.clickNoteLink(fromColumnNumber, fromNoteName, toNoteName, linkId);
     });
 }

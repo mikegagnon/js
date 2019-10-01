@@ -65,7 +65,8 @@ class Sidenote {
         $(columnSelector).css('height', height);
     }
 
-    clickNoteLink(fromColumnNumber, fromNoteName, toNoteName) {
+    clickNoteLink(fromColumnNumber, fromNoteName, toNoteName, linkId) {
+        console.log(linkId);
         this.clearAfter(fromColumnNumber);
         const newColumnNumber = fromColumnNumber + 1;
         this.newColumn(newColumnNumber);
@@ -99,7 +100,9 @@ class Sidenote {
         const THIS = this;
         clone.find(`a[href^="#note-"]`).click(function() {
             const linkToNoteName = $(this).attr('href').substr(1);
-            THIS.clickNoteLink(newColumnNumber, toNoteName, linkToNoteName);
+            const linkId = parseInt($(this).attr('data-link-id'));
+            console.log('linkId', linkId);
+            THIS.clickNoteLink(newColumnNumber, toNoteName, linkToNoteName, linkId);
         });
 
         clone.find('.expand-button').click(function() {

@@ -128,8 +128,6 @@ html;
         <div class='padded'>
             <h2>Preface</h2>
 
-            <p><a href='#note-expressions2'>Step 4</a></p>
-
             <p>This book represents the first volume in a series of three. This series, and this book in particular, is for you if you&rsquo;ve never programmed before and you would like to learn JavaScript. By the conclusion of this first book, you will have learned 100% of the JavaScript you need to know in order to write a chess game, complete with an AI. And, by the conclusion of the third book, we will have programmed the game and AI, together.</p>
 
             <p>JavaScript is a gnarly language. There are many nooks and crannies
@@ -144,17 +142,19 @@ html;
         </div>
 
         <div class='padded'>
-            <h2>Contents</h2>
+            <!--<h2>Contents</h2>-->
+            <h1 class='part-title'>Contents</h1>
 
-            <p>This left-most column contains three parts:</p>
+
+            <p>This book contains three tables of contents:</p>
 
             <ol>
-                <li>Front matter, including the title, preface, and this table of contents</li>
-                <li><a href='#snippets'>Snippets</a>, which contains a &ldquo;snippet&rdquo; of code from each step in the book, along with a link from each snippet to its associated step</li>
-                <li><a href='#longform'>Long form</a>, which contains each step, one after the other, including a table of contents.  This part is for you, if you would like to read, skim, or scrutinize the book in an old fashioned, page-by-page fashion.</li>
+                <li>This one</li>
+                <li><a href='#snippets'>Snippets</a>, which lists a snippet of code for each step</li>
+                <li><a href='#longform'>Step names</a>, which lists the step name for each step</li>
             </ol>
 
-            <p>Lastly, as you can see, there is a &ldquo;repl&rdquo; on the side of your window. We begin our study of JavaScript, by describing and demonstrating the repl in Step 1.</p>
+            <!--<p>Lastly, as you can see, there is a &ldquo;console&rdquo; on the side of your window. We begin our study of JavaScript, by describing and demonstrating the console in Step 1.</p>-->
             
         </div>
 
@@ -162,7 +162,7 @@ html;
         <div id='snippets' class='padded' >
         </div>
 
-        <h1 class='part-title'><a name='longform'>Long form</a></h1>
+        <h1 class='part-title'><a name='longform'>Step names</a></h1>
         <div id='longform' class='padded'>
         </div>
     </div>

@@ -58,8 +58,8 @@ SNIPPETS_TABLE = '#snippets-table-part-$n';
 
 $(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part $n. $title </p>`);
 
-$(SNIPPETS_TABLE_WRAPPER).append(`<table id='\${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
-</table>`);
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='\${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
 
 </script>
 html;
@@ -159,6 +159,8 @@ partheader('Expressions'); #####################################################
 
 <? #############################################################################
 stepheader('note-repl', 'Console'); ?>
+
+    <p><a href="#note-values">Step 2</a></p>
     <p>The right side of the window contains a &ldquo;console.&rdquo;
         Click the tan-colored area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
     your repl should look like this:</p>

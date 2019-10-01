@@ -24,7 +24,7 @@ const SidenoteSetup = {
     sidenoteId: 'sidenote',
     stagingId: 'staging-area',
     padBetweenColumns: 20,
-    padVertBetweenNotes: 0, //20,
+    padVertBetweenNotes: 0,
     autoExpand: true,
 }
 
@@ -32,7 +32,18 @@ class Sidenote {
     constructor(ordering) {
         this.setup = SidenoteSetup;
         this.ordering = ordering;
+        this.stack = [];
         this.setupColumn0();
+        this.setupLinkId();
+    }
+
+    setupLinkId() {
+        let n = 0;
+        $(document)
+            .find('[href^="#note-"]')
+            .each(function(i, elem){
+                $(elem).attr('data-link-id', n++);
+            });
     }
 
     getColumnHeight(columnNumber) {
@@ -65,10 +76,7 @@ class Sidenote {
             const columnSelector = `[data-column='${newColumnNumber}']`;
             const newNoteSelector = `${columnSelector} [data-note-name='${toNoteName}']`;
             $(newNoteSelector + ' h2').addClass('expanded')
-
             this.expand(toNoteName, newColumnNumber);
-
-        
         }
     }
 

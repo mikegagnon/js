@@ -270,4 +270,67 @@ class Sidenote {
         $(newColumnSelector).css('height', height);
     }
 
+    loadViewFromUrl(clickLink) {
+
+        // https://stackoverflow.com/questions/4656843/jquery-get-querystring-from-url
+        // Read a page's GET URL variables and return them as an associative array.
+        function getUrlVars()
+        {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for(var i = 0; i < hashes.length; i++)
+            {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+
+        var vars = getUrlVars();
+        if (!vars.stack) {
+            return;
+        }
+        
+        var stack = vars.stack.split("!");
+        if (stack.length == 0) {
+            return;
+        }
+
+        for (let i = 0; i < stack.length; i++) {
+            var linkId = parseInt(stack[i]);
+            if (Number.isNaN(linkId)) {
+                return;
+            }
+        }
+
+        /*var target = $("#" + this.setup.rootId).children(":not(.sidenote-column):not(.repl-note)")[pIndex];
+        var top = $(target).offset().top;
+        $('html, body').animate({scrollTop: top}, this.setup.scrollVertTime);
+
+        var prev = stack[0];
+        for (var i = 1; i < stack.length; i++) {
+            var next = stack[i];
+            var doNotAnimate = i < stack.length - 1;
+            clickLink(prev, next, top, doNotAnimate);
+            prev = next;
+        }*/
+
+
+        for (let i = 0; i < stack.length; i++) {
+            const linkId = parseInt(stack[i]);
+            const columnSelector = `[data-column='${i}']`;
+            const linkSelector = `${columnSelector} [data-link-id='${linkId}']`;
+            const link = $(linkSelector)[0];
+            const fromNoteName = findNoteName(link);
+            console.log(linkSelector);
+            console.log(link);
+            console.log(fromNoteName);
+            const toNoteName = $(linkSelector).attr('href').substr(1);
+            this.clickNoteLink(i, fromNoteName, toNoteName, linkId);
+        }
+
+        //this.constructUrl(pIndex);
+    }
+
 }

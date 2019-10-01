@@ -241,6 +241,7 @@ stepheader('note-expressions2', 'Expressions2'); ?>
             setupLinksToNotes(SIDENOTE);
             setupScrollAnchors(SIDENOTE);
             colorSnippets();
+            SIDENOTE.loadViewFromUrl();
         });
     </script>
 </html>

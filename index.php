@@ -12,11 +12,24 @@ function stepheader($stepName, $stepTitle) {
 
     $currentStepName = $stepName;
     $currentStepTitle = $stepTitle;
-    $n = ++$stepNum;
+    #$n = ++$stepNum;
+    $stepNum++;
     $text = <<<html
 <div class='padded note' data-note-name='$stepName'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
     <h2>Step $stepNum. $stepTitle</h2>
+html;
+
+    echo $text;
+}
+
+function substepheader($noteName, $frac, $substepTitle) {
+    global $stepNum;
+
+    $text = <<<html
+<div class='padded note' data-note-name='$noteName'>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step $stepNum$frac. $substepTitle</h2>
 html;
 
     echo $text;
@@ -45,6 +58,13 @@ function stepfooter() {
         </div>
     </div>`);
 </script>
+html;
+    echo $text;
+}
+
+function substepfooter() {
+    $text = <<<html
+</div>
 html;
     echo $text;
 }
@@ -127,6 +147,9 @@ html;
         </div>
 
         <h1 class='part-title'><a name='snippets'>Contents</a></h1>
+
+        <p class='padded'>For each of the <span id='num-steps'></span> steps of this book, the table of contents contains a link to that step, as well as a short snippet of code from that step.</p>
+
         <div id='snippets' class='padded' >
         </div>
 
@@ -183,19 +206,22 @@ stepheader('note-repl', 'Console'); ?>
 <? #############################################################################
 stepheader('note-values', 'Numbers and values'); ?>
     <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
-    The number <code class='language-javascript'>2</code> is also a value, and so is the number <code class='language-javascript'>105.72</code>, and so on. Every number is a value, but there are also values other than just numbers, as we&rsquo;ll see quite often in later steps as well. For now, though, we&rsquo;ll just focus on number values.</p>
+    The number <code class='language-javascript'>2</code> is also a value, and so is the number <code class='language-javascript'>105.72</code>, and so on. Every number is a value, but there are also values beyond just numbers, as we&rsquo;ll see quite often in later steps. For now, though, we&rsquo;ll just focus on number values.</p>
 
-    <div class='exercise'>
-        <h3>Exercises</h3>
-        <ol>
-        <li>What happens if you execute <code class='language-javascript'>3.7</code>?</li>
-        <li>What happens if you execute <code class='language-javascript'>2938</code>?</li>
-        <li>What happens if you execute <code class='language-javascript'>7349902384908234</code>?</li>
-        </ol>
-    </div>
+    <p><a href="#note-values-exercises">Step 2&frac12;. Exercises</a></p>
 <? stepoverview(); ?>
     <code class='language-javascript'>5 + 2</code> produces <code class='language-javascript'>7</code>, in the repl
 <? stepfooter(); ?>
+
+<? #############################################################################
+substepheader('note-values-exercises', '&frac12;', 'Exercises'); ?>
+    <h3>Exercises</h3>
+    <ol>
+    <li>What happens if you execute <code class='language-javascript'>3.7</code>?</li>
+    <li>What happens if you execute <code class='language-javascript'>2938</code>?</li>
+    <li>What happens if you execute <code class='language-javascript'>7349902384908234</code>?</li>
+    </ol>
+<? substepfooter(); ?>
 
 <? #############################################################################
 stepheader('note-expressions', 'Expressions'); ?>
@@ -246,6 +272,8 @@ stepheader('note-expressions2', 'Expressions2'); ?>
             setTimeout(function(){
                 SIDENOTE.loadViewFromUrl();
             }, 0);
+
+            $("#num-steps").append(ORDERING.length);
         });
     </script>
 </html>

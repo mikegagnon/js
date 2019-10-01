@@ -160,25 +160,23 @@ partheader('Expressions'); #####################################################
 <? #############################################################################
 stepheader('note-repl', 'Console'); ?>
 
-    <p><a href="#note-values">Step 2</a></p>
     <p>The right side of the window contains a &ldquo;console.&rdquo;
-        Click the tan-colored area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
-    your repl should look like this:</p>
+        Click the dark-colored area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
+    your console should look like this:</p>
 
     <p>What happened here? Your browser executed the statement <code class='language-javascript'>1 + 2</code>,
-        and then the repl displayed the result <code class='language-javascript'>3</code>.
+        and then the console displayed the result <code class='language-javascript'>3</code>.
      </p>
 
-    <p>A <i>repl</i> is a piece of software that allows you
-    to experiment with coding. The way it works, is you type in one (or more)
-    &ldquo;statements&rdquo; in the repl, and press enter. Then, your browser
-    will &ldquo;execute&rdquo; your statement, and then the repl will display the result of executing your statement.
+    <p>The <i>console</i> allows you to experiment with coding. The way it works, is you type in one (or more)
+    lines of code in your console, and press enter. Then, your browser
+    will &ldquo;execute&rdquo; your code, and then the console will display the result of executing your code.
     Repeat.
     </p>
 
-    <p>At any time, you can click the &ldquo;clear&rdquo; button to restart your repl session. And, I will explain the &ldquo;multiline input&rdquo; button later on.</p>
+    <p>At any time, you can click the &ldquo;clear&rdquo; button to restart your console session. And, I will explain the &ldquo;multiline input&rdquo; button later on.</p>
 <? stepoverview(); ?>
-    <code class='language-javascript'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl
+    <code class='language-javascript no-left-margin'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the console
 
 <? stepfooter(); ?>
 

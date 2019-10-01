@@ -18,13 +18,7 @@ function setupScrollAnchors(sidenote) {
 
 function colorSnippets() {
     $(".snippets-table").each(function(i, elem){
-        $(elem).find('tr').filter(":even").css('background-color', "#eee");
-    })
-}
-
-function colorLongform() {
-    $("#longform").each(function(i, elem){
-        $(elem).find('.ptoc').filter(":even").css('background-color', "#eee");
+        $(elem).children('div').filter(":even").css('background-color', "#eee");
     })
 }
 

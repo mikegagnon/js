@@ -110,6 +110,7 @@ code {
     font-weight: bold;
     text-align: center;
     font-family: "Helvetica", sans-serif;
+    background-color: #FFDC00;
 }
 
 .ptoc {
@@ -143,4 +144,8 @@ code {
 .repl-note h4 {
     font-family: "Helvetica", sans-serif;
     font-size: 14pt;
+}
+
+.snippet-div {
+    padding: 11px;
 }

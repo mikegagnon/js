@@ -47,4 +47,6 @@
 }
 
 .expanded {
+    background-color: #FFDC00;
+    padding: 8px;
 }

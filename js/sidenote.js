@@ -64,7 +64,7 @@ class Sidenote {
             console.log(toNoteName, newColumnNumber);
             const columnSelector = `[data-column='${newColumnNumber}']`;
             const newNoteSelector = `${columnSelector} [data-note-name='${toNoteName}']`;
-            $(newNoteSelector).addClass('expanded')
+            $(newNoteSelector + ' h2').addClass('expanded')
 
             this.expand(toNoteName, newColumnNumber);
 

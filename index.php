@@ -32,12 +32,9 @@ function stepoverview() {
 <script>
 ORDERING.push('$currentStepName');
 
-$(SNIPPETS_TABLE).append(`<tr>
-    <td>
-        <a href='#$currentStepName'>Step&nbsp;$stepNum. $currentStepTitle</a>
-    </tr>
-    <tr>
-    <td colspan=2>
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#$currentStepName'>Step $stepNum. $currentStepTitle</a></div>
+        <div>
 html;
 
     echo $text;
@@ -45,8 +42,8 @@ html;
 
 function stepfooter() {
     $text = <<<html
-    </td>
-</tr>`);
+        </div>
+    </div>`);
 </script>
 html;
     echo $text;

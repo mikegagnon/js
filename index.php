@@ -142,10 +142,7 @@ html;
         </div>
 
         <div class='padded'>
-            <!--<h2>Contents</h2>-->
             <h1 class='part-title'>Contents</h1>
-
-
             <p>This book contains three tables of contents:</p>
 
             <ol>
@@ -153,9 +150,6 @@ html;
                 <li><a href='#snippets'>Snippets</a>, which lists a snippet of code from each step</li>
                 <li><a href='#longform'>Step names</a>, which lists the name for each step</li>
             </ol>
-
-            <!--<p>Lastly, as you can see, there is a &ldquo;console&rdquo; on the side of your window. We begin our study of JavaScript, by describing and demonstrating the console in Step 1.</p>-->
-            
         </div>
 
         <h1 class='part-title'><a name='snippets'>Snippets</a></h1>
@@ -198,10 +192,9 @@ partheader('Expressions'); #####################################################
 ?>
 
 <? #############################################################################
-stepheader('note-repl', 'Repl'); ?>
-    <p><a href='#note-values'>Step 2</a></p>
-
-    <p>On the repl, click the black area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
+stepheader('note-repl', 'Console'); ?>
+    <p>The right side of the window contains a &ldquo;console.&rdquo;
+        Click the tan-colored area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
     your repl should look like this:</p>
 
     <p>What happened here? Your browser executed the statement <code class='language-javascript'>1 + 2</code>,

@@ -71,7 +71,7 @@ ZDJS_Shell.prototype.appendDiv = function() {
     var cmInputBox = $("#" + this.setup.divId + " .zdjs-cm-input-box textarea")[0];
     this.cm = CodeMirror.fromTextArea(cmInputBox, {
         lineNumbers: false,
-        theme: "solarized light",
+        theme: "solarized dark",
         mode: "javascript",
     });
 
@@ -88,7 +88,7 @@ ZDJS_Shell.prototype.appendDiv = function() {
     var cmMultilineInputBox = $("#" + this.setup.divId + " .zdjs-cm-multiline-input-box textarea")[0];
     this.multilineCm = CodeMirror.fromTextArea(cmMultilineInputBox, {
         lineNumbers: false,
-        theme: "solarized light",
+        theme: "solarized dark",
         mode: "javascript",
         viewportMargin: Infinity,
     })
@@ -213,7 +213,7 @@ ZDJS_Shell.prototype.outputOldMultilineCommand = function(command) {
     var cmMultilineInputBox = cmMultilineInputBoxes[cmMultilineInputBoxes.length - 1];
     var cm = CodeMirror.fromTextArea(cmMultilineInputBox, {
         lineNumbers: false,
-        theme: "solarized light",
+        theme: "solarized dark",
         mode: "javascript",
         readOnly: "nocursor",
         viewportMargin: Infinity,
@@ -287,7 +287,7 @@ ZDJS_Shell.prototype.outputOldCommand = function(command) {
     var cmInputBox = cmInputBoxes[cmInputBoxes.length - 1];
     var cm = CodeMirror.fromTextArea(cmInputBox, {
         lineNumbers: false,
-        theme: "solarized light",
+        theme: "solarized dark",
         mode: "javascript",
         readOnly: "nocursor",
     });

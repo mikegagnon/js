@@ -92,7 +92,7 @@ html;
         <link rel='stylesheet' href='style/solarized.css'>
         <link href='style/bootstrap.css' rel='stylesheet'>
         <link href='style/prism.css' rel='stylesheet'>
-        <link href='style/repl-light.css' rel='stylesheet'>
+        <link href='style/repl-dark.css' rel='stylesheet'>
         <link href='style/book.css' rel='stylesheet'>
         <link href='style/sidenote.css' rel='stylesheet'>
         <script src='js/codemirror.js'></script>
@@ -141,8 +141,8 @@ html;
             </p>
         </div>
 
+        <h1 class='part-title'>Contents</h1>
         <div class='padded'>
-            <h1 class='part-title'>Contents</h1>
             <p>This book contains three tables of contents:</p>
 
             <ol>

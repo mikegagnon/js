@@ -12,7 +12,6 @@ function stepheader($stepName, $stepTitle) {
 
     $currentStepName = $stepName;
     $currentStepTitle = $stepTitle;
-    #$n = ++$stepNum;
     $stepNum++;
     $text = <<<html
 <div class='padded note' data-note-name='$stepName'>

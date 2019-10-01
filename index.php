@@ -150,8 +150,8 @@ html;
 
             <ol>
                 <li>This one</li>
-                <li><a href='#snippets'>Snippets</a>, which lists a snippet of code for each step</li>
-                <li><a href='#longform'>Step names</a>, which lists the step name for each step</li>
+                <li><a href='#snippets'>Snippets</a>, which lists a snippet of code from each step</li>
+                <li><a href='#longform'>Step names</a>, which lists the name for each step</li>
             </ol>
 
             <!--<p>Lastly, as you can see, there is a &ldquo;console&rdquo; on the side of your window. We begin our study of JavaScript, by describing and demonstrating the console in Step 1.</p>-->

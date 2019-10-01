@@ -32,7 +32,7 @@ class Sidenote {
     constructor(ordering) {
         this.setup = SidenoteSetup;
         this.ordering = ordering;
-        this.stack = [];
+        this.linkstack = [];
         this.setupColumn0();
         this.setupLinkId();
     }
@@ -66,20 +66,31 @@ class Sidenote {
     }
 
     clickNoteLink(fromColumnNumber, fromNoteName, toNoteName, linkId) {
-        console.log(linkId);
         this.clearAfter(fromColumnNumber);
         const newColumnNumber = fromColumnNumber + 1;
         this.newColumn(newColumnNumber);
         this.cloneNote(toNoteName, newColumnNumber);
         this.positionNewNote(newColumnNumber, fromNoteName, toNoteName);
+        this.linkstack.push(linkId);
+        this.updateUrl();
         this.highlightLink(fromColumnNumber, linkId);
         if (this.setup.autoExpand) {
-            console.log(toNoteName, newColumnNumber);
             const columnSelector = `[data-column='${newColumnNumber}']`;
             const newNoteSelector = `${columnSelector} [data-note-name='${toNoteName}']`;
             $(newNoteSelector + ' h2').addClass('expanded')
             this.expand(toNoteName, newColumnNumber);
         }
+    }
+
+    updateUrl() {
+        let url = undefined;
+        if (this.linkstack.length == 0) {
+            url = window.location.pathname;
+        } else {
+            url = window.location.pathname + `?stack=` + this.linkstack.join("!");
+        }
+
+        history.replaceState({}, "", url);
     }
 
     highlightLink(columnNumber, linkId) {
@@ -93,8 +104,13 @@ class Sidenote {
 
     clearAfter(columnNumber) {
         $('.column')
-            .filter(function(i){ console.log(i, i > columnNumber); return i > columnNumber; })
+            .filter(function(i){ return i > columnNumber; })
             .remove();
+        this.linkstack = this.linkstack.slice(0, columnNumber);
+        this.updateUrl();
+        const columnSelector = `[data-column='${columnNumber}']`;
+        $(columnSelector).find('a').removeClass('link-clicked')
+
     }
 
     newColumn(newColumnNumber) {
@@ -111,7 +127,6 @@ class Sidenote {
         clone.find(`a[href^="#note-"]`).click(function() {
             const linkToNoteName = $(this).attr('href').substr(1);
             const linkId = parseInt($(this).attr('data-link-id'));
-            console.log('linkId', linkId);
             THIS.clickNoteLink(newColumnNumber, toNoteName, linkToNoteName, linkId);
         });
 

@@ -37,7 +37,8 @@ function copyStepsAfterRoot(sidenote, firstStepName) {
 }
 
 function setupLinksToNotes(sidenote) {
-    $('div[data-column="0"] a[href^="#note-"]').click(function() {
+    $('div[data-column="0"] a[href^="#note-"]').click(function(event) {
+        event.preventDefault(); // TODO: does this do anything?
         const fromColumnNumber = findColumnNumber(this);
         const fromNoteName = findNoteName(this);
         const toNoteName = $(this).attr('href').substr(1);

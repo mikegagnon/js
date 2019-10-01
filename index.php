@@ -105,10 +105,10 @@ html;
         <script src='js/prism.js'></script>
         <script src='js/popper.min.js'></script>
         <script src='js/bootstrap.js'></script>
-        <script src='js/my/repl.js'></script>
-        <script src='js/my/sidenote.js'></script>
-        <script src='js/my/repl-sidenote.js'></script>
-        <script src='js/my/book.js'></script>
+        <script src='lib/repl.js'></script>
+        <script src='lib/sidenote.js'></script>
+        <script src='lib/repl-sidenote.js'></script>
+        <script src='lib/book.js'></script>
     </head>
     <body>
         <main>
@@ -158,11 +158,11 @@ html;
 
 <div id='staging-area'>
 <script>
-const ORDERING = [];
+var ORDERING = [];
 
-const SNIPPETS = '#snippets';
-const SNIPPETS_TABLE_WRAPPER = '#snippets-tables-wrapper';
-let SNIPPETS_TABLE = undefined;
+var SNIPPETS = '#snippets';
+var SNIPPETS_TABLE_WRAPPER = '#snippets-tables-wrapper';
+var SNIPPETS_TABLE = undefined;
 
 $(SNIPPETS).append(`<div id='${SNIPPETS_TABLE_WRAPPER.substr(1)}'></div>`);
 
@@ -257,7 +257,7 @@ stepheader('note-expressions2', 'Expressions2'); ?>
         </main>
     </body>
     <script type='text/javascript'>
-        let SIDENOTE = undefined;
+        var SIDENOTE = undefined;
         $(window).on('load', function() {
             SIDENOTE = new ReplSidenote(ORDERING);
             setupLinksToNotes(SIDENOTE);

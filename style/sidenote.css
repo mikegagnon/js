@@ -54,4 +54,5 @@
 .link-clicked {
     background-color: #FFDC00;
     color: black;
+    padding: 4px;
 }

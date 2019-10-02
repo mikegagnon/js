@@ -518,16 +518,34 @@ stepheader('note-types', 'Types'); ?>
 
 <? #############################################################################
 stepheader('note-strings', 'Strings'); ?>
+    <p>A <i>string</i> value is a sequence of characters. To define a string, just wrap a sequence of characters in quotes, like so: <code class="language-javascript">'Hello, World!'</code>. You can also use double quotes if you like. For instance: the string <code class="language-javascript">"Hello, World!"</code> is identical to
+    <code class="language-javascript">'Hello, World!'</code>.
+    </p>
 
-    <p>Every expression has a &ldquo;type.&rdquo; For instance, the value <code class="language-javascript">1</code> has the type &ldquo;number,&rdquo; and the expression <code class="language-javascript">(1 + 2) * 4</code> has the type &ldquo;number&rdquo; as well. In casual conversational programming terminology, we probably wouldn&rsquo;t say: &ldquo;the value <code class="language-javascript">1</code> has the type number.&rdquo; Rather, we would just say: &ldquo;<code class="language-javascript">1</code> is a number.&rdquo;
-            </p>
-
-
-    <p>So far we have only encountered the number type. In the next step though, <? steplink('step-strings') ?>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <a href="javascript:$$('step-types', 'step-bool')">Step <? echo $chapBool ?></a>, we will encounter the &ldquo;boolean&rdquo; type.</p>
-
+    <p>You can merge two strings together (i.e. <i>concatenate</i> two strings together), with the <code class="language-javascript">+</code> operator. For example, <code class="language-javascript">'Hello' + 'World!'</code> would resolve to <code class="language-javascript">'HelloWorld!'</code> . Try it out on the repl.
+    </p>
 <? stepoverview(); ?>
-todo
+    <code class="language-javascript no-left-margin">'Hello' + '_' + 'World!'</code> resolves to <code class="language-javascript">'Hello_World!'</code>
 <? stepfooter(); ?>
+
+<? #############################################################################
+substepheader('note-single-v-double', 'Single quotes vs. double quotes'); ?>
+    <p>You can use single quotes, or double quotes when defining strings in JavaScript.
+        They work pretty much the same way.
+    </p>
+
+    <p>Single quotes are nice because you don&rsquo;t need
+    to press the shift key.</p>
+
+    <p>Also, if you use single quotes, then you can include
+        double quotes in your string easily. For example, while <code class="language-javascript">'abc Hello 123'</code> resolves to the string <i style='white-space: nowrap;'>abc Hello 123</i>, the string <code class="language-javascript">'abc "Hello" 123'</code> resolves to the string <i style='white-space: nowrap;'>123 "Hello" 123</i>.
+    </p>
+
+    <p>Similarly, if you use double quotes, then you can include
+        single quotes in your string easily. For example, the string <code class="language-javascript">"abc 'Hello' 123"</code> resolves to the string <i style='white-space: nowrap;'>123 'Hello' 123</i>.
+    </p>
+<? substepfooter() ?>
+                    
 
 <? #############################################################################
 stepheader('note-bool', 'Boolean values and expressions'); ?>

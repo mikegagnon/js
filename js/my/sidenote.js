@@ -337,8 +337,9 @@ function () {
       for (var _i = 0; _i < stack.length; _i++) {
         var _linkId = parseInt(stack[_i]);
 
-        var columnSelector = "[data-column='".concat(_i, "']");
-        var linkSelector = "".concat(columnSelector, " [data-link-id='").concat(_linkId, "']");
+        var _columnSelector = "[data-column='".concat(_i, "']");
+
+        var linkSelector = "".concat(_columnSelector, " [data-link-id='").concat(_linkId, "']");
         var link = $(linkSelector)[0];
         var fromNoteName = findNoteName(link);
         var toNoteName = $(linkSelector).attr('href').substr(1);
@@ -347,7 +348,11 @@ function () {
         this.clickNoteLink(_i, fromNoteName, toNoteName, _linkId);
       }
 
-      $(window).scrollLeft(99999999);
+      var almostMaxColNumber = stack.length - 1;
+      var columnSelector = "[data-column='".concat(almostMaxColNumber, "']");
+      var left = parseInt($(columnSelector).css('left'));
+      console.log(left);
+      $(window).scrollLeft(left);
     }
   }]);
 

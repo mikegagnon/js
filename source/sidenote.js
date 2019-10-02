@@ -316,7 +316,11 @@ class Sidenote {
             this.clickNoteLink(i, fromNoteName, toNoteName, linkId);
         }
 
-        $(window).scrollLeft(99999999);
+        const almostMaxColNumber = stack.length - 1;
+        const columnSelector = `[data-column='${almostMaxColNumber}']`;
+        const left = parseInt($(columnSelector).css('left'));
+        console.log(left);
+        $(window).scrollLeft(left);
     }
 
 }

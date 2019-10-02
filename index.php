@@ -147,7 +147,8 @@ html;
             <div class='subtitle'>Volume 1</div>
             <div class='author'>Michael N. Gagnon, 2019</div>
         </div>
-
+        <div style="width: 9999px; height: 1px;">
+        </div>
         <div class='padded'>
             <h2>Preface</h2>
 

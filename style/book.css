@@ -189,3 +189,7 @@ a {
 a:hover {
     color: #0000ee;
 }
+
+.no-wrap {
+    white-space: nowrap;
+}

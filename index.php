@@ -572,8 +572,6 @@ stepheader('note-bool', 'Boolean values and expressions'); ?>
     <p>Similarly, a <i>boolean expression</i> is an expression that resolves to either <code class="language-javascript">true</code> or <code class="language-javascript">false</code>. For example, <code class="language-javascript">1 &lt; 2</code> is a boolean expression that resolves to <code class="language-javascript">true</code>, because <code class="language-javascript">1</code> is less than <code class="language-javascript">2</code>.</p>
 
     <p>As another example, <code class="language-javascript">1 &gt; 2</code> is a boolean expression that resolves to <code class="language-javascript">false</code>, because <code class="language-javascript">1</code> is not greater than <code class="language-javascript">2</code>.</p>
-
-
 <? stepoverview(); ?>
    <code class="language-javascript no-left-margin">1 < 2</code> resolves to <code class="language-javascript">true</code>, and <code class="language-javascript">1 > 2</code> resolves to <code class="language-javascript">false</code>
 <? stepfooter(); ?>
@@ -589,6 +587,124 @@ substepheader('note-bool-exercises', 'Exercises'); ?>
 <? substepfooter() ?>
 
 
+
+
+<? #############################################################################
+stepheader('note-compare', 'Relational operators'); ?>
+
+
+            <p>There are several &ldquo;relational operators&rdquo; that compare numeric values, and then resolve to boolean values. For example, the greater-than operator, <code class="language-javascript">&gt;</code>, is a relational operator that compares two numeric values, then resolves to a boolean value. To give a concrete example, when JavaScript executes <code class="language-javascript">1 &gt; 2</code>, it compares <code class="language-javascript">1</code> and <code class="language-javascript">2</code>, determines that <code class="language-javascript">1</code> is not actually greater than <code class="language-javascript">2</code>, so it resolves the expression to the value <code class="language-javascript">false</code>.</p>
+
+            <p>These comparison operators include: less-than, <code class="language-javascript">&lt;</code>, greater-than, <code class="language-javascript">&gt;</code>, less-than-or-equal-to, <code class="language-javascript">&lt;=</code>, and greater-than-or-equal-to<code class="language-javascript">&gt;=</code>.
+
+            <p>The following list explains how each of these operators behaves:</p>
+
+            <div class="table-format">
+            <table class="no-wrap">
+                <tr>
+                    <td>1. </td>
+                    <td><code class="language-javascript">a &lt; b</code>
+                    </td>
+                    <td>resolves to <code class="language-javascript">true</code> </td>
+                    <td>if <code class="language-javascript">a</code> is less than <code class="language-javascript">b</code></td>
+                </tr>
+                <tr>
+                    <td>2. </td>
+                    <td><code class="language-javascript">a &lt;= b</code></td>
+                    <td>resolves to <code class="language-javascript">true</code> </td>
+                    <td>if <code class="language-javascript">a</code> is less than or equal to <code class="language-javascript">b</code></td>
+                </tr>
+                <tr>
+                    <td>3. </td>
+                    <td><code class="language-javascript">a &gt; b</code> </td>
+                    <td> resolves to <code class="language-javascript">true</code> </td>
+                    <td>if <code class="language-javascript">a</code> is greater than <code class="language-javascript">b</code></td>
+                </tr>
+                <tr>
+                    <td>4. </td>
+                    <td><code class="language-javascript">a &gt;= b</code> </td>
+                    <td> resolves to <code class="language-javascript">true</code> </td>
+                    <td>if <code class="language-javascript">a</code> is greater than or equal to <code class="language-javascript">b</code></td>
+                </tr>
+            </table>
+            </div>
+
+            <p>In each of the above four behavior descriptions, the expression resolves to <code class="language-javascript">false</code> if the expression does not resolve to <code class="language-javascript">true</code>
+
+            <!--<p>Rather than tediously expounding upon the details of each of these operators, it&rsquo;s probably easier to understanding them by experimenting with a few exercises:</p>-->
+
+            <p>Here are a few examples of relational operators
+            in action:</p>
+
+            <div class="table-format">
+            <table class="no-wrap">
+                <tr>
+                    <td>1. </td>
+                    <td><code class="language-javascript">5 &lt; 4</code></td>
+                    <td>resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td>2. </td>
+                    <td><code class="language-javascript">5 &lt; 5</code></td>
+                    <td>resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td>3. </td>
+                    <td><code class="language-javascript">5 &lt; 6</code></td>
+                    <td>resolves to <code class="language-javascript">true</code></td>
+                </tr>
+                <tr>
+                    <td>4. </td>
+                    <td><code class="language-javascript">5 &gt; 4</code></td>
+                    <td>resolves to <code class="language-javascript">true</code></td>
+                </tr>
+                <tr>
+                    <td>5. </td>
+                    <td><code class="language-javascript">5 &gt; 5</code></td>
+                    <td>resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td>6. </td>
+                    <td><code class="language-javascript">5 &gt; 6</code></td>
+                    <td>resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td>7. </td>
+                    <td><code class="language-javascript">5 &lt;= 4</code></td>
+                    <td>resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td>8. </td>
+                    <td><code class="language-javascript">5 &lt;= 5</code></td>
+                    <td>resolves to <code class="language-javascript">true</code></td>
+                </tr>
+                <tr>
+                    <td>9. </td>
+                    <td><code class="language-javascript">5 &lt;= 6</code></td>
+                    <td>resolves to <code class="language-javascript">true</code></td>
+                </tr>
+                <tr>
+                    <td>10. </td>
+                    <td><code class="language-javascript">5 &gt;= 4</code></td>
+                    <td>resolves to <code class="language-javascript">true</code></td>
+                </tr>
+                <tr>
+                    <td>11. </td>
+                    <td><code class="language-javascript">5 &gt;= 5</code></td>
+                    <td>resolves to <code class="language-javascript">true</code></td>
+                </tr>
+                <tr>
+                    <td>12. </td>
+                    <td><code class="language-javascript">5 &gt;= 6</code></td>
+                    <td>resolves to <code class="language-javascript">false</code></td>
+                </tr>
+            </table>
+            </div>
+
+
+<? stepoverview(); ?>
+    <code class="language-javascript no-left-margin">5 <= 4</code> resolves to <code class="language-javascript">false</code>, and <code class="language-javascript">5 <= 5</code> resolves to <code class="language-javascript">true</code>
+<? stepfooter(); ?>
 
 <?
 ################################################################################

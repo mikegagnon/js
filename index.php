@@ -553,7 +553,18 @@ substepheader('note-single-v-double', 'Single quotes vs. double quotes'); ?>
         single quotes in your string easily. For example, the string <code class="language-javascript">"abc 'Hello' 123"</code> resolves to the string <i style='white-space: nowrap;'>123 'Hello' 123</i>.
     </p>
 <? substepfooter() ?>
-                    
+
+<? #############################################################################
+substepheader('note-str-num', 'Strings and numbers'); ?>
+    <p>When you add a string plus a number, the number gets converted to a string, and then the two strings are concatenated together. For example, <code class="language-javascript">'Hello' + 5</code> resolves to <code class="language-javascript">'Hello5'</code>
+    </p>
+
+
+
+    <p>When you multiply a string times a number, the result is <code class="language-javascript">NaN</code>. For example,
+        <code class="language-javascript">"Hello" * 5</code> resolves to <code class="language-javascript">NaN</code>
+    </p>
+<? substepfooter() ?>
 
 <? #############################################################################
 stepheader('note-bool', 'Boolean values and expressions'); ?>

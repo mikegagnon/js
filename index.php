@@ -29,11 +29,16 @@ function substepheader($noteName, $substepTitle) {
     global $stepNum;
     global $subStepNum;
     $subStepNum++;
-
+    $thisSubStepLink = "<p><a href=\"#$noteName\">Step $stepNum.$subStepNum. $substepTitle</a></p>";
     $text = <<<html
 <div class='padded note' data-note-name='$noteName'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
     <h2>Step $stepNum.$subStepNum. $substepTitle</h2>
+
+    <script>
+        $('[data-step-header="$stepNum"]')
+            .append('$thisSubStepLink');
+    </script>
 html;
 
     echo $text;
@@ -57,6 +62,7 @@ function stepoverview() {
     global $currentStepTitle;
 
     $text = <<<html
+    <div data-step-header='$stepNum'></div>
 </div>
 <script>
 ORDERING.push('$currentStepName');
@@ -236,28 +242,16 @@ stepheader('note-repl', 'Repl'); ?>
 stepheader('note-values', 'Numbers and values'); ?>
     <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
     The number <code class='language-javascript'>2</code> is also a value, and so is the number <code class='language-javascript'>105.72</code>, and so on. Every number is a value, but there are also values beyond just numbers, as we&rsquo;ll see quite often in later steps. For now, though, we&rsquo;ll just focus on number values.</p>
-
-    <? substepLink('note-values-exercises', 1, 'Exercises') ?>
-    <? substepLink('note-num-oddities',     2, 'Number oddities') ?>
-
-    <div data-step-header='<? echo $stepNum; ?>'></div>
-
 <? stepoverview(); ?>
     <code class="language-javascript no-left-margin">1</code>, <code class="language-javascript">2</code>, and <code class="language-javascript">105.72</code> are values
 <? stepfooter(); ?>
 
 <? #############################################################################
 substepheader('note-values-exercises', 'Exercises'); ?>
-
-    <script>
-        $('[data-step-header="' + <? echo $stepNum ?> + '"]')
-            .append('<? substepLink('note-values-exercises', 1, 'Exercises') ?> ');
-    </script>
-
     <ol>
-    <li>What happens if you execute <code class='language-javascript'>3.7</code>?</li>
-    <li>What happens if you execute <code class='language-javascript'>2938</code>?</li>
-    <li>What happens if you execute <code class='language-javascript'>7349902384908234</code>?</li>
+        <li>What happens if you execute <code class='language-javascript'>3.7</code>?</li>
+        <li>What happens if you execute <code class='language-javascript'>2938</code>?</li>
+        <li>What happens if you execute <code class='language-javascript'>7349902384908234</code>?</li>
     </ol>
 <? substepfooter(); ?>
 

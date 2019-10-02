@@ -178,6 +178,7 @@ function substepLink($noteName, $subStepNum, $noteTitle) {
             <p>
                 If you&rsquo;re inclined, feel free to enrich your understanding of JavaScript by diving deep into the sidenotes. Or, feel free to stay shallow, which is all you need for us to build a chess AI together.
             </p>
+
         </div>
 
         <h1 class='part-title'><a name='snippets'>Contents</a></h1>

@@ -368,7 +368,6 @@ function () {
       var almostMaxColNumber = stack.length - 1;
       var columnSelector = "[data-column='".concat(almostMaxColNumber, "']");
       var left = parseInt($(columnSelector).css('left'));
-      console.log(left);
       $(window).scrollLeft(left);
     }
   }]);

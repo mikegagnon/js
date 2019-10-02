@@ -712,10 +712,83 @@ substepheader('note-relational-non-strict', 'Type-converting relational operator
     <p>What&rsquo;s going on here is that if you compare a number and a string, using a relational operator, then JavaScript automatically converts the string to a number, and then performs the comparison.</p>
 
     <p>Because relational operators convert types automatically,
-        before comparison, they are also known as <i>type-converting relational operators</i>.</p>v
+        before comparison, they are also known as <i>type-converting relational operators</i>.</p>
 <? substepfooter() ?>
 
-                    
+<? #############################################################################
+stepheader('note-compare-precedence', 'Relational operator precedence'); ?>
+    <p>Numeric operators such as <code class="language-javascript">+</code> and <code class="language-javascript">*</code> have higher precedence than the relational operators. Thus, if JavaScript were to execute <code class="language-javascript">5 + 1 >= 7</code>, then JavaScript would perform the addition first (which resolves to <code class="language-javascript">6</code>), then it would compare <code class="language-javascript">6</code> and <code class="language-javascript">7</code>, which would cause the whole expression to resolve to <code class="language-javascript">false</code>, since <code class="language-javascript">6</code> is not greater than or equal to <code class="language-javascript">7</code>.</p>
+
+    <table class="precedence-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Parentheses</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Relational operators<br>
+            </td>
+            <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code></td>   
+        </tr>
+    </table>
+<? stepoverview(); ?>
+    <table class="precedence-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Parentheses</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Relational operators<br>
+            </td>
+            <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code></td>   
+        </tr>
+    </table>
+<? stepfooter(); ?>
+      
+<? #############################################################################
+substepheader('note-compare-p-exercises', 'Exercises'); ?>
+    <ol>
+        <li>What happens if you execute <code class="language-javascript">1/2 + 1/2 &gt;= 0.2 * 5</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">1/2 + 1/2 &lt;= 0.2 * 5 </code>?</li>
+        <li>What happens if you execute <code class="language-javascript">(0.5 + 0.5) * 5 > 1 + 100</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">(0.5 + 0.5) * 5 < 1 + 100</code>?</li>
+    </ol>
+<? substepfooter() ?>              
+
+
 
 <?
 ################################################################################

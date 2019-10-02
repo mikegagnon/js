@@ -922,10 +922,59 @@ substepheader('note-equality-non-strict', 'Type-converting equality operators');
 
     <p>There is only one other type-converting equality operator: the <code class="language-javascript">!=</code> operator. To demonstrate how it works: <code class="language-javascript">1 != '1'</code> resolves to <code class="language-javascript">false</code>, because the <code class="language-javascript">'1'</code> is converted to a number, and then JavaScript uses strict comparison and determines that <code class="language-javascript">1</code> and <code class="language-javascript">1</code> are equal, therefore <code class="language-javascript">1 != '1'</code> resolves to <code class="language-javascript">false</code>. In contrast, <code class="language-javascript">1 !== '1'</code>
         resolves to <code class="language-javascript">true</code>, simply because the values are of different types.</p>
-
 <? substepfooter() ?>
 
+<? #############################################################################
+stepheader('note-eq-precedence', 'Equality operator precedence'); ?>
+    <p>The equality operators have the lowest precedence we have
+    seen so far. Numeric operators such as <code class="language-javascript">+</code> and <code class="language-javascript">*</code> have higher precedence than the equality operators. Thus, if JavaScript where to execute <code class="language-javascript">1 + 3 * 2 === 7</code>, then JavaScript would perform the multiplication first (which resolves to <code class="language-javascript">6</code>), then it would add <code class="language-javascript">1</code> (which resolves to <code class="language-javascript">7</code>) then it would compare <code class="language-javascript">7</code> and <code class="language-javascript">7</code>, which would cause the whole expression to resolve to <code class="language-javascript">true</code>, since <code class="language-javascript">7</code> equals <code class="language-javascript">7</code>.</p>
 
+    <table class="precedence-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Parentheses</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Relational operators<br>
+            </td>
+            <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code></td>   
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Equality operators</td>
+            <td><code class="language-javascript">===</code>, <code class="language-javascript">!==</code> </td>   
+        </tr>
+    </table>
+<? stepoverview(); ?>
+    <code class="language-javascript no-left-margin">1 + 3 * 2 === 7</code> resolves to <code class="language-javascript">true</code>
+<? stepfooter(); ?>
+
+
+<? #############################################################################
+substepheader('note-eq-precedence-exercises', 'Exercises'); ?>
+    <ol>
+        <li>What happens if you execute <code class="language-javascript">1/2 + 1/2 === 0.2 * 5</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">'abc' + 'def' === 'abcdef'</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">(99 + 1) / 100 !== 1</code>?</li>
+    </ol>
+<? substepfooter() ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>
@@ -935,15 +984,19 @@ substepheader('note-equality-non-strict', 'Type-converting equality operators');
 
 <? #############################################################################
 stepheader('note-x', ''); ?>
+
 <? stepoverview(); ?>
+
 <? stepfooter(); ?>
 
 <? #############################################################################
 substepheader('note-y', ''); ?>
+
 <? substepfooter() ?>
 
 <? #############################################################################
 noteheader('note-z'); ?>
+
 <? notefooter(); ?>
 
 

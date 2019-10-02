@@ -25,6 +25,10 @@ html;
     echo $text;
 }
 
+function steplink($noteName) {
+    echo "<a href='#$noteName' data-link-to-step-name='$noteName'>Step</a>";
+}
+
 function substepheader($noteName, $substepTitle) {
     global $stepNum;
     global $subStepNum;
@@ -505,12 +509,26 @@ stepheader('note-types', 'Types'); ?>
     <p>Every expression has a &ldquo;type.&rdquo; For instance, the value <code class="language-javascript">1</code> has the type &ldquo;number,&rdquo; and the expression <code class="language-javascript">(1 + 2) * 4</code> has the type &ldquo;number&rdquo; as well. In casual conversational programming terminology, we probably wouldn&rsquo;t say: &ldquo;the value <code class="language-javascript">1</code> has the type number.&rdquo; Rather, we would just say: &ldquo;<code class="language-javascript">1</code> is a number.&rdquo;
             </p>
 
-    <p>So far we have only encountered the number type. In the next step though, <a href="javascript:$$('step-types', 'step-strings')">Step <? echo $chapStrings ?></a>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <a href="javascript:$$('step-types', 'step-bool')">Step <? echo $chapBool ?></a>, we will encounter the &ldquo;boolean&rdquo; type.</p>
+
+    <p>So far we have only encountered the number type. In the next step though, <? steplink('step-strings') ?>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <a href="javascript:$$('step-types', 'step-bool')">Step <? echo $chapBool ?></a>, we will encounter the &ldquo;boolean&rdquo; type.</p>
 
 <? stepoverview(); ?>
 todo
 <? stepfooter(); ?>
 
+
+<?
+    global $stepNum;
+    global $currentStepName;
+
+    $currentStepName = 'step-strings';
+    $stepNum = 97;
+    echo <<<html
+<script>
+    $('[data-link-to-step-name="$currentStepName"]').html('Step $stepNum');
+</script>
+html
+?>
 
 <?
 ################################################################################

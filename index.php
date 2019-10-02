@@ -559,8 +559,6 @@ substepheader('note-str-num', 'Strings and numbers'); ?>
     <p>When you add a string plus a number, the number gets converted to a string, and then the two strings are concatenated together. For example, <code class="language-javascript">'Hello' + 5</code> resolves to <code class="language-javascript">'Hello5'</code>
     </p>
 
-
-
     <p>When you multiply a string times a number, the result is <code class="language-javascript">NaN</code>. For example,
         <code class="language-javascript">"Hello" * 5</code> resolves to <code class="language-javascript">NaN</code>
     </p>
@@ -569,16 +567,26 @@ substepheader('note-str-num', 'Strings and numbers'); ?>
 <? #############################################################################
 stepheader('note-bool', 'Boolean values and expressions'); ?>
 
-    <p>Every expression has a &ldquo;type.&rdquo; For instance, the value <code class="language-javascript">1</code> has the type &ldquo;number,&rdquo; and the expression <code class="language-javascript">(1 + 2) * 4</code> has the type &ldquo;number&rdquo; as well. In casual conversational programming terminology, we probably wouldn&rsquo;t say: &ldquo;the value <code class="language-javascript">1</code> has the type number.&rdquo; Rather, we would just say: &ldquo;<code class="language-javascript">1</code> is a number.&rdquo;
-            </p>
+    <p>A <i>boolean value </i>is a value that is either <code class="language-javascript">true</code> or <code class="language-javascript">false</code> (<code class="language-javascript">true</code> and <code class="language-javascript">false</code> are values of type <code class="language-javascript">boolean</code>).</p>
 
+    <p>Similarly, a <i>boolean expression</i> is an expression that resolves to either <code class="language-javascript">true</code> or <code class="language-javascript">false</code>. For example, <code class="language-javascript">1 &lt; 2</code> is a boolean expression that resolves to <code class="language-javascript">true</code>, because <code class="language-javascript">1</code> is less than <code class="language-javascript">2</code>.</p>
 
-    <p>So far we have only encountered the number type. In the next step though, <? steplink('step-strings') ?>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <a href="javascript:$$('step-types', 'step-bool')">Step <? echo $chapBool ?></a>, we will encounter the &ldquo;boolean&rdquo; type.</p>
+    <p>As another example, <code class="language-javascript">1 &gt; 2</code> is a boolean expression that resolves to <code class="language-javascript">false</code>, because <code class="language-javascript">1</code> is not greater than <code class="language-javascript">2</code>.</p>
+
 
 <? stepoverview(); ?>
-todo
+   <code class="language-javascript no-left-margin">1 < 2</code> resolves to <code class="language-javascript">true</code>, and <code class="language-javascript">1 > 2</code> resolves to <code class="language-javascript">false</code>
 <? stepfooter(); ?>
 
+<? #############################################################################
+substepheader('note-bool-exercises', 'Exercises'); ?>
+    <ol>
+        <li>What happens if you execute <code class="language-javascript">true</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">false</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">1 &lt; 2</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">1 &gt; 2</code>?</li>
+    </ol>
+<? substepfooter() ?>
 
 
 

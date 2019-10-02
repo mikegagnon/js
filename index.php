@@ -6,6 +6,18 @@ $subStepNum = null;
 $currentStepName = null;
 $currentStepTitle = null;
 
+function pre($body) {
+    echo prestr($body);
+}
+
+function prestr($body) {
+    $trimmed = trim($body);
+    $text = <<<html
+<pre class="language-javascript prejs"><code>$trimmed</code></pre>
+html;
+    return $text;
+}
+
 function stepheader($stepName, $stepTitle) {
     global $stepNum;
     global $currentStepName;
@@ -1031,8 +1043,142 @@ stepheader('note-and', 'The <i>and</i> operator'); ?>
     </div>
 <? stepoverview(); ?>
     <code class="language-javascript no-left-margin">true &amp;&amp; false</code> resolves to <code class="language-javascript">false</code>
-
 <? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-and-precedence', 'And operator precedence'); ?>
+        <p>The <i>and</i> operator has the lowest precedence we 
+        have seen yet. This means that all other operations we have seen thus
+        far have a higher precedence, thus you do not need to put parentheses
+        around comparison expressions (etc.) when writing expressions using the <i>and</i> operator.</p>
+
+            <table class="precedence-table">
+                    <tr class="header-row">
+                        <th>Precedence</th>
+                        <th>Operator type</th>
+                        <th>Operators</th>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Parentheses</td>
+                        <td><code class="language-javascript">( ... )</code></td>   
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Multiplication and division</td>
+                        <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Addition and subtraction</td>
+                        <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Relational operators<br>
+                        </td>
+                        <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Equality operators</td>
+                        <td><code class="language-javascript">===</code>, <code class="language-javascript">!==</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>And</td>
+                        <td><code class="language-javascript">&amp;&amp;</code></td>   
+                    </tr>
+            </table>
+
+            <p>It is common to combine relational and equality operators with the <i>and</i> operator. Relational and equality operators have a higher precedence than the <i>and</i> operator. For example:</p>
+
+
+            <p>TODO: Turn these into exercises?</p>
+            <p>TODO: Non-numeric examples?</p>
+            <div class="table-format">
+            <table>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">1 &lt; 2 &amp;&amp; 3 &lt; 4</code></td>
+                    <td class="no-wrap" valign="top">resolves to <code class="language-javascript">true</code>
+                    </td>
+                    <td>
+                    <a href="#note-and1">Note</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">1 < 2 &amp;&amp; false</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">false</code>
+                    </td>
+                    <td>
+                        <a href="#note-and2">Note</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="no-wrap" valign="top">
+                        <code class="language-javascript">'A' + 'B' === 'AB' &amp;&amp; 1 === 100</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">false</code>
+                    </td>
+                    <td>
+                        <a href="#note-and3">Note</a>
+                    </td>
+                    
+                </tr>
+            </table>
+            </div>
+<? stepoverview(); ?>
+    <code class="language-javascript no-left-margin">1 &lt; 2 &amp;&amp; 3 &lt; 4</code> resolves to <code class="language-javascript">true</code>
+<? stepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-and1'); ?>
+    <p>
+    <code class="language-javascript">1 &lt; 2 &amp;&amp; 3 &lt; 4</code>
+    resolves to <code class="language-javascript">true</code>, because:</p>
+    <ul>
+        <li><code class="language-javascript">&lt;</code> has higher precedence than <code class="language-javascript">&amp;&amp;</code></li>
+        <li>Therefore, when JavaScript adds parentheses, the expression becomes <code class="language-javascript">(1 &lt; 2) &amp;&amp; (3 &lt; 4)</code></li>
+        <li>Next, Javascript resolves <code class="language-javascript">(1 &lt; 2)</code> to <code class="language-javascript">true</code>, and resolves <code class="language-javascript">(3 &lt; 4)</code> to <code class="language-javascript">true</code></li>
+        <li>Therefore, the expression becomes <code class="language-javascript">true &amp;&amp; true</code>, which resolves to <code class="language-javascript">true</code>
+    </ul>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-and2'); ?>
+    <p>
+        <code class="language-javascript">1 < 2 &amp;&amp; false</code>
+        resolves to <code class="language-javascript">false</code>, because:</p>
+    <ul>
+        <li><code class="language-javascript">&lt;</code> has higher precedence than <code class="language-javascript">&amp;&amp;</code></li>
+        <li>Therefore, when JavaScript adds parentheses, the expression becomes <code class="language-javascript">(1 &lt; 2) &amp;&amp; false</code></li>
+        <li>Next, Javascript resolves <code class="language-javascript">(1 &lt; 2)</code> to <code class="language-javascript">true</code></li>
+        <li>Therefore, the expression becomes <code class="language-javascript">true &amp;&amp; false</code>, which resolves to <code class="language-javascript">false</code>
+    </ul>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-and3'); ?>
+    <p>
+        <code class="language-javascript">'A' + 'B' === 'AB' &amp;&amp; 1 == 100</code>
+        resolves to <code class="language-javascript">false</code>, because:</p>
+    </p>
+
+    <ul>
+        <li>The <code class="language-javascript">+</code> operator has the highest precedence within this expression</li>
+        <li>Therefore, the expression becomes <code class="language-javascript">('A' + 'B') === 'AB' &amp;&amp; 1 == 100</code></li>
+        <li>Next, the <code class="language-javascript">===</code> operator has the next highest precedence within this expression</li>
+        <li>Therefore, the expression becomes <code class="language-javascript">(('A' + 'B') === 'AB') &amp;&amp; (1 == 100)</code></li>
+        <li>Then, JavaScript resolves <code class="language-javascript">('A' + 'B') === 'AB'</code> to <code class="language-javascript">true</code>, and resolves <code class="language-javascript">(1 == 100)</code> to <code class="language-javascript">false</code></li>
+        <li>Finally, the expression becomes <code class="language-javascript">true &amp;&amp; false</code>, which resolves to <code class="language-javascript">false</code></li>
+            
+   
+    </ul>
+<? notefooter(); ?>
+
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

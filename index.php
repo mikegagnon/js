@@ -30,6 +30,10 @@ function steplink($noteName) {
     echo "<a href='#$noteName' data-link-to-step-name='$noteName'>Step</a>";
 }
 
+function substepref($parent, $noteName, $substepNum) {
+    echo "<a href='#$noteName' data-link-to-step-name='$parent' data-substep-num='$substepNum'>SubStep</a>";
+}
+
 function substepheader($noteName, $substepTitle) {
     global $stepNum;
     global $subStepNum;
@@ -717,7 +721,7 @@ substepheader('note-relational-non-strict', 'Type-converting relational operator
 
 <? #############################################################################
 stepheader('note-compare-precedence', 'Relational operator precedence'); ?>
-    <p>Numeric operators such as <code class="language-javascript">+</code> and <code class="language-javascript">*</code> have higher precedence than the relational operators. Thus, if JavaScript were to execute <code class="language-javascript">5 + 1 >= 7</code>, then JavaScript would perform the addition first (which resolves to <code class="language-javascript">6</code>), then it would compare <code class="language-javascript">6</code> and <code class="language-javascript">7</code>, which would cause the whole expression to resolve to <code class="language-javascript">false</code>, since <code class="language-javascript">6</code> is not greater than or equal to <code class="language-javascript">7</code>.</p>
+    <p>Numeric operators such as <code class="language-javascript">+</code> and <code class="language-javascript">*</code> have higher precedence than the relational operators. Thus, if JavaScript were to execute <code class="language-javascript">7 <= 5 + 1</code>, then JavaScript would perform the addition first (which resolves to <code class="language-javascript">6</code>), then it would compare <code class="language-javascript">7</code> and <code class="language-javascript">6</code>, which would cause the whole expression to resolve to <code class="language-javascript">false</code>, since <code class="language-javascript">6</code> is not greater than or equal to <code class="language-javascript">7</code>.</p>
 
     <table class="precedence-table">
         <tr class="header-row">
@@ -748,34 +752,7 @@ stepheader('note-compare-precedence', 'Relational operator precedence'); ?>
         </tr>
     </table>
 <? stepoverview(); ?>
-    <table class="precedence-table">
-        <tr class="header-row">
-            <th>Precedence</th>
-            <th>Operator type</th>
-            <th>Operators</th>
-        </tr>
-        <tr>
-            <td>19</td>
-            <td>Parentheses</td>
-            <td><code class="language-javascript">( ... )</code></td>   
-        </tr>
-        <tr>
-            <td>14</td>
-            <td>Multiplication and division</td>
-            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
-        </tr>
-        <tr>
-            <td>13</td>
-            <td>Addition and subtraction</td>
-            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
-        </tr>
-        <tr>
-            <td>11</td>
-            <td>Relational operators<br>
-            </td>
-            <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code></td>   
-        </tr>
-    </table>
+    <code class="language-javascript no-left-margin">7 <= 5 + 1</code> resolves to <code class="language-javascript">false</code>
 <? stepfooter(); ?>
       
 <? #############################################################################
@@ -788,6 +765,166 @@ substepheader('note-compare-p-exercises', 'Exercises'); ?>
     </ol>
 <? substepfooter() ?>              
 
+<? #############################################################################
+stepheader('note-equality', 'Equality operators'); ?>
+
+    <p>There are several &ldquo;equality operators&rdquo; that compare values (numeric values and other types of values), and then resolve to boolean values. For example, the &ldquo;strict equality operator,&rdquo; <code class="language-javascript">===</code>, compares two values, then resolves to a boolean value. To give a concrete example,
+    when JavaScript executes <code class="language-javascript">1 === 2</code> it compares <code class="language-javascript">1</code> and <code class="language-javascript">2</code> and determines that they are not the same value, so it resolves the expression to <code class="language-javascript">false</code>.
+    </p>
+
+    <p>The equality operators include strict equality, <code class="language-javascript">===</code>, and strict inequality, <code class="language-javascript">!==</code>.</p>
+
+    <p>The following list explains how each of these operators behaves:</p>
+
+    <div class="table-format">
+    <table class="no-wrap">
+        <tr>
+            <td>1. </td>
+            <td><code class="language-javascript">a === b</code> </td>
+            <td> resolves to <code class="language-javascript">true</code> </td>
+            <td>if <code class="language-javascript">a</code> is equal to <code class="language-javascript">b</code></td>
+        </tr>
+        <tr>
+            <td>2. </td>
+            <td><code class="language-javascript">a !== b</code></td>
+            <td> resolves to <code class="language-javascript">true</code> </td>
+            <td> if <code class="language-javascript">a</code> is NOT  equal to <code class="language-javascript">b</code></td>
+        </tr>
+    </table>
+    </div>
+
+    <p>In each of the above two behavior descriptions, the expression resolves to <code class="language-javascript">false</code> if the expression does not resolve to <code class="language-javascript">true</code>.</p>
+
+    <p>Here are a few examples of equality operators in action, comparing numeric values:</p>
+    <div class="table-format">
+    <table>
+        <tr>
+            <td>1. </td>
+            <td><code class="language-javascript">5 === 4</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+        <tr>
+            <td>2. </td>
+            <td><code class="language-javascript">5 === 5</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>3. </td>
+            <td><code class="language-javascript">5 === 6</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+        <tr>
+            <td>4. </td>
+            <td><code class="language-javascript">5 !== 4</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>5. </td>
+            <td><code class="language-javascript">5 !== 5</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+        <tr>
+            <td>6. </td>
+            <td><code class="language-javascript">5 !== 6</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+    </table>
+    </div>
+
+    <p>Here are a few more examples of equality operators in action, this time using boolean values:</p>
+    <div class="table-format">
+    <table>
+        <tr>
+            <td>1. </td>
+            <td><code class="language-javascript">true === true</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>2. </td>
+            <td><code class="language-javascript">true === false</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+        <tr>
+            <td>3. </td>
+            <td><code class="language-javascript">false === false</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>4. </td>
+            <td><code class="language-javascript">true !== false</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>5. </td>
+            <td><code class="language-javascript">true !== true</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+        <tr>
+            <td>6. </td>
+            <td><code class="language-javascript">false !== false</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+    </table>
+    </div>
+
+    <p>Here are yet some more examples of equality operators in action, this time using string values:</p>
+    <div class="table-format">
+    <table>
+        <tr>
+            <td>1. </td>
+            <td><code class="language-javascript">'abc' === 'abc'</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>2. </td>
+            <td><code class="language-javascript">'abc' === "abc"</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>3. </td>
+            <td><code class="language-javascript">'abc' === 'ab'</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+        <tr>
+            <td>4. </td>
+            <td><code class="language-javascript">'abc' !== 'ab'</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>5. </td>
+            <td><code class="language-javascript">'abc' !== 'abc'</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+    </table>
+    </div>
+<? stepoverview(); ?>
+    <code class="language-javascript">5 === 5</code> resolves to <code class="language-javascript">true</code>
+<? stepfooter(); ?>
+
+<? #############################################################################
+substepheader('note-comparison-oddities', 'Equality oddity'); ?>
+    <p>In previous sidenotes (<? substepref('note-values', 'note-num-oddities', 2); ?> and <? substepref('note-binary', 'note-bonus-arithmetic', 2); ?>) we encountered the value of <code class="language-javascript">NaN</code>. You might expect <code class="language-javascript">NaN === NaN</code> to resolve to <code class="language-javascript">true</code>, but it actually resolves to <code class="language-javascript">false</code>.</p>
+<? substepfooter() ?>
+
+
+<? ########################################################################## ?>
+<? ########################################################################## ?>
+<? ############################ COPY AREA #################################### ?>
+<? ########################################################################## ?>
+<? ########################################################################## ?>
+
+<? #############################################################################
+stepheader('note-x', ''); ?>
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+substepheader('note-y', ''); ?>
+<? substepfooter() ?>
+
+<? #############################################################################
+noteheader('note-z'); ?>
+<? notefooter(); ?>
 
 
 <?
@@ -806,8 +943,16 @@ partheader('Variables and if statements'); #####################################
 // For each steplink(), fill in the step number
 for (var i = 0; i < ORDERING.length; i++) {
     var stepName = ORDERING[i];
-    var stepNum = i + 1;   
-    $('[data-link-to-step-name="' + stepName + '"]').html('Step ' + stepNum);
+    var stepNum = i + 1;
+    $('[data-link-to-step-name="' + stepName + '"]')
+        .each(function(i, elem){
+            var substepNum = $(elem).data('substep-num');
+            if (substepNum) {
+                $(elem).html('Step ' + stepNum + '.' + substepNum);
+            } else {
+                $(elem).html('Step ' + stepNum);
+            }
+        })
 }
 </script>
 

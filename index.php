@@ -529,6 +529,14 @@ stepheader('note-strings', 'Strings'); ?>
 <? stepfooter(); ?>
 
 <? #############################################################################
+substepheader('note-strings-exercises', 'Exercises'); ?>
+    <ol>
+        <li>What happens if you execute <code class="language-javascript">'Hello' + '_' + 'World!'</code>?</li>
+        <li>TODO: more exercises</li>
+    </ol>
+<? substepfooter() ?>
+
+<? #############################################################################
 substepheader('note-single-v-double', 'Single quotes vs. double quotes'); ?>
     <p>You can use single quotes, or double quotes when defining strings in JavaScript.
         They work pretty much the same way.

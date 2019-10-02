@@ -1093,9 +1093,6 @@ stepheader('note-and-precedence', 'And operator precedence'); ?>
 
             <p>It is common to combine relational and equality operators with the <i>and</i> operator. Relational and equality operators have a higher precedence than the <i>and</i> operator. For example:</p>
 
-
-            <p>TODO: Turn these into exercises?</p>
-            <p>TODO: Non-numeric examples?</p>
             <div class="table-format">
             <table>
                 <tr>

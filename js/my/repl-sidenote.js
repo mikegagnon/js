@@ -93,6 +93,11 @@ function (_Sidenote) {
         $("#".concat(THIS.replConsoleWrapperId)).css('top', top);
       });
     }
+  }, {
+    key: "columnsWidth",
+    value: function columnsWidth(newColumnNumber) {
+      return _get(_getPrototypeOf(ReplSidenote.prototype), "columnsWidth", this).call(this, newColumnNumber) + parseInt($("#".concat(this.replConsoleWrapperId)).css('width')) + 50;
+    }
   }]);
 
   return ReplSidenote;

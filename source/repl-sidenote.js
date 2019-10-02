@@ -42,4 +42,8 @@ class ReplSidenote extends Sidenote {
             $(`#${THIS.replConsoleWrapperId}`).css('top', top);
         });
     }
+
+    columnsWidth(newColumnNumber) {
+        return super.columnsWidth(newColumnNumber) + parseInt($(`#${this.replConsoleWrapperId}`).css('width')) + 50;
+    }
 }

@@ -74,12 +74,27 @@ class Sidenote {
         this.linkstack.push(linkId);
         this.updateUrl();
         this.highlightLink(fromColumnNumber, linkId);
+        this.spacer(newColumnNumber);
         if (this.setup.autoExpand) {
             const columnSelector = `[data-column='${newColumnNumber}']`;
             const newNoteSelector = `${columnSelector} [data-note-name='${toNoteName}']`;
             $(newNoteSelector + ' h2').addClass('expanded')
             this.expand(toNoteName, newColumnNumber);
         }
+    }
+
+    columnsWidth(newColumnNumber) {
+        const columnSelector = `[data-column='${newColumnNumber}']`;
+        const left = parseInt($(columnSelector).css('left'));
+        const columnWidth = parseInt($(columnSelector).css('width'));
+        return left + columnWidth;
+    }
+
+    spacer(newColumnNumber) {
+        const colsWidth = this.columnsWidth(newColumnNumber);
+        const spacerWidth = parseInt($("#spacer").css('width'));
+        const width = Math.max(spacerWidth, colsWidth);
+        $("#spacer").css('width', width);
     }
 
     updateUrl() {

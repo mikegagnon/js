@@ -91,6 +91,7 @@ function () {
       this.linkstack.push(linkId);
       this.updateUrl();
       this.highlightLink(fromColumnNumber, linkId);
+      this.spacer(newColumnNumber);
 
       if (this.setup.autoExpand) {
         var columnSelector = "[data-column='".concat(newColumnNumber, "']");
@@ -98,6 +99,22 @@ function () {
         $(newNoteSelector + ' h2').addClass('expanded');
         this.expand(toNoteName, newColumnNumber);
       }
+    }
+  }, {
+    key: "columnsWidth",
+    value: function columnsWidth(newColumnNumber) {
+      var columnSelector = "[data-column='".concat(newColumnNumber, "']");
+      var left = parseInt($(columnSelector).css('left'));
+      var columnWidth = parseInt($(columnSelector).css('width'));
+      return left + columnWidth;
+    }
+  }, {
+    key: "spacer",
+    value: function spacer(newColumnNumber) {
+      var colsWidth = this.columnsWidth(newColumnNumber);
+      var spacerWidth = parseInt($("#spacer").css('width'));
+      var width = Math.max(spacerWidth, colsWidth);
+      $("#spacer").css('width', width);
     }
   }, {
     key: "updateUrl",

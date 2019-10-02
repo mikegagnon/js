@@ -111,7 +111,7 @@ html;
 
 function substepLink($noteName, $subStepNum, $noteTitle) {
     global $stepNum;
-    echo "<p><a href='#$noteName'>Step $stepNum.$subStepNum. $noteTitle</a></p>";
+    echo "<p><a href=\"#$noteName\">Step $stepNum.$subStepNum. $noteTitle</a></p>";
 }
 
 ?><!doctype html>
@@ -240,12 +240,20 @@ stepheader('note-values', 'Numbers and values'); ?>
     <? substepLink('note-values-exercises', 1, 'Exercises') ?>
     <? substepLink('note-num-oddities',     2, 'Number oddities') ?>
 
+    <div data-step-header='<? echo $stepNum; ?>'></div>
+
 <? stepoverview(); ?>
     <code class="language-javascript no-left-margin">1</code>, <code class="language-javascript">2</code>, and <code class="language-javascript">105.72</code> are values
 <? stepfooter(); ?>
 
 <? #############################################################################
 substepheader('note-values-exercises', 'Exercises'); ?>
+
+    <script>
+        $('[data-step-header="' + <? echo $stepNum ?> + '"]')
+            .append('<? substepLink('note-values-exercises', 1, 'Exercises') ?> ');
+    </script>
+
     <ol>
     <li>What happens if you execute <code class='language-javascript'>3.7</code>?</li>
     <li>What happens if you execute <code class='language-javascript'>2938</code>?</li>

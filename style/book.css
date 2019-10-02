@@ -185,3 +185,7 @@ li {
 a { 
     color: #0000ee;
 }
+
+a:hover {
+    color: #0000ee;
+}

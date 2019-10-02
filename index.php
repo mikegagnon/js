@@ -906,6 +906,26 @@ substepheader('note-comparison-oddities', 'Equality oddity'); ?>
     <p>In previous sidenotes (<? substepref('note-values', 'note-num-oddities', 2); ?> and <? substepref('note-binary', 'note-bonus-arithmetic', 2); ?>) we encountered the value of <code class="language-javascript">NaN</code>. You might expect <code class="language-javascript">NaN === NaN</code> to resolve to <code class="language-javascript">true</code>, but it actually resolves to <code class="language-javascript">false</code>.</p>
 <? substepfooter() ?>
 
+<? #############################################################################
+substepheader('note-equality-non-strict', 'Type-converting equality operators'); ?>
+
+    <p>As you might expect, the expression <code class="language-javascript">8 === '8'</code> resolves to <code class="language-javascript">false</code>, because <code class="language-javascript">8</code> and <code class="language-javascript">'8'</code> are different values: one is a number, and the other is a string.</p>
+
+    <p> The <code class="language-javascript">===</code> operator is known as a &ldquo;strict equality operator,&rdquo; because it is strict in the sense that: the values must be
+    of the same type for the values to be considered equal.
+    </p>
+
+    <p>But, there are also non-strict equality operators, known
+    as &ldquo;type-converting equality operators.&rdquo; These operators convert the left-value and the right-value to the same type, and only then does JavaScript perform the comparison.</p>
+
+    <p>For example, the <code class="language-javascript">==</code> operator is a type-converting equality operator. The expression <code class="language-javascript">8 == '8'</code> resolves to <code class="language-javascript">true</code>, even though <code class="language-javascript">8</code> is a number, and <code class="language-javascript">'8'</code> is a string, because JavaScript converts the string to a number, and only then performs a strict comparison.</p>
+
+    <p>There is only one other type-converting equality operator: the <code class="language-javascript">!=</code> operator. To demonstrate how it works: <code class="language-javascript">1 != '1'</code> resolves to <code class="language-javascript">false</code>, because the <code class="language-javascript">'1'</code> is converted to a number, and then JavaScript uses strict comparison and determines that <code class="language-javascript">1</code> and <code class="language-javascript">1</code> are equal, therefore <code class="language-javascript">1 != '1'</code> resolves to <code class="language-javascript">false</code>. In contrast, <code class="language-javascript">1 !== '1'</code>
+        resolves to <code class="language-javascript">true</code>, simply because the values are of different types.</p>
+
+<? substepfooter() ?>
+
+
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

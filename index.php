@@ -29,7 +29,7 @@ function substepheader($noteName, $substepTitle) {
     global $stepNum;
     global $subStepNum;
     $subStepNum++;
-    $thisSubStepLink = "<p><a href=\"#$noteName\">Step $stepNum.$subStepNum. $substepTitle</a></p>";
+    $thisSubStepLink = "<li><a href=\"#$noteName\">Step $stepNum.$subStepNum. $substepTitle</a></li>";
     $text = <<<html
 <div class='padded note' data-note-name='$noteName'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
@@ -62,7 +62,7 @@ function stepoverview() {
     global $currentStepTitle;
 
     $text = <<<html
-    <div data-step-header='$stepNum'></div>
+    <ul data-step-header='$stepNum'></ul>
 </div>
 <script>
 ORDERING.push('$currentStepName');

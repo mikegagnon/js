@@ -17,9 +17,6 @@ function stepheader($stepName, $stepTitle) {
     $stepNum++;
     $subStepNum = 0;
     $text = <<<html
-<script>
-    $('[data-link-to-step-name="$currentStepName"]').html('Step $stepNum');
-</script>
 <div class='padded note' data-note-name='$stepName'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
     <h2>Step $stepNum. $stepTitle</h2>
@@ -29,7 +26,7 @@ html;
 }
 
 // Only works if $noteName is defined later on (not before)
-function stepaheadlink($noteName) {
+function steplink($noteName) {
     echo "<a href='#$noteName' data-link-to-step-name='$noteName'>Step</a>";
 }
 
@@ -513,8 +510,7 @@ stepheader('note-types', 'Types'); ?>
     <p>Every expression has a &ldquo;type.&rdquo; For instance, the value <code class="language-javascript">1</code> has the type &ldquo;number,&rdquo; and the expression <code class="language-javascript">(1 + 2) * 4</code> has the type &ldquo;number&rdquo; as well. In casual conversational programming terminology, we probably wouldn&rsquo;t say: &ldquo;the value <code class="language-javascript">1</code> has the type number.&rdquo; Rather, we would just say: &ldquo;<code class="language-javascript">1</code> is a number.&rdquo;
             </p>
 
-
-    <p>So far we have only encountered the number type. In the next step though, <? stepaheadlink('note-strings') ?>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <? stepaheadlink('note-bool') ?>, we will encounter the &ldquo;boolean&rdquo; type.</p>
+    <p>So far, we have only encountered the number type. In the next step though, <? steplink('note-strings') ?>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <? steplink('note-bool') ?>, we will encounter the &ldquo;boolean&rdquo; type.</p>
 
 <? stepoverview(); ?>
 todo
@@ -527,7 +523,7 @@ stepheader('note-strings', 'Strings'); ?>
             </p>
 
 
-    <p>So far we have only encountered the number type. In the next step though, <? stepaheadlink('step-strings') ?>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <a href="javascript:$$('step-types', 'step-bool')">Step <? echo $chapBool ?></a>, we will encounter the &ldquo;boolean&rdquo; type.</p>
+    <p>So far we have only encountered the number type. In the next step though, <? steplink('step-strings') ?>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <a href="javascript:$$('step-types', 'step-bool')">Step <? echo $chapBool ?></a>, we will encounter the &ldquo;boolean&rdquo; type.</p>
 
 <? stepoverview(); ?>
 todo
@@ -540,7 +536,7 @@ stepheader('note-bool', 'Boolean values and expressions'); ?>
             </p>
 
 
-    <p>So far we have only encountered the number type. In the next step though, <? stepaheadlink('step-strings') ?>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <a href="javascript:$$('step-types', 'step-bool')">Step <? echo $chapBool ?></a>, we will encounter the &ldquo;boolean&rdquo; type.</p>
+    <p>So far we have only encountered the number type. In the next step though, <? steplink('step-strings') ?>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <a href="javascript:$$('step-types', 'step-bool')">Step <? echo $chapBool ?></a>, we will encounter the &ldquo;boolean&rdquo; type.</p>
 
 <? stepoverview(); ?>
 todo
@@ -560,6 +556,15 @@ partheader('Variables and if statements'); #####################################
 # END ##########################################################################
 ################################################################################
 ?>
+
+<script>
+// For each steplink(), fill in the step number
+for (var i = 0; i < ORDERING.length; i++) {
+    var stepName = ORDERING[i];
+    var stepNum = i + 1;   
+    $('[data-link-to-step-name="' + stepName + '"]').html('Step ' + stepNum);
+}
+</script>
 
 </div> <!-- end #staging-area -->
         </main>

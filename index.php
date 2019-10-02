@@ -472,7 +472,7 @@ stepheader('note-ptable', 'Precedence tables'); ?>
                     </tr>
             </table>
 
-            <p>Throughout this guidebook, we will encounter many different types of operators. Whenever I introduce a new operator, I present a new precedence table that shows the precedence of the new operator, relative
+            <p>Throughout this book, we will encounter many different types of operators. Whenever I introduce a new operator, I present a new precedence table that shows the precedence of the new operator, relative
             to the operators we have already seen.</p>
 
             <p>I don&rsquo;t think you will need to explicitly memorize the operator precedence tables. Rather, I suspect you will be able to cultivate an intuitive understanding of operator precedence from studying and understanding examples and exercises.</p>

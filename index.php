@@ -976,9 +976,67 @@ substepheader('note-eq-precedence-exercises', 'Exercises'); ?>
     </ol>
 <? substepfooter() ?>
 
+<? #############################################################################
+stepheader('note-and', 'The <i>and</i> operator'); ?>
+    <p>Imagine someone says: &ldquo;It&rsquo;s raining <i>and</i> it&rsquo;s Thursday.&rdquo; That statement is <i>true,</i> if it is actually raining, <i>and</i> if today is actually Thursday. If it is not raining, and/or today is not Thursday, then the statement is <i>false</i>.</p>
+
+    <p>In JavaScript, the <i>and</i> operator, <code class="language-javascript">&amp;&amp;</code>, operates in the exact same way.
+    The <code class="language-javascript">&amp;&amp;</code> operator compares the values of two boolean expressions, and resolves to a boolean value: either <code class="language-javascript">true</code> or  <code class="language-javascript">false</code>.
+    </p>
+
+    <p>To be more concrete about how the <code class="language-javascript">&amp;&amp;</code> operator works, lets say JavaScript is resolving the expression <code class="language-javascript">a &amp;&amp; b</code> (where <code class="language-javascript">a</code> and <code class="language-javascript">b</code> are boolean expressions):</p>
+
+    <ul>
+    <li><code class="language-javascript">a &amp;&amp; b</code> resolves to <code class="language-javascript">true</code> if both <code class="language-javascript">a</code> and <code class="language-javascript">b</code> each resolve to <code class="language-javascript">true</code>
+    </li>
+    <li>But, if either <code class="language-javascript">a</code> and/or <code class="language-javascript">b</code> resolve to <code class="language-javascript">false</code>, then the expression <code class="language-javascript">a &amp;&amp; b</code> resolves to <code class="language-javascript">false</code></li>
+    </ul>
+
+    <p>For example:</p>
+    <div class="table-format">
+    <table>
+        <tr>
+            <td>
+                <code class="language-javascript">true&nbsp;&nbsp;&amp;&amp; true</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">true</code>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                <code class="language-javascript">false&nbsp;&amp;&amp; true</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">false</code>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                <code class="language-javascript">true&nbsp;&nbsp;&amp;&amp; false</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">false</code>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                <code class="language-javascript">false&nbsp;&amp;&amp; false</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">false</code>
+             </td>
+        </tr>
+    </table>
+    </div>
+<? stepoverview(); ?>
+    <code class="language-javascript no-left-margin">true &amp;&amp; false</code> resolves to <code class="language-javascript">false</code>
+
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
-<? ############################ COPY AREA #################################### ?>
+<? ############################ COPY AREA ################################### ?>
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 

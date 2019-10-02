@@ -309,7 +309,7 @@ stepheader('note-expressions', 'Expressions'); ?>
 
 <? #############################################################################
 stepheader('note-binary', 'Binary numeric operators'); ?>
-<? $stepArithmetic = $steoNum ?>
+<? $stepArithmetic = $stepNum ?>
 
     <p>A <i>binary numeric operator</i> combines two numeric values to resolve to a new value. For example, <code class="language-javascript">+</code> is a binary numeric operator that combines two values, via addition. We already observed in <a href="#note-repl">Step <? echo $stepRepl ?></a> that the <code class="language-javascript">+</code> operator can combine two numeric values, to resolve to a new value.</p>
 
@@ -398,6 +398,21 @@ substepheader('note-more-op', 'More numeric operators'); ?>
     <i>unary</i> operators operate on single values.
     </p>
 <? substepfooter() ?> 
+
+<? #############################################################################
+stepheader('note-paren', 'Parentheses'); ?>
+
+    <p>JavaScript allows you to group expressions using parentheses. For example:</p>
+
+    <ol>
+        <li><code class="language-javascript">(1 + 2) / 3</code> resolves to <code class="language-javascript">1</code></li>
+        <li><code class="language-javascript">2 * (8 - 6)</code> resolves to <code class="language-javascript">4</code></li>
+        <li><code class="language-javascript">2 * ((3  - 2) * 4)</code> resolves to <code class="language-javascript">8</code></li>
+    </ol>
+
+<? stepoverview() ?>
+    <code class="language-javascript">2 * (8 - 6)</code> resolves to <code class="language-javascript">4</code>
+<? stepfooter() ?>
 
 <?
 ################################################################################

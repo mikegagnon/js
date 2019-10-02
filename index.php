@@ -2,6 +2,7 @@
 
 $partNum = null;
 $stepNum = null;
+$subStepNum = null;
 $currentStepName = null;
 $currentStepTitle = null;
 
@@ -13,6 +14,7 @@ function stepheader($stepName, $stepTitle) {
     $currentStepName = $stepName;
     $currentStepTitle = $stepTitle;
     $stepNum++;
+    $substepheader = 0;
     $text = <<<html
 <div class='padded note' data-note-name='$stepName'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
@@ -22,13 +24,14 @@ html;
     echo $text;
 }
 
-function substepheader($noteName, $frac, $substepTitle) {
+function substepheader($noteName, $substepTitle) {
     global $stepNum;
+    $subStepNum++;
 
     $text = <<<html
 <div class='padded note' data-note-name='$noteName'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
-    <h2>Step $stepNum$frac. $substepTitle</h2>
+    <h2>Step $stepNum.$subStepNum. $substepTitle</h2>
 html;
 
     echo $text;
@@ -227,15 +230,15 @@ stepheader('note-values', 'Numbers and values'); ?>
     <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
     The number <code class='language-javascript'>2</code> is also a value, and so is the number <code class='language-javascript'>105.72</code>, and so on. Every number is a value, but there are also values beyond just numbers, as we&rsquo;ll see quite often in later steps. For now, though, we&rsquo;ll just focus on number values.</p>
 
-    <p><a href="#note-values-exercises">Step 2&frac13;. Exercises</a></p>
-    <p><a href="#note-num-oddities">Step 2&frac23;. Number oddities</a></p>
+    <p><a href="#note-values-exercises">Step 2.1. Exercises</a></p>
+    <p><a href="#note-num-oddities">Step 2.2. Number oddities</a></p>
 
 <? stepoverview(); ?>
     <code class='language-javascript'>5 + 2</code> produces <code class='language-javascript'>7</code>, in the repl
 <? stepfooter(); ?>
 
 <? #############################################################################
-substepheader('note-values-exercises', '&frac13;', 'Exercises'); ?>
+substepheader('note-values-exercises', 'Exercises'); ?>
     <ol>
     <li>What happens if you execute <code class='language-javascript'>3.7</code>?</li>
     <li>What happens if you execute <code class='language-javascript'>2938</code>?</li>
@@ -244,7 +247,7 @@ substepheader('note-values-exercises', '&frac13;', 'Exercises'); ?>
 <? substepfooter(); ?>
 
 <? #############################################################################
-substepheader('note-num-oddities', '&frac23;', 'Number oddities'); ?>
+substepheader('note-num-oddities', 'Number oddities'); ?>
     <p>JavaScript numbers have several oddities. For example:</p>
 
     <ol>

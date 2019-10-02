@@ -323,10 +323,6 @@ stepheader('note-binary', 'Binary numeric operators'); ?>
     <p>There are several binary numeric operators in JavaScript.
     For instance, besides addition, JavaScript allows you to perform subtraction with the <code class="language-javascript">-</code> operator, multiplication with the <code class="language-javascript">*</code> operator, and division with the <code class="language-javascript">/</code> operator.</p>
 
-    <? substepLink('note-binary-exercises', 1, 'Exercises') ?>
-    <? substepLink('note-bonus-arithmetic', 2, 'Arithmetic oddities') ?>
-    <? substepLink('note-more-op',          3, 'More numeric operators') ?>
-
 <? stepoverview() ?>
     <code class="language-javascript no-left-margin">+</code>, <code class="language-javascript">-</code>, <code class="language-javascript">*</code>, and <code class="language-javascript">/</code>are binary numeric operators
 <? stepfooter() ?>
@@ -432,9 +428,6 @@ stepheader('note-precedence', 'Operator precedence'); ?>
 
     <p>Parentheses have the highest precedence;
     that is, parentheses have the final say in the ordering of operations.</p>
-
-    <? substepLink('note-precedence-exercises', 1, 'Exercises') ?>
-
 <? stepoverview() ?>
     <code class="language-javascript no-left-margin">1 + 2 * 4</code> resolves to <code class="language-javascript">9</code>
 <? stepfooter() ?>

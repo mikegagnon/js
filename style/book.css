@@ -100,15 +100,19 @@ code {
     width: 100%;
     margin-left: 0px;
     margin-right: 0px;
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
 }
 
-.snippets-table td {
+.overview-table {
+    margin: 0px !important;
+}
+
+/*.snippets-table td {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
     padding-right: 5px;
-}
+}*?
 
 .snippets-part-number {
     font-weight: bold;
@@ -142,6 +146,23 @@ code {
     margin-top: 10px;/* must match .column margin-top */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+}
+
+.precedence-table {
+    margin: 0px auto;
+    margin-bottom: 20px;
+
+}
+.precedence-table th {
+    padding-right: 15px;
+}
+
+.precedence-table td {
+    padding-right: 15px;
+}
+
+.precedence-table .header-row {
+    border-bottom: 2px solid green;
 }
 
 .repl-note h4 {

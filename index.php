@@ -411,8 +411,35 @@ stepheader('note-paren', 'Parentheses'); ?>
     </ol>
 
 <? stepoverview() ?>
-    <code class="language-javascript">2 * (8 - 6)</code> resolves to <code class="language-javascript">4</code>
+    <code class="language-javascript no-left-margin">2 * (8 - 6)</code> resolves to <code class="language-javascript">4</code>
 <? stepfooter() ?>
+
+<? #############################################################################
+stepheader('note-precedence', 'Operator precedence'); ?>
+
+ 
+    <p>On the repl, try out: <code class="language-javascript">1 + 2 * 4</code>. JavaScript is smart enough to know to perform the multiplication first. Essentially, JavaScript converts <code class="language-javascript">1 + 2 * 4</code> into <code class="language-javascript">1 + (2 * 4)</code>, then your browser executes it.</p>
+    
+    <p>In general, the JavaScript language specifies which operators have &ldquo;higher precedence&rdquo; over which other operators.
+    For example, the <code class="language-javascript">*</code> operator has higher precedence compared to the <code class="language-javascript">+</code> operator.
+    When I say that one operator has higher precedence compared to another operator, I am  saying that the JavaScript automatically puts parentheses around the higher-precedence operations.</p>
+
+    <p>Parentheses have the highest precedence;
+    that is, parentheses have the final say in the ordering of operations.</p>
+
+    <p><a href="#note-precedence-exercises">Step <? echo $stepNum; ?>.1. Exercises</a></p>
+
+<? stepoverview() ?>
+    <code class="language-javascript no-left-margin">1 + 2 * 4</code> resolves to <code class="language-javascript">9</code>
+<? stepfooter() ?>
+
+<? #############################################################################
+substepheader('note-precedence-exercises', 'Exercises'); ?>
+    <ol>
+        <li>What happens if you execute <code class="language-javascript">1 / 2 + 1 / 2</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">2 * 3 - 2 * 4</code>?</li>
+    </ol>
+<? substepfooter() ?>
 
 <?
 ################################################################################

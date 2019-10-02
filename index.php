@@ -631,8 +631,6 @@ stepheader('note-compare', 'Relational operators'); ?>
 
             <p>In each of the above four behavior descriptions, the expression resolves to <code class="language-javascript">false</code> if the expression does not resolve to <code class="language-javascript">true</code>
 
-            <!--<p>Rather than tediously expounding upon the details of each of these operators, it&rsquo;s probably easier to understanding them by experimenting with a few exercises:</p>-->
-
             <p>Here are a few examples of relational operators
             in action:</p>
 
@@ -700,11 +698,24 @@ stepheader('note-compare', 'Relational operators'); ?>
                 </tr>
             </table>
             </div>
-
-
 <? stepoverview(); ?>
     <code class="language-javascript no-left-margin">5 <= 4</code> resolves to <code class="language-javascript">false</code>, and <code class="language-javascript">5 <= 5</code> resolves to <code class="language-javascript">true</code>
 <? stepfooter(); ?>
+
+<? #############################################################################
+substepheader('note-relational-non-strict', 'Type-converting relational operators'); ?>
+    <p>What happens if you were to compare a number to a string, using
+        a relational operator? For example, what happens when you execute <code class="language-javascript">6 < '7'</code>using the repl? How about <code class="language-javascript">8 < '7'</code>? If you were to try it out, you would find that <code class="language-javascript">6 < '7'</code> resolves to <code class="language-javascript">true</code>
+        and <code class="language-javascript">8 < '7'</code> resolves to <code class="language-javascript">false</code>.
+    </p>
+
+    <p>What&rsquo;s going on here is that if you compare a number and a string, using a relational operator, then JavaScript automatically converts the string to a number, and then performs the comparison.</p>
+
+    <p>Because relational operators convert types automatically,
+        before comparison, they are also known as <i>type-converting relational operators</i>.</p>v
+<? substepfooter() ?>
+
+                    
 
 <?
 ################################################################################

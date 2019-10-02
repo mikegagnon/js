@@ -338,11 +338,28 @@ substepheader('note-bonus-arithmetic', 'Arithmetic oddities'); ?>
     <p>JavaScript arithmetic has several oddities.</p>
 
     <ol>
-        <li><code class="language-javascript">0.1 + 0.2</code> resolves to <code class="language-javascript">0.30000000000000004</code>.<a href="javascript:$$('bonus-arithmetic', 'zero-point-three')">Note</a></li>
-        <li><code class="language-javascript">1 / 0</code> resolves to <code class="language-javascript">Infinity</code>. <a href="javascript:$$('bonus-arithmetic', 'one-div-zero')">Note</a></li>
-        <li><code class="language-javascript">0 / 0</code> resolves to <code class="language-javascript">NaN</code>. <a href="javascript:$$('bonus-arithmetic', 'zero-div-zero')">Note</a></li>
+        <li><code class="language-javascript">0.1 + 0.2</code> resolves to <code class="language-javascript">0.30000000000000004</code>. <a href="#note-zero-point-three">Note</a></li>
+        <li><code class="language-javascript">1 / 0</code> resolves to <code class="language-javascript">Infinity</code>. <a href="#note-one-div-zero">Note</a></li>
+        <li><code class="language-javascript">0 / 0</code> resolves to <code class="language-javascript">NaN</code>. <a href="#note-zero-div-zero">Note</a></li>
     </ol>
 <? substepfooter() ?> 
+
+<? #############################################################################
+noteheader('note-zero-point-three'); ?>
+    <p>
+        In JavaScript, the expression <code class="language-javascript">0.1 + 0.2</code> yields the value <code class="language-javascript">0.30000000000000004</code>, which is merely an approximation of the sum of 0.1 and 0.2. In general, arithmetic with decimal numbers in JavaScript merely produces approximately correct results.
+    </p>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-one-div-zero'); ?>
+    <p>In JavaScript, <code class="language-javascript">1 / 0</code> yields the value <code class="language-javascript">Infinity</code>, which represents numbers larger than what JavaScript can represent otherwise.</p>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-zero-div-zero'); ?>
+    <p>In JavaScript, <code class="language-javascript">0 / 0</code> yields the value <code class="language-javascript">NaN</code>, which represents &ldquo;not a number&rdquo;&mdash;numbers that aren&rsquo;t really numbers.</p>
+<? notefooter(); ?>
 
 <? #############################################################################
 substepheader('note-more-op', 'More numeric operators'); ?>

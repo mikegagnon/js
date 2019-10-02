@@ -10,11 +10,12 @@ function stepheader($stepName, $stepTitle) {
     global $stepNum;
     global $currentStepName;
     global $currentStepTitle;
+    global $subStepNum;
 
     $currentStepName = $stepName;
     $currentStepTitle = $stepTitle;
     $stepNum++;
-    $substepheader = 0;
+    $subStepNum = 0;
     $text = <<<html
 <div class='padded note' data-note-name='$stepName'>
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
@@ -26,6 +27,7 @@ html;
 
 function substepheader($noteName, $substepTitle) {
     global $stepNum;
+    global $subStepNum;
     $subStepNum++;
 
     $text = <<<html
@@ -204,6 +206,7 @@ partheader('Expressions'); #####################################################
 
 <? #############################################################################
 stepheader('note-repl', 'Repl'); ?>
+<? $stepRepl = $stepNum ?>
 
     <p>The right side of the window contains a &ldquo;repl.&rdquo;
         Click the dark-colored area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
@@ -230,8 +233,8 @@ stepheader('note-values', 'Numbers and values'); ?>
     <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
     The number <code class='language-javascript'>2</code> is also a value, and so is the number <code class='language-javascript'>105.72</code>, and so on. Every number is a value, but there are also values beyond just numbers, as we&rsquo;ll see quite often in later steps. For now, though, we&rsquo;ll just focus on number values.</p>
 
-    <p><a href="#note-values-exercises">Step 2.1. Exercises</a></p>
-    <p><a href="#note-num-oddities">Step 2.2. Number oddities</a></p>
+    <p><a href="#note-values-exercises">Step <? echo $stepNum; ?>.1. Exercises</a></p>
+    <p><a href="#note-num-oddities"    >Step <? echo $stepNum; ?>.2. Number oddities</a></p>
 
 <? stepoverview(); ?>
     <code class="language-javascript no-left-margin">1</code>, <code class="language-javascript">2</code>, and <code class="language-javascript">105.72</code> are values
@@ -304,21 +307,86 @@ stepheader('note-expressions', 'Expressions'); ?>
     <code class="language-javascript no-left-margin">1 + 2</code> is an expression that resolves to the value <code class="language-javascript">3</code>
 <? stepfooter(); ?>
 
-<?
-################################################################################
-partheader('Expressions 2'); ###################################################
-################################################################################
-?>
+<? #############################################################################
+stepheader('note-binary', 'Binary numeric operators'); ?>
+<? $stepArithmetic = $steoNum ?>
+
+    <p>A <i>binary numeric operator</i> combines two numeric values to resolve to a new value. For example, <code class="language-javascript">+</code> is a binary numeric operator that combines two values, via addition. We already observed in <a href="#note-repl">Step <? echo $stepRepl ?></a> that the <code class="language-javascript">+</code> operator can combine two numeric values, to resolve to a new value.</p>
+
+
+    <p>There are several binary numeric operators in JavaScript.
+    For instance, besides addition, JavaScript allows you to perform subtraction with the <code class="language-javascript">-</code> operator, multiplication with the <code class="language-javascript">*</code> operator, and division with the <code class="language-javascript">/</code> operator.</p>
+
+    
+    <p><a href="#note-binary-exercises">Step <? echo $stepNum; ?>.1. Exercises</a></p>
+    <p><a href="#note-bonus-arithmetic">Step <? echo $stepNum; ?>.2. Arithmetic oddities</a></p>
+    <p><a href="#note-more-op"         >Step <? echo $stepNum; ?>.3. More numeric operators</a></p>
+<? stepoverview() ?>
+    <code class="language-javascript no-left-margin">+</code>, <code class="language-javascript">-</code>, <code class="language-javascript">*</code>, and <code class="language-javascript">/</code>are binary numeric operators
+<? stepfooter() ?>
 
 <? #############################################################################
-stepheader('note-expressions2', 'Expressions2'); ?>
-    <p><code class='language-javascript'>1 + 2</code> is not a value; rather, <code class='language-javascript'>1 + 2</code> is a JavaScript &ldquo;expression.&rdquo; An <i>expression</i>, is anything in JavaScript that &ldquo;resolves&rdquo; to a value. In this case, <code class='language-javascript'>1 + 2</code> <i>resolves</i> to the value <code class='language-javascript'>3</code>.
-            </p>
+substepheader('note-binary-exercises', 'Exercises'); ?>
+    <ol>
+        <li>What happens if you execute <code class="language-javascript">2 * 3</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">1 / 2</code>?</li>
+    </ol>
+<? substepfooter() ?>
 
-    <p>To be precise, every value is also an expression. To give a concrete example, the number <code class='language-javascript'>4</code> is a value, and the value <code class='language-javascript'>4</code> is also an expression&mdash;albeit, an expression that resolves to the value <code class='language-javascript'>4</code>.</p>
-<? stepoverview() ?>
-    <code class='language-javascript'>3 + 5</code> produces <code class='language-javascript'>8</code>, in the repl
-<? stepfooter() ?>
+<? #############################################################################
+substepheader('note-bonus-arithmetic', 'Arithmetic oddities'); ?>
+    <p>JavaScript arithmetic has several oddities.</p>
+
+    <ol>
+        <li><code class="language-javascript">0.1 + 0.2</code> resolves to <code class="language-javascript">0.30000000000000004</code>.<a href="javascript:$$('bonus-arithmetic', 'zero-point-three')">Note</a></li>
+        <li><code class="language-javascript">1 / 0</code> resolves to <code class="language-javascript">Infinity</code>. <a href="javascript:$$('bonus-arithmetic', 'one-div-zero')">Note</a></li>
+        <li><code class="language-javascript">0 / 0</code> resolves to <code class="language-javascript">NaN</code>. <a href="javascript:$$('bonus-arithmetic', 'zero-div-zero')">Note</a></li>
+    </ol>
+<? substepfooter() ?> 
+
+<? #############################################################################
+substepheader('note-more-op', 'More numeric operators'); ?>
+                <p>There are more operators beyond just <code class="language-javascript">+</code>, <code class="language-javascript">-</code>, <code class="language-javascript">*</code>, and <code class="language-javascript">/</code>.</p>
+
+                <p>The &ldquo;modulo&rdquo;
+                operator, <code class="language-javascript">%</code>, yields
+                the <i>remainder</i> of division.  For example, <code class="language-javascript">9 % 5</code> resolves to <code class="language-javascript">4</code>, because 9 divided by 5 equals
+                1, with a remainder of 4.
+
+                <p>The &ldquo;unary numeric negation&rdquo; operator will take
+                    a positive number and make it negative, or take a negative 
+                number and make it positive. Consider a few examples:</p>
+
+                <div class="table-format">
+                <table>
+                    <tr>
+                        <td><code class="language-javascript">-1</code></td>
+                        <td>resolves to <code class="language-javascript">-1</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="language-javascript">-(-1)</code></td>
+                        <td>resolves to <code class="language-javascript">1</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code class="language-javascript">-(3 - 5)</code></td>
+                        <td>resolves to <code class="language-javascript">2</code>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+
+                <p>The <i>unary</i> numeric negation operator is not a <i>binary</i> numeric
+                operator, because <i>binary</i> operators operate on two values, whereas
+                <i>unary</i> operators operate on single values.
+                </p>
+<? substepfooter() ?> 
+
+<?
+################################################################################
+partheader('Variables and if statements'); #####################################
+################################################################################
+?>
 
 <?
 ################################################################################

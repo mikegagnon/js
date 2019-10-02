@@ -443,63 +443,74 @@ substepheader('note-precedence-exercises', 'Exercises'); ?>
 
 <? #############################################################################
 stepheader('note-ptable', 'Precedence tables'); ?>
+    <p>When explaining the precedence of operations for any particular programming language, it is common to present &ldquo;precedence tables&rdquo;&mdash;tables that explain which operators have higher precedence compared to other operators.</p>
 
-            <p>When explaining the precedence of operations for any particular programming language, it is common to present &ldquo;precedence tables&rdquo;&mdash;tables that explain which operators have higher precedence compared to other operators.</p>
+    <p>For instance, the precedence table below shows that parentheses have the highest precedence, and multiplication and division have a higher precedence than addition and subtraction.</p>
 
-            <p>For instance, the precedence table below shows that parentheses have the highest precedence, and multiplication and division have a higher precedence than addition and subtraction.</p>
+    <table class="precedence-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Parentheses</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+    </table>
 
+    <p>Throughout this book, we will encounter many different types of operators. Whenever I introduce a new operator, I present a new precedence table that shows the precedence of the new operator, relative
+    to the operators we have already seen.</p>
 
-            <table class="precedence-table">
-                    <tr class="header-row">
-                        <th>Precedence</th>
-                        <th>Operator type</th>
-                        <th>Operators</th>
-                    </tr>
-                    <tr>
-                        <td>19</td>
-                        <td>Parentheses</td>
-                        <td><code class="language-javascript">( ... )</code></td>   
-                    </tr>
-                    <tr>
-                        <td>14</td>
-                        <td>Multiplication and division</td>
-                        <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>Addition and subtraction</td>
-                        <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
-                    </tr>
-            </table>
-
-            <p>Throughout this book, we will encounter many different types of operators. Whenever I introduce a new operator, I present a new precedence table that shows the precedence of the new operator, relative
-            to the operators we have already seen.</p>
-
-            <p>I don&rsquo;t think you will need to explicitly memorize the operator precedence tables. Rather, I suspect you will be able to cultivate an intuitive understanding of operator precedence from studying and understanding examples and exercises.</p>
+    <p>I don&rsquo;t think you will need to explicitly memorize the operator precedence tables. Rather, I suspect you will be able to cultivate an intuitive understanding of operator precedence from studying and understanding examples and exercises.</p>
 <? stepoverview(); ?>
-            <table class="precedence-table overview-table">
-                    <tr class="header-row">
-                        <th>Precedence</th>
-                        <th>Operator type</th>
-                        <th>Operators</th>
-                    </tr>
-                    <tr>
-                        <td>19</td>
-                        <td>Parentheses</td>
-                        <td><code class="language-javascript">( ... )</code></td>   
-                    </tr>
-                    <tr>
-                        <td>14</td>
-                        <td>Multiplication and division</td>
-                        <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>Addition and subtraction</td>
-                        <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
-                    </tr>
-            </table>
+    <table class="precedence-table overview-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Parentheses</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+    </table>
 <? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-types', 'Types'); ?>
+
+    <p>Every expression has a &ldquo;type.&rdquo; For instance, the value <code class="language-javascript">1</code> has the type &ldquo;number,&rdquo; and the expression <code class="language-javascript">(1 + 2) * 4</code> has the type &ldquo;number&rdquo; as well. In casual conversational programming terminology, we probably wouldn&rsquo;t say: &ldquo;the value <code class="language-javascript">1</code> has the type number.&rdquo; Rather, we would just say: &ldquo;<code class="language-javascript">1</code> is a number.&rdquo;
+            </p>
+
+    <p>So far we have only encountered the number type. In the next step though, <a href="javascript:$$('step-types', 'step-strings')">Step <? echo $chapStrings ?></a>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <a href="javascript:$$('step-types', 'step-bool')">Step <? echo $chapBool ?></a>, we will encounter the &ldquo;boolean&rdquo; type.</p>
+
+<? stepoverview(); ?>
+todo
+<? stepfooter(); ?>
+
 
 <?
 ################################################################################

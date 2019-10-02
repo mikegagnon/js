@@ -513,7 +513,7 @@ stepheader('note-types', 'Types'); ?>
     <p>So far, we have only encountered the number type. In the next step though, <? steplink('note-strings') ?>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <? steplink('note-bool') ?>, we will encounter the &ldquo;boolean&rdquo; type.</p>
 
 <? stepoverview(); ?>
-todo
+    <code class="language-javascript no-left-margin">1</code> has the type number, and <code class="language-javascript">(1 + 2) * 4</code> has type number, as well
 <? stepfooter(); ?>
 
 <? #############################################################################

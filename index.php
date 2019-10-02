@@ -363,40 +363,40 @@ noteheader('note-zero-div-zero'); ?>
 
 <? #############################################################################
 substepheader('note-more-op', 'More numeric operators'); ?>
-                <p>There are more operators beyond just <code class="language-javascript">+</code>, <code class="language-javascript">-</code>, <code class="language-javascript">*</code>, and <code class="language-javascript">/</code>.</p>
+    <p>There are more operators beyond just <code class="language-javascript">+</code>, <code class="language-javascript">-</code>, <code class="language-javascript">*</code>, and <code class="language-javascript">/</code>.</p>
 
-                <p>The &ldquo;modulo&rdquo;
-                operator, <code class="language-javascript">%</code>, yields
-                the <i>remainder</i> of division.  For example, <code class="language-javascript">9 % 5</code> resolves to <code class="language-javascript">4</code>, because 9 divided by 5 equals
-                1, with a remainder of 4.
+    <p>The &ldquo;modulo&rdquo;
+    operator, <code class="language-javascript">%</code>, yields
+    the <i>remainder</i> of division.  For example, <code class="language-javascript">9 % 5</code> resolves to <code class="language-javascript">4</code>, because 9 divided by 5 equals
+    1, with a remainder of 4.
 
-                <p>The &ldquo;unary numeric negation&rdquo; operator will take
-                    a positive number and make it negative, or take a negative 
-                number and make it positive. Consider a few examples:</p>
+    <p>The &ldquo;unary numeric negation&rdquo; operator will take
+        a positive number and make it negative, or take a negative 
+    number and make it positive. Consider a few examples:</p>
 
-                <div class="table-format">
-                <table>
-                    <tr>
-                        <td><code class="language-javascript">-1</code></td>
-                        <td>resolves to <code class="language-javascript">-1</code></td>
-                    </tr>
-                    <tr>
-                        <td><code class="language-javascript">-(-1)</code></td>
-                        <td>resolves to <code class="language-javascript">1</code>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code class="language-javascript">-(3 - 5)</code></td>
-                        <td>resolves to <code class="language-javascript">2</code>
-                        </td>
-                    </tr>
-                </table>
-                </div>
+    <div class="table-format">
+    <table>
+        <tr>
+            <td><code class="language-javascript">-1</code></td>
+            <td>resolves to <code class="language-javascript">-1</code></td>
+        </tr>
+        <tr>
+            <td><code class="language-javascript">-(-1)</code></td>
+            <td>resolves to <code class="language-javascript">1</code>
+            </td>
+        </tr>
+        <tr>
+            <td><code class="language-javascript">-(3 - 5)</code></td>
+            <td>resolves to <code class="language-javascript">2</code>
+            </td>
+        </tr>
+    </table>
+    </div>
 
-                <p>The <i>unary</i> numeric negation operator is not a <i>binary</i> numeric
-                operator, because <i>binary</i> operators operate on two values, whereas
-                <i>unary</i> operators operate on single values.
-                </p>
+    <p>The <i>unary</i> numeric negation operator is not a <i>binary</i> numeric
+    operator, because <i>binary</i> operators operate on two values, whereas
+    <i>unary</i> operators operate on single values.
+    </p>
 <? substepfooter() ?> 
 
 <?

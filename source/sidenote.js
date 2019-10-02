@@ -156,7 +156,7 @@ class Sidenote {
 
     close(columnNumber) {
         this.clearAfter(columnNumber - 1);
-
+        const sTop = $(window).scrollTop();
         let tallestColumnTop = undefined;
         $('.column').each(function(i, elem){
             if (tallestColumnTop === undefined) {
@@ -173,10 +173,8 @@ class Sidenote {
                 const newTop = thisTop - tallestColumnTop;
                 $(elem).css('top', newTop);
             });
-            $(window).scrollTop(0);
+            $(window).scrollTop(sTop - tallestColumnTop);
         }
-
-
     }
 
     expand(noteName, columnNumber) {

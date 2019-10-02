@@ -177,6 +177,7 @@ function () {
     key: "close",
     value: function close(columnNumber) {
       this.clearAfter(columnNumber - 1);
+      var sTop = $(window).scrollTop();
       var tallestColumnTop = undefined;
       $('.column').each(function (i, elem) {
         if (tallestColumnTop === undefined) {
@@ -193,7 +194,7 @@ function () {
           var newTop = thisTop - tallestColumnTop;
           $(elem).css('top', newTop);
         });
-        $(window).scrollTop(0);
+        $(window).scrollTop(sTop - tallestColumnTop);
       }
     }
   }, {

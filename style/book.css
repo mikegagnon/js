@@ -152,3 +152,7 @@ code {
 .snippet-div {
     padding: 11px;
 }
+
+li {
+    margin-bottom: 20px;
+}

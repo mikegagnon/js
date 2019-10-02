@@ -234,7 +234,7 @@ stepheader('note-values', 'Numbers and values'); ?>
     <p><a href="#note-num-oddities">Step 2.2. Number oddities</a></p>
 
 <? stepoverview(); ?>
-    <code class='language-javascript'>5 + 2</code> produces <code class='language-javascript'>7</code>, in the repl
+    <code class="language-javascript no-left-margin">1</code>, <code class="language-javascript">2</code>, and <code class="language-javascript">105.72</code> are values
 <? stepfooter(); ?>
 
 <? #############################################################################
@@ -294,34 +294,6 @@ noteheader('note-num-too-big'); ?>
     </p>
 <? notefooter(); ?>
 
-<!--
-                <div class="sidenote-column hidden tutorial-note" id="biggest-number">
-                    <h4>Note</h4>
-                    
-                </div>
-
-                <div class="sidenote-column hidden tutorial-note" id="too-big-number">
-                    <h4>Note</h4>
-
-                </div>
-
-                <div class="sidenote-column hidden tutorial-note" id="too-big-int">
-                    <h4>Note</h4>
-                    <p>When you enter the number <code class="language-javascript">9999999999999999</code> into the repl,
-                        the repl responds with <code class="language-javascript">10000000000000000</code>, because <code class="language-javascript">9999999999999999</code> is larger 
-                        than the largest <a href="javascript:$$('too-big-int', 'int')">integer</a> that JavaScript can handle. Once you
-                        go beyond the max, integers become approximate. Also,
-                        decimal numbers in JavaScript are generally approximate.
-                    </p>
-                </div>
-
-                <div class="sidenote-column hidden tutorial-note" id="int">
-                    <h4>Note</h4>
-                    <p>An integer is a whole number.
-                    </p>
-                </div>
-            -->
-
 <? #############################################################################
 stepheader('note-expressions', 'Expressions'); ?>
     <p><code class='language-javascript'>1 + 2</code> is not a value; rather, <code class='language-javascript'>1 + 2</code> is a JavaScript &ldquo;expression.&rdquo; An <i>expression</i>, is anything in JavaScript that &ldquo;resolves&rdquo; to a value. In this case, <code class='language-javascript'>1 + 2</code> <i>resolves</i> to the value <code class='language-javascript'>3</code>.
@@ -329,7 +301,7 @@ stepheader('note-expressions', 'Expressions'); ?>
 
     <p>To be precise, every value is also an expression. To give a concrete example, the number <code class='language-javascript'>4</code> is a value, and the value <code class='language-javascript'>4</code> is also an expression&mdash;albeit, an expression that resolves to the value <code class='language-javascript'>4</code>.</p>
 <? stepoverview(); ?>
-    <code class='language-javascript'>3 + 5</code> produces <code class='language-javascript'>8</code>, in the repl
+    <code class="language-javascript no-left-margin">1 + 2</code> is an expression that resolves to the value <code class="language-javascript">3</code>
 <? stepfooter(); ?>
 
 <?

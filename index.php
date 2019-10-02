@@ -109,6 +109,10 @@ html;
     echo $text;
 }
 
+function substepLink($noteName, $subStepNum, $noteTitle) {
+    global $stepNum;
+    echo "<p><a href='#$noteName'>Step $stepNum.$subStepNum. $noteTitle</a></p>";
+}
 
 ?><!doctype html>
 <html lang='en'>
@@ -233,8 +237,8 @@ stepheader('note-values', 'Numbers and values'); ?>
     <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
     The number <code class='language-javascript'>2</code> is also a value, and so is the number <code class='language-javascript'>105.72</code>, and so on. Every number is a value, but there are also values beyond just numbers, as we&rsquo;ll see quite often in later steps. For now, though, we&rsquo;ll just focus on number values.</p>
 
-    <p><a href="#note-values-exercises">Step <? echo $stepNum; ?>.1. Exercises</a></p>
-    <p><a href="#note-num-oddities"    >Step <? echo $stepNum; ?>.2. Number oddities</a></p>
+    <? substepLink('note-values-exercises', 1, 'Exercises') ?>
+    <? substepLink('note-num-oddities',     2, 'Number oddities') ?>
 
 <? stepoverview(); ?>
     <code class="language-javascript no-left-margin">1</code>, <code class="language-javascript">2</code>, and <code class="language-javascript">105.72</code> are values
@@ -317,10 +321,10 @@ stepheader('note-binary', 'Binary numeric operators'); ?>
     <p>There are several binary numeric operators in JavaScript.
     For instance, besides addition, JavaScript allows you to perform subtraction with the <code class="language-javascript">-</code> operator, multiplication with the <code class="language-javascript">*</code> operator, and division with the <code class="language-javascript">/</code> operator.</p>
 
-    
-    <p><a href="#note-binary-exercises">Step <? echo $stepNum; ?>.1. Exercises</a></p>
-    <p><a href="#note-bonus-arithmetic">Step <? echo $stepNum; ?>.2. Arithmetic oddities</a></p>
-    <p><a href="#note-more-op"         >Step <? echo $stepNum; ?>.3. More numeric operators</a></p>
+    <? substepLink('note-binary-exercises', 1, 'Exercises') ?>
+    <? substepLink('note-bonus-arithmetic', 2, 'Arithmetic oddities') ?>
+    <? substepLink('note-more-op',          3, 'More numeric operators') ?>
+
 <? stepoverview() ?>
     <code class="language-javascript no-left-margin">+</code>, <code class="language-javascript">-</code>, <code class="language-javascript">*</code>, and <code class="language-javascript">/</code>are binary numeric operators
 <? stepfooter() ?>
@@ -427,7 +431,7 @@ stepheader('note-precedence', 'Operator precedence'); ?>
     <p>Parentheses have the highest precedence;
     that is, parentheses have the final say in the ordering of operations.</p>
 
-    <p><a href="#note-precedence-exercises">Step <? echo $stepNum; ?>.1. Exercises</a></p>
+    <? substepLink('note-precedence-exercises', 1, 'Exercises') ?>
 
 <? stepoverview() ?>
     <code class="language-javascript no-left-margin">1 + 2 * 4</code> resolves to <code class="language-javascript">9</code>

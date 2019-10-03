@@ -1576,11 +1576,8 @@ stepheader('note-var', 'Variables'); ?>
     <p>For another example, the expression <code class="language-javascript">x + 1 > 4</code> resolves to <code class="language-javascript">true</code>.</p>
 
     <? replshot('xrel4.png') ?>
-
-    
-
 <? stepoverview(); ?>
-
+    If you declare <code class="language-javascript">var x = 4</code>, then <code class="language-javascript">x + 1 > 4</code> resolves to <code class="language-javascript">true</code>
 <? stepfooter(); ?>
 
 <? #############################################################################
@@ -1590,6 +1587,24 @@ noteheader('note-expr-sub'); ?>
     However, the reverse is not true. That is, if JavaScript expects to see an expression, you may not place a statement; when JavaScript expects an expression, you must provide an expression.
     </p>
 <? notefooter(); ?>
+
+<? #############################################################################
+stepheader('note-assignment-expr', 'More on variable declarations'); ?>
+    <p>Whenever you declare a new variable, you can assign it the value from any expression. Consider the following examples:</p>
+
+    <ol>
+        <li>Executing <code class="language-javascript">var a = 1 + 1</code>, causes <code class="language-javascript">a</code> to resolve to the value of <code class="language-javascript">2</code></li>
+
+        <li>Executing <code class="language-javascript">var b = a * 3</code>, causes <code class="language-javascript">b</code> to resolve to the value of <code class="language-javascript">6</code></li>
+
+        <li>Executing <code class="language-javascript">var c = 1 > 2 || 3 < 4</code>, causes <code class="language-javascript">c</code> to resolve to the value of <code class="language-javascript">true</code></li>
+
+    <!-- TODO: earlier show the chaining of binary operators -->
+        <li>Executing <code class="language-javascript">var d = 'Hello' + ', ' + 'World!'</code>, causes <code class="language-javascript">d</code> to resolve to the value of <code class="language-javascript">'Hello, World!'</code>.</li>
+    </ol>
+<? stepoverview(); ?>
+    Executing <code class="language-javascript">var a = 1 + 1</code>, causes <code class="language-javascript">a</code> to resolve to the value of <code class="language-javascript">2</code>
+<? stepfooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

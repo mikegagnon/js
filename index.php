@@ -2055,7 +2055,7 @@ stepheader('note-references', 'Introduction to references and storage diagrams')
         <!-- TODO: get pedantic about string storage in sidenote-->
         <!-- TODO: this div contains an unclosed p tag -->
 <? stepoverview(); ?>
-
+    <? screenshot('qhello.png') ?>
 <? stepfooter(); ?>
 
 <? ########################################################################## ?>

@@ -1836,6 +1836,11 @@ log('after if')
 
     <p>JavaScript skipped over the code inside the curly braces, because <code class="language-javascript">x === 9</code> resolved to <code class="language-javascript">false</code>.</p>
 <? stepoverview(); ?>
+<? pre("var x = 9
+if (x === 9) {
+    log('x equals 9')
+}
+")?> <p>logs the string <code class="language-javascript">'x equals 9'</code>
 
 <? stepfooter(); ?>
 

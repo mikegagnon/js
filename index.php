@@ -2127,7 +2127,25 @@ stepheader('note-obj-var', 'Variables can refer to objects'); ?>
     b: 20,
     c: 30
 }</code></pre>
+<? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-obj-types', 'Object member types'); ?>
+    <p>The members within any object may be of any type.</p>
+
+    <p>For example, the following object definition is perfectly valid:</p>
+
+<pre class="language-javascript prejs"><code>var x = {
+    abc: -1,
+    hello: true,
+    world: '1, 2, 3!'
+}</code></pre>
+<? stepoverview(); ?>
+<pre class="language-javascript prejs"><code>var x = {
+    abc: -1,
+    hello: true,
+    world: '1, 2, 3!'
+}</code></pre>
 <? stepfooter(); ?>
 
 <? ########################################################################## ?>

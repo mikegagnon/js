@@ -1742,8 +1742,8 @@ stepheader('note-log', 'Logging'); ?>
     <? replshot('log.png')?>
 <? stepoverview(); ?>
     <code class="language-javascript no-left-margin">log(2 * 3)</code> logs <code class="language-none">6</code> to the repl
-
 <? stepfooter(); ?>
+
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

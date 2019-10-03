@@ -1893,6 +1893,35 @@ if (x === 9) {
 ")?>  logs the string <? code("'x does not equal 9'") ?>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-if-else-stmts', 'Multiple statements within if-else statements'); ?>
+    <p>You can include multiple statements, within the body of an <?code("if")?> statement and within the bodies of
+     <?code("if")?>-<?code("else")?> statements.</p>
+
+    <p>For example, the following <? code("if") ?>-<? code("else") ?> statement is perfectly valid:</p>
+
+<? pre("
+var x = 1
+if (x === 1) {
+    x = x + 1
+    x = x * 2
+} else {
+    x = 10
+    x = x - 5
+}
+") ?>
+<? stepoverview(); ?>
+<? pre("var x = 1
+if (x === 1) {
+    x = x + 1
+    x = x * 2
+} else {
+    x = 10
+    x = x - 5
+}
+") ?> sets the value of <? code(x) ?>  to  <?code(4)?>
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

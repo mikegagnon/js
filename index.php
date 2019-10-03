@@ -1453,7 +1453,7 @@ stepheader('note-not', 'The <i>not</i> operator'); ?>
         <div class="table-format">
             <table>
                 <tr>
-                    <td><code class="language-javascript">!(1 < 100)</code></td>
+                    <td><code class="language-javascript">!(1 &lt; 100)</code></td>
                     <td> resolves to <code class="language-javascript">false</code></td>
                 </tr>
                 <tr>
@@ -1466,7 +1466,62 @@ stepheader('note-not', 'The <i>not</i> operator'); ?>
 <? stepoverview(); ?>
     <code class="language-javascript no-left-margin">!(5 === 6)</code> resolves to <code class="language-javascript">true</code>
 <? stepfooter(); ?>
-                
+
+<? #############################################################################
+stepheader('note-not-precedence', 'Not operator precedence'); ?>
+    <p>The <i>not</i> operator has a relatively high precedence, which is why you need to use parentheses around the boolean expressions that you want to flip.</p>
+
+    <table class="precedence-table">
+            <tr class="header-row">
+                <th>Precedence</th>
+                <th>Operator type</th>
+                <th>Operators</th>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Parentheses</td>
+                <td><code class="language-javascript">( ... )</code></td>   
+            </tr>
+             <tr>
+                <td>15</td>
+                <td>Not</td>
+                <td><code class="language-javascript">!</code> </td>   
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Multiplication and division</td>
+                <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Addition and subtraction</td>
+                <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Relational operators<br>
+                </td>
+                <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code> </td>   
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Equality operators</td>
+                <td><code class="language-javascript">===</code>, <code class="language-javascript">!==</code> </td>   
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>And</td>
+                <td><code class="language-javascript">&amp;&amp;</code></td>   
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Or</td>
+                <td><code class="language-javascript">||</code></td>   
+            </tr>
+    </table>
+<? stepoverview(); ?>
+    The <i>not</i> operator has a relatively high precedence
+<? stepfooter(); ?>            
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

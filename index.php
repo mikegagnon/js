@@ -1655,9 +1655,36 @@ stepheader('note-more-assignment-op', 'More about the assignment operator'); ?>
 
     <p>TODO: forward reference</p>
 <? stepoverview(); ?>
-
+    The expression <code class="language-javascript">x = 99 + 1</code> resolves to <code class="language-javascript">100</code>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-multiline', 'Multiline input'); ?>
+    <p>The <i>multiline input</i> button will come in handy throughout the rest of this book. So, let&rsquo;s see how it works.
+    Begin by clicking the multiline input button. An orange box should appear to the right of the green dollar sign.</p>
+
+    <? replshot('multiline1.png') ?>
+
+    <p>Now, when you press enter in the repl, it will not cause the repl
+        to execute your line of code. Rather, you can enter as many lines
+        as you would like, and then you can execute all the code by clicking the  blue &ldquo;run multiline input&rdquo; button.
+    </p>
+
+    <p>So, take the code:</p>
+
+<pre class="language-javascript prejs"><code>var x = 1
+var y = 2
+x + y</code></pre>
+    
+    <p>And then type (or paste) it into the orange box in the repl. Then click the blue <i>run multiline input</i> button.</p>
+
+    <p>The repl should respond by saying <code class="language-javascript">3</code>, which is the result of the expression on the last line of input.</p>
+
+    <? replshot('multiline.png') ?>
+
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

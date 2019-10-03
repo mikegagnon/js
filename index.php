@@ -22,9 +22,10 @@ html;
 function replshot($filename) {
     $fullFilename = $_SERVER['DOCUMENT_ROOT'] . '/img/' . $filename;  
     $width = getimagesize($fullFilename)[0] / 2;
+    $height = getimagesize($fullFilename)[1] / 2;
     $text = <<<html
 <div class="screenshot">
-    <img class="screenshot-repl" width="$width" src="img/$filename">
+    <img class="screenshot-repl" width="$width" height="$height" src="img/$filename">
 </div>
 html;
     echo $text;
@@ -33,9 +34,10 @@ html;
 function screenshot($filename) {
     $fullFilename = $_SERVER['DOCUMENT_ROOT'] . '/img/' . $filename;  
     $width = getimagesize($fullFilename)[0] / 2;
+    $height = getimagesize($fullFilename)[1] / 2;
     $text = <<<html
 <div class="screenshot">
-    <img width="$width" src="img/$filename">
+    <img width="$width" height="$height" src="img/$filename">
 </div>
 html;
     echo $text;

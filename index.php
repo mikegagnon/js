@@ -1593,18 +1593,24 @@ stepheader('note-assignment-expr', 'More on variable declarations'); ?>
     <p>Whenever you declare a new variable, you can assign it the value from any expression. Consider the following examples:</p>
 
     <ol>
-        <li>Executing <code class="language-javascript">var a = 1 + 1</code>, causes <code class="language-javascript">a</code> to resolve to the value of <code class="language-javascript">2</code></li>
+        <li>Executing <code class="language-javascript">var a = 1 + 1</code>, causes <code class="language-javascript">a</code> to resolve to the value of <code class="language-javascript">2</code>. <a href="#note-1-plus-1">Note</a></li>
 
         <li>Executing <code class="language-javascript">var b = a * 3</code>, causes <code class="language-javascript">b</code> to resolve to the value of <code class="language-javascript">6</code></li>
 
         <li>Executing <code class="language-javascript">var c = 1 > 2 || 3 < 4</code>, causes <code class="language-javascript">c</code> to resolve to the value of <code class="language-javascript">true</code></li>
 
-    <!-- TODO: earlier show the chaining of binary operators -->
+    <!-- TODO: earlier show the chaining of binary operators? -->
         <li>Executing <code class="language-javascript">var d = 'Hello' + ', ' + 'World!'</code>, causes <code class="language-javascript">d</code> to resolve to the value of <code class="language-javascript">'Hello, World!'</code>.</li>
     </ol>
 <? stepoverview(); ?>
     Executing <code class="language-javascript">var a = 1 + 1</code>, causes <code class="language-javascript">a</code> to resolve to the value of <code class="language-javascript">2</code>
 <? stepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-1-plus-1'); ?>
+    <? replshot('1plus1.png') ?>
+<? notefooter(); ?>
+
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

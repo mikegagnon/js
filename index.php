@@ -2164,6 +2164,32 @@ stepheader('note-obj-dot', 'Accessing members via the dot operator'); ?>
     If you declare <code class="language-javascript">var x = { a: 10 }</code>, then the expression <code class="language-javascript">x.a</code> resolves to the value <code class="language-javascript">10</code>
 <? stepfooter(); ?>
 
+<? #############################################################################
+substepheader('note-obj-brackets', 'Accessing members via bracket operators'); ?>
+<p> <? substepref('note-obj-values', 'note-obj-str-keys', 1) ?> shows how we can define objects using quotes around the keys. For example:</p>
+
+<pre class="language-javascript prejs"><code>var y = {
+    '1': 10,
+    '@': 20,
+    '#': 30
+}</code></pre>
+
+        <p>This feature comes in handy, when we want to use a key that is not  a valid identifier (see <? steplink('note-identifiers') ?>). But there&rsquo;s a catch: if a key is not a valid identifier, then we cannot use the dot operator to access members. Rather, we must use &ldquo;bracket operators.&rdquo;</p>
+
+        <p>For example, we can use bracket operators, like so, <code class="language-javascript">y['@']</code>, to access the <code class="language-javascript">'@'</code> member. In this case, the expression <code class="language-javascript">y['@']</code> resolves to <code class="language-javascript">20</code>.</p>
+
+        <p>Bracket operators also come in handy, if you want to access a member via an expression. For example, consider the following object definition:</p>
+
+<pre class="language-javascript prejs"><code>var z = {
+    abc: 99
+}</code></pre>
+
+        <p>Here, it is possible, via bracket operators, to access the member 
+            <code class="language-javascript">abc</code> via the following expression: <code class="language-javascript">z['a' + 'b' + 'c']</code>. The expression <code class="language-javascript">z['a' + 'b' + 'c']</code> resolves to the value <code class="language-javascript">99</code>.</p>
+
+
+<? substepfooter() ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

@@ -1430,7 +1430,42 @@ Similarly, short-circuit evaluation works with the <i>or</i> operator.
 <p>Consequently, JavaScript doesn&rsquo;t even bother to resolve <code class="language-javascript">2 !== 1</code>. Rather, as soon as JavaScript sees that the left side of the and-operator is true, it simply resolves the entire expression to <code class="language-javascript">true</code>.</p>
 <? substepfooter() ?>
 
+<? #############################################################################
+stepheader('note-not', 'The <i>not</i> operator'); ?>
+       <p>The <i>not</i> operator is very simple. It takes a boolean value, and flips it to the opposite. The <i>not</i> operator is symbolized by <code class="language-javascript">!</code>.</p>
 
+        <div class="table-format">
+            <table>
+                <tr>
+                    <td><code class="language-javascript">!true</code></td>
+                    <td> resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td><code class="language-javascript">!false</code>
+                    </td>
+                    <td> resolves to <code class="language-javascript">true</code></td>
+                </tr>
+            </table>
+        </div>
+
+        <p>Here are a couple of examples:</p>
+
+        <div class="table-format">
+            <table>
+                <tr>
+                    <td><code class="language-javascript">!(1 < 100)</code></td>
+                    <td> resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td><code class="language-javascript">!(5 === 6)</code>
+                    </td>
+                    <td> resolves to <code class="language-javascript">true</code></td>
+                </tr>
+            </table>
+        </div>
+<? stepoverview(); ?>
+    <code class="language-javascript no-left-margin">!(5 === 6)</code> resolves to <code class="language-javascript">true</code>
+<? stepfooter(); ?>
                 
 
 <? ########################################################################## ?>

@@ -1744,6 +1744,15 @@ stepheader('note-log', 'Logging'); ?>
     <code class="language-javascript no-left-margin">log(2 * 3)</code> logs <code class="language-none">6</code> to the repl
 <? stepfooter(); ?>
 
+<? #############################################################################
+substepheader('note-log-function', 'log is a function'); ?>
+    <p>    This is the first time we have encountered a function within this book.
+        <code class="language-javascript">log</code> is an example of a  &ldquo;function,&rdquo;
+        and <code class="language-javascript">log(2 * 3)</code> is an example of a 
+    &ldquo;function invocation.&rdquo;</p>
+
+    <p>We cover the topic of functions in Step TODO.</p>
+<? substepfooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

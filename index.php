@@ -2084,12 +2084,31 @@ stepheader('note-obj-values', 'Defining object values'); ?>
     <p>The repl&rsquo;s response, <code class="language-none">[object Object]</code> is the repl&rsquo;s weird way of saying: &ldquo;that&rsquo;s an object.&rdquo;
 
     <p>In the next full step, we&rsquo;ll use the multiline-input button to enter object definitions another way.</p>
-</div>
 
 <? stepoverview(); ?>
     <code class="language-javascript no-left-margin">{ a: 10, b: 20, c: 30 }</code>
 <? stepfooter(); ?>
 
+<? #############################################################################
+substepheader('note-obj-str-keys', 'String keys for object definitions'); ?>
+    <p>You can also define objects using quotes around the keys, like so:</p>
+
+<pre class="language-javascript prejs"><code>{
+    'a': 10,
+    'b': 20,
+    'c': 30
+}</code></pre>
+
+    <p>When you define key-value pairs this way, the keys may be any valid string, and it&rsquo;s perfectly OK
+                if a key is not a valid identifier. For example, the following object definition is perfectly fine:</p>
+<pre class="language-javascript prejs"><code>{
+    '1': 10,
+    '@': 20,
+    '#': 30
+}</code></pre>
+
+    <p>The only caveat, is that you cannot access such members using the &ldquo;dot operator&rdquo; (See Step TODO). Rather, you can only access such members using &ldquo;bracket operators.&rdquo; (See Step TODO).
+<? substepfooter() ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

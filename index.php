@@ -1966,6 +1966,36 @@ if (x === 1) {
 ")?> logs the string <?code("'x equals two'")?>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-if-else-if-multiple', 'Multiple else-if clauses'); ?>
+    <p>It is possible to include more than one <?code("else if")?> clause in an <?code("if")?> statements, like so:</p>
+
+<? pre("
+if (conditional1) {
+    body1
+} else if (conditional2) {
+    body2
+} else if (conditional3) {
+    body3
+} else {
+    body4
+}
+") ?>
+
+<? stepoverview(); ?>
+<? pre("
+if (conditional1) {
+    body1
+} else if (conditional2) {
+    body2
+} else if (conditional3) {
+    body3
+} else {
+    body4
+}
+") ?>
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

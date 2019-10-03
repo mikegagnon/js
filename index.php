@@ -1740,9 +1740,8 @@ stepheader('note-log', 'Logging'); ?>
          You should see the line in the repl that says <code class="language-none">log: 6</code> in yellow font, followed by <code class="language-none">undefined</code> in gray font. In the repl, yellow font indicates a message produced by <code class="language-javascript">log(...)</code>.</p>
 
     <? replshot('log.png')?>
-
-    <p><a href="javascript:$$('step-console-log', 'log-ref')">Step <? echo $chapterNum?>&frac12; Demystifying console.log</a></p>
 <? stepoverview(); ?>
+    <code class="language-javascript no-left-margin">log(2 * 3)</code> logs <code class="language-none">6</code> to the repl
 
 <? stepfooter(); ?>
 

@@ -1185,12 +1185,12 @@ noteheader('note-and1'); ?>
     <p>
     <code class="language-javascript">1 &lt; 2 &amp;&amp; 3 &lt; 4</code>
     resolves to <code class="language-javascript">true</code>, because:</p>
-    <ul>
+    <ol>
         <li><code class="language-javascript">&lt;</code> has higher precedence than <code class="language-javascript">&amp;&amp;</code></li>
         <li>Therefore, when JavaScript adds parentheses, the expression becomes <code class="language-javascript">(1 &lt; 2) &amp;&amp; (3 &lt; 4)</code></li>
         <li>Next, Javascript resolves <code class="language-javascript">(1 &lt; 2)</code> to <code class="language-javascript">true</code>, and resolves <code class="language-javascript">(3 &lt; 4)</code> to <code class="language-javascript">true</code></li>
         <li>Therefore, the expression becomes <code class="language-javascript">true &amp;&amp; true</code>, which resolves to <code class="language-javascript">true</code>
-    </ul>
+    </ol>
 <? notefooter(); ?>
 
 <? #############################################################################
@@ -1198,12 +1198,12 @@ noteheader('note-and2'); ?>
     <p>
         <code class="language-javascript">1 < 2 &amp;&amp; false</code>
         resolves to <code class="language-javascript">false</code>, because:</p>
-    <ul>
+    <ol>
         <li><code class="language-javascript">&lt;</code> has higher precedence than <code class="language-javascript">&amp;&amp;</code></li>
         <li>Therefore, when JavaScript adds parentheses, the expression becomes <code class="language-javascript">(1 &lt; 2) &amp;&amp; false</code></li>
         <li>Next, Javascript resolves <code class="language-javascript">(1 &lt; 2)</code> to <code class="language-javascript">true</code></li>
         <li>Therefore, the expression becomes <code class="language-javascript">true &amp;&amp; false</code>, which resolves to <code class="language-javascript">false</code>
-    </ul>
+    </ol>
 <? notefooter(); ?>
 
 <? #############################################################################
@@ -1213,14 +1213,14 @@ noteheader('note-and3'); ?>
         resolves to <code class="language-javascript">false</code>, because:</p>
     </p>
 
-    <ul>
+    <ol>
         <li>The <code class="language-javascript">+</code> operator has the highest precedence within this expression</li>
         <li>Therefore, the expression becomes <code class="language-javascript">('A' + 'B') === 'AB' &amp;&amp; 1 == 100</code></li>
         <li>Next, the <code class="language-javascript">===</code> operator has the next highest precedence within this expression</li>
         <li>Therefore, the expression becomes <code class="language-javascript">(('A' + 'B') === 'AB') &amp;&amp; (1 == 100)</code></li>
         <li>Then, JavaScript resolves <code class="language-javascript">('A' + 'B') === 'AB'</code> to <code class="language-javascript">true</code>, and resolves <code class="language-javascript">(1 == 100)</code> to <code class="language-javascript">false</code></li>
         <li>Finally, the expression becomes <code class="language-javascript">true &amp;&amp; false</code>, which resolves to <code class="language-javascript">false</code></li>
-    </ul>
+    </ol>
 <? notefooter(); ?>
 
 <? #############################################################################

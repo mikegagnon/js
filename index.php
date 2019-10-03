@@ -1632,9 +1632,20 @@ stepheader('note-identifiers', 'Valid variable names and identifiers'); ?>
     <p>Also, a valid identifier name cannot be a word from the JavaScript language. For instance, <code class="language-javascript">var</code> is not a valid identifier. E.g., <code class="language-javascript">var var = 1</code> uses an invalid identifier and therefore the whole statement is invalid.
 <? stepoverview(); ?>
     <code class="language-javascript no-left-margin">@</code> is not a valid identifier, but <code class="language-javascript">$</code> is a valid identifier
-
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-assignment-op', 'Assignment operator'); ?>
+        <p>In <? steplink('note-var') ?>, we saw how to declare new variables. In this step, though, we show how to make an existing variable refer to a new value. </p>
+
+        <p>It&rsquo;s very simple. Let&rsquo;s say you&rsquo;ve already declared <code class="language-javascript">var x = 1</code>, and now you would like to have <code class="language-javascript">x</code> refer to the value <code class="language-javascript">'Hello'</code>. Simply execute <code class="language-javascript">x = 'Hello'</code>.</p>
+
+        <p>As you might expect, the right-hand side of the <code class="language-javascript">=</code> sign can be any valid expression. For instance: <code class="language-javascript">x = true || false</code>.</p>
+
+        <p>You can even include the variable name on the right-hand side. For instance, if you first declare <code class="language-javascript">var x = 1</code>, then you could follow up with <code class="language-javascript">x = x + 4</code>, and then <code class="language-javascript">x</code> would refer to the value <code class="language-javascript">5</code>. The way it works, is JavaScript first resolves the expression on the right-hand side, and then sets the variable to refer to the resulting value.</p>
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

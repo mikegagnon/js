@@ -2049,11 +2049,7 @@ stepheader('note-references', 'Introduction to references and storage diagrams')
 
         <? screenshot('qhello.png') ?>
 
-        <p>Notice how both <code class="language-javascript">x</code> and <code class="language-javascript">q</code> point to (i.e. refer to) the same string. This is because when you assign a string variable, JavaScript doesn't actually make a duplicate of the string; rather, JavaScript just copies the <i>reference</i> to the string. We will see why references are important in the next step, when encounter &ldquo;objects.&rdquo;</p> 
-        <!--<p> Thus, if the string referred to by <code class="language-javascript">x</code> and <code class="language-javascript">q</code> were to ever change, then <code class="language-javascript">x</code> and <code class="language-javascript">q</code> would both refer to the changed string. However, it is impossible to change strings in JavaScript, so it&rsquo;'s actually pretty academic to be aware of how JavaScript treats string assignments. The only reason I bring it up now, is to foreshadow the nuances of JavaScript we will see soon. -->
-
-        <!-- TODO: get pedantic about string storage in sidenote-->
-        <!-- TODO: this div contains an unclosed p tag -->
+        <p>Notice how both <code class="language-javascript">x</code> and <code class="language-javascript">q</code> point to (i.e. refer to) the same string. This is because when you assign a string variable, JavaScript doesn't actually make a duplicate of the string; rather, JavaScript just copies the <i>reference</i> to the string. We will see why references are important in the next step, when encounter &ldquo;objects.&rdquo;</p>
 <? stepoverview(); ?>
     <? screenshot('qhello.png') ?>
 <? stepfooter(); ?>

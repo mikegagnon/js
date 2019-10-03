@@ -2021,6 +2021,43 @@ if (conditional1) {
 ") ?>
 <? stepfooter(); ?>
 
+<?
+################################################################################
+partheader('Objects'); ################################################################
+################################################################################
+?>
+
+<? #############################################################################
+stepheader('note-references', 'Introduction to references and storage diagrams'); ?>
+<? $chapterRef = $chapterNum ?>
+
+        <p>Throughout the rest of this book, we will use &ldquo;storage diagrams&rdquo; to visually represent variables, and other types of entities as well. These diagrams begin very simply, and then become complex as we progress through the steps.</p>
+
+        <p>To start, I will show you a storage diagram for what JavaScript looks like, on the inside, after you&rsquo;ve executed <code class="language-javascript">var zz = 11</code>:</p>
+
+        <? screenshot('zz11.png') ?>
+
+        <p>After having executing <code class="language-javascript">var zz = 11</code>, say we were to execute <code class="language-javascript">var abc = 32</code>. Then, the diagram would look like this:
+
+        <? screenshot('abc32.png') ?>
+
+        <p>But, after that, if we were to execute <code class="language-javascript">var x = 'Hello'</code>, then the storage diagram would look like:</p>
+
+        <? screenshot('xhello.png') ?>
+
+        <p>The reason the diagram looks like this, is because JavaScript does not store string values inside variables. Rather, JavaScript stores &ldquo;references&rdquo; to strings inside variables. Thus, if you were to execute <code class="language-javascript">var q = x</code>, then the storage diagram would look like this:</p>
+
+        <? screenshot('qhello.png') ?>
+
+        <p>Notice how both <code class="language-javascript">x</code> and <code class="language-javascript">q</code> point to (i.e. refer to) the same string. This is because when you assign a string variable, JavaScript doesn't actually make a duplicate of the string; rather, JavaScript just copies the <i>reference</i> to the string. We will see why references are important in the next step, when encounter &ldquo;objects.&rdquo;</p> 
+        <!--<p> Thus, if the string referred to by <code class="language-javascript">x</code> and <code class="language-javascript">q</code> were to ever change, then <code class="language-javascript">x</code> and <code class="language-javascript">q</code> would both refer to the changed string. However, it is impossible to change strings in JavaScript, so it&rsquo;'s actually pretty academic to be aware of how JavaScript treats string assignments. The only reason I bring it up now, is to foreshadow the nuances of JavaScript we will see soon. -->
+
+        <!-- TODO: get pedantic about string storage in sidenote-->
+        <!-- TODO: this div contains an unclosed p tag -->
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

@@ -1647,6 +1647,18 @@ stepheader('note-assignment-op', 'Assignment operator'); ?>
     <code class="language-javascript">x = x + 4</code> adds 4 to the value of <code class="language-javascript">x</code>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-more-assignment-op', 'More about the assignment operator'); ?>
+    <p>While variable declarations are statements (and not an expressions), using the assignment operator creates an expression. You can see for yourself by using the repl. Execute <code class="language-javascript">x = 99 + 1</code> in the repl, and it will resolve to the value <code class="language-javascript">100</code>.</p>
+
+    <p>One last thing about the assignment operator: you can actually declare new variables with the assignment operator, without using <code class="language-javascript">var</code>. I.e., <code class="language-javascript">var x = 3</code> works pretty much as well as <code class="language-javascript">x = 3</code>. There are some caveats, however, that inspire us to use <code class="language-javascript">var</code> in variable declarations, which we will see when we encounter &ldquo;functions&rdquo; and &ldquo;recursion,&rdquo; soon enough.</p>
+
+    <p>TODO: forward reference</p>
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
+
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

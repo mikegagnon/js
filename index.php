@@ -1922,6 +1922,50 @@ if (x === 1) {
 ") ?> sets the value of <? code(x) ?>  to  <?code(4)?>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-if-else-if', 'If-else-if statements'); ?>
+    <p>It is possible to include <?code("else if")?> &ldquo;clauses&rdquo; in <?code("if")?> statements, like so:</p>
+
+<? pre("
+if (conditional1) {
+    body1
+} else if (conditional2) {
+    body2
+} else {
+    body3
+}
+") ?>
+
+    <p>When executing such <?code("if")?> statements, JavaScript will begin by checking <?code("conditional1")?>. If it resolves to <?code("true")?>, then JavaScript will execute <?code("body1")?>. Otherwise, JavaScript will check <?code("conditional2")?>, and if that resolves to <?code("true")?>, then JavaScript will execute <?code("body2")?>. And if none of the above conditionals resolve to <?code("true")?>, then JavaScript will execute <?code("body3")?>.</p>
+
+    <p>For example:</p>
+
+<? pre("
+var x = 2
+if (x === 1) {
+    log('x equals one')
+} else if (x === 2) {
+    log('x equals two')
+} else {
+    log('x is neither one, nor two')
+}
+") ?>
+        
+    <p>If you execute the above code snippet, then JavaScript will log the string <?code("'x equals two'")?>.</p>
+
+<? stepoverview(); ?>
+<? pre("
+var x = 2
+if (x === 1) {
+    console.log('x equals one')
+} else if (x === 2) {
+    console.log('x equals two')
+} else {
+    console.log('x is neither one, nor two')
+}
+")?> logs the string <?code("'x equals two'")?>
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

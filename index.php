@@ -1561,9 +1561,8 @@ stepheader('note-var', 'Variables'); ?>
 
     <p>Why did the repl respond with <code class="language-javascript">undefined</code>? It&rsquo;s because <code class="language-javascript">var x = 4</code> is <i>not</i> an expression. Rather, <code class="language-javascript">var x = 4</code> is a &ldquo;statement.&rdquo;</p>
 
-    <p>While <i>expressions</i> resolve to values, <i>statements</i> do not resolve to values. And, when the repl encounters a statement, it gives you back the special value <code class="language-javascript">undefined</code>. Instead of resolving to values, statements &ldquo;perform actions.&rdquo;</p>
+    <p>While <i>expressions</i> resolve to values, <i>statements</i> do not resolve to values. And, when the repl encounters a statement, it gives you back the special value <code class="language-javascript">undefined</code>. Instead of resolving to values, statements &ldquo;perform actions.&rdquo; <a href="#note-expr-sub">Note</a></p>
 
-   <p>TODO: sidenote explaining that you can place an expression anywhere that JavaScript expects a statement</p>
 
     <p>In the case of <code class="language-javascript">var x = 4</code>,
         the action JavaScript performs is: (1) create a new variable named <code class="language-javascript">x</code>, and (2) make the variable <code class="language-javascript">x</code> refer to the value <code class="language-javascript">4</code>.</p>
@@ -1578,9 +1577,19 @@ stepheader('note-var', 'Variables'); ?>
 
     <? replshot('xrel4.png') ?>
 
+    
+
 <? stepoverview(); ?>
 
 <? stepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-expr-sub'); ?>
+    <p>As we will see shortly when we discuss (TODO:link) <code class="language-javascript">if</code> statements,
+    sometimes JavaScript expects to see a statement somewhere in code. In such places, you can always place an expression instead of a statement.
+    However, the reverse is not true. That is, if JavaScript expects to see an expression, you may not place a statement; when JavaScript expects an expression, you must provide an expression.
+    </p>
+<? notefooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

@@ -1996,6 +1996,31 @@ if (conditional1) {
 ") ?>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-if-else-if-exclude', 'Excluding an else clause'); ?>
+    <p>It is possible to exclude an <?code("else")?> clause from <?code("if")?> statements, like so:</p>
+
+<? pre("
+if (conditional1) {
+    body1
+} else if (conditional2) {
+    body2
+} else if (conditional3) {
+    body3
+}
+") ?>
+<? stepoverview(); ?>
+<? pre("
+if (conditional1) {
+    body1
+} else if (conditional2) {
+    body2
+} else if (conditional3) {
+    body3
+}
+") ?>
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

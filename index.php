@@ -1695,7 +1695,7 @@ stepheader('note-more-assignment-op', 'More about the assignment operator'); ?>
 
 <?
 ################################################################################
-partheader('If statements'); ###################################################
+partheader('Multiline input and logging'); #####################################
 ################################################################################
 ?>
 
@@ -1785,6 +1785,58 @@ x = x * 2
 log(x)
 </code></pre>
     <p>logs the following values to the repl: <code class="language-javascript">1</code>, <code class="language-javascript">2</code>, <code class="language-javascript">4</code>, <code class="language-javascript">8</code></p>
+<? stepfooter(); ?>
+
+<?
+################################################################################
+partheader('If statements'); ###################################################
+################################################################################
+?>
+
+<? #############################################################################
+stepheader('note-if', 'If statements'); ?>
+    <p>An <code class="language-javascript">if</code> statement looks like this:</p>
+
+<? pre("if (conditional) {
+    body
+}
+") ?>
+
+
+    <p> When JavaScript encounters an <code class="language-javascript">if</code> statement, it resolves the expression in the parentheses (the &ldquo;conditional&rdquo;). If the expression resolves to <code class="language-javascript">true</code>, then JavaScript executes the code inside the curly braces (the &ldquo;body&rdquo;). But, if the expression resolves to <code class="language-javascript">false</code>, then JavaScript skips over the the code inside the curly braces.</p>
+
+    <p>For example, enter the following into the repl:</p>
+
+<? pre("
+var x = 9
+log('before if')
+if (x === 9) {
+    log('x equals 9')
+}
+log('after if')
+") ?>
+    <p>You should see three logs messages in the repl:</p>
+
+    <? replshot("if-output.png")?>
+
+    <p>Let&rsquo;s look at another example. This time we will modify the <code class="language-javascript">if</code> statement, to see  what happens if we declare <code class="language-javascript">var x == 100</code>:</p>
+
+<? pre("
+var x = 100
+log('before if')
+if (x === 9) {
+    log('x equals 9')
+}
+log('after if')
+") ?>
+
+    <p>If you run that code snippet, you should two log messages in the repl:</p>
+
+    <? replshot("if-output-2.png")?>
+
+    <p>JavaScript skipped over the code inside the curly braces, because <code class="language-javascript">x === 9</code> resolved to <code class="language-javascript">false</code>.</p>
+<? stepoverview(); ?>
+
 <? stepfooter(); ?>
 
 <? ########################################################################## ?>

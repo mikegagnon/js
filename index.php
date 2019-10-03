@@ -1754,6 +1754,39 @@ substepheader('note-log-function', 'log is a function'); ?>
     <p>We cover the topic of functions in Step TODO.</p>
 <? substepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-log2', 'More about logging'); ?>
+    <p>Let&rsquo;s look at another example of using <code class="language-javascript">log(...)</code>. Use the <i>multiline input</i> button to enter the following code into the repl:</p>
+
+<pre class="language-javascript prejs"><code>var x = 1
+log(x)
+x = x * 2
+log(x)
+x = x * 2
+log(x)
+x = x * 2
+log(x)
+</code></pre>
+
+    <p>Your repl should look like this:</p>
+
+    <? replshot('log2.png') ?>
+
+    <p>Here, we can see that every time <code class="language-javascript">log(x)</code> appears, it logs a new message to the repl, containing the value of <code class="language-javascript">x</code> at that point in the code.</p>
+
+<? stepoverview(); ?>
+<pre class="language-javascript prejs"><code>var x = 1
+log(x)
+x = x * 2
+log(x)
+x = x * 2
+log(x)
+x = x * 2
+log(x)
+</code></pre>
+    <p>logs the following values to the repl: <code class="language-javascript">1</code>, <code class="language-javascript">2</code>, <code class="language-javascript">4</code>, <code class="language-javascript">8</code></p>
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

@@ -5,6 +5,7 @@ $stepNum = null;
 $subStepNum = null;
 $currentStepName = null;
 $currentStepTitle = null;
+$currentPartTitle = null;
 
 function pre($body) {
     echo prestr($body);
@@ -45,13 +46,23 @@ function stepheader($stepName, $stepTitle) {
     global $currentStepName;
     global $currentStepTitle;
     global $subStepNum;
+    global $currentPartTitle;
+    global $partNum;
 
     $currentStepName = $stepName;
     $currentStepTitle = $stepTitle;
     $stepNum++;
     $subStepNum = 0;
+
+    $begin = "<div class='padded note' data-note-name='$stepName'>";
+    $thisPartHeader = "";
+    if ($currentPartTitle != null) {
+        $thisPartHeader = "<h2 class='part-title-in-note'>Part $partNum. $currentPartTitle</h2>";
+        $currentPartTitle = null;
+    }
     $text = <<<html
-<div class='padded note' data-note-name='$stepName'>
+    $begin
+    $thisPartHeader
     <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
     <h2>Step $stepNum. $stepTitle</h2>
 html;
@@ -143,6 +154,9 @@ html;
 
 function partheader($title) {
     global $partNum;
+    global $currentPartTitle;
+
+    $currentPartTitle = $title;
     $n = ++$partNum;
     $text = <<<html
 <script>

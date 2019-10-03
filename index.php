@@ -1184,10 +1184,71 @@ noteheader('note-and3'); ?>
         <li>Therefore, the expression becomes <code class="language-javascript">(('A' + 'B') === 'AB') &amp;&amp; (1 == 100)</code></li>
         <li>Then, JavaScript resolves <code class="language-javascript">('A' + 'B') === 'AB'</code> to <code class="language-javascript">true</code>, and resolves <code class="language-javascript">(1 == 100)</code> to <code class="language-javascript">false</code></li>
         <li>Finally, the expression becomes <code class="language-javascript">true &amp;&amp; false</code>, which resolves to <code class="language-javascript">false</code></li>
-            
-   
     </ul>
 <? notefooter(); ?>
+
+<? #############################################################################
+stepheader('note-or', 'The <i>or</i> operator'); ?>
+
+    <p>Imagine someone says: &ldquo;It&rsquo;s sunny <i>or</i> it&rsquo;s Friday.&rdquo; Yes, this is a somewhat bizarre statement, but hopefully it&rsquo;s good for demonstrating the logic of &ldquo;or.&rdquo;
+    In English, we would consider that statement to be true, if it is actually sunny, <i>or</i> if it is actually Friday. Furthermore, if it is not sunny, and if today is not Friday, then the statement is false.</p>
+
+    <p>But, what if it is sunny, and it is also Friday? In English, the word &ldquo;or&rdquo; is somewhat ill-defined; it&rsquo;s unclear if we should consider the statement true, if it&rsquo;s both sunny and Friday.</p>
+
+    <p>But in JavaScript, there is no ambiguity here: if it&rsquo;s sunny and it&rsquo;s also Friday, then we would consider the statement true.
+    It will take a few paragraphs to explain precisely what I mean here.
+    </p>
+
+    <p>In JavaScript, &ldquo;or&rdquo; is symbolized by <code class="language-javascript">||</code>, which is simply two adjacent &ldquo;pipe characters.&rdquo; You can type the pipe character by entering <i>shift-backslash</i>; the backslash key is often right above the enter key.</p>
+
+    <p>The general principle of the <i>or</i> operator, is that it compares two boolean expressions (we&rsquo;ll refer to those expressions as expression <code class="language-javascript">a</code> and expression <code class="language-javascript">b</code>), and then resolves to a single boolean value (which is either <code class="language-javascript">true</code> or <code class="language-javascript">false</code>).</p>
+
+    <p>To be more specific, if either <code class="language-javascript">a</code> or <code class="language-javascript">b</code> resolve to <code class="language-javascript">true</code> (or if both resolve to <code class="language-javascript">true</code>), then <code class="language-javascript">a || b</code> resolves to <code class="language-javascript">true</code>. But, if both <code class="language-javascript">a</code> and <code class="language-javascript">b</code> resolve to <code class="language-javascript">false</code>, then <code class="language-javascript">a || b</code> resolves to <code class="language-javascript">false</code>.
+    </p>
+
+    <p>For example:</p>
+
+    <div class="table-format">
+    <table>
+        <tr>
+            <td>
+                <code class="language-javascript">true&nbsp;&nbsp;|| false</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">true</code>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                <code class="language-javascript">false&nbsp;|| true</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">true</code>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                <code class="language-javascript">true&nbsp;&nbsp;|| true</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">true</code>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                <code class="language-javascript">false&nbsp;|| false</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">false</code>
+             </td>
+        </tr>
+    </table>
+    </div>
+
+
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
 
 
 <? ########################################################################## ?>

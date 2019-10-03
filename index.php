@@ -148,7 +148,7 @@ function partheader($title) {
 <script>
 SNIPPETS_TABLE = '#snippets-table-part-$n';
 
-$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Part $n. $title </p>`);
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter $n. $title </p>`);
 
 $(SNIPPETS_TABLE_WRAPPER).append(`<div id='\${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
 </div>`);
@@ -556,6 +556,13 @@ stepheader('note-ptable', 'Precedence tables'); ?>
     </table>
 <? stepfooter(); ?>
 
+<?
+################################################################################
+partheader('Types'); ###########################################################
+################################################################################
+?>
+
+
 <? #############################################################################
 stepheader('note-types', 'Types'); ?>
 
@@ -638,6 +645,11 @@ substepheader('note-bool-exercises', 'Exercises'); ?>
     </ol>
 <? substepfooter() ?>
 
+<?
+################################################################################
+partheader('Relational and equality operators'); ###############################
+################################################################################
+?>
 
 
 
@@ -1023,6 +1035,13 @@ substepheader('note-eq-precedence-exercises', 'Exercises'); ?>
         <li>What happens if you execute <code class="language-javascript">(99 + 1) / 100 !== 1</code>?</li>
     </ol>
 <? substepfooter() ?>
+
+<?
+################################################################################
+partheader('Logical operators'); ###############################################
+################################################################################
+?>
+
 
 <? #############################################################################
 stepheader('note-and', 'The <i>and</i> operator'); ?>
@@ -1547,7 +1566,7 @@ stepheader('note-not-precedence', 'Not operator precedence'); ?>
 
 <?
 ################################################################################
-partheader('Variables and if statements'); #####################################
+partheader('Variables'); #######################################################
 ################################################################################
 ?>
 
@@ -1658,6 +1677,12 @@ stepheader('note-more-assignment-op', 'More about the assignment operator'); ?>
     The expression <code class="language-javascript">x = 99 + 1</code> resolves to <code class="language-javascript">100</code>
 <? stepfooter(); ?>
 
+<?
+################################################################################
+partheader('If statements'); ###################################################
+################################################################################
+?>
+
 <? #############################################################################
 stepheader('note-multiline', 'Multiline input'); ?>
     <p>The <i>multiline input</i> button will come in handy throughout the rest of this book. So, let&rsquo;s see how it works.
@@ -1708,6 +1733,12 @@ substepheader('note-y', ''); ?>
 noteheader('note-z'); ?>
 
 <? notefooter(); ?>
+
+<?
+################################################################################
+partheader(''); ################################################################
+################################################################################
+?>
 
 <?
 ################################################################################

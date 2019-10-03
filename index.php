@@ -210,7 +210,7 @@ function substepLink($noteName, $subStepNum, $noteTitle) {
 
             <p>With the eager approach, you refuse to move on to the next step, until you&rsquo;ve convinced yourself that you&rsquo;ve mastered the current step.</p>
 
-            <p>But, with the hybrid lazy eager approach, perhaps you skip a few steps and work backwards from there. Or, perhaps you skim the material until you reach a point where you&rsquo;re confused, and then go back and study the material you have already skimmed over.</p>
+            <p>But, with the hybrid lazy-eager approach, perhaps you skip a few steps and work backwards from there. Or, perhaps you skim the material until you reach a point where you&rsquo;re confused, and then go back and study the material you have already skimmed over.</p>
 
             <p>I think the lazy-eager approach might be a great way to learn JavaScript, and I wrote this book for lazy-eager learning.</p>
 
@@ -1146,7 +1146,7 @@ stepheader('note-and-precedence', 'And operator precedence'); ?>
 <? stepfooter(); ?>
 
 <? #############################################################################
-substepheader('note-short-circuit', 'Short circuit evaluation'); ?>
+substepheader('note-short-circuit', 'Short circuit evaluation with <i>and</i>'); ?>
 <p>The expression <code class="language-javascript">false &amp;&amp; 1 &lt; 100</code> resolves to <code class="language-javascript">false</code>, because the left side of the and-operator is <code class="language-javascript">false</code>. Therefore, when executing this expression, JavaScript knows that no matter what is on the right side of the and-operator, the entire expression will resolve to false.</p>
 
 <p>Consequently, JavaScript doesn&rsquo;t even bother to resolve <code class="language-javascript">1 &lt; 100</code>. Rather, as soon as JavaScript sees that the left side of the and-operator is false, it simply resolves the entire expression to <code class="language-javascript">false</code>. The ability for JavaScript to resolve the entire expression while only looking at the left-side, is known as <i>short-circuit evaluation</i>.</p>
@@ -1336,6 +1336,26 @@ stepheader('note-or-precedence', 'Or operator precedence'); ?>
                     </td>
                 </tr>
                 <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">'A' + 'B' === 'C' || 1 * 0 > 0</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">false</code>
+                    </td>
+                    <td>
+                        <a href="#note-or3">Note</a>
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">3 / 4 < 0 || 8 / 9 >= 1</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">false</code>
+                    </td>
+                    <td>
+                        <a href="#note-or4">Note</a>
+                    </td>
+                </tr>-->
+                <!--<tr>
                     <td class="no-wrap" valign="top"><code class="language-javascript">1 &gt; 2 || 2 !== 1</code>
                     </td>
                     <td class="no-wrap" valign="top">
@@ -1344,42 +1364,74 @@ stepheader('note-or-precedence', 'Or operator precedence'); ?>
                     <td>
                         <a href="#note-or3">Note</a>
                     </td>
-                </tr>
-                <tr>
-                    <td class="no-wrap" valign="top"><code class="language-javascript">2 * 2 > 4 || 3 * 3 <= 9</code>
-                    </td>
-                    <td class="no-wrap" valign="top">
-                        resolves to <code class="language-javascript">true</code>
-                    </td>
-                    <td>
-                        <a href="#note-or4">Note</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="no-wrap" valign="top"><code class="language-javascript">1 * 0 === 0 || 1 * 0 > 0</code>
-                    </td>
-                    <td class="no-wrap" valign="top">
-                        resolves to <code class="language-javascript">true</code>
-                    </td>
-                    <td>
-                        <a href="#note-or5">Note</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="no-wrap" valign="top"><code class="language-javascript">3 / 4 < 0 || 8 / 9 >= 1</code>
-                    </td>
-                    <td class="no-wrap" valign="top">
-                        resolves to <code class="language-javascript">false</code>
-                    </td>
-                    <td>
-                        <a href="#note-or6">Note</a>
-                    </td>
-                </tr>
+                </tr>-->
             </table>
             </div>
 <? stepoverview(); ?>
     <code class="language-javascript">2 * 2 > 4 || 3 * 3 <= 9</code> resolves to <code class="language-javascript">true</code>
 <? stepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-or1'); ?>
+    <code class="language-javascript">1 &lt; 2 || false</code> resolves to 
+    <code class="language-javascript">true</code>, because:
+
+    <ol>
+        <li><code class="language-javascript">&lt;</code> has the highest precedence in the expression</li>
+        <li>Therefore, when JavaScript adds parentheses, the expression becomes <code class="language-javascript">(1 &lt; 2) || false</code></li>
+        <li>Next, JavaScript resolves <code class="language-javascript">(1 &lt; 2)</code> to <code class="language-javascript">true</code></li>
+        <li>Therefore, the expression becomes <code class="language-javascript">true || false</code>, which resolves to <code class="language-javascript">true</code>
+    </ol>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-or2'); ?>
+    <code class="language-javascript">false || 1 >= 100</code> resolves to 
+    <code class="language-javascript">false</code>, because:
+
+    <ol>
+        <li><code class="language-javascript">&gt;=</code> has the highest precedence in the expression</li>
+        <li>Therefore, when JavaScript adds parentheses, the expression becomes <code class="language-javascript">false || (1 >= 100)</code></li>
+        <li>Next, JavaScript resolves <code class="language-javascript">(1 >= 100)</code> to <code class="language-javascript">false</code></li>
+        <li>Therefore, the expression becomes <code class="language-javascript">false || false</code>, which resolves to <code class="language-javascript">false</code>
+    </ol>
+<? notefooter(); ?>
+
+
+<? #############################################################################
+noteheader('note-or3'); ?>
+    <code class="language-javascript">'A' + 'B' === 'C' || 1 * 0 > 0</code> resolves to 
+    <code class="language-javascript">false</code>, because:
+
+    <ol>
+        <li><code class="language-javascript">*</code> has the highest precedence in the expression</li>
+        <li>Therefore, when JavaScript adds parentheses, the expression becomes <code class="language-javascript">'A' + 'B' === 'C' || (1 * 0) > 0</code></li>
+        <li><code class="language-javascript">+</code> has the second highest precedence in the expression</li>
+        <li>Therefore, when JavaScript adds more parentheses, the expression becomes <code class="language-javascript">('A' + 'B') === 'C' || (1 * 0) > 0</code></li>
+        <li><code class="language-javascript">&gt;</code> has the third highest precedence in the expression</li>
+        <li>Therefore, when JavaScript adds more parentheses, the expression becomes <code class="language-javascript">('A' + 'B') === 'C' || ((1 * 0) > 0)</code></li>
+        <li><code class="language-javascript">===</code> has the fourth highest precedence in the expression</li>
+        <li>Therefore, when JavaScript adds more parentheses, the expression becomes <code class="language-javascript">(('A' + 'B') === 'C') || ((1 * 0) > 0)</code></li>
+        <li>JavaScript resolves <code class="language-javascript">(('A' + 'B') === 'C') || ((1 * 0) > 0)</code> to <code class="language-javascript">('AB' === 'C') || (0 > 0)</code></li>
+        <li>JavaScript resolves <code class="language-javascript">('AB' === 'C') || (0 > 0)</code> to <code class="language-javascript">false || false</code>, which resolves to <code class="language-javascript">false</code></li>
+
+    </ol>
+<? notefooter(); ?>
+
+<? #############################################################################
+substepheader('note-short-circuit-or', 'Short circuit evaluation with <i>or</i>'); ?>
+
+<p>In <? substepref('note-and-precedence', 'note-short-circuit', 1) ?>, we learned about short-circuit evaluation with the <i>and</i> operator. 
+Similarly, short-circuit evaluation works with the <i>or</i> operator.
+</p>
+
+<p>The expression <code class="language-javascript">1 &lt; 2 || 2 !== 1</code> resolves to <code class="language-javascript">true</code>, because the left side of the or-operator (<code class="language-javascript">1 &lt; 2</code>) resolves to <code class="language-javascript">true</code>. Therefore, when executing this expression, JavaScript knows that no matter what is on the right side of the and-operator, the entire expression will resolve to  <code class="language-javascript">true</code>.</p>
+
+<p>Consequently, JavaScript doesn&rsquo;t even bother to resolve <code class="language-javascript">2 !== 1</code>. Rather, as soon as JavaScript sees that the left side of the and-operator is true, it simply resolves the entire expression to <code class="language-javascript">true</code>.</p>
+<? substepfooter() ?>
+
+
+                
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

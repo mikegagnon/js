@@ -200,6 +200,18 @@ function substepLink($noteName, $subStepNum, $noteTitle) {
                 If you&rsquo;re inclined, feel free to enrich your understanding of JavaScript by diving deep into the sidenotes. Or, feel free to stay shallow, which is all you need for us to build a chess AI together.
             </p>
 
+            <h2>Lazy-eager learning</h2>
+
+            <p>Broadly speaking, there are three approaches to learning: <i>lazy</i> learning, <i>eager</i> learning, and a hybrid approach&mdash;<i>lazy-eager</i> learning.</p>
+
+            <p>With the lazy approach, you skip straight to the last page of your textbook, and work backwards from there.</p>
+
+            <p>With the eager approach, you refuse to move on to the next step, until you&rsquo;ve convinced yourself that you&rsquo;ve mastered the current step.</p>
+
+            <p>But, with the hybrid lazy eager approach, perhaps you skip a few steps and work backwards from there. Or, perhaps you skim the material until you reach a point where you&rsquo;re confused, and then go back and study the material you have already skimmed over.</p>
+
+            <p>I think the lazy-eager approach might be a great way to learn JavaScript, and I wrote this book for lazy-eager learning.</p>
+
         </div>
 
         <h1 class='part-title'><a name='snippets'>Contents</a></h1>

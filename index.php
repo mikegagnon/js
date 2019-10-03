@@ -1248,6 +1248,124 @@ stepheader('note-or', 'The <i>or</i> operator'); ?>
     <code class="language-javascript no-left-margin">true || false</code> resolves to <code class="language-javascript">true</code>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-or-precedence', 'Or operator precedence'); ?>
+        <p>The <i>or</i> operator has the lowest precedence we 
+        have seen yet. Its precedence is even lower than the <i>and</i> operator. This means that all other operations we have seen thus
+        far have a higher precedence, thus you do not need to put parentheses
+        around comparison expressions (etc.) when writing expressions using the <i>or</i> operator.</p>
+
+            <table class="precedence-table">
+                    <tr class="header-row">
+                        <th>Precedence</th>
+                        <th>Operator type</th>
+                        <th>Operators</th>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Parentheses</td>
+                        <td><code class="language-javascript">( ... )</code></td>   
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Multiplication and division</td>
+                        <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Addition and subtraction</td>
+                        <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Relational operators<br>
+                        </td>
+                        <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Equality operators</td>
+                        <td><code class="language-javascript">===</code>, <code class="language-javascript">!==</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>And</td>
+                        <td><code class="language-javascript">&amp;&amp;</code></td>   
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Or</td>
+                        <td><code class="language-javascript">||</code></td>   
+                    </tr>
+            </table>
+
+            <p>It is common to combine the <i>or</i> operator with the operators we have previously seen. For example:</p>
+
+            <div class="table-format">
+            <table>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">1 &lt; 2 || false</code></td>
+                    <td class="no-wrap" valign="top">resolves to <code class="language-javascript">true</code>
+                    </td>
+                    <td>
+                    <a href="#note-or1">Note</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">false || 1 &gt;= 100</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">false</code>
+                    </td>
+                    <td>
+                        <a href="#note-or2">Note</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">1 &gt; 2 || 2 !== 1</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">true</code>
+                    </td>
+                    <td>
+                        <a href="#note-or3">Note</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">2 * 2 > 4 || 3 * 3 <= 9</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">true</code>
+                    </td>
+                    <td>
+                        <a href="#note-or4">Note</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">1 * 0 === 0 || 1 * 0 > 0</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">true</code>
+                    </td>
+                    <td>
+                        <a href="#note-or5">Note</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">3 / 4 < 0 || 8 / 9 >= 1</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">false</code>
+                    </td>
+                    <td>
+                        <a href="#note-or6">Note</a>
+                    </td>
+                </tr>
+            </table>
+            </div>
+<? stepoverview(); ?>
+    <code class="language-javascript">2 * 2 > 4 || 3 * 3 <= 9</code> resolves to <code class="language-javascript">true</code>
+<? stepfooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

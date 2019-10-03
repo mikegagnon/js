@@ -1611,6 +1611,30 @@ noteheader('note-1-plus-1'); ?>
     <? replshot('1plus1.png') ?>
 <? notefooter(); ?>
 
+<? #############################################################################
+stepheader('note-identifiers', 'Valid variable names and identifiers'); ?>
+    <p>Although <code class="language-javascript">x</code> is a valid name for a variable, <code class="language-javascript">@</code> is not a valid name for a variable.</p>
+
+    <p>For a variable name to be valid it must be a valid &ldquo;identifier.&rdquo;
+    Valid identifiers may only contain letters, numbers, the $ symbol, and the _ symbol. Furthermore, valid identifiers may not begin with a number.</p>
+
+    <p>For example, the following list contains valid identifiers:</p>
+
+    <ol>
+        <li><code class="language-javascript">abc</code></li>
+        <li><code class="language-javascript">abc123</code></li>
+        <li><code class="language-javascript">abc_123</code></li>
+        <li><code class="language-javascript">$</code></li>
+        <li><code class="language-javascript">$123</code></li>
+        <li><code class="language-javascript">_$1$2$3_</code></li>
+    </ol>
+
+    <p>Also, a valid identifier name cannot be a word from the JavaScript language. For instance, <code class="language-javascript">var</code> is not a valid identifier. E.g., <code class="language-javascript">var var = 1</code> uses an invalid identifier and therefore the whole statement is invalid.
+<? stepoverview(); ?>
+    <code class="language-javascript no-left-margin">@</code> is not a valid identifier, but <code class="language-javascript">$</code> is a valid identifier
+
+<? stepfooter(); ?>
+
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

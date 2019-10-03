@@ -1724,6 +1724,10 @@ x + y</code></pre>
     <? replshot('multiline.png') ?>
 
 <? stepoverview(); ?>
+    You can use the multiline-input button to execute:
+<pre class="language-javascript prejs"><code>var x = 1
+var y = 2
+x + y</code></pre>
 
 <? stepfooter(); ?>
 

@@ -2110,6 +2110,26 @@ substepheader('note-obj-str-keys', 'String keys for object definitions'); ?>
     <p>The only caveat, is that you cannot access such members using the &ldquo;dot operator&rdquo; (See Step TODO). Rather, you can only access such members using &ldquo;bracket operators.&rdquo; (See Step TODO).
 <? substepfooter() ?>
 
+<? #############################################################################
+stepheader('note-obj-var', 'Variables can refer to objects'); ?>
+ <p>Objects are values, similar to any other type of value, such as number values and string values. Consequently, you can create variables that 
+        refer to object values. For example:</p>
+
+<pre class="language-javascript prejs"><code>var x = {
+    a: 10,
+    b: 20,
+    c: 30
+}</code></pre>
+
+<? stepoverview(); ?>
+<pre class="language-javascript prejs"><code>var x = {
+    a: 10,
+    b: 20,
+    c: 30
+}</code></pre>
+
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

@@ -95,6 +95,11 @@ code {
     white-space: nowrap!important;
 }
 
+.code-blank {
+    font-family: "Menlo", "Lucida Console", Monaco, monospace;
+    padding: .1em;
+}
+
 .snippets {
     margin-left: 0px;
     margin-right: 0px;

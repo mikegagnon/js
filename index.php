@@ -1728,6 +1728,21 @@ x + y</code></pre>
 <pre class="language-javascript prejs"><code>var x = 1
 var y = 2
 x + y</code></pre>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-log', 'Logging'); ?>
+    <p>In the repl, enter <code class="language-javascript">log(2 * 3)</code>. This line of code &ldquo;logs&rdquo; the 
+        value <code class="language-javascript">6</code> to the repl.
+    </p>
+
+    <p>
+         You should see the line in the repl that says <code class="language-none">log: 6</code> in yellow font, followed by <code class="language-none">undefined</code> in gray font. In the repl, yellow font indicates a message produced by <code class="language-javascript">log(...)</code>.</p>
+
+    <? replshot('log.png')?>
+
+    <p><a href="javascript:$$('step-console-log', 'log-ref')">Step <? echo $chapterNum?>&frac12; Demystifying console.log</a></p>
+<? stepoverview(); ?>
 
 <? stepfooter(); ?>
 

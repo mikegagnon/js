@@ -1244,10 +1244,8 @@ stepheader('note-or', 'The <i>or</i> operator'); ?>
         </tr>
     </table>
     </div>
-
-
 <? stepoverview(); ?>
-
+    <code class="language-javascript no-left-margin">true || false</code> resolves to <code class="language-javascript">true</code>
 <? stepfooter(); ?>
 
 

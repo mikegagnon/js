@@ -1841,8 +1841,13 @@ if (x === 9) {
     log('x equals 9')
 }
 ")?> <p>logs the string <code class="language-javascript">'x equals 9'</code>
-
 <? stepfooter(); ?>
+
+<? #############################################################################
+substepheader('note-ifcast', 'Automatic type casting to boolean values'); ?>
+<p>TODO</p>
+
+<? substepfooter() ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

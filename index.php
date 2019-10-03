@@ -179,6 +179,14 @@ function substepLink($noteName, $subStepNum, $noteTitle) {
     echo "<p><a href=\"#$noteName\">Step $stepNum.$subStepNum. $noteTitle</a></p>";
 }
 
+function code($line) {
+    echo codestr($line);
+}
+
+function codestr($line) {
+    return "<code class='language-javascript'>$line</code>";
+}
+
 ?><!doctype html>
 <html lang='en'>
     <head>
@@ -1846,8 +1854,44 @@ if (x === 9) {
 <? #############################################################################
 substepheader('note-ifcast', 'Automatic type casting to boolean values'); ?>
 <p>TODO</p>
-
 <? substepfooter() ?>
+
+<? #############################################################################
+stepheader('note-if-else', 'If-else statements'); ?>
+    <p>An <? code("if") ?>-<? code("else") ?>  statement looks like this:</p>
+
+<? pre("if (conditional) {
+    body1
+} else {
+    body2
+}
+") ?>
+
+    <p> Similar to an <? code("if") ?> statement, when JavaScript encounters an <? code("if") ?>-<? code("else") ?> statement statement, it resolves the conditional. If the conditional resolves to <? code("true") ?>, then JavaScript executes the first body (&ldquo;body1&rdquo;).</p>
+
+    <p>Furthermore, they key to <? code("if") ?>-<? code("else") ?> statements is that if the conditional resolves to <?code("false")?>, then JavaScript executes &ldquo;body2.&rdquo;</p>
+
+    <p>For example:</p>
+
+<? pre("
+var x = 100
+if (x === 9) {
+    log('x equals 9')
+} else {
+    log('x does not equal 9')
+}
+") ?>
+
+<? stepoverview(); ?>
+<? pre("
+var x = 100
+if (x === 9) {
+    console.log('x equals 9')
+} else {
+    console.log('x does not equal 9')
+}
+")?>  logs the string <? code("'x does not equal 9'") ?>
+<? stepfooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

@@ -2148,6 +2148,22 @@ stepheader('note-obj-types', 'Object member types'); ?>
 }</code></pre>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-obj-dot', 'Accessing members via the dot operator'); ?>
+    <p>Recall: we can create variables that 
+        refer to object values. For example:</p>
+
+<pre class="language-javascript prejs"><code>var x = {
+    a: 10,
+    b: 20,
+    c: 30
+}</code></pre>
+
+    <p>You can &ldquo;access&rdquo; the members of the object, referred to by <code class="language-javascript">x</code> by using the &ldquo;dot operator.&rdquo; For example, to access the member <code class="language-javascript">a</code> you would simply type <code class="language-javascript">x.a</code>. The expression <code class="language-javascript">x.a</code> resolves to the value <code class="language-javascript">10</code>, and the expression <code class="language-javascript">x.b</code> resolves to <code class="language-javascript">20</code>.</p>
+<? stepoverview(); ?>
+    If you declare <code class="language-javascript">var x = { a: 10 }</code>, then the expression <code class="language-javascript">x.a</code> resolves to the value <code class="language-javascript">10</code>
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

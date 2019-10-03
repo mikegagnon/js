@@ -1032,13 +1032,13 @@ stepheader('note-and', 'The <i>and</i> operator'); ?>
     The <code class="language-javascript">&amp;&amp;</code> operator compares the values of two boolean expressions, and resolves to a boolean value: either <code class="language-javascript">true</code> or  <code class="language-javascript">false</code>.
     </p>
 
-    <p>To be more concrete about how the <code class="language-javascript">&amp;&amp;</code> operator works, lets say JavaScript is resolving the expression <code class="language-javascript">a &amp;&amp; b</code> (where <code class="language-javascript">a</code> and <code class="language-javascript">b</code> are boolean expressions):</p>
+    <p>To be more concrete about how the <code class="language-javascript">&amp;&amp;</code> operator works:</p>
 
-    <ul>
+    <ol>
     <li><code class="language-javascript">a &amp;&amp; b</code> resolves to <code class="language-javascript">true</code> if both <code class="language-javascript">a</code> and <code class="language-javascript">b</code> each resolve to <code class="language-javascript">true</code>
     </li>
     <li>But, if either <code class="language-javascript">a</code> and/or <code class="language-javascript">b</code> resolve to <code class="language-javascript">false</code>, then the expression <code class="language-javascript">a &amp;&amp; b</code> resolves to <code class="language-javascript">false</code></li>
-    </ul>
+    </ol>
 
     <p>For example:</p>
     <div class="table-format">

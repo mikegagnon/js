@@ -1091,7 +1091,7 @@ stepheader('note-and-precedence', 'And operator precedence'); ?>
                     </tr>
             </table>
 
-            <p>It is common to combine relational and equality operators with the <i>and</i> operator. Relational and equality operators have a higher precedence than the <i>and</i> operator. For example:</p>
+            <p>All the operators we have seen so far have a higher precedence than the <i>and</i> operator. It is common to combine the <i>and</i> operator with the operators we have previously seen. For example:</p>
 
             <div class="table-format">
             <table>
@@ -1130,6 +1130,19 @@ stepheader('note-and-precedence', 'And operator precedence'); ?>
 <? stepoverview(); ?>
     <code class="language-javascript no-left-margin">1 &lt; 2 &amp;&amp; 3 &lt; 4</code> resolves to <code class="language-javascript">true</code>
 <? stepfooter(); ?>
+
+<? #############################################################################
+substepheader('note-short-circuit', 'Short circuit evaluation'); ?>
+<p>The expression <code class="language-javascript">false &amp;&amp; 1 &lt; 100</code> resolves to <code class="language-javascript">false</code>, because the left side of the and-operator is <code class="language-javascript">false</code>. Therefore, when executing this expression, JavaScript knows that no matter what is on the right side of the and-operator, the entire expression will resolve to false.</p>
+
+<p>Consequently, JavaScript doesn&rsquo;t even bother to resolve <code class="language-javascript">1 &lt; 100</code>. Rather, as soon as JavaScript sees that the left side of the and-operator is false, it simply resolves the entire expression to <code class="language-javascript">false</code>. The ability for JavaScript to resolve the entire expression while only looking at the left-side, is known as <i>short-circuit evaluation</i>.</p>
+
+<p>Short-circuit evaluation sometimes comes in handy, but we&rsquo;re too early in the book for me to be able to explain it&rsquo;s handiness.</p>
+
+<p>TODO: forward reference</p>
+
+<? substepfooter() ?>
+
 
 <? #############################################################################
 noteheader('note-and1'); ?>

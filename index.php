@@ -18,6 +18,28 @@ html;
     return $text;
 }
 
+function replshot($filename) {
+    $fullFilename = $_SERVER['DOCUMENT_ROOT'] . '/img/' . $filename;  
+    $width = getimagesize($fullFilename)[0] / 2;
+    $text = <<<html
+<div class="screenshot">
+    <img class="screenshot-repl" width="$width" src="img/$filename">
+</div>
+html;
+    echo $text;
+}
+
+function screenshot($filename) {
+    $fullFilename = $_SERVER['DOCUMENT_ROOT'] . '/img/' . $filename;  
+    $width = getimagesize($fullFilename)[0] / 2;
+    $text = <<<html
+<div class="screenshot">
+    <img width="$width" src="img/$filename">
+</div>
+html;
+    echo $text;
+}
+
 function stepheader($stepName, $stepTitle) {
     global $stepNum;
     global $currentStepName;
@@ -1521,7 +1543,44 @@ stepheader('note-not-precedence', 'Not operator precedence'); ?>
     </table>
 <? stepoverview(); ?>
     The <i>not</i> operator has a relatively high precedence
-<? stepfooter(); ?>            
+<? stepfooter(); ?>
+
+<?
+################################################################################
+partheader('Variables and if statements'); #####################################
+################################################################################
+?>
+
+<? #############################################################################
+stepheader('note-var', 'Variables'); ?>
+    <p>A &ldquo;variable&rdquo; is a name that refers to a single value. You can &ldquo;declare&rdquo; a variable  named <code class="language-javascript">x</code> that refers to the value <code class="language-javascript">4</code>like so: <code class="language-javascript">var x = 4</code>.</p>
+
+    <p>Try it out on the repl. Just type in <code class="language-javascript">var x = 4</code> and press enter. The repl will respond with <code class="language-javascript">undefined</code>.</p> 
+
+    <? replshot('varx4.png') ?>
+
+    <p>Why did the repl respond with <code class="language-javascript">undefined</code>? It&rsquo;s because <code class="language-javascript">var x = 4</code> is <i>not</i> an expression. Rather, <code class="language-javascript">var x = 4</code> is a &ldquo;statement.&rdquo;</p>
+
+    <p>While <i>expressions</i> resolve to values, <i>statements</i> do not resolve to values. And, when the repl encounters a statement, it gives you back the special value <code class="language-javascript">undefined</code>. Instead of resolving to values, statements &ldquo;perform actions.&rdquo;</p>
+
+   <p>TODO: sidenote explaining that you can place an expression anywhere that JavaScript expects a statement</p>
+
+    <p>In the case of <code class="language-javascript">var x = 4</code>,
+        the action JavaScript performs is: (1) create a new variable named <code class="language-javascript">x</code>, and (2) make the variable <code class="language-javascript">x</code> refer to the value <code class="language-javascript">4</code>.</p>
+
+    <p>Now that we have a variable named <code class="language-javascript">x</code>, the variable <code class="language-javascript">x</code> can now be used as an expression that resolves to the value <code class="language-javascript">4</code>.</p>
+
+    <p>For instance, the expression <code class="language-javascript">x + 1</code> resolves to <code class="language-javascript">5</code>.</p>
+
+    <? replshot('xplus1.png') ?>
+
+    <p>For another example, the expression <code class="language-javascript">x + 1 > 4</code> resolves to <code class="language-javascript">true</code>.</p>
+
+    <? replshot('xrel4.png') ?>
+
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>
@@ -1545,13 +1604,6 @@ substepheader('note-y', ''); ?>
 noteheader('note-z'); ?>
 
 <? notefooter(); ?>
-
-
-<?
-################################################################################
-partheader('Variables and if statements'); #####################################
-################################################################################
-?>
 
 <?
 ################################################################################

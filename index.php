@@ -2054,6 +2054,43 @@ stepheader('note-references', 'Introduction to references and storage diagrams')
     <? screenshot('qhello.png') ?>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-obj-values', 'Defining object values'); ?>
+    <p>An <i>object</i> is a value that holds a collection of &ldquo;key-value pairs.&rdquo; Objects are basically containers for variables. Consider the following example:</p>
+
+<pre class="language-javascript prejs"><code>{
+    a: 10,
+    b: 20,
+    c: 30
+}</code></pre>
+
+    <p>The above example defines an object value with three key-value pairs:</p>
+
+    <ul>
+        <li>The key <code class="language-javascript">a</code> refers to the value <code class="language-javascript">10</code></li>
+        <li>The key <code class="language-javascript">b</code> refers to the value <code class="language-javascript">20</code></li>
+        <li>The key <code class="language-javascript">c</code> refers to the value <code class="language-javascript">30</code></li>
+    </ul>
+
+    <p>Key-value pairs are also known as &ldquo;members.&rdquo; Using this terminology, we could say that the above object has three members: <code class="language-javascript">a</code>, <code class="language-javascript">b</code>, and <code class="language-javascript">c</code>.</p>
+
+    <p>Also, when you define an object this way, the keys must be valid identifiers (See <? steplink('note-identifiers') ?>). For instance, <code class="language-javascript">1c</code> is not valid key, when defining objects this way, because valid identifiers may not begin with a number.</p>
+
+    <p>If you&rsquo;d like, you can use the <i>multiline input</i> button to enter the object definition into the repl. Alternatively, you can enter that object definition in a single line in the repl, by removing &ldquo;whitespace&rdquo; from the object. Simply type it in like this: <code class="language-javascript">{ a: 10, b: 20, c: 30 }</code> (JavaScript doesn&rsquo;t care about the whitespace within object definitions).</p>
+
+    <p>If you were to type in the object definition (with whitespace removed), and hit enter, your repl should look like this:</p>
+
+    <? replshot('obj.png') ?>
+    <p>The repl&rsquo;s response, <code class="language-none">[object Object]</code> is the repl&rsquo;s weird way of saying: &ldquo;that&rsquo;s an object.&rdquo;
+
+    <p>In the next full step, we&rsquo;ll use the multiline-input button to enter object definitions another way.</p>
+</div>
+
+<? stepoverview(); ?>
+    <code class="language-javascript no-left-margin">{ a: 10, b: 20, c: 30 }</code>
+<? stepfooter(); ?>
+
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

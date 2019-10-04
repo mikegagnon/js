@@ -2476,7 +2476,7 @@ stepheader('note-func', 'Introduction to functions'); ?>
     <p>In JavaScript, functions are similar. In JavaScript, you can define a function <?code("g")?> like so:
 
 <? pre("var g = function(x) {
-    return x * x;
+    return x * x
 }")
 ?>
         
@@ -2494,12 +2494,12 @@ stepheader('note-func', 'Introduction to functions'); ?>
     A function invocation is a type of expression.</p>
 <? stepoverview(); ?>
 
-If you declare
+<p>If you declare:</p>
 <? pre("
     var g = function(x) {
-    return x * x;
+    return x * x
 }") ?>
-then <?code("g(4)")?>  will resolve to <?code("16")?>
+    <p>, then <?code("g(4)")?>  will resolve to <?code("16")?></p>
 <? stepfooter(); ?>
 
 <? #############################################################################
@@ -2543,11 +2543,42 @@ substepheader('note-paren-op', 'Invocation parentheses are like operators'); ?>
 
 <? pre("
     var g = function(x) {
-    return x * x;
+    return x * x
 }") ?>
 
     <p>The expression <?code('g(3)')?> combines the function <?code('g')?> with the value <?code('3')?>, which resolves to the value <?code('9')?>.</p>
+<? substepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-return', 'Return statements'); ?>
+
+    <p>When you have a function like this one:</p>
+
+<? pre("
+    var g = function(x) {
+    return x * x
+}") ?>
+
+    <p>, the second line is referred to as a &ldquo;return statement.&rdquo;
+    The <i>return statement</i> within a function determines what the function&rsquo;s
+    invocation will resolve to. For instance, if we declared:</p>
+
+<? pre("
+    var g = function(x) {
+    return x + 1
+}") ?>
+
+    <p>, then <?code('g(5)')?> would resolve to <?code('g(6)')?>.</p>
+
+<? stepoverview(); ?>
+    <p>If you declare:</p>
+
+<? pre("
+    var g = function(x) {
+    return x + 1
+}") ?>
+
+    <p>, then <?code('g(5)')?> will resolve to <?code('g(6)')?>.</p>
 
 <? stepfooter(); ?>
 

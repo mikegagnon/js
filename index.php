@@ -2426,6 +2426,72 @@ stepheader('note-mem-obj', 'Members can refer to objects'); ?>
 then, <code class="language-javascript">x.c.q</code>, would resolve to <code class="language-javascript">'Hello'</code>
 <? stepfooter(); ?>
 
+<?
+################################################################################
+partheader('Functions'); #######################################################
+################################################################################
+?>
+
+
+<? #############################################################################
+stepheader('note-func', 'Introduction to functions'); ?>
+    <p>To introduce you to functions in JavaScript, let’s first review functions in mathematics. Recall from algebra, you can have a function <i>g</i> that is defined like so:</p>
+
+    <center>
+    <div class='table-format'>
+    <table class='table-format'>
+        <tr>
+           <td><i>g</i>(<i>x</i>) =</td>
+           <td><i>x</i><sup>2</sup></td> 
+        </tr>
+    </table>
+    </div>
+    </center>
+
+    <p>You can then &ldquo;evaluate&rdquo; the function <i>g</i> for various values of <i>x</i>. For example:</p>
+
+    <center>
+    <div class='table-format'>
+    <table>
+        <tr>
+           <td><i>g</i>(1) =</td>
+           <td>1</td> 
+        </tr>
+        <tr>
+           <td><i>g</i>(2) =</td>
+           <td>4</td> 
+        </tr>
+        <tr>
+           <td><i>g</i>(3) =</td>
+           <td>9</td> 
+        </tr>
+        <tr>
+           <td><i>g</i>(4) =</td>
+           <td>16</td> 
+        </tr>
+    </table>
+    </div>
+    </center>
+
+    <p>In JavaScript, functions are similar. In JavaScript, you can define a function <?code("g")?> like so:
+
+<? pre("var g = function(x) {
+    return x * x;
+}")
+?>
+        
+    <p>Once you&rsquo;ve entered the function declaration into the repl, you can evaluate the function <?code("g")?> for various values of <?code("x")?>, like so:
+    </p>
+
+    <p><? code("g(1)") ?> resolves to the value <? code("1") ?></p>
+    <p><? code("g(2)") ?> resolves to the value <? code("4") ?></p>
+    <p><? code("g(3)") ?> resolves to the value <? code("9") ?></p>
+    <p><? code("g(4)") ?> resolves to the value <? code("16") ?></p>
+
+    <p>Try it out on the repl.</p>
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

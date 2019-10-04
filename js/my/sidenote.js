@@ -36,7 +36,7 @@ var SidenoteSetup = {
   padBetweenColumns: 20,
   padVertBetweenNotes: 0,
   autoExpand: 'jit',
-  // possible values: 'expand-all' and 'jit'. TODO: explain
+  // possible values: false, 'expand-all' and 'jit'. TODO: explain
   jitMargin: 100
 };
 
@@ -233,15 +233,18 @@ function () {
       this.highlightLink(fromColumnNumber, linkId);
       this.spacer(newColumnNumber);
 
-      if (this.setup.autoExpand === 'expand-all') {
+      if (this.setup.autoExpand) {
         var columnSelector = "[data-column='".concat(newColumnNumber, "']");
         var newNoteSelector = "".concat(columnSelector, " [data-note-name='").concat(toNoteName, "']");
         $(newNoteSelector + ' h2').addClass('expanded');
-        this.expand(toNoteName, newColumnNumber);
-      } else if (this.setup.autoExpand === 'jit') {
-        this.scroll();
-      } else {
-        throw "Bad value for autoExpand";
+
+        if (this.setup.autoExpand === 'expand-all') {
+          this.expand(toNoteName, newColumnNumber);
+        } else if (this.setup.autoExpand === 'jit') {
+          this.scroll();
+        } else {
+          throw "Bad value for autoExpand";
+        }
       }
     }
   }, {

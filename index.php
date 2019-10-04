@@ -2188,6 +2188,21 @@ substepheader('note-obj-brackets', 'Accessing members via bracket operators'); ?
     <code class="language-javascript">abc</code> via the following expression: <code class="language-javascript">z['a' + 'b' + 'c']</code>. The expression <code class="language-javascript">z['a' + 'b' + 'c']</code> resolves to the value <code class="language-javascript">99</code>.</p>
 <? substepfooter() ?>
 
+<? #############################################################################
+stepheader('note-obj-update', 'Updating members via the dot operator'); ?>
+    <p>You can update the value of a member, similar to how you would update the value of any plain variable, using the assignment operator (see <? steplink('note-assignment-op') ?>). For instance, consider the following object definition:</p>
+
+    <pre class="language-javascript prejs"><code>var x = {
+    a: 10,
+    b: 20,
+    c: 30
+}</code></pre>
+
+    <p>You can set the member <code class="language-javascript">a</code> to refer to the value <code class="language-javascript">'Hello'</code> by executing <code class="language-javascript">x.a = 'Hello'</code>. Afterwards, the expression <code class="language-javascript">x.a</code> would resolve to the string <code class="language-javascript">'Hello'</code>.</p>
+<? stepoverview(); ?>
+    If you declare <code class="language-javascript">var x = { a: 10 }</code>, then executing the expression <code class="language-javascript">x.a = 'Hello'</code> will cause the expression <code class="language-javascript">x.a</code> to resolve to the value <code class="language-javascript">'Hello'</code>
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

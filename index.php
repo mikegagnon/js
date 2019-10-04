@@ -2529,7 +2529,7 @@ substepheader('note-func-values', 'Functions are values'); ?>
 <? substepfooter(); ?>
 
 <? #############################################################################
-substepheader('note-x', 'Invocation parentheses are like operators'); ?>
+substepheader('note-paren-op', 'Invocation parentheses are like operators'); ?>
 
     <p>You use parentheses like operators in order to execute functions.</p>
 

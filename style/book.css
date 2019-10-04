@@ -31,7 +31,7 @@ main {
 h2 {
     font-family: "Helvetica", sans-serif;
     font-size: 18pt;
-    border-bottom: 2px dotted #346eeb;
+    border-bottom: 3px dotted #346eeb;
 }
 
 h3 {

@@ -2027,32 +2027,6 @@ partheader('Objects'); #########################################################
 ################################################################################
 ?>
 
-<? #############################################################################
-stepheader('note-references', 'Introduction to references and storage diagrams'); ?>
-<? $chapterRef = $chapterNum ?>
-
-        <p>Throughout the rest of this book, we will use &ldquo;storage diagrams&rdquo; to visually represent variables, and other types of entities as well. These diagrams begin very simply, and then become complex as we progress through the steps.</p>
-
-        <p>To start, I will show you a storage diagram for what JavaScript looks like, on the inside, after you&rsquo;ve executed <code class="language-javascript">var zz = 11</code>:</p>
-
-        <? screenshot('zz11.png') ?>
-
-        <p>After having executing <code class="language-javascript">var zz = 11</code>, say we were to execute <code class="language-javascript">var abc = 32</code>. Then, the diagram would look like this:
-
-        <? screenshot('abc32.png') ?>
-
-        <p>But, after that, if we were to execute <code class="language-javascript">var x = 'Hello'</code>, then the storage diagram would look like:</p>
-
-        <? screenshot('xhello.png') ?>
-
-        <p>The reason the diagram looks like this, is because JavaScript does not store string values inside variables. Rather, JavaScript stores &ldquo;references&rdquo; to strings inside variables. Thus, if you were to execute <code class="language-javascript">var q = x</code>, then the storage diagram would look like this:</p>
-
-        <? screenshot('qhello.png') ?>
-
-        <p>Notice how both <code class="language-javascript">x</code> and <code class="language-javascript">q</code> point to (i.e. refer to) the same string. This is because when you assign a string variable, JavaScript doesn't actually make a duplicate of the string; rather, JavaScript just copies the <i>reference</i> to the string. We will see why references are important in the next step, when encounter &ldquo;objects.&rdquo;</p>
-<? stepoverview(); ?>
-    <? screenshot('qhello.png') ?>
-<? stepfooter(); ?>
 
 <? #############################################################################
 stepheader('note-obj-values', 'Defining object values'); ?>
@@ -2122,11 +2096,7 @@ stepheader('note-obj-var', 'Variables can refer to objects'); ?>
 }</code></pre>
 
 <? stepoverview(); ?>
-<pre class="language-javascript prejs"><code>var x = {
-    a: 10,
-    b: 20,
-    c: 30
-}</code></pre>
+    <code class="language-javascript no-left-margin">var x = { a: 10, b: 20, c: 30 }</code>
 <? stepfooter(); ?>
 
 <? #############################################################################
@@ -2337,6 +2307,33 @@ substepheader('note-obj-brackets-precedence', 'Bracket operators precedence'); ?
 <? substepfooter() ?>
 
 <? #############################################################################
+stepheader('note-references', 'Introduction to references and storage diagrams'); ?>
+<? $chapterRef = $chapterNum ?>
+
+        <p>Throughout the rest of this book, we will use &ldquo;storage diagrams&rdquo; to visually represent variables, and other types of entities as well. These diagrams begin very simply, and then become complex as we progress through the steps.</p>
+
+        <p>To start, I will show you a storage diagram for what JavaScript looks like, on the inside, after you&rsquo;ve executed <code class="language-javascript">var zz = 11</code>:</p>
+
+        <? screenshot('zz11.png') ?>
+
+        <p>After having executing <code class="language-javascript">var zz = 11</code>, say we were to execute <code class="language-javascript">var abc = 32</code>. Then, the diagram would look like this:
+
+        <? screenshot('abc32.png') ?>
+
+        <p>But, after that, if we were to execute <code class="language-javascript">var x = 'Hello'</code>, then the storage diagram would look like:</p>
+
+        <? screenshot('xhello.png') ?>
+
+        <p>The reason the diagram looks like this, is because JavaScript does not store string values inside variables. Rather, JavaScript stores &ldquo;references&rdquo; to strings inside variables. Thus, if you were to execute <code class="language-javascript">var q = x</code>, then the storage diagram would look like this:</p>
+
+        <? screenshot('qhello.png') ?>
+
+        <p>Notice how both <code class="language-javascript">x</code> and <code class="language-javascript">q</code> point to (i.e. refer to) the same string. This is because when you assign a string variable, JavaScript doesn't actually make a duplicate of the string; rather, JavaScript just copies the <i>reference</i> to the string. We will see why references are important in the next step, when encounter &ldquo;objects.&rdquo;</p>
+<? stepoverview(); ?>
+    <? screenshot('qhello.png') ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
 stepheader('note-obj-ref', 'Object references and storage diagrams'); ?>
     <p>Recall from <? steplink('note-references') ?>, the following storage diagram matches the following code.</p>
 
@@ -2399,6 +2396,15 @@ var obj2 = obj1
 obj1.a = 99
 </code></pre>, then <code class="language-javascript">obj1.a === 99 && obj2.a === 99</code> will resolve to <code class="language-javascript">true</code>
 <? stepfooter(); ?>
+
+<?
+################################################################################
+partheader('Temp'); ################################################################
+################################################################################
+?>
+
+
+
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

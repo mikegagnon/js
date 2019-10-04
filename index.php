@@ -2608,6 +2608,45 @@ var g = function(x) {
     <p>, then <?code('g(2)')?> will resolve to <?code('g(6)')?></p>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-params', 'Parameters'); ?>
+
+    <p>Every function accepts zero or more &ldquo;parameters,&rdquo; also known as &ldquo;arguments.&rdquo;</p>
+
+    <p>For example, the following function accepts three parameters:</p>
+
+<? pre("
+var g = function(x, y, z) {
+    return x + y + z
+}") ?>
+
+    <p>Then, you would invoke the function like this: <?code('g(2,3,4)')?>, which
+        would resolve to <?code("9")?>.</p>
+
+
+    <p>For another example, the following function accepts zero parameters:</p>
+
+<? pre("
+var g = function() {
+    return 'Hello'
+}") ?>
+
+    <p>Then, you would invoke the function like this: <?code('g()')?>, which
+        would resolve to <?code("'Hello'")?>.</p>
+
+<? stepoverview(); ?>
+    <p>If you declare a function with three parameters, like so:</p>
+
+<? pre("
+var g = function(x, y, z) {
+    return x + y + z
+}") ?>
+
+    <p>then, you could invoke the function like this: <?code('g(2,3,4)')?>, which
+        would resolve to <?code("9")?></p>
+<? stepfooter(); ?>
+
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

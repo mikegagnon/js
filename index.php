@@ -2397,13 +2397,34 @@ obj1.a = 99
 </code></pre>, then <code class="language-javascript">obj1.a === 99 && obj2.a === 99</code> will resolve to <code class="language-javascript">true</code>
 <? stepfooter(); ?>
 
-<?
-################################################################################
-partheader('Temp'); ################################################################
-################################################################################
-?>
+<? #############################################################################
+stepheader('note-mem-obj', 'Members can refer to objects'); ?>
 
+    <p>Because any member can refer to any value (<? steplink('note-obj-types'); ?>), and because objects are values (<? steplink('note-obj-values')?>), then members can refer to objects. For example:</p>
 
+<pre class="language-javascript prejs"><code>var x = {
+    a: 10,
+    b: 20,
+    c: {
+        p: true
+        q: 'Hello',
+    }
+}</code></pre>
+
+    <p>If you executed the above code, and then executed <code class="language-javascript">x.c.p</code>, it would resolve to <code class="language-javascript">true</code>. Similarly, <code class="language-javascript">x.c.q</code>, would resolve to <code class="language-javascript">'Hello'</code>.</p>
+
+    <p>Here is the accompanying storage diagram:</p>
+
+    <? screenshot('xcp.png') ?>
+    <p>TODO: more?</p>
+<? stepoverview(); ?>
+<pre class="language-javascript prejs"><code>var x = {
+    c: {
+        q: 'Hello',
+    }
+}</code></pre>
+then, <code class="language-javascript">x.c.q</code>, would resolve to <code class="language-javascript">'Hello'</code>
+<? stepfooter(); ?>
 
 
 <? ########################################################################## ?>

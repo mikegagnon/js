@@ -59,8 +59,7 @@ function () {
       if (this.setup.autoExpand === 'jit') {
         var THIS = this;
         $(window).scroll(function () {
-          var scrollTop = $(window).scrollTop();
-          THIS.scroll(scrollTop);
+          THIS.scroll();
         });
       } else if (this.setup.autoExpand === 'expand-all') {//pass
       } else {
@@ -69,37 +68,45 @@ function () {
     }
   }, {
     key: "scroll",
-    value: function scroll(scrollTop) {
-      this.scrollUp(scrollTop);
-      this.scrollDown(scrollTop); //console.log("scroll");
+    value: function scroll() {
+      this.scrollUp();
+      this.scrollDown(); //console.log("scroll");
     }
   }, {
     key: "scrollUp",
-    value: function scrollUp(scrollTop) {
+    value: function scrollUp() {
       var THIS = this;
-      $('.column').each(function (i, column) {
-        var notes = $(column).children();
+      var addedNote = true;
 
-        if (notes.length >= 1) {
-          var minNote = notes[0];
-          var minTop = parseInt($(minNote).css('top'));
-          ;
+      var _loop = function _loop() {
+        var scrollTop = $(window).scrollTop();
+        $('.column').each(function (i, column) {
+          var notes = $(column).children();
 
-          for (var i = 1; i < notes.length; i++) {
-            var top = parseInt($(notes[i]).css('top'));
+          if (notes.length >= 1) {
+            var minNote = notes[0];
+            var minTop = parseInt($(minNote).css('top'));
+            ;
 
-            if (top < minTop) {
-              minTop = top;
-              minNote = notes[i];
+            for (var i = 1; i < notes.length; i++) {
+              var top = parseInt($(notes[i]).css('top'));
+
+              if (top < minTop) {
+                minTop = top;
+                minNote = notes[i];
+              }
+            }
+
+            if ($(minNote).data('note-type') === 'step') {
+              addedNote = THIS.perhapsLoadNoteAbove(scrollTop, column, minNote);
             }
           }
+        });
+      };
 
-          if ($(minNote).data('note-type') === 'step') {
-            THIS.perhapsLoadNoteAbove(scrollTop, column, minNote);
-          }
-        } //THIS.perhapsLoadNoteAbove(column)
-
-      });
+      while (addedNote) {
+        _loop();
+      }
     }
   }, {
     key: "perhapsLoadNoteAbove",
@@ -116,9 +123,17 @@ function () {
         var index = this.ordering.findIndex(function (n) {
           return n === noteName;
         });
-        console.log('index', index);
-        this.expandAboveSingle(index - 1, columnNumber);
+
+        if (index === 0) {
+          return false;
+        } else {
+          console.log('index', index);
+          this.expandAboveSingle(index - 1, columnNumber);
+          return true;
+        }
       }
+
+      return false;
     }
   }, {
     key: "scrollDown",
@@ -170,7 +185,9 @@ function () {
         var newNoteSelector = "".concat(columnSelector, " [data-note-name='").concat(toNoteName, "']");
         $(newNoteSelector + ' h2').addClass('expanded');
         this.expand(toNoteName, newColumnNumber);
-      } else if (this.setup.autoExpand === 'jit') {// pass
+      } else if (this.setup.autoExpand === 'jit') {
+        // pass
+        this.scroll();
       } else {
         throw "Bad value for autoExpand";
       }

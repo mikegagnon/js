@@ -2203,6 +2203,20 @@ stepheader('note-obj-update', 'Updating members via the dot operator'); ?>
     If you declare <code class="language-javascript">var x = { a: 10 }</code>, then executing the expression <code class="language-javascript">x.a = 'Hello'</code> will cause the expression <code class="language-javascript">x.a</code> to resolve to the value <code class="language-javascript">'Hello'</code>
 <? stepfooter(); ?>
 
+<? #############################################################################
+substepheader('note-obj-update-brackets', 'Updating members via bracket operators'); ?>
+    <p>You can update the value of a member, using bracket operators. For instance, consider the following object definition:</p>
+
+<pre class="language-javascript prejs"><code>var x = {
+    '1': 10,
+    '@': 20,
+    '#': 30
+}</code></pre>
+
+    <p>You can set the member <code class="language-javascript">'#'</code> to refer to the value <code class="language-javascript">'Hello'</code> by executing <code class="language-javascript">x['#'] = 'Hello'</code>. Afterwards, the expression <code class="language-javascript">x['#']</code> would resolve to the string <code class="language-javascript">'Hello'</code>.</p>
+<? substepfooter() ?>
+
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

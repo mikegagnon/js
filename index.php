@@ -2500,6 +2500,26 @@ then <?code("g(4)")?>  will resolve to <?code("16")?>
 
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-func-values', 'Functions are values'); ?>
+    <p>Declare this function in the repl:</p>
+
+<? pre("var g = function(x) {
+    console.log('Hello')
+}")
+?>
+    <p>Observe that declaring the function did not produce a log message in the repl.
+    This is because we have declared a function, but we have not executed it yet.</p>
+
+    <p>To help understand the difference between declaring a function and executing a function, I have highlighted part of the declaration:</p>
+
+    <? screenshot("code-highlight.png") ?>
+
+    <p>The highlighted part is a <i>function value.</i> Functions are values, just like <?code("7")?> is a value, and <?code("'Hello'")?> is a value, and <?code("{ a: 10 }")?> is a value. The entire declaration merely sets the variable <?code("g")?> to refer to a particular function value.</p>
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

@@ -79,6 +79,7 @@ function () {
       var addedNote = true;
 
       var _loop = function _loop() {
+        addedNote = false;
         var scrollTop = $(window).scrollTop();
         $('.column').each(function (i, column) {
           var notes = $(column).children();
@@ -98,7 +99,7 @@ function () {
             }
 
             if ($(minNote).data('note-type') === 'step') {
-              addedNote = THIS.perhapsLoadNoteAbove(scrollTop, column, minNote);
+              addedNote = addedNote || THIS.perhapsLoadNoteAbove(scrollTop, column, minNote);
             }
           }
         });
@@ -108,6 +109,31 @@ function () {
         _loop();
       }
     }
+    /*scrollDown() {
+        const THIS = this;
+         let addedNote = true;
+        while (addedNote) {
+            const scrollTop = $(window).scrollTop();
+            $('.column').each(function(i, column){
+                const notes = $(column).children();
+                 if (notes.length >= 1) {
+                    let minNote = notes[0];
+                    let minTop = parseInt($(minNote).css('top'));;
+                    for (let i = 1; i < notes.length; i++) {
+                        const top = parseInt($(notes[i]).css('top'));
+                        if (top < minTop) {
+                            minTop = top;
+                            minNote = notes[i];
+                        }
+                    }
+                     if ($(minNote).data('note-type') === 'step') {
+                        addedNote = THIS.perhapsLoadNoteAbove(scrollTop, column, minNote);
+                    }
+                }
+            })
+        }
+    }*/
+
   }, {
     key: "perhapsLoadNoteAbove",
     value: function perhapsLoadNoteAbove(scrollTop, column, note) {

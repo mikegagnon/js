@@ -61,6 +61,35 @@ class Sidenote {
 
         let addedNote = true;
         while (addedNote) {
+            addedNote = false;
+            const scrollTop = $(window).scrollTop();
+            $('.column').each(function(i, column){
+                const notes = $(column).children();
+
+                if (notes.length >= 1) {
+                    let minNote = notes[0];
+                    let minTop = parseInt($(minNote).css('top'));;
+                    for (let i = 1; i < notes.length; i++) {
+                        const top = parseInt($(notes[i]).css('top'));
+                        if (top < minTop) {
+                            minTop = top;
+                            minNote = notes[i];
+                        }
+                    }
+
+                    if ($(minNote).data('note-type') === 'step') {
+                        addedNote = addedNote || THIS.perhapsLoadNoteAbove(scrollTop, column, minNote);
+                    }
+                }
+            })
+        }
+    }
+
+    /*scrollDown() {
+        const THIS = this;
+
+        let addedNote = true;
+        while (addedNote) {
             const scrollTop = $(window).scrollTop();
             $('.column').each(function(i, column){
                 const notes = $(column).children();
@@ -82,7 +111,7 @@ class Sidenote {
                 }
             })
         }
-    }
+    }*/
 
     perhapsLoadNoteAbove(scrollTop, column, note) {
         const top = parseInt($(column).css('top'));

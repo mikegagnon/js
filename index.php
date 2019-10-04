@@ -2336,6 +2336,73 @@ substepheader('note-obj-brackets-precedence', 'Bracket operators precedence'); ?
 </table>
 <? substepfooter() ?>
 
+<? #############################################################################
+stepheader('note-obj-ref', 'Object references and storage diagrams'); ?>
+    <p>Recall from <? steplink('note-references') ?>, the following storage diagram matches the following code.</p>
+
+<pre class="language-javascript prejs"><code>var x = 'Hello'
+var q = x
+</code></pre>
+
+    <div class="screenshot">
+        <img width="305" src="img/xq.png">
+    </div>
+
+    <p></p>
+
+    <p>Recall, also, from <? steplink('note-references') ?>, JavaScript does not store string values inside variables. Rather, JavaScript stores <i>references</i> to strings inside variables.</p>
+
+    <p>In a similar way, JavaScript does not store object values inside variables. Rather, JavaScript stores references to objects inside variables. Thus, here&rsquo;s what the storage diagram would look like if we defined an object as in the following code:</p>
+
+<pre class="language-javascript prejs"><code>var x = 'Hello'
+var q = x
+var obj = {
+    a: 10,
+    b: 20
+}
+</code></pre>
+
+    <div class="screenshot">
+        <img width="475" src="img/obj-diagram.png">
+    </div>
+
+    <p>Notice, the variable <code class="language-javascript">obj</code> is not storing an object value directly. Rather, the variable <code class="language-javascript">obj</code> is storing a reference to an object value. There is a significant practical consequence of the fact that <code class="language-javascript">obj</code> is storing a reference, and not a value. Let&rsquo;s take a look.</p>
+
+    <p>If we were to copy the reference to the object value into another variable, then the storage diagram would look like this:</p>
+
+<pre class="language-javascript prejs"><code>var obj1 = {
+    a: 10,
+    b: 20
+}
+var obj2 = obj1
+</code></pre>
+
+    <div class="screenshot">
+        <img width="476" src="img/obj2-diagram.png">
+    </div>
+
+    <p>The practical significance, here, is that if we were to update the object, by assigning a new value associated with one of the keys, then
+    both <code class="language-javascript">obj</code> and <code class="language-javascript">obj2</code> would each access the changed value. For example, if you were to run the following code in th repl, the repl would respond with <code class="language-javascript">true</code> </p>
+            
+
+<pre class="language-javascript prejs"><code>var obj1 = {
+    a: 10,
+    b: 20
+}
+var obj2 = obj1
+obj1.a = 99
+obj1.a === 99 && obj2.a === 99
+</code></pre>
+    
+    <p>Just to be clear, here  is what the storage diagram would look like:</p>
+
+    <div class="screenshot">
+        <img width="470" src="img/a99.png">
+    </div>
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

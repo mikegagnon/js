@@ -2448,7 +2448,7 @@ stepheader('note-func', 'Introduction to functions'); ?>
     </div>
     </center>
 
-    <p>You can then &ldquo;evaluate&rdquo; the function <i>g</i> for various values of <i>x</i>. For example:</p>
+    <p>You can then &ldquo;invoke&rdquo; the function <i>g</i> for various values of <i>x</i>. For example:</p>
 
     <center>
     <div class='table-format'>
@@ -2480,8 +2480,8 @@ stepheader('note-func', 'Introduction to functions'); ?>
 }")
 ?>
         
-    <p>Once you&rsquo;ve entered the function declaration into the repl, you can evaluate the function <?code("g")?> for various values of <?code("x")?>, like so:
-    </p>
+    <p>#Once you&rsquo;ve entered the function declaration into the repl, you can &ldquo;invoke&rdquo; the function <?code("g")?> for various values #of <?code("x")?>, like so:
+   sub </p>
 
     <p><? code("g(1)") ?> resolves to the value <? code("1") ?></p>
     <p><? code("g(2)") ?> resolves to the value <? code("4") ?></p>
@@ -2501,7 +2501,7 @@ then <?code("g(4)")?>  will resolve to <?code("16")?>
 <? stepfooter(); ?>
 
 <? #############################################################################
-stepheader('note-func-values', 'Functions are values'); ?>
+substepheader('note-func-values', 'Functions are values'); ?>
     <p>Declare this function in the repl:</p>
 
 <? pre("var g = function(x) {
@@ -2522,9 +2522,9 @@ stepheader('note-func-values', 'Functions are values'); ?>
 
     <? screenshot("fx.png") ?>
 
-<? stepoverview(); ?>
-    <? screenshot("fx.png") ?>
-<? stepfooter(); ?>
+<? #stepoverview(); ?>
+    <? #screenshot("fx.png") ?>
+<? substepfooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

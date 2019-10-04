@@ -99,7 +99,7 @@ function () {
             }
 
             if ($(minNote).data('note-type') === 'step') {
-              addedNote = addedNote || THIS.perhapsLoadNoteAbove(scrollTop, column, minNote);
+              addedNote = THIS.perhapsLoadNoteAbove(scrollTop, column, minNote) || addedNote;
             }
           }
         });
@@ -109,31 +109,65 @@ function () {
         _loop();
       }
     }
-    /*scrollDown() {
-        const THIS = this;
-         let addedNote = true;
-        while (addedNote) {
-            const scrollTop = $(window).scrollTop();
-            $('.column').each(function(i, column){
-                const notes = $(column).children();
-                 if (notes.length >= 1) {
-                    let minNote = notes[0];
-                    let minTop = parseInt($(minNote).css('top'));;
-                    for (let i = 1; i < notes.length; i++) {
-                        const top = parseInt($(notes[i]).css('top'));
-                        if (top < minTop) {
-                            minTop = top;
-                            minNote = notes[i];
-                        }
-                    }
-                     if ($(minNote).data('note-type') === 'step') {
-                        addedNote = THIS.perhapsLoadNoteAbove(scrollTop, column, minNote);
-                    }
-                }
-            })
-        }
-    }*/
+  }, {
+    key: "scrollDown",
+    value: function scrollDown() {
+      var THIS = this;
+      var addedNote = true;
 
+      var _loop2 = function _loop2() {
+        addedNote = false;
+        var scrollBottom = $(window).scrollTop() + $(window).height();
+        $('.column').each(function (i, column) {
+          var notes = $(column).children();
+
+          if (notes.length >= 1) {
+            var maxNote = notes[0];
+            var maxTop = parseInt($(maxNote).css('top'));
+            ;
+
+            for (var _i2 = 1; _i2 < notes.length; _i2++) {
+              var top = parseInt($(notes[_i2]).css('top'));
+
+              if (top >= maxTop) {
+                maxTop = top;
+                maxNote = notes[_i2];
+              }
+            }
+
+            if ($(maxNote).data('note-type') === 'step') {
+              addedNote = THIS.perhapsLoadNoteBelow(scrollBottom, column, maxNote) || addedNote;
+            }
+          }
+        });
+      };
+
+      while (addedNote) {
+        _loop2();
+      }
+    }
+  }, {
+    key: "perhapsLoadNoteBelow",
+    value: function perhapsLoadNoteBelow(scrollBottom, column, note) {
+      var top = parseInt($(column).css('top')) + parseInt($(column).outerHeight(true));
+      var noteName = $(note).data('note-name');
+      var columnNumber = parseInt($(column).data('column'));
+
+      if (scrollBottom >= top) {
+        var index = this.ordering.findIndex(function (n) {
+          return n === noteName;
+        });
+
+        if (index === 0) {
+          return false;
+        } else {
+          this.expandBelowSingle(index + 1, columnNumber);
+          return true;
+        }
+      }
+
+      return false;
+    }
   }, {
     key: "perhapsLoadNoteAbove",
     value: function perhapsLoadNoteAbove(scrollTop, column, note) {
@@ -156,9 +190,6 @@ function () {
 
       return false;
     }
-  }, {
-    key: "scrollDown",
-    value: function scrollDown(scrollTop) {}
   }, {
     key: "setupLinkId",
     value: function setupLinkId() {
@@ -465,10 +496,10 @@ function () {
         }
       }
 
-      for (var _i2 = 0; _i2 < stack.length; _i2++) {
-        var _linkId = parseInt(stack[_i2]);
+      for (var _i3 = 0; _i3 < stack.length; _i3++) {
+        var _linkId = parseInt(stack[_i3]);
 
-        var _columnSelector = "[data-column='".concat(_i2, "']");
+        var _columnSelector = "[data-column='".concat(_i3, "']");
 
         var linkSelector = "".concat(_columnSelector, " [data-link-id='").concat(_linkId, "']");
         var link = $(linkSelector)[0];
@@ -476,7 +507,7 @@ function () {
         var toNoteName = $(linkSelector).attr('href').substr(1);
         var top = $(linkSelector).offset().top;
         $(window).scrollTop(top);
-        this.clickNoteLink(_i2, fromNoteName, toNoteName, _linkId);
+        this.clickNoteLink(_i3, fromNoteName, toNoteName, _linkId);
       }
 
       var almostMaxColNumber = stack.length - 1;

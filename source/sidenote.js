@@ -78,40 +78,59 @@ class Sidenote {
                     }
 
                     if ($(minNote).data('note-type') === 'step') {
-                        addedNote = addedNote || THIS.perhapsLoadNoteAbove(scrollTop, column, minNote);
+                        addedNote = THIS.perhapsLoadNoteAbove(scrollTop, column, minNote) || addedNote;
                     }
                 }
             })
         }
     }
 
-    /*scrollDown() {
+    scrollDown() {
         const THIS = this;
 
         let addedNote = true;
         while (addedNote) {
-            const scrollTop = $(window).scrollTop();
+            addedNote = false;
+            const scrollBottom = $(window).scrollTop() + $(window).height();
             $('.column').each(function(i, column){
                 const notes = $(column).children();
 
                 if (notes.length >= 1) {
-                    let minNote = notes[0];
-                    let minTop = parseInt($(minNote).css('top'));;
+                    let maxNote = notes[0];
+                    let maxTop = parseInt($(maxNote).css('top'));;
                     for (let i = 1; i < notes.length; i++) {
                         const top = parseInt($(notes[i]).css('top'));
-                        if (top < minTop) {
-                            minTop = top;
-                            minNote = notes[i];
+                        if (top >= maxTop) {
+                            maxTop = top;
+                            maxNote = notes[i];
                         }
                     }
 
-                    if ($(minNote).data('note-type') === 'step') {
-                        addedNote = THIS.perhapsLoadNoteAbove(scrollTop, column, minNote);
+                    if ($(maxNote).data('note-type') === 'step') {
+                        addedNote = THIS.perhapsLoadNoteBelow(scrollBottom, column, maxNote) || addedNote;
                     }
                 }
             })
         }
-    }*/
+    }
+
+    perhapsLoadNoteBelow(scrollBottom, column, note) {
+        const top = parseInt($(column).css('top')) + parseInt($(column).outerHeight(true));
+        const noteName = $(note).data('note-name');
+        const columnNumber = parseInt($(column).data('column'));
+
+        if (scrollBottom >= top) {
+            const index = this.ordering.findIndex(n => n === noteName);
+            if (index === 0) {
+                return false;
+            } else {
+                this.expandBelowSingle(index + 1, columnNumber);
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     perhapsLoadNoteAbove(scrollTop, column, note) {
         const top = parseInt($(column).css('top'));
@@ -129,10 +148,6 @@ class Sidenote {
         }
 
         return false;
-    }
-
-    scrollDown(scrollTop) {
-
     }
 
     setupLinkId() {

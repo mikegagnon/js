@@ -54,7 +54,6 @@ class Sidenote {
     scroll() {
         this.scrollUp();
         this.scrollDown();
-        //console.log("scroll");
     }
 
     scrollUp() {
@@ -86,20 +85,15 @@ class Sidenote {
     }
 
     perhapsLoadNoteAbove(scrollTop, column, note) {
-        //console.log(note);
         const top = parseInt($(column).css('top'));
         const noteName = $(note).data('note-name');
         const columnNumber = parseInt($(column).data('column'));
 
         if (scrollTop <= top) {
-            console.log(top);
-            console.log(noteName);
-            console.log(columnNumber);
             const index = this.ordering.findIndex(n => n === noteName);
             if (index === 0) {
                 return false;
             } else {
-                console.log('index', index);
                 this.expandAboveSingle(index - 1, columnNumber);
                 return true;
             }

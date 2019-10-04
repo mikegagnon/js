@@ -70,7 +70,7 @@ function () {
     key: "scroll",
     value: function scroll() {
       this.scrollUp();
-      this.scrollDown(); //console.log("scroll");
+      this.scrollDown();
     }
   }, {
     key: "scrollUp",
@@ -111,15 +111,11 @@ function () {
   }, {
     key: "perhapsLoadNoteAbove",
     value: function perhapsLoadNoteAbove(scrollTop, column, note) {
-      //console.log(note);
       var top = parseInt($(column).css('top'));
       var noteName = $(note).data('note-name');
       var columnNumber = parseInt($(column).data('column'));
 
       if (scrollTop <= top) {
-        console.log(top);
-        console.log(noteName);
-        console.log(columnNumber);
         var index = this.ordering.findIndex(function (n) {
           return n === noteName;
         });
@@ -127,7 +123,6 @@ function () {
         if (index === 0) {
           return false;
         } else {
-          console.log('index', index);
           this.expandAboveSingle(index - 1, columnNumber);
           return true;
         }

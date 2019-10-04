@@ -2277,6 +2277,64 @@ stepheader('note-obj-dot-precedence', 'Dot operator precedence'); ?>
     The dot operator has high precedence. The dot operator is only one level below the parentheses operators.
 <? stepfooter(); ?>
 
+<? #############################################################################
+substepheader('note-obj-brackets-precedence', 'Bracket operators precedence'); ?>
+    <p>Bracket operators have the same precedence as the dot operator. That is, they are only one level below the parentheses operators.</p>
+
+    <table class="precedence-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Grouping</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>Dot operator, brackets</td>
+            <td><code class="language-javascript">.</code>, <code class="language-javascript">... [ ... ]</code></td>   
+        </tr>
+         <tr>
+            <td>15</td>
+            <td>Not</td>
+            <td><code class="language-javascript">!</code> </td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Relational operators<br>
+            </td>
+            <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code> </td>   
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Equality operators</td>
+            <td><code class="language-javascript">===</code>, <code class="language-javascript">!==</code> </td>   
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>And</td>
+            <td><code class="language-javascript">&amp;&amp;</code></td>   
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Or</td>
+            <td><code class="language-javascript">||</code></td>   
+        </tr>
+</table>
+<? substepfooter() ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

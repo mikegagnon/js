@@ -2579,7 +2579,33 @@ stepheader('note-return', 'Return statements'); ?>
 }") ?>
 
     <p>, then <?code('g(5)')?> will resolve to <?code('g(6)')?>.</p>
+<? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-fn-stmts', 'Every function contains zero, or more statements'); ?>
+
+    <p>If you declare:</p>
+
+<? pre("
+var g = function(x) {
+    var y = x + 1
+    var z = y * 2
+    return z
+}") ?>
+
+    <p>, then <?code('g(2)')?> will resolve to <?code('g(6)')?>.</p>
+
+<? stepoverview(); ?>
+    <p>If you declare:</p>
+
+<? pre("
+var g = function(x) {
+    var y = x + 1
+    var z = y * 2
+    return z
+}") ?>
+
+    <p>, then <?code('g(2)')?> will resolve to <?code('g(6)')?></p>
 <? stepfooter(); ?>
 
 <? ########################################################################## ?>

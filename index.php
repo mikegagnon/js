@@ -2523,7 +2523,7 @@ stepheader('note-func-values', 'Functions are values'); ?>
     <? screenshot("fx.png") ?>
 
 <? stepoverview(); ?>
-
+    <? screenshot("fx.png") ?>
 <? stepfooter(); ?>
 
 <? ########################################################################## ?>

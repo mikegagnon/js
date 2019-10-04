@@ -2583,11 +2583,23 @@ stepheader('note-return', 'Return statements'); ?>
 
 <? #############################################################################
 substepheader('note-return-multiple', 'Functions may contain multiple return statements'); ?>
-TODO
+
+    <p>Consider the following function:</p>
+<? pre("var g = function(x) {
+    if (x === 5) {
+        return 'Five'
+    } else {
+        return 'Not five'
+    }
+}
+")?>
+
+    <p>If you were to declare that function, then <?code('g(5)')?> would resolve to <?code("'Five'")?>, and <?code('g(6)')?> would resolve to <?code("'Not five'")?>.</p>
+
 <? substepfooter() ?>
 
 <? #############################################################################
-substepheader('note-return-multiple', 'Functions may contain zero return statements'); ?>
+substepheader('note-return-zero', 'Functions may contain zero return statements'); ?>
 TODO
 <? substepfooter() ?>
 

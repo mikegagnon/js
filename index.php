@@ -2526,6 +2526,29 @@ substepheader('note-func-values', 'Functions are values'); ?>
     <? #screenshot("fx.png") ?>
 <? substepfooter(); ?>
 
+<? #############################################################################
+substepheader('note-x', 'Invocation parentheses are like operators'); ?>
+
+    <p>You use parentheses like operators in order to execute functions.</p>
+
+    <p>Recall from <? steplink('note-binary') ?>, you can combine two number values with a binary operator.
+    For example: <?code('1 + 2')?> resolves to <?code('3')?>. And, you can compare number values with comparison operators.
+    For example: <?code('1 === 2')?> resolves to <?code('false')?>. And so on.</p>
+
+    <p>Although parentheses are not technically considered operators, parentheses
+    are like operators, in the sense that: we use parentheses to combine function values with other values, which resolve to new values.
+    Consider the following example:</p>
+
+<? pre("
+    var g = function(x) {
+    return x * x;
+}") ?>
+
+    <p>The expression <?code('g(3)')?> combines the function <?code('g')?> with the value <?code('3')?>, which resolves to the value <?code('9')?>.</p>
+
+
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

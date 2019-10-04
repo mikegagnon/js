@@ -2489,6 +2489,9 @@ stepheader('note-func', 'Introduction to functions'); ?>
     <p><? code("g(4)") ?> resolves to the value <? code("16") ?></p>
 
     <p>Try it out on the repl.</p>
+
+    <p>In JavaScript jargon, we would say <?code("g(4)")?> is a function invocation, and we would say <?code("g(4)")?> invokes the function <?code("g")?> on the value <?code("g(4)")?>.
+    A function invocation is a type of expression.</p>
 <? stepoverview(); ?>
 
 If you declare
@@ -2497,7 +2500,6 @@ If you declare
     return x * x;
 }") ?>
 then <?code("g(4)")?>  will resolve to <?code("16")?>
-
 <? stepfooter(); ?>
 
 <? #############################################################################

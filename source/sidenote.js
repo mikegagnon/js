@@ -26,6 +26,7 @@ const SidenoteSetup = {
     padBetweenColumns: 20,
     padVertBetweenNotes: 0,
     autoExpand: 'jit', // possible values: 'expand-all' and 'jit'. TODO: explain
+    jitMargin: 100,
 }
 
 class Sidenote {
@@ -119,7 +120,7 @@ class Sidenote {
         const noteName = $(note).data('note-name');
         const columnNumber = parseInt($(column).data('column'));
 
-        if (scrollBottom >= top) {
+        if ((scrollBottom + this.setup.jitMargin) >= top) {
             const index = this.ordering.findIndex(n => n === noteName);
             if (index === this.ordering.length - 1) {
                 return false;
@@ -137,7 +138,7 @@ class Sidenote {
         const noteName = $(note).data('note-name');
         const columnNumber = parseInt($(column).data('column'));
 
-        if (scrollTop <= top) {
+        if ((scrollTop - this.setup.jitMargin) <= top) {
             const index = this.ordering.findIndex(n => n === noteName);
             if (index === 0) {
                 return false;
@@ -194,7 +195,6 @@ class Sidenote {
             $(newNoteSelector + ' h2').addClass('expanded')
             this.expand(toNoteName, newColumnNumber);
         } else if (this.setup.autoExpand === 'jit') {
-            // pass
             this.scroll();
         } else {
             throw "Bad value for autoExpand";

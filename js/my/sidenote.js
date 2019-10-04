@@ -35,8 +35,9 @@ var SidenoteSetup = {
   stagingId: 'staging-area',
   padBetweenColumns: 20,
   padVertBetweenNotes: 0,
-  autoExpand: 'jit' // possible values: 'expand-all' and 'jit'. TODO: explain
-
+  autoExpand: 'jit',
+  // possible values: 'expand-all' and 'jit'. TODO: explain
+  jitMargin: 100
 };
 
 var Sidenote =
@@ -153,7 +154,7 @@ function () {
       var noteName = $(note).data('note-name');
       var columnNumber = parseInt($(column).data('column'));
 
-      if (scrollBottom >= top) {
+      if (scrollBottom + this.setup.jitMargin >= top) {
         var index = this.ordering.findIndex(function (n) {
           return n === noteName;
         });
@@ -175,7 +176,7 @@ function () {
       var noteName = $(note).data('note-name');
       var columnNumber = parseInt($(column).data('column'));
 
-      if (scrollTop <= top) {
+      if (scrollTop - this.setup.jitMargin <= top) {
         var index = this.ordering.findIndex(function (n) {
           return n === noteName;
         });
@@ -238,7 +239,6 @@ function () {
         $(newNoteSelector + ' h2').addClass('expanded');
         this.expand(toNoteName, newColumnNumber);
       } else if (this.setup.autoExpand === 'jit') {
-        // pass
         this.scroll();
       } else {
         throw "Bad value for autoExpand";

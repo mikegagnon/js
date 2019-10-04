@@ -2344,11 +2344,7 @@ stepheader('note-obj-ref', 'Object references and storage diagrams'); ?>
 var q = x
 </code></pre>
 
-    <div class="screenshot">
-        <img width="305" src="img/xq.png">
-    </div>
-
-    <p></p>
+    <? screenshot('xq.png'); ?>
 
     <p>Recall, also, from <? steplink('note-references') ?>, JavaScript does not store string values inside variables. Rather, JavaScript stores <i>references</i> to strings inside variables.</p>
 
@@ -2362,9 +2358,7 @@ var obj = {
 }
 </code></pre>
 
-    <div class="screenshot">
-        <img width="475" src="img/obj-diagram.png">
-    </div>
+    <? screenshot('obj-diagram.png'); ?>
 
     <p>Notice, the variable <code class="language-javascript">obj</code> is not storing an object value directly. Rather, the variable <code class="language-javascript">obj</code> is storing a reference to an object value. There is a significant practical consequence of the fact that <code class="language-javascript">obj</code> is storing a reference, and not a value. Let&rsquo;s take a look.</p>
 
@@ -2377,9 +2371,7 @@ var obj = {
 var obj2 = obj1
 </code></pre>
 
-    <div class="screenshot">
-        <img width="476" src="img/obj2-diagram.png">
-    </div>
+    <? screenshot('obj2-diagram.png'); ?>
 
     <p>The practical significance, here, is that if we were to update the object, by assigning a new value associated with one of the keys, then
     both <code class="language-javascript">obj</code> and <code class="language-javascript">obj2</code> would each access the changed value. For example, if you were to run the following code in th repl, the repl would respond with <code class="language-javascript">true</code> </p>
@@ -2396,9 +2388,8 @@ obj1.a === 99 && obj2.a === 99
     
     <p>Just to be clear, here  is what the storage diagram would look like:</p>
 
-    <div class="screenshot">
-        <img width="470" src="img/a99.png">
-    </div>
+    <? screenshot('a99.png'); ?>
+
 <? stepoverview(); ?>
 
 <? stepfooter(); ?>

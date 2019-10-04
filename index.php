@@ -2107,7 +2107,7 @@ substepheader('note-obj-str-keys', 'String keys for object definitions'); ?>
     '#': 30
 }</code></pre>
 
-    <p>The only caveat, is that you cannot access such members using the &ldquo;dot operator&rdquo; (See Step TODO). Rather, you can only access such members using &ldquo;bracket operators.&rdquo; (See Step TODO).
+    <p>The only caveat, is that you cannot access such members using the &ldquo;dot operator&rdquo; (see <? steplink('note-obj-dot') ?>). Rather, you can only access such members using &ldquo;bracket operators&rdquo; (see <? substepref('note-obj-dot', 'note-obj-brackets', 1) ?>).
 <? substepfooter() ?>
 
 <? #############################################################################

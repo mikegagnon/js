@@ -121,7 +121,7 @@ class Sidenote {
 
         if (scrollBottom >= top) {
             const index = this.ordering.findIndex(n => n === noteName);
-            if (index === 0) {
+            if (index === this.ordering.length - 1) {
                 return false;
             } else {
                 this.expandBelowSingle(index + 1, columnNumber);

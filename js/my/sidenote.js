@@ -158,7 +158,7 @@ function () {
           return n === noteName;
         });
 
-        if (index === 0) {
+        if (index === this.ordering.length - 1) {
           return false;
         } else {
           this.expandBelowSingle(index + 1, columnNumber);

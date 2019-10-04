@@ -88,12 +88,12 @@ function () {
             var minTop = parseInt($(minNote).css('top'));
             ;
 
-            for (var i = 1; i < notes.length; i++) {
-              var top = parseInt($(notes[i]).css('top'));
+            for (var _i = 1; _i < notes.length; _i++) {
+              var top = parseInt($(notes[_i]).css('top'));
 
               if (top < minTop) {
                 minTop = top;
-                minNote = notes[i];
+                minNote = notes[_i];
               }
             }
 
@@ -439,10 +439,10 @@ function () {
         }
       }
 
-      for (var _i = 0; _i < stack.length; _i++) {
-        var _linkId = parseInt(stack[_i]);
+      for (var _i2 = 0; _i2 < stack.length; _i2++) {
+        var _linkId = parseInt(stack[_i2]);
 
-        var _columnSelector = "[data-column='".concat(_i, "']");
+        var _columnSelector = "[data-column='".concat(_i2, "']");
 
         var linkSelector = "".concat(_columnSelector, " [data-link-id='").concat(_linkId, "']");
         var link = $(linkSelector)[0];
@@ -450,7 +450,7 @@ function () {
         var toNoteName = $(linkSelector).attr('href').substr(1);
         var top = $(linkSelector).offset().top;
         $(window).scrollTop(top);
-        this.clickNoteLink(_i, fromNoteName, toNoteName, _linkId);
+        this.clickNoteLink(_i2, fromNoteName, toNoteName, _linkId);
       }
 
       var almostMaxColNumber = stack.length - 1;

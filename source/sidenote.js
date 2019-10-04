@@ -57,7 +57,7 @@ class Sidenote {
     }
 
     scrollUp() {
-        var THIS = this;
+        const THIS = this;
 
         let addedNote = true;
         while (addedNote) {
@@ -68,7 +68,7 @@ class Sidenote {
                 if (notes.length >= 1) {
                     let minNote = notes[0];
                     let minTop = parseInt($(minNote).css('top'));;
-                    for (var i = 1; i < notes.length; i++) {
+                    for (let i = 1; i < notes.length; i++) {
                         const top = parseInt($(notes[i]).css('top'));
                         if (top < minTop) {
                             minTop = top;

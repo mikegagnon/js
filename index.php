@@ -2391,7 +2391,13 @@ obj1.a === 99 && obj2.a === 99
     <? screenshot('a99.png'); ?>
 
 <? stepoverview(); ?>
-
+<pre class="language-javascript prejs"><code>var obj1 = {
+    a: 10,
+    b: 20
+}
+var obj2 = obj1
+obj1.a = 99
+</code></pre>, then <code class="language-javascript">obj1.a === 99 && obj2.a === 99</code> will resolve to <code class="language-javascript">true</code>
 <? stepfooter(); ?>
 
 <? ########################################################################## ?>

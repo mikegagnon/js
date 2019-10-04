@@ -2491,6 +2491,13 @@ stepheader('note-func', 'Introduction to functions'); ?>
     <p>Try it out on the repl.</p>
 <? stepoverview(); ?>
 
+If you declare
+<? pre("
+    var g = function(x) {
+    return x * x;
+}") ?>
+then <?code("g(4)")?>  will resolve to <?code("16")?>
+
 <? stepfooter(); ?>
 
 <? ########################################################################## ?>

@@ -56,7 +56,7 @@ function stepheader($stepName, $stepTitle) {
     $stepNum++;
     $subStepNum = 0;
 
-    $begin = "<div class='padded note' data-note-name='$stepName'>";
+    $begin = "<div class='padded note' data-note-name='$stepName' data-note-type='step' >";
     $thisPartHeader = "";
     if ($currentPartTitle != null) {
         $thisPartHeader = "<h2 class='part-title-in-note'>Chapter $partNum. $currentPartTitle</h2>";

@@ -35,7 +35,8 @@ var SidenoteSetup = {
   stagingId: 'staging-area',
   padBetweenColumns: 20,
   padVertBetweenNotes: 0,
-  autoExpand: true
+  autoExpand: 'jit' // possible values: 'expand-all' and 'jit'. TODO: explain
+
 };
 
 var Sidenote =
@@ -49,9 +50,80 @@ function () {
     this.linkstack = [];
     this.setupColumn0();
     this.setupLinkId();
+    this.setupAutoExpandJit();
   }
 
   _createClass(Sidenote, [{
+    key: "setupAutoExpandJit",
+    value: function setupAutoExpandJit() {
+      if (this.setup.autoExpand === 'jit') {
+        var THIS = this;
+        $(window).scroll(function () {
+          var scrollTop = $(window).scrollTop();
+          THIS.scroll(scrollTop);
+        });
+      } else if (this.setup.autoExpand === 'expand-all') {//pass
+      } else {
+        throw "Bad value for autoExpand";
+      }
+    }
+  }, {
+    key: "scroll",
+    value: function scroll(scrollTop) {
+      this.scrollUp(scrollTop);
+      this.scrollDown(scrollTop); //console.log("scroll");
+    }
+  }, {
+    key: "scrollUp",
+    value: function scrollUp(scrollTop) {
+      var THIS = this;
+      $('.column').each(function (i, column) {
+        var notes = $(column).children();
+
+        if (notes.length >= 1) {
+          var minNote = notes[0];
+          var minTop = parseInt($(minNote).css('top'));
+          ;
+
+          for (var i = 1; i < notes.length; i++) {
+            var top = parseInt($(notes[i]).css('top'));
+
+            if (top < minTop) {
+              minTop = top;
+              minNote = notes[i];
+            }
+          }
+
+          if ($(minNote).data('note-type') === 'step') {
+            THIS.perhapsLoadNoteAbove(scrollTop, column, minNote);
+          }
+        } //THIS.perhapsLoadNoteAbove(column)
+
+      });
+    }
+  }, {
+    key: "perhapsLoadNoteAbove",
+    value: function perhapsLoadNoteAbove(scrollTop, column, note) {
+      //console.log(note);
+      var top = parseInt($(column).css('top'));
+      var noteName = $(note).data('note-name');
+      var columnNumber = parseInt($(column).data('column'));
+
+      if (scrollTop <= top) {
+        console.log(top);
+        console.log(noteName);
+        console.log(columnNumber);
+        var index = this.ordering.findIndex(function (n) {
+          return n === noteName;
+        });
+        console.log('index', index);
+        this.expandAboveSingle(index - 1, columnNumber);
+      }
+    }
+  }, {
+    key: "scrollDown",
+    value: function scrollDown(scrollTop) {}
+  }, {
     key: "setupLinkId",
     value: function setupLinkId() {
       var n = 0;
@@ -93,11 +165,14 @@ function () {
       this.highlightLink(fromColumnNumber, linkId);
       this.spacer(newColumnNumber);
 
-      if (this.setup.autoExpand) {
+      if (this.setup.autoExpand === 'expand-all') {
         var columnSelector = "[data-column='".concat(newColumnNumber, "']");
         var newNoteSelector = "".concat(columnSelector, " [data-note-name='").concat(toNoteName, "']");
         $(newNoteSelector + ' h2').addClass('expanded');
         this.expand(toNoteName, newColumnNumber);
+      } else if (this.setup.autoExpand === 'jit') {// pass
+      } else {
+        throw "Bad value for autoExpand";
       }
     }
   }, {

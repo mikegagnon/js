@@ -25,7 +25,7 @@ const SidenoteSetup = {
     stagingId: 'staging-area',
     padBetweenColumns: 20,
     padVertBetweenNotes: 0,
-    autoExpand: true,
+    autoExpand: 'jit', // possible values: 'expand-all' and 'jit'. TODO: explain
 }
 
 class Sidenote {
@@ -35,6 +35,72 @@ class Sidenote {
         this.linkstack = [];
         this.setupColumn0();
         this.setupLinkId();
+        this.setupAutoExpandJit();
+    }
+
+    setupAutoExpandJit() {
+        if (this.setup.autoExpand === 'jit') {
+            const THIS = this;
+            $(window).scroll(function() {
+                const scrollTop = $(window).scrollTop();
+                THIS.scroll(scrollTop);
+            });
+        } else if (this.setup.autoExpand === 'expand-all') {
+            //pass
+        } else {
+            throw "Bad value for autoExpand";
+        }
+    }
+
+    scroll(scrollTop) {
+        this.scrollUp(scrollTop);
+        this.scrollDown(scrollTop);
+        //console.log("scroll");
+    }
+
+    scrollUp(scrollTop) {
+        var THIS = this;
+        $('.column').each(function(i, column){
+            const notes = $(column).children();
+
+            if (notes.length >= 1) {
+                let minNote = notes[0];
+                let minTop = parseInt($(minNote).css('top'));;
+                for (var i = 1; i < notes.length; i++) {
+                    const top = parseInt($(notes[i]).css('top'));
+                    if (top < minTop) {
+                        minTop = top;
+                        minNote = notes[i];
+                    }
+                }
+
+                if ($(minNote).data('note-type') === 'step') {
+                    THIS.perhapsLoadNoteAbove(scrollTop, column, minNote);
+                }
+            }
+            //THIS.perhapsLoadNoteAbove(column)
+
+        })
+    }
+
+    perhapsLoadNoteAbove(scrollTop, column, note) {
+        //console.log(note);
+        const top = parseInt($(column).css('top'));
+        const noteName = $(note).data('note-name');
+        const columnNumber = parseInt($(column).data('column'));
+
+        if (scrollTop <= top) {
+            console.log(top);
+            console.log(noteName);
+            console.log(columnNumber);
+            const index = this.ordering.findIndex(n => n === noteName);
+            console.log('index', index);
+            this.expandAboveSingle(index - 1, columnNumber);
+        }
+    }
+
+    scrollDown(scrollTop) {
+
     }
 
     setupLinkId() {
@@ -75,11 +141,15 @@ class Sidenote {
         this.updateUrl();
         this.highlightLink(fromColumnNumber, linkId);
         this.spacer(newColumnNumber);
-        if (this.setup.autoExpand) {
+        if (this.setup.autoExpand === 'expand-all') {
             const columnSelector = `[data-column='${newColumnNumber}']`;
             const newNoteSelector = `${columnSelector} [data-note-name='${toNoteName}']`;
             $(newNoteSelector + ' h2').addClass('expanded')
             this.expand(toNoteName, newColumnNumber);
+        } else if (this.setup.autoExpand === 'jit') {
+            // pass
+        } else {
+            throw "Bad value for autoExpand";
         }
     }
 

@@ -2582,6 +2582,16 @@ stepheader('note-return', 'Return statements'); ?>
 <? stepfooter(); ?>
 
 <? #############################################################################
+substepheader('note-return-multiple', 'Functions may contain multiple return statements'); ?>
+TODO
+<? substepfooter() ?>
+
+<? #############################################################################
+substepheader('note-return-multiple', 'Functions may contain zero return statements'); ?>
+TODO
+<? substepfooter() ?>
+
+<? #############################################################################
 stepheader('note-fn-stmts', 'Every function contains zero, or more statements'); ?>
 
     <p>If you declare:</p>
@@ -2613,15 +2623,15 @@ stepheader('note-params', 'Parameters'); ?>
 
     <p>Every function accepts zero or more &ldquo;parameters,&rdquo; also known as &ldquo;arguments.&rdquo;</p>
 
-    <p>For example, the following function accepts three parameters:</p>
+    <p>For example, the following function accepts three parameters,  <?code('x')?>,<?code('y')?>, and <?code('z')?>:</p>
 
 <? pre("
 var g = function(x, y, z) {
-    return x + y + z
+    return x * y + z
 }") ?>
 
     <p>Then, you would invoke the function like this: <?code('g(2,3,4)')?>, which
-        would resolve to <?code("9")?>.</p>
+        would resolve to <?code("10")?>.</p>
 
 
     <p>For another example, the following function accepts zero parameters:</p>

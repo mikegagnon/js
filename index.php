@@ -2505,7 +2505,7 @@ stepheader('note-func-values', 'Functions are values'); ?>
     <p>Declare this function in the repl:</p>
 
 <? pre("var g = function(x) {
-    console.log('Hello')
+    log('Hello')
 }")
 ?>
     <p>Observe that declaring the function did not produce a log message in the repl.
@@ -2516,6 +2516,12 @@ stepheader('note-func-values', 'Functions are values'); ?>
     <? screenshot("code-highlight.png") ?>
 
     <p>The highlighted part is a <i>function value.</i> Functions are values, just like <?code("7")?> is a value, and <?code("'Hello'")?> is a value, and <?code("{ a: 10 }")?> is a value. The entire declaration merely sets the variable <?code("g")?> to refer to a particular function value.</p>
+
+    <p>To illustrate this point, the following storage diagram shows how
+        the variable <?code("g")?> refers to a function value:</p>
+
+    <? screenshot("fx.png") ?>
+
 <? stepoverview(); ?>
 
 <? stepfooter(); ?>

@@ -2661,13 +2661,31 @@ var g = function() {
 
 <? pre("
 var g = function(x, y, z) {
-    return x + y + z
+    return x * y + z
 }") ?>
 
-    <p>then, you could invoke the function like this: <?code('g(2,3,4)')?>, which
-        would resolve to <?code("9")?></p>
+    <p>then, you could invoke the function like this: <?code('g(2,3,4)'); ?>, which
+        would resolve to <? code("10"); ?></p>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-param-expr', 'Using expressions as parameters'); ?>
+
+    <p>Let&rsquo;s say you have declared the following function:</p>
+
+<? pre("
+var g = function(x, y) {
+    return x + y
+}") ?>
+
+    <p>Then, you could invoke it using expressions instead of values. For example</p>
+
+    <ol>
+        <li><? code("g(1 + 2, 5 - 4)")?> would resolve to <?code('4')?></li>
+    </ol>
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

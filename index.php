@@ -2550,6 +2550,26 @@ substepheader('note-paren-op', 'Invocation parentheses are like operators'); ?>
 <? substepfooter(); ?>
 
 <? #############################################################################
+stepheader('note-fn-multi-invoke', 'Functions can be invoked multiple times'); ?>
+
+    <p>Let&rsquo;s say we have declared the following function:</p>
+
+<? pre("
+    var g = function(x) {
+    return x * x
+}") ?>
+
+    <p>Then we could invoke it once, like this, <? code('g(2)') ?>, which would
+         resolve to <? code('g(4)') ?>.</p>
+
+    <p>We can also invoke the function multiple times. For example, <? code('g(2) + g(3)') ?>
+    would resolve to <? code('13') ?>.</p>
+<? stepoverview(); ?>
+    <? code('g(2) + g(3)') ?> resolves to <? code('13') ?>
+<? stepfooter(); ?>
+
+
+<? #############################################################################
 stepheader('note-return', 'Return statements'); ?>
 
     <p>When you have a function like this one:</p>

@@ -2568,6 +2568,34 @@ stepheader('note-fn-multi-invoke', 'Functions can be invoked multiple times'); ?
     <? code('g(2) + g(3)') ?> resolves to <? code('13') ?>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-fn-statements', 'Function statements'); ?>
+
+    <p>So far, we have been defining functions by declaring a variable to refer
+    to a function value. For instance, in the previous steps we declared a variable, <? code('g') ?>,
+    to refer 
+        to a function value, <? code('function(x) {...}') ?>, like so:
+    </p>
+
+<? pre("var g = function(x) {
+    return x * x
+}") ?>
+
+    <p>However, we can also declare functions another way&mdash;a way that is actually more
+        commonly used in practice. This new way of declaring functions utilizes
+        &ldquo;function statements.&rdquo; For example, the following snippet of code contains a 
+        function statement, that defines <? code('g') ?> to refer to a function:
+
+<? pre("function g(x) {
+    return x * x
+}") ?>
+
+    <p>If you were to declare a function this way, then you could invoke it the same way as before.
+        I.e., <? code('g(2) + g(3)') ?> would still resolve to <? code('13') ?>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
 
 <? #############################################################################
 stepheader('note-return', 'Return statements'); ?>

@@ -146,9 +146,9 @@ ZDJS_Shell.prototype.runMultilineCommand = function() {
     try {
         try {
             // Double try because https://rayfd.wordpress.com/2007/03/28/why-wont-eval-eval-my-json-or-json-object-object-literal/
-            result = eval.call(null, "(" + command + ")"); 
+            result = eval.call(window, "(" + command + ")"); 
         } catch (e) {
-            result = eval.call(null, command); 
+            result = eval.call(window, command); 
         }
     } catch (e) {
         result = e.message;
@@ -202,9 +202,9 @@ ZDJS_Shell.prototype.runCommand = function(command) {
     try {
         try {
             // Double try because https://rayfd.wordpress.com/2007/03/28/why-wont-eval-eval-my-json-or-json-object-object-literal/
-            result = eval.call(null, "(" + command + ")"); 
+            result = eval.call(window, "(" + command + ")"); 
         } catch (e) {
-            result = eval.call(null, command); 
+            result = eval.call(window, command); 
         }
     } catch (e) {
         result = e.message;

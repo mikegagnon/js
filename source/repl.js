@@ -1,7 +1,5 @@
 "use strict";
 
-var geval = eval;
-
 var ZDJS_ShellDefaultSetup = {
     maxCommandLen: 100,
     multilineBoxInitHeight: "30px", // just a guess for a good value
@@ -148,9 +146,9 @@ ZDJS_Shell.prototype.runMultilineCommand = function() {
     try {
         try {
             // Double try because https://rayfd.wordpress.com/2007/03/28/why-wont-eval-eval-my-json-or-json-object-object-literal/
-            result = geval.call(window, command); // $.globalEval.call(window, command); 
+            result = window["eval"].call(window, command);
         } catch (e) {
-            result = geval.call(window, "(" + command + ")"); // $.globalEval.call(window, "(" + command + ")"); //
+            result = window["eval"].call(window, "(" + command + ")");
         }
     } catch (e) {
         result = e.message;
@@ -195,24 +193,6 @@ ZDJS_Shell.prototype.outputOldMultilineCommand = function(command) {
     cm.setValue(command);
 };
 
-ZDJS_Shell.prototype.convertFunctionStatement = function(command) {
-    var r = /^[\s]*function[\s]+([A-Za-z$_][A-Za-z$_0-9]*)[\s]*(\(.*)/;
-    var matches = r.exec(command);
-
-    if (matches) {
-        var fname = matches[1];
-        var therest = matches[2];
-
-        var lines = command.split("\n").slice(1);
-        var firstLine = fname + " = function" + therest;
-        lines.unshift(firstLine);
-        return lines.join("\n");
-    } else {
-        return command;
-    }
-
-}
-
 // TODO: catch syntax errors, and other specific errors for better error-presenation
 // to user.
 ZDJS_Shell.prototype.runCommand = function(command) {
@@ -222,9 +202,9 @@ ZDJS_Shell.prototype.runCommand = function(command) {
     try {
         try {
             // Double try because https://rayfd.wordpress.com/2007/03/28/why-wont-eval-eval-my-json-or-json-object-object-literal/
-            result = window[ "eval" ].call( window, command); //geval(command); //$.globalEval(command);
+            result = window["eval"].call(window, command);
         } catch (e) {
-            result = window[ "eval" ].call( window, "(" + command + ")"); //$.globalEval("(" + command + ")"); //geval("(" + command + ")"); //$.globalEval("(" + command + ")");
+            result = window["eval"].call(window, "(" + command + ")");
         }
     } catch (e) {
         result = e.message;

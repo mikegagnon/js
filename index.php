@@ -2896,8 +2896,6 @@ partheader('Recursion'); #######################################################
 <? #############################################################################
 stepheader('note-invoke-other', 'Functions can invoke other functions'); ?>
 
-    <p>TODO: previous step showing how you can invoke a function multiple times</p>
-
     <p>Functions can invoke other functions. For example, say we have declared the following
     two functions:</p>
 

@@ -2430,6 +2430,87 @@ then, <code class="language-javascript">x.c.q</code>, would resolve to <code cla
 
 <?
 ################################################################################
+partheader('Arrays'); ##########################################################
+################################################################################
+?>
+
+<? #############################################################################
+stepheader('note-intro-arrays', 'Introduction to arrays'); ?>
+
+    <p>An array is a special kind of object. For example, <? code("['a', 'b', 'c']") ?> is an <i>array value</i>
+    that is <a href="#note-array-obj">similar to</a> the following object:</p>
+
+<? pre("{
+    '0': 'a',
+    '1': 'b',
+    '2': 'c' 
+} ") ?>
+
+    <p>You can access the members of an array using <a href="#note-array-brackets">bracket operators</a>. For example, if you were to declare
+    <? code("var x = ['a', 'b', 'c']") ?>, then you could access the 
+        <? code("'0'") ?> member with: <? code("x['0']") ?>.</p>
+
+    <p>In this case <? code("x['0']") ?>
+    would resolve to <? code("'a'") ?>.</p>
+
+
+
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
+
+<!-- TODO: remove expand button from notes -->
+<? #############################################################################
+noteheader('note-array-obj'); ?>
+    <p>The array value <? code("['a', 'b', 'c']") ?> is similar to the following object:</p>
+
+<? pre("{
+    '0': 'a',
+    '1': 'b',
+    '2': 'c' 
+} ") ?>
+
+    <p>The difference between the array value and the object value defined above,
+        is that the array value contains members beyond just <? code("'0'") ?>, 
+        <? code("'1'") ?>, and <? code("'2'") ?>.</p>
+
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-array-brackets'); ?>
+    <p>If you dug into the sidenotes from the chapter on objects, you might
+        have encountered bracket operators already, in <? substepref('note-obj-dot', 'note-obj-brackets', 1) ?>. </p>
+
+    <p>There is no problem, if you haven&rsquo;t studied that sidenote already.
+       The main narrative of this chapter on arrays is self-contained.</p>
+    </p>
+<? notefooter(); ?>
+
+<? ########################################################################## ?>
+<? ########################################################################## ?>
+<? ############################ COPY AREA ################################### ?>
+<? ########################################################################## ?>
+<? ########################################################################## ?>
+
+<? #############################################################################
+stepheader('note-ax', ''); ?>
+
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
+
+<? #############################################################################
+substepheader('note-ay', ''); ?>
+
+<? substepfooter() ?>
+
+<? #############################################################################
+noteheader('note-az'); ?>
+
+<? notefooter(); ?>
+
+<?
+################################################################################
 partheader('Functions'); #######################################################
 ################################################################################
 ?>

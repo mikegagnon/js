@@ -3028,6 +3028,73 @@ stepheader('note-invoke-self', 'Mathematical recursion'); ?>
     </center>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-js-recursion', 'JavaScript recursion'); ?>
+    
+    <p>Here&rsquo;s one version of what the factorial function can look like in JavaScript:</p>
+
+<? pre("function factorial(n) {
+    if (n === 1) {
+        return 1
+    } else {
+        return n * factorial(n - 1)
+    }
+}") ?>
+
+    <p>If you were to declare the above function in the repl, then <? code('factorial(5)') ?>
+    would resolve to <? code('120') ?>.
+
+    <p>Now, let&rsquo;s take a look at how it actually works. Whenever a function is invoked
+        recursively, JavaScript operates as if each function invocation creates a clone of the function. I.e.,
+        invoking <? code('factorial(3)') ?> would look like this:
+    </p>
+
+<? pre("function factorial(n) {
+    if (n === 1) {
+        return 1
+    } else {
+        return n * factorial_B(n - 1)
+    }
+}
+
+function factorial_B(n) {
+    if (n === 1) {
+        return 1
+    } else {
+        return n * factorial_C(n - 1)
+    }
+}
+
+function factorial_C(n) {
+    if (n === 1) {
+        return 1
+    } else {
+        return n * factorial_D(n - 1)
+    }
+}
+") ?>
+
+    <p>Thus, <? code('factorial(3)') ?> would lead to an invocation of
+        <? code('factorial_B(2)') ?>.</p>
+    <p>That would lead to an invocation of
+        <? code('factorial_C(1)') ?>.</p>
+    <p>Then, <? code('factorial_D') ?> wouldn&rsquo;t be invoked. Rather, <? code('factorial_C(1)') ?> would return <? code('1') ?>.</p>
+
+    <p>So then <? code('factorial_B(2)') ?> would return <? code('2') ?>.</p>
+    <p>Finally, <? code('factorial(3)') ?> would return <? code('6') ?>.</p>
+<? stepoverview(); ?>
+<? pre("function factorial(n) {
+    if (n === 1) {
+        return 1
+    } else {
+        return n * factorial(n - 1)
+    }
+}") ?>
+
+    <p>If you were to declare the above function in the repl, then <? code('factorial(5)') ?>
+    would resolve to <? code('120') ?>.
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

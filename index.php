@@ -2595,7 +2595,16 @@ stepheader('note-fn-statements', 'Function statements'); ?>
     <p>If you were to declare a function this way, then you could invoke it the same way as before.
         I.e., <? code('g(2) + g(3)') ?> would still resolve to <? code('13') ?>
 
+    <p>When you define a function this way (using a function statement), then
+        the name of the function must be a valid identifier (see <? steplink('note-identifiers') ?>).
+
 <? stepoverview(); ?>
+If you define a function like this:
+<? pre("function g(x) {
+    return x * x
+}") ?>
+, then <? code('g(2) + g(3)') ?> would resolve to <? code('13') ?>.
+
 <? stepfooter(); ?>
 
 
@@ -2714,12 +2723,13 @@ var g = function(x, y, z) {
     return x * y + z
 }") ?>
 
-    <p>then, you could invoke the function like this: <?code('g(2,3,4)'); ?>, which
+    <p>, then you could invoke the function like this: <?code('g(2,3,4)'); ?>, which
         would resolve to <? code("10"); ?></p>
 <? stepfooter(); ?>
 
 <? #############################################################################
 stepheader('note-param-expr', 'Using expressions as parameters'); ?>
+    <p>TODO: should this be a substep?</p>
 
     <p>Let&rsquo;s say you have declared the following function:</p>
 
@@ -2728,13 +2738,17 @@ var g = function(x, y) {
     return x + y
 }") ?>
 
-    <p>Then, you could invoke it using expressions instead of values. For example</p>
+    <p>Then, you could invoke it using expressions instead of values. For example:</p>
 
     <ol>
         <li><? code("g(1 + 2, 5 - 4)")?> would resolve to <?code('4')?></li>
     </ol>
 <? stepoverview(); ?>
-
+If you declare: <? pre("
+var g = function(x, y) {
+    return x + y
+}") ?>
+, then <? code("g(1 + 2, 5 - 4)")?> would resolve to <?code('4')?>
 <? stepfooter(); ?>
 
 <? ########################################################################## ?>

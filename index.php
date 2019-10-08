@@ -227,6 +227,7 @@ function codestr($line) {
         <div class='title-page'>
             <h1 class='title'>JavaScript</h1>
             <div class='subtitle'>Overview &amp; Details</div>
+            <div><? screenshot('owl.png') ?></div>
             <div class='subtitle'>Volume 1</div>
             <div class='author'>Michael N. Gagnon, 2019</div>
         </div>

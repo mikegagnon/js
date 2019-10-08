@@ -2810,9 +2810,31 @@ function f(y) {
     return y + x
 }
 log(y)') ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-share-names', 'A global variable and a local variable can share the same name'); ?>
+    <p>TODO: substep?</p>
+
+    <p>It is possible for a global variable and a local variable to share the same name. For example, if
+    there is a global variable named <? code('x') ?> and a local variable also named <? code('x') ?>,
+    then they are two distinct, independent variables, that happen to share the same name. Within
+    the function, the name <? code('x') ?> refers to the local variable, and outside the function, 
+    <? code('x') ?> refers to the global variable.</p>
 
 
+    <p>Consider the following example:</p>
 
+<? pre('var x = 5
+function f(x) {
+    return x + 2;
+};
+log(x)
+log(f(10))
+log(x)') ?>
+
+    <p>Executing this code will log three lines to the repl: <? code('5') ?>, then <? code('12') ?>, then <? code('5') ?> again.</p>
+<? stepoverview(); ?>
 
 <? stepfooter(); ?>
 

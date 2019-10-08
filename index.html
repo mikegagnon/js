@@ -1,0 +1,3623 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+        <title>JavaScript: Overview &amp; Details</title>
+        <link rel='stylesheet' href='style/codemirror.css'>
+        <link rel='stylesheet' href='style/solarized.css'>
+        <link href='style/bootstrap.css' rel='stylesheet'>
+        <link href='style/prism.css' rel='stylesheet'>
+        <link href='style/repl-dark.css' rel='stylesheet'>
+        <link href='style/book.css' rel='stylesheet'>
+        <link href='style/sidenote.css' rel='stylesheet'>
+        <script src='js/codemirror.js'></script>
+        <script src='js/javascript.js'></script>
+        <!--<script src='js/jquery-2.2.4.min.js'></script>-->
+        <script src='js/jquery-1.12.4.min.js'></script>
+        <script src='js/prism.js'></script>
+        <script src='js/popper.min.js'></script>
+        <script src='js/bootstrap.js'></script>
+        <script src='js/my/repl.js'></script>
+        <script src='js/my/sidenote.js'></script>
+        <script src='js/my/repl-sidenote.js'></script>
+        <script src='js/my/book.js'></script>
+    </head>
+    <body>
+        <main>
+<div id='sidenote'>
+<div id='repl-console-wrapper'>
+<div class='note repl-note' id='repl-console'>
+    <h4>Repl</h4>
+    <div id='repl'></div>
+</div>
+</div>
+
+<div data-column='0' class='column'>
+    <div data-note-name='note-root' class='note'>
+        <div class='title-page'>
+            <h1 class='title'>JavaScript</h1>
+            <div class='subtitle'>Overview &amp; Details</div>
+            <div><div class="screenshot">
+    <img width="96" height="96" src="img/owl.png">
+</div></div>
+            <div class='subtitle'>Volume 1</div>
+            <div class='author'>Michael N. Gagnon, 2019</div>
+        </div>
+        <div id="spacer" style="width: 1; height: 1px;">
+        </div>
+        <div class='padded'>
+            <h2>Preface</h2>
+
+            <p>This book represents the first volume in a series of three. This series, and this book in particular, is for you if you&rsquo;ve never programmed before and you would like to learn JavaScript. By the conclusion of this first book, you will have learned 100% of the JavaScript you need to know in order to write a chess game, complete with an AI. And, by the conclusion of the third book, we will have programmed a chess game and AI, together.</p>
+
+            <h3>Shallow-deep learning</h3>
+
+            <p>JavaScript is a gnarly language. There are many nooks and crannies
+            that book authors can either explore or ignore. Consequently,
+             JavaScript books tend to either skip over the nitty-gritty details of the language, or they tediously expound upon the minutiae.
+             In contrast, this book skips over all the details, while simultaneously presenting many of the finer details of JavaScript. How?
+         </p>
+
+            <p>The main narrative of this book presents the big picture, and explains
+                everything you need to know to write a chess AI. Additionally, this
+                book makes extensive use of unobtrusive sidenotes, which provides you
+                 the option to ignore, skim, or scrutinize many of the finer details of JavaScript.</p>
+
+            <p>
+                If you&rsquo;re inclined, feel free to enrich your understanding of JavaScript by diving deep into the sidenotes. Or, feel free to stay shallow, which is all you need for us to build a chess AI together.
+            </p>
+
+            <h3>Lazy-eager learning</h3>
+
+            <p>Broadly speaking, there are three approaches to learning: <i>lazy</i> learning, <i>eager</i> learning, and a hybrid approach&mdash;<i>lazy-eager</i> learning.</p>
+
+            <p>With the lazy approach, you skip straight to the last page of your textbook, and work backwards from there.</p>
+
+            <p>With the eager approach, you refuse to move on to the next step, until you&rsquo;ve convinced yourself that you&rsquo;ve mastered the current step.</p>
+
+            <p>But, with the hybrid lazy-eager approach, perhaps you skip a few steps and work backwards from there. Or, perhaps you skim the material until you reach a point where you&rsquo;re confused, and then go back and study the material you have already skimmed over.</p>
+
+            <p>I think the lazy-eager approach might be a great way to learn JavaScript, and I constructed this book for lazy-eager learning.</p>
+
+        </div>
+
+        <h1 class='part-title'><a name='snippets'>Contents</a></h1>
+
+        <p class='padded'>For each of the <span id='num-steps'></span> steps of this book, the table of contents contains a link to that step, as well as a short snippet of code from that step.</p>
+
+        <div id='snippets' class='padded' >
+        </div>
+
+    </div>
+</div> <!-- end data-column='0' -->
+</div> <!-- end #sidenote -->
+
+<div id='staging-area'>
+<script>
+var ORDERING = [];
+
+var SNIPPETS = '#snippets';
+var SNIPPETS_TABLE_WRAPPER = '#snippets-tables-wrapper';
+var SNIPPETS_TABLE = undefined;
+
+$(SNIPPETS).append(`<div id='${SNIPPETS_TABLE_WRAPPER.substr(1)}'></div>`);
+
+</script>
+
+
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-1';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 1. Expressions </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+    <div class='padded note' data-note-name='note-repl' data-note-type='step' >
+    <h2 class='part-title-in-note'>Chapter 1. Expressions</h2>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 1. Repl</h2>
+    <p>The right side of the window contains a &ldquo;repl.&rdquo;
+        Click the dark-colored area, just to the right of the green dollar sign. Then type in <code class='language-javascript'>1 + 2</code>, and press enter. At this point,
+    your repl should look like this:</p>
+
+    <p>What happened here? Your browser executed the statement <code class='language-javascript'>1 + 2</code>,
+        and then the repl displayed the result <code class='language-javascript'>3</code>.
+     </p>
+
+    <p>The <i>repl</i> allows you to experiment with coding. The way it works, is you type in one (or more)
+    lines of code in your repl, and press enter. Then, your browser
+    will &ldquo;execute&rdquo; your code, and then the repl will display the result of executing your code.
+    Repeat.
+    </p>
+
+    <p>At any time, you can click the &ldquo;clear&rdquo; button to restart your repl session. And, I will explain the &ldquo;multiline input&rdquo; button later on.</p>
+    <ul data-step-header='1'></ul>
+</div>
+<script>
+ORDERING.push('note-repl');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-repl'>Step 1. Repl</a></div>
+        <div>    <code class='language-javascript no-left-margin'>1 + 2</code> produces <code class='language-javascript'>3</code>, in the repl
+
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-values' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 2. Numbers and values</h2>    <p>In JavaScript, the number <code class='language-javascript'>1</code> is a &ldquo;value.&rdquo;
+    The number <code class='language-javascript'>2</code> is also a value, and so is the number <code class='language-javascript'>105.72</code>, and so on. Every number is a value, but there are also values beyond just numbers, as we&rsquo;ll see quite often in later steps. For now, though, we&rsquo;ll just focus on number values.</p>
+    <ul data-step-header='2'></ul>
+</div>
+<script>
+ORDERING.push('note-values');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-values'>Step 2. Numbers and values</a></div>
+        <div>    <code class="language-javascript no-left-margin">1</code>, <code class="language-javascript">2</code>, and <code class="language-javascript">105.72</code> are values
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-values-exercises'>
+    <div class='close-button'>×</div>
+    <h2>Step 2.1. Exercises</h2>
+
+    <script>
+        $('[data-step-header="2"]')
+            .append('<li><a href="#note-values-exercises">Step 2.1. Exercises</a></li>');
+    </script>    <ol>
+        <li>What happens if you execute <code class='language-javascript'>3.7</code>?</li>
+        <li>What happens if you execute <code class='language-javascript'>2938</code>?</li>
+        <li>What happens if you execute <code class='language-javascript'>7349902384908234</code>?</li>
+    </ol>
+</div>
+<div class='padded note' data-note-name='note-num-oddities'>
+    <div class='close-button'>×</div>
+    <h2>Step 2.2. Number oddities</h2>
+
+    <script>
+        $('[data-step-header="2"]')
+            .append('<li><a href="#note-num-oddities">Step 2.2. Number oddities</a></li>');
+    </script>    <p>JavaScript numbers have several oddities. For example:</p>
+
+    <ol>
+        <li><code class="language-javascript">9999999999999999</code> resolves to <code class="language-javascript">10000000000000000</code>. <a href="#note-int-too-big">Note</a></li>
+        <li><code class="language-javascript">90837408234902839048290348920</code> resolves to <code class="language-javascript">9.083740823490283e+28</code>. <a href="#note-big-num">Note</a></li>
+        <li><code class="language-javascript">1.7e+308</code> resolves to <code class="language-javascript">1.7e+308</code>. <a href="#note-biggest-num">Note</a></li>
+        <li><code class="language-javascript">1.8e+308</code> resolves to <code class="language-javascript">Infinity</code>. <a href="#note-num-too-big">Note</a></li>
+    </ol>
+</div>
+<div class='padded note' data-note-name='note-int-too-big'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>When you enter the number <code class="language-javascript">9999999999999999</code> into the repl,
+        the repl responds with <code class="language-javascript">10000000000000000</code>, because <code class="language-javascript">9999999999999999</code> is larger 
+        than the largest <a href="#note-int">integer</a> that JavaScript can handle. Once you
+        go beyond the max, integers become approximate. Also,
+        decimal numbers in JavaScript are generally approximate.
+    </p>
+</div>
+<div class='padded note' data-note-name='note-int'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>An integer is a whole number.</p>
+</div>
+<div class='padded note' data-note-name='note-big-num'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>When you enter the number <code class="language-javascript">90837408234902839048290348920</code> into the repl,
+        the repl responds with <code class="language-javascript">9.083740823490283e+28</code>, which is equivalent to scientific notation 9.083740823490283 &times; 10<sup>28</sup>.
+    </p>
+</div>
+<div class='padded note' data-note-name='note-biggest-num'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>When you enter the number <code class="language-javascript">1.7e+308</code> into the repl,
+        the repl responds with <code class="language-javascript">1.7e+308</code>, which is equivalent to scientific notation 1.7 &times; 10<sup>308</sup>. This is a stupefyingly large number. It is far larger than the number of atoms in the universe. This number is pretty close to the largest number JavaScript can handle. The largest number JavaScript can handle is: <code class="language-javascript">1.7976931348623157e+308</code>.
+    </p>
+</div>
+<div class='padded note' data-note-name='note-num-too-big'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>When you enter the number <code class="language-javascript">1.8e+308</code> into the repl,
+        the repl responds with <code class="language-javascript">Infinity</code>, because <code class="language-javascript">1.8e+308</code> is larger than JavaScript can handle. The largest number JavaScript can handle is close to <code class="language-javascript">1.7976931348623157e+308</code>.
+    </p>
+</div>
+    <div class='padded note' data-note-name='note-expressions' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 3. Expressions</h2>    <p><code class='language-javascript'>1 + 2</code> is not a value; rather, <code class='language-javascript'>1 + 2</code> is a JavaScript &ldquo;expression.&rdquo; An <i>expression</i>, is anything in JavaScript that &ldquo;resolves&rdquo; to a value. In this case, <code class='language-javascript'>1 + 2</code> <i>resolves</i> to the value <code class='language-javascript'>3</code>.
+            </p>
+
+    <p>To be precise, every value is also an expression. To give a concrete example, the number <code class='language-javascript'>4</code> is a value, and the value <code class='language-javascript'>4</code> is also an expression&mdash;albeit, an expression that resolves to the value <code class='language-javascript'>4</code>.</p>
+    <ul data-step-header='3'></ul>
+</div>
+<script>
+ORDERING.push('note-expressions');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-expressions'>Step 3. Expressions</a></div>
+        <div>    <code class="language-javascript no-left-margin">1 + 2</code> is an expression that resolves to the value <code class="language-javascript">3</code>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-binary' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 4. Binary numeric operators</h2>
+    <p>A <i>binary numeric operator</i> combines two numeric values to resolve to a new value. For example, <code class="language-javascript">+</code> is a binary numeric operator that combines two values, via addition. We already observed in <a href="#note-repl">Step 1</a> that the <code class="language-javascript">+</code> operator can combine two numeric values, to resolve to a new value.</p>
+
+
+    <p>There are several binary numeric operators in JavaScript.
+    For instance, besides addition, JavaScript allows you to perform subtraction with the <code class="language-javascript">-</code> operator, multiplication with the <code class="language-javascript">*</code> operator, and division with the <code class="language-javascript">/</code> operator.</p>
+
+    <ul data-step-header='4'></ul>
+</div>
+<script>
+ORDERING.push('note-binary');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-binary'>Step 4. Binary numeric operators</a></div>
+        <div>    <code class="language-javascript no-left-margin">+</code>, <code class="language-javascript">-</code>, <code class="language-javascript">*</code>, and <code class="language-javascript">/</code>are binary numeric operators
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-binary-exercises'>
+    <div class='close-button'>×</div>
+    <h2>Step 4.1. Exercises</h2>
+
+    <script>
+        $('[data-step-header="4"]')
+            .append('<li><a href="#note-binary-exercises">Step 4.1. Exercises</a></li>');
+    </script>    <ol>
+        <li>What happens if you execute <code class="language-javascript">2 * 3</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">1 / 2</code>?</li>
+    </ol>
+</div>
+<div class='padded note' data-note-name='note-bonus-arithmetic'>
+    <div class='close-button'>×</div>
+    <h2>Step 4.2. Arithmetic oddities</h2>
+
+    <script>
+        $('[data-step-header="4"]')
+            .append('<li><a href="#note-bonus-arithmetic">Step 4.2. Arithmetic oddities</a></li>');
+    </script>    <p>JavaScript arithmetic has several oddities.</p>
+
+    <ol>
+        <li><code class="language-javascript">0.1 + 0.2</code> resolves to <code class="language-javascript">0.30000000000000004</code>. <a href="#note-zero-point-three">Note</a></li>
+        <li><code class="language-javascript">1 / 0</code> resolves to <code class="language-javascript">Infinity</code>. <a href="#note-one-div-zero">Note</a></li>
+        <li><code class="language-javascript">0 / 0</code> resolves to <code class="language-javascript">NaN</code>. <a href="#note-zero-div-zero">Note</a></li>
+    </ol>
+</div> 
+
+<div class='padded note' data-note-name='note-zero-point-three'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>
+        In JavaScript, the expression <code class="language-javascript">0.1 + 0.2</code> yields the value <code class="language-javascript">0.30000000000000004</code>, which is merely an approximation of the sum of 0.1 and 0.2. In general, arithmetic with decimal numbers in JavaScript merely produces approximately correct results.
+    </p>
+</div>
+<div class='padded note' data-note-name='note-one-div-zero'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>In JavaScript, <code class="language-javascript">1 / 0</code> yields the value <code class="language-javascript">Infinity</code>, which represents numbers larger than what JavaScript can represent otherwise.</p>
+</div>
+<div class='padded note' data-note-name='note-zero-div-zero'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>In JavaScript, <code class="language-javascript">0 / 0</code> yields the value <code class="language-javascript">NaN</code>, which represents &ldquo;not a number&rdquo;&mdash;numbers that aren&rsquo;t really numbers.</p>
+</div>
+<div class='padded note' data-note-name='note-more-op'>
+    <div class='close-button'>×</div>
+    <h2>Step 4.3. More numeric operators</h2>
+
+    <script>
+        $('[data-step-header="4"]')
+            .append('<li><a href="#note-more-op">Step 4.3. More numeric operators</a></li>');
+    </script>    <p>There are more operators beyond just <code class="language-javascript">+</code>, <code class="language-javascript">-</code>, <code class="language-javascript">*</code>, and <code class="language-javascript">/</code>.</p>
+
+    <p>The &ldquo;modulo&rdquo;
+    operator, <code class="language-javascript">%</code>, yields
+    the <i>remainder</i> of division.  For example, <code class="language-javascript">9 % 5</code> resolves to <code class="language-javascript">4</code>, because 9 divided by 5 equals
+    1, with a remainder of 4.
+
+    <p>The &ldquo;unary numeric negation&rdquo; operator will take
+        a positive number and make it negative, or take a negative 
+    number and make it positive. Consider a few examples:</p>
+
+    <div class="table-format">
+    <table>
+        <tr>
+            <td><code class="language-javascript">-1</code></td>
+            <td>resolves to <code class="language-javascript">-1</code></td>
+        </tr>
+        <tr>
+            <td><code class="language-javascript">-(-1)</code></td>
+            <td>resolves to <code class="language-javascript">1</code>
+            </td>
+        </tr>
+        <tr>
+            <td><code class="language-javascript">-(3 - 5)</code></td>
+            <td>resolves to <code class="language-javascript">2</code>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+    <p>The <i>unary</i> numeric negation operator is not a <i>binary</i> numeric
+    operator, because <i>binary</i> operators operate on two values, whereas
+    <i>unary</i> operators operate on single values.
+    </p>
+</div> 
+
+    <div class='padded note' data-note-name='note-paren' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 5. Parentheses</h2>
+    <p>JavaScript allows you to group expressions using parentheses. For example:</p>
+
+    <ol>
+        <li><code class="language-javascript">(1 + 2) / 3</code> resolves to <code class="language-javascript">1</code></li>
+        <li><code class="language-javascript">2 * (8 - 6)</code> resolves to <code class="language-javascript">4</code></li>
+        <li><code class="language-javascript">2 * ((3  - 2) * 4)</code> resolves to <code class="language-javascript">8</code></li>
+    </ol>
+
+    <ul data-step-header='5'></ul>
+</div>
+<script>
+ORDERING.push('note-paren');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-paren'>Step 5. Parentheses</a></div>
+        <div>    <code class="language-javascript no-left-margin">2 * (8 - 6)</code> resolves to <code class="language-javascript">4</code>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-precedence' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 6. Operator precedence</h2>
+ 
+    <p>On the repl, try out: <code class="language-javascript">1 + 2 * 4</code>. JavaScript is smart enough to know to perform the multiplication first. Essentially, JavaScript converts <code class="language-javascript">1 + 2 * 4</code> into <code class="language-javascript">1 + (2 * 4)</code>, then your browser executes it.</p>
+    
+    <p>In general, the JavaScript language specifies which operators have &ldquo;higher precedence&rdquo; over which other operators.
+    For example, the <code class="language-javascript">*</code> operator has higher precedence compared to the <code class="language-javascript">+</code> operator.
+    When I say that one operator has higher precedence compared to another operator, I am  saying that the JavaScript automatically puts parentheses around the higher-precedence operations.</p>
+
+    <p>Parentheses have the highest precedence;
+    that is, parentheses have the final say in the ordering of operations.</p>
+    <ul data-step-header='6'></ul>
+</div>
+<script>
+ORDERING.push('note-precedence');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-precedence'>Step 6. Operator precedence</a></div>
+        <div>    <code class="language-javascript no-left-margin">1 + 2 * 4</code> resolves to <code class="language-javascript">9</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-precedence-exercises'>
+    <div class='close-button'>×</div>
+    <h2>Step 6.1. Exercises</h2>
+
+    <script>
+        $('[data-step-header="6"]')
+            .append('<li><a href="#note-precedence-exercises">Step 6.1. Exercises</a></li>');
+    </script>    <ol>
+        <li>What happens if you execute <code class="language-javascript">1 / 2 + 1 / 2</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">2 * 3 - 2 * 4</code>?</li>
+    </ol>
+</div>
+    <div class='padded note' data-note-name='note-ptable' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 7. Precedence tables</h2>    <p>When explaining the precedence of operations for any particular programming language, it is common to present &ldquo;precedence tables&rdquo;&mdash;tables that explain which operators have higher precedence compared to other operators.</p>
+
+    <p>For instance, the precedence table below shows that parentheses have the highest precedence, and multiplication and division have a higher precedence than addition and subtraction.</p>
+
+    <table class="precedence-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Parentheses</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+    </table>
+
+    <p>Throughout this book, we will encounter many different types of operators. Whenever I introduce a new operator, I present a new precedence table that shows the precedence of the new operator, relative
+    to the operators we have already seen.</p>
+
+    <p>I don&rsquo;t think you will need to explicitly memorize the operator precedence tables. Rather, I suspect you will be able to cultivate an intuitive understanding of operator precedence from studying and understanding examples and exercises.</p>
+    <ul data-step-header='7'></ul>
+</div>
+<script>
+ORDERING.push('note-ptable');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-ptable'>Step 7. Precedence tables</a></div>
+        <div>    <table class="precedence-table overview-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Parentheses</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+    </table>
+        </div>
+    </div>`);
+</script>
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-2';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 2. Types </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+
+    <div class='padded note' data-note-name='note-types' data-note-type='step' >
+    <h2 class='part-title-in-note'>Chapter 2. Types</h2>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 8. Types</h2>
+    <p>Every expression has a &ldquo;type.&rdquo; For instance, the value <code class="language-javascript">1</code> has the type &ldquo;number,&rdquo; and the expression <code class="language-javascript">(1 + 2) * 4</code> has the type &ldquo;number&rdquo; as well. In casual conversational programming terminology, we probably wouldn&rsquo;t say: &ldquo;the value <code class="language-javascript">1</code> has the type number.&rdquo; Rather, we would just say: &ldquo;<code class="language-javascript">1</code> is a number.&rdquo;
+            </p>
+
+    <p>So far, we have only encountered the number type. In the next step though, <a href='#note-strings' data-link-to-step-name='note-strings'>Step</a>, we will encounter the &ldquo;string&rdquo; type. Then, in the following step, <a href='#note-bool' data-link-to-step-name='note-bool'>Step</a>, we will encounter the &ldquo;boolean&rdquo; type.</p>
+
+    <ul data-step-header='8'></ul>
+</div>
+<script>
+ORDERING.push('note-types');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-types'>Step 8. Types</a></div>
+        <div>    <code class="language-javascript no-left-margin">1</code> has the type number, and <code class="language-javascript">(1 + 2) * 4</code> has type number, as well
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-strings' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 9. Strings</h2>    <p>A <i>string</i> value is a sequence of characters. To define a string, just wrap a sequence of characters in quotes, like so: <code class="language-javascript">'Hello, World!'</code>. You can also use double quotes if you like. For instance: the string <code class="language-javascript">"Hello, World!"</code> is identical to
+    <code class="language-javascript">'Hello, World!'</code>.
+    </p>
+
+    <p>You can merge two strings together (i.e. <i>concatenate</i> two strings together), with the <code class="language-javascript">+</code> operator. For example, <code class="language-javascript">'Hello' + 'World!'</code> would resolve to <code class="language-javascript">'HelloWorld!'</code> . Try it out on the repl.
+    </p>
+    <ul data-step-header='9'></ul>
+</div>
+<script>
+ORDERING.push('note-strings');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-strings'>Step 9. Strings</a></div>
+        <div>    <code class="language-javascript no-left-margin">'Hello' + '_' + 'World!'</code> resolves to <code class="language-javascript">'Hello_World!'</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-strings-exercises'>
+    <div class='close-button'>×</div>
+    <h2>Step 9.1. Exercises</h2>
+
+    <script>
+        $('[data-step-header="9"]')
+            .append('<li><a href="#note-strings-exercises">Step 9.1. Exercises</a></li>');
+    </script>    <ol>
+        <li>What happens if you execute <code class="language-javascript">'Hello' + '_' + 'World!'</code>?</li>
+        <li>TODO: more exercises</li>
+    </ol>
+</div>
+<div class='padded note' data-note-name='note-single-v-double'>
+    <div class='close-button'>×</div>
+    <h2>Step 9.2. Single quotes vs. double quotes</h2>
+
+    <script>
+        $('[data-step-header="9"]')
+            .append('<li><a href="#note-single-v-double">Step 9.2. Single quotes vs. double quotes</a></li>');
+    </script>    <p>You can use single quotes, or double quotes when defining strings in JavaScript.
+        They work pretty much the same way.
+    </p>
+
+    <p>Single quotes are nice because you don&rsquo;t need
+    to press the shift key.</p>
+
+    <p>Also, if you use single quotes, then you can include
+        double quotes in your string easily. For example, while <code class="language-javascript">'abc Hello 123'</code> resolves to the string <i style='white-space: nowrap;'>abc Hello 123</i>, the string <code class="language-javascript">'abc "Hello" 123'</code> resolves to the string <i style='white-space: nowrap;'>123 "Hello" 123</i>.
+    </p>
+
+    <p>Similarly, if you use double quotes, then you can include
+        single quotes in your string easily. For example, the string <code class="language-javascript">"abc 'Hello' 123"</code> resolves to the string <i style='white-space: nowrap;'>123 'Hello' 123</i>.
+    </p>
+</div>
+<div class='padded note' data-note-name='note-str-num'>
+    <div class='close-button'>×</div>
+    <h2>Step 9.3. Strings and numbers</h2>
+
+    <script>
+        $('[data-step-header="9"]')
+            .append('<li><a href="#note-str-num">Step 9.3. Strings and numbers</a></li>');
+    </script>    <p>When you add a string plus a number, the number gets converted to a string, and then the two strings are concatenated together. For example, <code class="language-javascript">'Hello' + 5</code> resolves to <code class="language-javascript">'Hello5'</code>
+    </p>
+
+    <p>When you multiply a string times a number, the result is <code class="language-javascript">NaN</code>. For example,
+        <code class="language-javascript">"Hello" * 5</code> resolves to <code class="language-javascript">NaN</code>
+    </p>
+</div>
+    <div class='padded note' data-note-name='note-bool' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 10. Boolean values and expressions</h2>
+    <p>A <i>boolean value </i>is a value that is either <code class="language-javascript">true</code> or <code class="language-javascript">false</code> (<code class="language-javascript">true</code> and <code class="language-javascript">false</code> are values of type <code class="language-javascript">boolean</code>).</p>
+
+    <p>Similarly, a <i>boolean expression</i> is an expression that resolves to either <code class="language-javascript">true</code> or <code class="language-javascript">false</code>. For example, <code class="language-javascript">1 &lt; 2</code> is a boolean expression that resolves to <code class="language-javascript">true</code>, because <code class="language-javascript">1</code> is less than <code class="language-javascript">2</code>.</p>
+
+    <p>As another example, <code class="language-javascript">1 &gt; 2</code> is a boolean expression that resolves to <code class="language-javascript">false</code>, because <code class="language-javascript">1</code> is not greater than <code class="language-javascript">2</code>.</p>
+    <ul data-step-header='10'></ul>
+</div>
+<script>
+ORDERING.push('note-bool');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-bool'>Step 10. Boolean values and expressions</a></div>
+        <div>   <code class="language-javascript no-left-margin">1 < 2</code> resolves to <code class="language-javascript">true</code>, and <code class="language-javascript">1 > 2</code> resolves to <code class="language-javascript">false</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-bool-exercises'>
+    <div class='close-button'>×</div>
+    <h2>Step 10.1. Exercises</h2>
+
+    <script>
+        $('[data-step-header="10"]')
+            .append('<li><a href="#note-bool-exercises">Step 10.1. Exercises</a></li>');
+    </script>    <ol>
+        <li>What happens if you execute <code class="language-javascript">true</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">false</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">1 &lt; 2</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">1 &gt; 2</code>?</li>
+    </ol>
+</div>
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-3';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 3. Relational and equality operators </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+
+
+    <div class='padded note' data-note-name='note-compare' data-note-type='step' >
+    <h2 class='part-title-in-note'>Chapter 3. Relational and equality operators</h2>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 11. Relational operators</h2>
+
+            <p>There are several &ldquo;relational operators&rdquo; that compare numeric values, and then resolve to boolean values. For example, the greater-than operator, <code class="language-javascript">&gt;</code>, is a relational operator that compares two numeric values, then resolves to a boolean value. To give a concrete example, when JavaScript executes <code class="language-javascript">1 &gt; 2</code>, it compares <code class="language-javascript">1</code> and <code class="language-javascript">2</code>, determines that <code class="language-javascript">1</code> is not actually greater than <code class="language-javascript">2</code>, so it resolves the expression to the value <code class="language-javascript">false</code>.</p>
+
+            <p>These comparison operators include: less-than, <code class="language-javascript">&lt;</code>, greater-than, <code class="language-javascript">&gt;</code>, less-than-or-equal-to, <code class="language-javascript">&lt;=</code>, and greater-than-or-equal-to<code class="language-javascript">&gt;=</code>.
+
+            <p>The following list explains how each of these operators behaves:</p>
+
+            <div class="table-format">
+            <table class="no-wrap">
+                <tr>
+                    <td>1. </td>
+                    <td><code class="language-javascript">a &lt; b</code>
+                    </td>
+                    <td>resolves to <code class="language-javascript">true</code> </td>
+                    <td>if <code class="language-javascript">a</code> is less than <code class="language-javascript">b</code></td>
+                </tr>
+                <tr>
+                    <td>2. </td>
+                    <td><code class="language-javascript">a &lt;= b</code></td>
+                    <td>resolves to <code class="language-javascript">true</code> </td>
+                    <td>if <code class="language-javascript">a</code> is less than or equal to <code class="language-javascript">b</code></td>
+                </tr>
+                <tr>
+                    <td>3. </td>
+                    <td><code class="language-javascript">a &gt; b</code> </td>
+                    <td> resolves to <code class="language-javascript">true</code> </td>
+                    <td>if <code class="language-javascript">a</code> is greater than <code class="language-javascript">b</code></td>
+                </tr>
+                <tr>
+                    <td>4. </td>
+                    <td><code class="language-javascript">a &gt;= b</code> </td>
+                    <td> resolves to <code class="language-javascript">true</code> </td>
+                    <td>if <code class="language-javascript">a</code> is greater than or equal to <code class="language-javascript">b</code></td>
+                </tr>
+            </table>
+            </div>
+
+            <p>In each of the above four behavior descriptions, the expression resolves to <code class="language-javascript">false</code> if the expression does not resolve to <code class="language-javascript">true</code>
+
+            <p>Here are a few examples of relational operators
+            in action:</p>
+
+            <div class="table-format">
+            <table class="no-wrap">
+                <tr>
+                    <td>1. </td>
+                    <td><code class="language-javascript">5 &lt; 4</code></td>
+                    <td>resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td>2. </td>
+                    <td><code class="language-javascript">5 &lt; 5</code></td>
+                    <td>resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td>3. </td>
+                    <td><code class="language-javascript">5 &lt; 6</code></td>
+                    <td>resolves to <code class="language-javascript">true</code></td>
+                </tr>
+                <tr>
+                    <td>4. </td>
+                    <td><code class="language-javascript">5 &gt; 4</code></td>
+                    <td>resolves to <code class="language-javascript">true</code></td>
+                </tr>
+                <tr>
+                    <td>5. </td>
+                    <td><code class="language-javascript">5 &gt; 5</code></td>
+                    <td>resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td>6. </td>
+                    <td><code class="language-javascript">5 &gt; 6</code></td>
+                    <td>resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td>7. </td>
+                    <td><code class="language-javascript">5 &lt;= 4</code></td>
+                    <td>resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td>8. </td>
+                    <td><code class="language-javascript">5 &lt;= 5</code></td>
+                    <td>resolves to <code class="language-javascript">true</code></td>
+                </tr>
+                <tr>
+                    <td>9. </td>
+                    <td><code class="language-javascript">5 &lt;= 6</code></td>
+                    <td>resolves to <code class="language-javascript">true</code></td>
+                </tr>
+                <tr>
+                    <td>10. </td>
+                    <td><code class="language-javascript">5 &gt;= 4</code></td>
+                    <td>resolves to <code class="language-javascript">true</code></td>
+                </tr>
+                <tr>
+                    <td>11. </td>
+                    <td><code class="language-javascript">5 &gt;= 5</code></td>
+                    <td>resolves to <code class="language-javascript">true</code></td>
+                </tr>
+                <tr>
+                    <td>12. </td>
+                    <td><code class="language-javascript">5 &gt;= 6</code></td>
+                    <td>resolves to <code class="language-javascript">false</code></td>
+                </tr>
+            </table>
+            </div>
+    <ul data-step-header='11'></ul>
+</div>
+<script>
+ORDERING.push('note-compare');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-compare'>Step 11. Relational operators</a></div>
+        <div>    <code class="language-javascript no-left-margin">5 <= 4</code> resolves to <code class="language-javascript">false</code>, and <code class="language-javascript">5 <= 5</code> resolves to <code class="language-javascript">true</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-relational-non-strict'>
+    <div class='close-button'>×</div>
+    <h2>Step 11.1. Type-converting relational operators</h2>
+
+    <script>
+        $('[data-step-header="11"]')
+            .append('<li><a href="#note-relational-non-strict">Step 11.1. Type-converting relational operators</a></li>');
+    </script>    <p>What happens if you were to compare a number to a string, using
+        a relational operator? For example, what happens when you execute <code class="language-javascript">6 < '7'</code>using the repl? How about <code class="language-javascript">8 < '7'</code>? If you were to try it out, you would find that <code class="language-javascript">6 < '7'</code> resolves to <code class="language-javascript">true</code>
+        and <code class="language-javascript">8 < '7'</code> resolves to <code class="language-javascript">false</code>.
+    </p>
+
+    <p>What&rsquo;s going on here is that if you compare a number and a string, using a relational operator, then JavaScript automatically converts the string to a number, and then performs the comparison.</p>
+
+    <p>Because relational operators convert types automatically,
+        before comparison, they are also known as <i>type-converting relational operators</i>.</p>
+</div>
+    <div class='padded note' data-note-name='note-compare-precedence' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 12. Relational operator precedence</h2>    <p>Numeric operators such as <code class="language-javascript">+</code> and <code class="language-javascript">*</code> have higher precedence than the relational operators. Thus, if JavaScript were to execute <code class="language-javascript">7 <= 5 + 1</code>, then JavaScript would perform the addition first (which resolves to <code class="language-javascript">6</code>), then it would compare <code class="language-javascript">7</code> and <code class="language-javascript">6</code>, which would cause the whole expression to resolve to <code class="language-javascript">false</code>, since <code class="language-javascript">6</code> is not greater than or equal to <code class="language-javascript">7</code>.</p>
+
+    <table class="precedence-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Parentheses</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Relational operators<br>
+            </td>
+            <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code></td>   
+        </tr>
+    </table>
+    <ul data-step-header='12'></ul>
+</div>
+<script>
+ORDERING.push('note-compare-precedence');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-compare-precedence'>Step 12. Relational operator precedence</a></div>
+        <div>    <code class="language-javascript no-left-margin">7 <= 5 + 1</code> resolves to <code class="language-javascript">false</code>
+        </div>
+    </div>`);
+</script>      
+<div class='padded note' data-note-name='note-compare-p-exercises'>
+    <div class='close-button'>×</div>
+    <h2>Step 12.1. Exercises</h2>
+
+    <script>
+        $('[data-step-header="12"]')
+            .append('<li><a href="#note-compare-p-exercises">Step 12.1. Exercises</a></li>');
+    </script>    <ol>
+        <li>What happens if you execute <code class="language-javascript">1/2 + 1/2 &gt;= 0.2 * 5</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">1/2 + 1/2 &lt;= 0.2 * 5 </code>?</li>
+        <li>What happens if you execute <code class="language-javascript">(0.5 + 0.5) * 5 > 1 + 100</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">(0.5 + 0.5) * 5 < 1 + 100</code>?</li>
+    </ol>
+</div>              
+
+    <div class='padded note' data-note-name='note-equality' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 13. Equality operators</h2>
+    <p>There are several &ldquo;equality operators&rdquo; that compare values (numeric values and other types of values), and then resolve to boolean values. For example, the &ldquo;strict equality operator,&rdquo; <code class="language-javascript">===</code>, compares two values, then resolves to a boolean value. To give a concrete example,
+    when JavaScript executes <code class="language-javascript">1 === 2</code> it compares <code class="language-javascript">1</code> and <code class="language-javascript">2</code> and determines that they are not the same value, so it resolves the expression to <code class="language-javascript">false</code>.
+    </p>
+
+    <p>The equality operators include strict equality, <code class="language-javascript">===</code>, and strict inequality, <code class="language-javascript">!==</code>.</p>
+
+    <p>The following list explains how each of these operators behaves:</p>
+
+    <div class="table-format">
+    <table class="no-wrap">
+        <tr>
+            <td>1. </td>
+            <td><code class="language-javascript">a === b</code> </td>
+            <td> resolves to <code class="language-javascript">true</code> </td>
+            <td>if <code class="language-javascript">a</code> is equal to <code class="language-javascript">b</code></td>
+        </tr>
+        <tr>
+            <td>2. </td>
+            <td><code class="language-javascript">a !== b</code></td>
+            <td> resolves to <code class="language-javascript">true</code> </td>
+            <td> if <code class="language-javascript">a</code> is NOT  equal to <code class="language-javascript">b</code></td>
+        </tr>
+    </table>
+    </div>
+
+    <p>In each of the above two behavior descriptions, the expression resolves to <code class="language-javascript">false</code> if the expression does not resolve to <code class="language-javascript">true</code>.</p>
+
+    <p>Here are a few examples of equality operators in action, comparing numeric values:</p>
+    <div class="table-format">
+    <table>
+        <tr>
+            <td>1. </td>
+            <td><code class="language-javascript">5 === 4</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+        <tr>
+            <td>2. </td>
+            <td><code class="language-javascript">5 === 5</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>3. </td>
+            <td><code class="language-javascript">5 === 6</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+        <tr>
+            <td>4. </td>
+            <td><code class="language-javascript">5 !== 4</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>5. </td>
+            <td><code class="language-javascript">5 !== 5</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+        <tr>
+            <td>6. </td>
+            <td><code class="language-javascript">5 !== 6</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+    </table>
+    </div>
+
+    <p>Here are a few more examples of equality operators in action, this time using boolean values:</p>
+    <div class="table-format">
+    <table>
+        <tr>
+            <td>1. </td>
+            <td><code class="language-javascript">true === true</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>2. </td>
+            <td><code class="language-javascript">true === false</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+        <tr>
+            <td>3. </td>
+            <td><code class="language-javascript">false === false</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>4. </td>
+            <td><code class="language-javascript">true !== false</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>5. </td>
+            <td><code class="language-javascript">true !== true</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+        <tr>
+            <td>6. </td>
+            <td><code class="language-javascript">false !== false</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+    </table>
+    </div>
+
+    <p>Here are yet some more examples of equality operators in action, this time using string values:</p>
+    <div class="table-format">
+    <table>
+        <tr>
+            <td>1. </td>
+            <td><code class="language-javascript">'abc' === 'abc'</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>2. </td>
+            <td><code class="language-javascript">'abc' === "abc"</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>3. </td>
+            <td><code class="language-javascript">'abc' === 'ab'</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+        <tr>
+            <td>4. </td>
+            <td><code class="language-javascript">'abc' !== 'ab'</code></td>
+            <td>resolves to <code class="language-javascript">true</code></td>
+        </tr>
+        <tr>
+            <td>5. </td>
+            <td><code class="language-javascript">'abc' !== 'abc'</code></td>
+            <td>resolves to <code class="language-javascript">false</code></td>
+        </tr>
+    </table>
+    </div>
+    <ul data-step-header='13'></ul>
+</div>
+<script>
+ORDERING.push('note-equality');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-equality'>Step 13. Equality operators</a></div>
+        <div>    <code class="language-javascript">5 === 5</code> resolves to <code class="language-javascript">true</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-comparison-oddities'>
+    <div class='close-button'>×</div>
+    <h2>Step 13.1. Equality oddity</h2>
+
+    <script>
+        $('[data-step-header="13"]')
+            .append('<li><a href="#note-comparison-oddities">Step 13.1. Equality oddity</a></li>');
+    </script>    <p>In previous sidenotes (<a href='#note-num-oddities' data-link-to-step-name='note-values' data-substep-num='2'>SubStep</a> and <a href='#note-bonus-arithmetic' data-link-to-step-name='note-binary' data-substep-num='2'>SubStep</a>) we encountered the value of <code class="language-javascript">NaN</code>. You might expect <code class="language-javascript">NaN === NaN</code> to resolve to <code class="language-javascript">true</code>, but it actually resolves to <code class="language-javascript">false</code>.</p>
+</div>
+<div class='padded note' data-note-name='note-equality-non-strict'>
+    <div class='close-button'>×</div>
+    <h2>Step 13.2. Type-converting equality operators</h2>
+
+    <script>
+        $('[data-step-header="13"]')
+            .append('<li><a href="#note-equality-non-strict">Step 13.2. Type-converting equality operators</a></li>');
+    </script>
+    <p>As you might expect, the expression <code class="language-javascript">8 === '8'</code> resolves to <code class="language-javascript">false</code>, because <code class="language-javascript">8</code> and <code class="language-javascript">'8'</code> are different values: one is a number, and the other is a string.</p>
+
+    <p> The <code class="language-javascript">===</code> operator is known as a &ldquo;strict equality operator,&rdquo; because it is strict in the sense that: the values must be
+    of the same type for the values to be considered equal.
+    </p>
+
+    <p>But, there are also non-strict equality operators, known
+    as &ldquo;type-converting equality operators.&rdquo; These operators convert the left-value and the right-value to the same type, and only then does JavaScript perform the comparison.</p>
+
+    <p>For example, the <code class="language-javascript">==</code> operator is a type-converting equality operator. The expression <code class="language-javascript">8 == '8'</code> resolves to <code class="language-javascript">true</code>, even though <code class="language-javascript">8</code> is a number, and <code class="language-javascript">'8'</code> is a string, because JavaScript converts the string to a number, and only then performs a strict comparison.</p>
+
+    <p>There is only one other type-converting equality operator: the <code class="language-javascript">!=</code> operator. To demonstrate how it works: <code class="language-javascript">1 != '1'</code> resolves to <code class="language-javascript">false</code>, because the <code class="language-javascript">'1'</code> is converted to a number, and then JavaScript uses strict comparison and determines that <code class="language-javascript">1</code> and <code class="language-javascript">1</code> are equal, therefore <code class="language-javascript">1 != '1'</code> resolves to <code class="language-javascript">false</code>. In contrast, <code class="language-javascript">1 !== '1'</code>
+        resolves to <code class="language-javascript">true</code>, simply because the values are of different types.</p>
+</div>
+    <div class='padded note' data-note-name='note-eq-precedence' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 14. Equality operator precedence</h2>    <p>The equality operators have the lowest precedence we have
+    seen so far. Numeric operators such as <code class="language-javascript">+</code> and <code class="language-javascript">*</code> have higher precedence than the equality operators. Thus, if JavaScript where to execute <code class="language-javascript">1 + 3 * 2 === 7</code>, then JavaScript would perform the multiplication first (which resolves to <code class="language-javascript">6</code>), then it would add <code class="language-javascript">1</code> (which resolves to <code class="language-javascript">7</code>) then it would compare <code class="language-javascript">7</code> and <code class="language-javascript">7</code>, which would cause the whole expression to resolve to <code class="language-javascript">true</code>, since <code class="language-javascript">7</code> equals <code class="language-javascript">7</code>.</p>
+
+    <table class="precedence-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Parentheses</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Relational operators<br>
+            </td>
+            <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code></td>   
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Equality operators</td>
+            <td><code class="language-javascript">===</code>, <code class="language-javascript">!==</code> </td>   
+        </tr>
+    </table>
+    <ul data-step-header='14'></ul>
+</div>
+<script>
+ORDERING.push('note-eq-precedence');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-eq-precedence'>Step 14. Equality operator precedence</a></div>
+        <div>    <code class="language-javascript no-left-margin">1 + 3 * 2 === 7</code> resolves to <code class="language-javascript">true</code>
+        </div>
+    </div>`);
+</script>
+
+<div class='padded note' data-note-name='note-eq-precedence-exercises'>
+    <div class='close-button'>×</div>
+    <h2>Step 14.1. Exercises</h2>
+
+    <script>
+        $('[data-step-header="14"]')
+            .append('<li><a href="#note-eq-precedence-exercises">Step 14.1. Exercises</a></li>');
+    </script>    <ol>
+        <li>What happens if you execute <code class="language-javascript">1/2 + 1/2 === 0.2 * 5</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">'abc' + 'def' === 'abcdef'</code>?</li>
+        <li>What happens if you execute <code class="language-javascript">(99 + 1) / 100 !== 1</code>?</li>
+    </ol>
+</div>
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-4';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 4. Logical operators </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+
+    <div class='padded note' data-note-name='note-and' data-note-type='step' >
+    <h2 class='part-title-in-note'>Chapter 4. Logical operators</h2>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 15. The <i>and</i> operator</h2>    <p>Imagine someone says: &ldquo;It&rsquo;s raining <i>and</i> it&rsquo;s Thursday.&rdquo; That statement is <i>true,</i> if it is actually raining, <i>and</i> if today is actually Thursday. If it is not raining, and/or today is not Thursday, then the statement is <i>false</i>.</p>
+
+    <p>In JavaScript, the <i>and</i> operator, <code class="language-javascript">&amp;&amp;</code>, operates in the exact same way.
+    The <code class="language-javascript">&amp;&amp;</code> operator compares the values of two boolean expressions, and resolves to a boolean value: either <code class="language-javascript">true</code> or  <code class="language-javascript">false</code>.
+    </p>
+
+    <p>To be more concrete about how the <code class="language-javascript">&amp;&amp;</code> operator works:</p>
+
+    <ol>
+    <li><code class="language-javascript">a &amp;&amp; b</code> resolves to <code class="language-javascript">true</code> if both <code class="language-javascript">a</code> and <code class="language-javascript">b</code> each resolve to <code class="language-javascript">true</code>
+    </li>
+    <li>But, if either <code class="language-javascript">a</code> and/or <code class="language-javascript">b</code> resolve to <code class="language-javascript">false</code>, then the expression <code class="language-javascript">a &amp;&amp; b</code> resolves to <code class="language-javascript">false</code></li>
+    </ol>
+
+    <p>For example:</p>
+    <div class="table-format">
+    <table>
+        <tr>
+            <td>
+                <code class="language-javascript">true&nbsp;&nbsp;&amp;&amp; true</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">true</code>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                <code class="language-javascript">false&nbsp;&amp;&amp; true</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">false</code>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                <code class="language-javascript">true&nbsp;&nbsp;&amp;&amp; false</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">false</code>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                <code class="language-javascript">false&nbsp;&amp;&amp; false</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">false</code>
+             </td>
+        </tr>
+    </table>
+    </div>
+    <ul data-step-header='15'></ul>
+</div>
+<script>
+ORDERING.push('note-and');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-and'>Step 15. The <i>and</i> operator</a></div>
+        <div>    <code class="language-javascript no-left-margin">true &amp;&amp; false</code> resolves to <code class="language-javascript">false</code>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-and-precedence' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 16. And operator precedence</h2>        <p>The <i>and</i> operator has the lowest precedence we 
+        have seen yet. This means that all other operations we have seen thus
+        far have a higher precedence, thus you do not need to put parentheses
+        around comparison expressions (etc.) when writing expressions using the <i>and</i> operator.</p>
+
+            <table class="precedence-table">
+                    <tr class="header-row">
+                        <th>Precedence</th>
+                        <th>Operator type</th>
+                        <th>Operators</th>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Parentheses</td>
+                        <td><code class="language-javascript">( ... )</code></td>   
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Multiplication and division</td>
+                        <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Addition and subtraction</td>
+                        <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Relational operators<br>
+                        </td>
+                        <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Equality operators</td>
+                        <td><code class="language-javascript">===</code>, <code class="language-javascript">!==</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>And</td>
+                        <td><code class="language-javascript">&amp;&amp;</code></td>   
+                    </tr>
+            </table>
+
+            <p>All the operators we have seen so far have a higher precedence than the <i>and</i> operator. It is common to combine the <i>and</i> operator with the operators we have previously seen. For example:</p>
+
+            <div class="table-format">
+            <table>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">1 &lt; 2 &amp;&amp; 3 &lt; 4</code></td>
+                    <td class="no-wrap" valign="top">resolves to <code class="language-javascript">true</code>
+                    </td>
+                    <td>
+                    <a href="#note-and1">Note</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">1 < 2 &amp;&amp; false</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">false</code>
+                    </td>
+                    <td>
+                        <a href="#note-and2">Note</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="no-wrap" valign="top">
+                        <code class="language-javascript">'A' + 'B' === 'AB' &amp;&amp; 1 === 100</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">false</code>
+                    </td>
+                    <td>
+                        <a href="#note-and3">Note</a>
+                    </td>
+                    
+                </tr>
+            </table>
+            </div>
+    <ul data-step-header='16'></ul>
+</div>
+<script>
+ORDERING.push('note-and-precedence');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-and-precedence'>Step 16. And operator precedence</a></div>
+        <div>    <code class="language-javascript no-left-margin">1 &lt; 2 &amp;&amp; 3 &lt; 4</code> resolves to <code class="language-javascript">true</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-short-circuit'>
+    <div class='close-button'>×</div>
+    <h2>Step 16.1. Short circuit evaluation with <i>and</i></h2>
+
+    <script>
+        $('[data-step-header="16"]')
+            .append('<li><a href="#note-short-circuit">Step 16.1. Short circuit evaluation with <i>and</i></a></li>');
+    </script><p>The expression <code class="language-javascript">false &amp;&amp; 1 &lt; 100</code> resolves to <code class="language-javascript">false</code>, because the left side of the and-operator is <code class="language-javascript">false</code>. Therefore, when executing this expression, JavaScript knows that no matter what is on the right side of the and-operator, the entire expression will resolve to false.</p>
+
+<p>Consequently, JavaScript doesn&rsquo;t even bother to resolve <code class="language-javascript">1 &lt; 100</code>. Rather, as soon as JavaScript sees that the left side of the and-operator is false, it simply resolves the entire expression to <code class="language-javascript">false</code>. The ability for JavaScript to resolve the entire expression while only looking at the left-side, is known as <i>short-circuit evaluation</i>.</p>
+
+<p>Short-circuit evaluation sometimes comes in handy, but we&rsquo;re too early in the book for me to be able to explain it&rsquo;s handiness.</p>
+
+<p>TODO: forward reference</p>
+
+</div>
+
+<div class='padded note' data-note-name='note-and1'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>
+    <code class="language-javascript">1 &lt; 2 &amp;&amp; 3 &lt; 4</code>
+    resolves to <code class="language-javascript">true</code>, because:</p>
+    <ol>
+        <li><code class="language-javascript">&lt;</code> has higher precedence than <code class="language-javascript">&amp;&amp;</code></li>
+        <li>Therefore, when JavaScript adds parentheses, the expression becomes <code class="language-javascript">(1 &lt; 2) &amp;&amp; (3 &lt; 4)</code></li>
+        <li>Next, Javascript resolves <code class="language-javascript">(1 &lt; 2)</code> to <code class="language-javascript">true</code>, and resolves <code class="language-javascript">(3 &lt; 4)</code> to <code class="language-javascript">true</code></li>
+        <li>Therefore, the expression becomes <code class="language-javascript">true &amp;&amp; true</code>, which resolves to <code class="language-javascript">true</code>
+    </ol>
+</div>
+<div class='padded note' data-note-name='note-and2'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>
+        <code class="language-javascript">1 < 2 &amp;&amp; false</code>
+        resolves to <code class="language-javascript">false</code>, because:</p>
+    <ol>
+        <li><code class="language-javascript">&lt;</code> has higher precedence than <code class="language-javascript">&amp;&amp;</code></li>
+        <li>Therefore, when JavaScript adds parentheses, the expression becomes <code class="language-javascript">(1 &lt; 2) &amp;&amp; false</code></li>
+        <li>Next, Javascript resolves <code class="language-javascript">(1 &lt; 2)</code> to <code class="language-javascript">true</code></li>
+        <li>Therefore, the expression becomes <code class="language-javascript">true &amp;&amp; false</code>, which resolves to <code class="language-javascript">false</code>
+    </ol>
+</div>
+<div class='padded note' data-note-name='note-and3'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>
+        <code class="language-javascript">'A' + 'B' === 'AB' &amp;&amp; 1 == 100</code>
+        resolves to <code class="language-javascript">false</code>, because:</p>
+    </p>
+
+    <ol>
+        <li>The <code class="language-javascript">+</code> operator has the highest precedence within this expression</li>
+        <li>Therefore, the expression becomes <code class="language-javascript">('A' + 'B') === 'AB' &amp;&amp; 1 == 100</code></li>
+        <li>Next, the <code class="language-javascript">===</code> operator has the next highest precedence within this expression</li>
+        <li>Therefore, the expression becomes <code class="language-javascript">(('A' + 'B') === 'AB') &amp;&amp; (1 == 100)</code></li>
+        <li>Then, JavaScript resolves <code class="language-javascript">('A' + 'B') === 'AB'</code> to <code class="language-javascript">true</code>, and resolves <code class="language-javascript">(1 == 100)</code> to <code class="language-javascript">false</code></li>
+        <li>Finally, the expression becomes <code class="language-javascript">true &amp;&amp; false</code>, which resolves to <code class="language-javascript">false</code></li>
+    </ol>
+</div>
+    <div class='padded note' data-note-name='note-or' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 17. The <i>or</i> operator</h2>
+    <p>Imagine someone says: &ldquo;It&rsquo;s sunny <i>or</i> it&rsquo;s Friday.&rdquo; Yes, this is a somewhat bizarre statement, but hopefully it&rsquo;s good for demonstrating the logic of &ldquo;or.&rdquo;
+    In English, we would consider that statement to be true, if it is actually sunny, <i>or</i> if it is actually Friday. Furthermore, if it is not sunny, and if today is not Friday, then the statement is false.</p>
+
+    <p>But, what if it is sunny, and it is also Friday? In English, the word &ldquo;or&rdquo; is somewhat ill-defined; it&rsquo;s unclear if we should consider the statement true, if it&rsquo;s both sunny and Friday.</p>
+
+    <p>But in JavaScript, there is no ambiguity here: if it&rsquo;s sunny and it&rsquo;s also Friday, then we would consider the statement true.
+    It will take a few paragraphs to explain precisely what I mean here.
+    </p>
+
+    <p>In JavaScript, &ldquo;or&rdquo; is symbolized by <code class="language-javascript">||</code>, which is simply two adjacent &ldquo;pipe characters.&rdquo; You can type the pipe character by entering <i>shift-backslash</i>; the backslash key is often right above the enter key.</p>
+
+    <p>The general principle of the <i>or</i> operator, is that it compares two boolean expressions (we&rsquo;ll refer to those expressions as expression <code class="language-javascript">a</code> and expression <code class="language-javascript">b</code>), and then resolves to a single boolean value (which is either <code class="language-javascript">true</code> or <code class="language-javascript">false</code>).</p>
+
+    <p>To be more specific, if either <code class="language-javascript">a</code> or <code class="language-javascript">b</code> resolve to <code class="language-javascript">true</code> (or if both resolve to <code class="language-javascript">true</code>), then <code class="language-javascript">a || b</code> resolves to <code class="language-javascript">true</code>. But, if both <code class="language-javascript">a</code> and <code class="language-javascript">b</code> resolve to <code class="language-javascript">false</code>, then <code class="language-javascript">a || b</code> resolves to <code class="language-javascript">false</code>.
+    </p>
+
+    <p>For example:</p>
+
+    <div class="table-format">
+    <table>
+        <tr>
+            <td>
+                <code class="language-javascript">true&nbsp;&nbsp;|| false</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">true</code>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                <code class="language-javascript">false&nbsp;|| true</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">true</code>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                <code class="language-javascript">true&nbsp;&nbsp;|| true</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">true</code>
+             </td>
+        </tr>
+        <tr>
+            <td>
+                <code class="language-javascript">false&nbsp;|| false</code> 
+            </td>
+            <td>
+                 resolves to <code class="language-javascript">false</code>
+             </td>
+        </tr>
+    </table>
+    </div>
+    <ul data-step-header='17'></ul>
+</div>
+<script>
+ORDERING.push('note-or');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-or'>Step 17. The <i>or</i> operator</a></div>
+        <div>    <code class="language-javascript no-left-margin">true || false</code> resolves to <code class="language-javascript">true</code>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-or-precedence' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 18. Or operator precedence</h2>        <p>The <i>or</i> operator has the lowest precedence we 
+        have seen yet. Its precedence is even lower than the <i>and</i> operator. This means that all other operations we have seen thus
+        far have a higher precedence, thus you do not need to put parentheses
+        around comparison expressions (etc.) when writing expressions using the <i>or</i> operator.</p>
+
+            <table class="precedence-table">
+                    <tr class="header-row">
+                        <th>Precedence</th>
+                        <th>Operator type</th>
+                        <th>Operators</th>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Parentheses</td>
+                        <td><code class="language-javascript">( ... )</code></td>   
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Multiplication and division</td>
+                        <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Addition and subtraction</td>
+                        <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Relational operators<br>
+                        </td>
+                        <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Equality operators</td>
+                        <td><code class="language-javascript">===</code>, <code class="language-javascript">!==</code> </td>   
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>And</td>
+                        <td><code class="language-javascript">&amp;&amp;</code></td>   
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Or</td>
+                        <td><code class="language-javascript">||</code></td>   
+                    </tr>
+            </table>
+
+            <p>It is common to combine the <i>or</i> operator with the operators we have previously seen. For example:</p>
+
+            <div class="table-format">
+            <table>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">1 &lt; 2 || false</code></td>
+                    <td class="no-wrap" valign="top">resolves to <code class="language-javascript">true</code>
+                    </td>
+                    <td>
+                    <a href="#note-or1">Note</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">false || 1 &gt;= 100</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">false</code>
+                    </td>
+                    <td>
+                        <a href="#note-or2">Note</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">'A' + 'B' === 'C' || 1 * 0 > 0</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">false</code>
+                    </td>
+                    <td>
+                        <a href="#note-or3">Note</a>
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">3 / 4 < 0 || 8 / 9 >= 1</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">false</code>
+                    </td>
+                    <td>
+                        <a href="#note-or4">Note</a>
+                    </td>
+                </tr>-->
+                <!--<tr>
+                    <td class="no-wrap" valign="top"><code class="language-javascript">1 &gt; 2 || 2 !== 1</code>
+                    </td>
+                    <td class="no-wrap" valign="top">
+                        resolves to <code class="language-javascript">true</code>
+                    </td>
+                    <td>
+                        <a href="#note-or3">Note</a>
+                    </td>
+                </tr>-->
+            </table>
+            </div>
+    <ul data-step-header='18'></ul>
+</div>
+<script>
+ORDERING.push('note-or-precedence');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-or-precedence'>Step 18. Or operator precedence</a></div>
+        <div>    <code class="language-javascript">2 * 2 > 4 || 3 * 3 <= 9</code> resolves to <code class="language-javascript">true</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-or1'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <code class="language-javascript">1 &lt; 2 || false</code> resolves to 
+    <code class="language-javascript">true</code>, because:
+
+    <ol>
+        <li><code class="language-javascript">&lt;</code> has the highest precedence in the expression</li>
+        <li>Therefore, when JavaScript adds parentheses, the expression becomes <code class="language-javascript">(1 &lt; 2) || false</code></li>
+        <li>Next, JavaScript resolves <code class="language-javascript">(1 &lt; 2)</code> to <code class="language-javascript">true</code></li>
+        <li>Therefore, the expression becomes <code class="language-javascript">true || false</code>, which resolves to <code class="language-javascript">true</code>
+    </ol>
+</div>
+<div class='padded note' data-note-name='note-or2'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <code class="language-javascript">false || 1 >= 100</code> resolves to 
+    <code class="language-javascript">false</code>, because:
+
+    <ol>
+        <li><code class="language-javascript">&gt;=</code> has the highest precedence in the expression</li>
+        <li>Therefore, when JavaScript adds parentheses, the expression becomes <code class="language-javascript">false || (1 >= 100)</code></li>
+        <li>Next, JavaScript resolves <code class="language-javascript">(1 >= 100)</code> to <code class="language-javascript">false</code></li>
+        <li>Therefore, the expression becomes <code class="language-javascript">false || false</code>, which resolves to <code class="language-javascript">false</code>
+    </ol>
+</div>
+
+<div class='padded note' data-note-name='note-or3'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <code class="language-javascript">'A' + 'B' === 'C' || 1 * 0 > 0</code> resolves to 
+    <code class="language-javascript">false</code>, because:
+
+    <ol>
+        <li><code class="language-javascript">*</code> has the highest precedence in the expression</li>
+        <li>Therefore, when JavaScript adds parentheses, the expression becomes <code class="language-javascript">'A' + 'B' === 'C' || (1 * 0) > 0</code></li>
+        <li><code class="language-javascript">+</code> has the second highest precedence in the expression</li>
+        <li>Therefore, when JavaScript adds more parentheses, the expression becomes <code class="language-javascript">('A' + 'B') === 'C' || (1 * 0) > 0</code></li>
+        <li><code class="language-javascript">&gt;</code> has the third highest precedence in the expression</li>
+        <li>Therefore, when JavaScript adds more parentheses, the expression becomes <code class="language-javascript">('A' + 'B') === 'C' || ((1 * 0) > 0)</code></li>
+        <li><code class="language-javascript">===</code> has the fourth highest precedence in the expression</li>
+        <li>Therefore, when JavaScript adds more parentheses, the expression becomes <code class="language-javascript">(('A' + 'B') === 'C') || ((1 * 0) > 0)</code></li>
+        <li>JavaScript resolves <code class="language-javascript">(('A' + 'B') === 'C') || ((1 * 0) > 0)</code> to <code class="language-javascript">('AB' === 'C') || (0 > 0)</code></li>
+        <li>JavaScript resolves <code class="language-javascript">('AB' === 'C') || (0 > 0)</code> to <code class="language-javascript">false || false</code>, which resolves to <code class="language-javascript">false</code></li>
+
+    </ol>
+</div>
+<div class='padded note' data-note-name='note-short-circuit-or'>
+    <div class='close-button'>×</div>
+    <h2>Step 18.1. Short circuit evaluation with <i>or</i></h2>
+
+    <script>
+        $('[data-step-header="18"]')
+            .append('<li><a href="#note-short-circuit-or">Step 18.1. Short circuit evaluation with <i>or</i></a></li>');
+    </script>
+<p>In <a href='#note-short-circuit' data-link-to-step-name='note-and-precedence' data-substep-num='1'>SubStep</a>, we learned about short-circuit evaluation with the <i>and</i> operator. 
+Similarly, short-circuit evaluation works with the <i>or</i> operator.
+</p>
+
+<p>The expression <code class="language-javascript">1 &lt; 2 || 2 !== 1</code> resolves to <code class="language-javascript">true</code>, because the left side of the or-operator (<code class="language-javascript">1 &lt; 2</code>) resolves to <code class="language-javascript">true</code>. Therefore, when executing this expression, JavaScript knows that no matter what is on the right side of the and-operator, the entire expression will resolve to  <code class="language-javascript">true</code>.</p>
+
+<p>Consequently, JavaScript doesn&rsquo;t even bother to resolve <code class="language-javascript">2 !== 1</code>. Rather, as soon as JavaScript sees that the left side of the and-operator is true, it simply resolves the entire expression to <code class="language-javascript">true</code>.</p>
+</div>
+    <div class='padded note' data-note-name='note-not' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 19. The <i>not</i> operator</h2>       <p>The <i>not</i> operator is very simple. It takes a boolean value, and flips it to the opposite. The <i>not</i> operator is symbolized by <code class="language-javascript">!</code>.</p>
+
+        <div class="table-format">
+            <table>
+                <tr>
+                    <td><code class="language-javascript">!true</code></td>
+                    <td> resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td><code class="language-javascript">!false</code>
+                    </td>
+                    <td> resolves to <code class="language-javascript">true</code></td>
+                </tr>
+            </table>
+        </div>
+
+        <p>Here are a couple of examples:</p>
+
+        <div class="table-format">
+            <table>
+                <tr>
+                    <td><code class="language-javascript">!(1 &lt; 100)</code></td>
+                    <td> resolves to <code class="language-javascript">false</code></td>
+                </tr>
+                <tr>
+                    <td><code class="language-javascript">!(5 === 6)</code>
+                    </td>
+                    <td> resolves to <code class="language-javascript">true</code></td>
+                </tr>
+            </table>
+        </div>
+    <ul data-step-header='19'></ul>
+</div>
+<script>
+ORDERING.push('note-not');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-not'>Step 19. The <i>not</i> operator</a></div>
+        <div>    <code class="language-javascript no-left-margin">!(5 === 6)</code> resolves to <code class="language-javascript">true</code>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-not-precedence' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 20. Not operator precedence</h2>    <p>The <i>not</i> operator has a relatively high precedence, which is why you need to use parentheses around the boolean expressions that you want to flip.</p>
+
+    <table class="precedence-table">
+            <tr class="header-row">
+                <th>Precedence</th>
+                <th>Operator type</th>
+                <th>Operators</th>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Parentheses</td>
+                <td><code class="language-javascript">( ... )</code></td>   
+            </tr>
+             <tr>
+                <td>15</td>
+                <td>Not</td>
+                <td><code class="language-javascript">!</code> </td>   
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Multiplication and division</td>
+                <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Addition and subtraction</td>
+                <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Relational operators<br>
+                </td>
+                <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code> </td>   
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Equality operators</td>
+                <td><code class="language-javascript">===</code>, <code class="language-javascript">!==</code> </td>   
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>And</td>
+                <td><code class="language-javascript">&amp;&amp;</code></td>   
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Or</td>
+                <td><code class="language-javascript">||</code></td>   
+            </tr>
+    </table>
+    <ul data-step-header='20'></ul>
+</div>
+<script>
+ORDERING.push('note-not-precedence');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-not-precedence'>Step 20. Not operator precedence</a></div>
+        <div>    The <i>not</i> operator has a relatively high precedence
+        </div>
+    </div>`);
+</script>
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-5';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 5. Variables </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+    <div class='padded note' data-note-name='note-var' data-note-type='step' >
+    <h2 class='part-title-in-note'>Chapter 5. Variables</h2>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 21. Variables</h2>    <p>A &ldquo;variable&rdquo; is a name that refers to a single value. You can &ldquo;declare&rdquo; a variable  named <code class="language-javascript">x</code> that refers to the value <code class="language-javascript">4</code>like so: <code class="language-javascript">var x = 4</code>.</p>
+
+    <p>Try it out on the repl. Just type in <code class="language-javascript">var x = 4</code> and press enter. The repl will respond with <code class="language-javascript">undefined</code>.</p> 
+
+    <div class="screenshot">
+    <img class="screenshot-repl" width="425" height="188" src="img/varx4.png">
+</div>
+    <p>Why did the repl respond with <code class="language-javascript">undefined</code>? It&rsquo;s because <code class="language-javascript">var x = 4</code> is <i>not</i> an expression. Rather, <code class="language-javascript">var x = 4</code> is a &ldquo;statement.&rdquo;</p>
+
+    <p>While <i>expressions</i> resolve to values, <i>statements</i> do not resolve to values. And, when the repl encounters a statement, it gives you back the special value <code class="language-javascript">undefined</code>. Instead of resolving to values, statements &ldquo;perform actions.&rdquo; <a href="#note-expr-sub">Note</a></p>
+
+
+    <p>In the case of <code class="language-javascript">var x = 4</code>,
+        the action JavaScript performs is: (1) create a new variable named <code class="language-javascript">x</code>, and (2) make the variable <code class="language-javascript">x</code> refer to the value <code class="language-javascript">4</code>.</p>
+
+    <p>Now that we have a variable named <code class="language-javascript">x</code>, the variable <code class="language-javascript">x</code> can now be used as an expression that resolves to the value <code class="language-javascript">4</code>.</p>
+
+    <p>For instance, the expression <code class="language-javascript">x + 1</code> resolves to <code class="language-javascript">5</code>.</p>
+
+    <div class="screenshot">
+    <img class="screenshot-repl" width="426" height="238" src="img/xplus1.png">
+</div>
+    <p>For another example, the expression <code class="language-javascript">x + 1 > 4</code> resolves to <code class="language-javascript">true</code>.</p>
+
+    <div class="screenshot">
+    <img class="screenshot-repl" width="426" height="291" src="img/xrel4.png">
+</div>    <ul data-step-header='21'></ul>
+</div>
+<script>
+ORDERING.push('note-var');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-var'>Step 21. Variables</a></div>
+        <div>    If you declare <code class="language-javascript">var x = 4</code>, then <code class="language-javascript">x + 1 > 4</code> resolves to <code class="language-javascript">true</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-expr-sub'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>As we will see shortly when we discuss (TODO:link) <code class="language-javascript">if</code> statements,
+    sometimes JavaScript expects to see a statement somewhere in code. In such places, you can always place an expression instead of a statement.
+    However, the reverse is not true. That is, if JavaScript expects to see an expression, you may not place a statement; when JavaScript expects an expression, you must provide an expression.
+    </p>
+</div>
+    <div class='padded note' data-note-name='note-assignment-expr' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 22. More on variable declarations</h2>    <p>Whenever you declare a new variable, you can assign it the value from any expression. Consider the following examples:</p>
+
+    <ol>
+        <li>Executing <code class="language-javascript">var a = 1 + 1</code>, causes <code class="language-javascript">a</code> to resolve to the value of <code class="language-javascript">2</code>. <a href="#note-1-plus-1">Note</a></li>
+
+        <li>Executing <code class="language-javascript">var b = a * 3</code>, causes <code class="language-javascript">b</code> to resolve to the value of <code class="language-javascript">6</code></li>
+
+        <li>Executing <code class="language-javascript">var c = 1 > 2 || 3 < 4</code>, causes <code class="language-javascript">c</code> to resolve to the value of <code class="language-javascript">true</code></li>
+
+    <!-- TODO: earlier show the chaining of binary operators? -->
+        <li>Executing <code class="language-javascript">var d = 'Hello' + ', ' + 'World!'</code>, causes <code class="language-javascript">d</code> to resolve to the value of <code class="language-javascript">'Hello, World!'</code>.</li>
+    </ol>
+    <ul data-step-header='22'></ul>
+</div>
+<script>
+ORDERING.push('note-assignment-expr');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-assignment-expr'>Step 22. More on variable declarations</a></div>
+        <div>    Executing <code class="language-javascript">var a = 1 + 1</code>, causes <code class="language-javascript">a</code> to resolve to the value of <code class="language-javascript">2</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-1-plus-1'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <div class="screenshot">
+    <img class="screenshot-repl" width="423" height="240" src="img/1plus1.png">
+</div></div>
+    <div class='padded note' data-note-name='note-identifiers' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 23. Valid variable names and identifiers</h2>    <p>Although <code class="language-javascript">x</code> is a valid name for a variable, <code class="language-javascript">@</code> is not a valid name for a variable.</p>
+
+    <p>For a variable name to be valid it must be a valid &ldquo;identifier.&rdquo;
+    Valid identifiers may only contain letters, numbers, the $ symbol, and the _ symbol. Furthermore, valid identifiers may not begin with a number.</p>
+
+    <p>For example, the following list contains valid identifiers:</p>
+
+    <ol>
+        <li><code class="language-javascript">abc</code></li>
+        <li><code class="language-javascript">abc123</code></li>
+        <li><code class="language-javascript">abc_123</code></li>
+        <li><code class="language-javascript">$</code></li>
+        <li><code class="language-javascript">$123</code></li>
+        <li><code class="language-javascript">_$1$2$3_</code></li>
+    </ol>
+
+    <p>Also, a valid identifier name cannot be a word from the JavaScript language. For instance, <code class="language-javascript">var</code> is not a valid identifier. E.g., <code class="language-javascript">var var = 1</code> uses an invalid identifier and therefore the whole statement is invalid.
+    <ul data-step-header='23'></ul>
+</div>
+<script>
+ORDERING.push('note-identifiers');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-identifiers'>Step 23. Valid variable names and identifiers</a></div>
+        <div>    <code class="language-javascript no-left-margin">@</code> is not a valid identifier, but <code class="language-javascript">$</code> is a valid identifier
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-assignment-op' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 24. Assignment operator</h2>    <p>In <a href='#note-var' data-link-to-step-name='note-var'>Step</a>, we saw how to declare new variables. In this step, though, we show how to make an existing variable refer to a new value. </p>
+
+    <p>It&rsquo;s very simple. Let&rsquo;s say you&rsquo;ve already declared <code class="language-javascript">var x = 1</code>, and now you would like to have <code class="language-javascript">x</code> refer to the value <code class="language-javascript">'Hello'</code>. Simply execute <code class="language-javascript">x = 'Hello'</code>.</p>
+
+    <p>As you might expect, the right-hand side of the <code class="language-javascript">=</code> sign can be any valid expression. For instance: <code class="language-javascript">x = true || false</code>.</p>
+
+    <p>You can even include the variable name on the right-hand side. For instance, if you first declare <code class="language-javascript">var x = 1</code>, then you could follow up with <code class="language-javascript">x = x + 4</code>, and then <code class="language-javascript">x</code> would refer to the value <code class="language-javascript">5</code>. The way it works, is JavaScript first resolves the expression on the right-hand side, and then sets the variable to refer to the resulting value.</p>
+    <ul data-step-header='24'></ul>
+</div>
+<script>
+ORDERING.push('note-assignment-op');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-assignment-op'>Step 24. Assignment operator</a></div>
+        <div>    <code class="language-javascript">x = x + 4</code> adds 4 to the value of <code class="language-javascript">x</code>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-more-assignment-op' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 25. More about the assignment operator</h2>    <p>While variable declarations are statements (and not an expressions), using the assignment operator creates an expression. You can see for yourself by using the repl. Execute <code class="language-javascript">x = 99 + 1</code> in the repl, and it will resolve to the value <code class="language-javascript">100</code>.</p>
+
+    <p>One last thing about the assignment operator: you can actually declare new variables with the assignment operator, without using <code class="language-javascript">var</code>. I.e., <code class="language-javascript">var x = 3</code> works pretty much as well as <code class="language-javascript">x = 3</code>. There are some caveats, however, that inspire us to use <code class="language-javascript">var</code> in variable declarations, which we will see when we encounter &ldquo;functions&rdquo; and &ldquo;recursion,&rdquo; soon enough.</p>
+
+    <p>TODO: forward reference</p>
+    <ul data-step-header='25'></ul>
+</div>
+<script>
+ORDERING.push('note-more-assignment-op');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-more-assignment-op'>Step 25. More about the assignment operator</a></div>
+        <div>    The expression <code class="language-javascript">x = 99 + 1</code> resolves to <code class="language-javascript">100</code>
+        </div>
+    </div>`);
+</script>
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-6';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 6. Multiline input and logging </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+    <div class='padded note' data-note-name='note-multiline' data-note-type='step' >
+    <h2 class='part-title-in-note'>Chapter 6. Multiline input and logging</h2>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 26. Multiline input</h2>    <p>The <i>multiline input</i> button will come in handy throughout the rest of this book. So, let&rsquo;s see how it works.
+    Begin by clicking the multiline input button. An orange box should appear to the right of the green dollar sign.</p>
+
+    <div class="screenshot">
+    <img class="screenshot-repl" width="425" height="136" src="img/multiline1.png">
+</div>
+    <p>Now, when you press enter in the repl, it will not cause the repl
+        to execute your line of code. Rather, you can enter as many lines
+        as you would like, and then you can execute all the code by clicking the  blue &ldquo;run multiline input&rdquo; button.
+    </p>
+
+    <p>So, take the code:</p>
+
+<pre class="language-javascript prejs"><code>var x = 1
+var y = 2
+x + y</code></pre>
+    
+    <p>And then type (or paste) it into the orange box in the repl. Then click the blue <i>run multiline input</i> button.</p>
+
+    <p>The repl should respond by saying <code class="language-javascript">3</code>, which is the result of the expression on the last line of input.</p>
+
+    <div class="screenshot">
+    <img class="screenshot-repl" width="427" height="236" src="img/multiline.png">
+</div>
+    <ul data-step-header='26'></ul>
+</div>
+<script>
+ORDERING.push('note-multiline');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-multiline'>Step 26. Multiline input</a></div>
+        <div>    You can use the multiline-input button to execute:
+<pre class="language-javascript prejs"><code>var x = 1
+var y = 2
+x + y</code></pre>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-log' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 27. Logging</h2>    <p>In the repl, enter <code class="language-javascript">log(2 * 3)</code>. This line of code &ldquo;logs&rdquo; the 
+        value <code class="language-javascript">6</code> to the repl.
+    </p>
+
+    <p>
+         You should see the line in the repl that says <code class="language-none">log: 6</code> in yellow font, followed by <code class="language-none">undefined</code> in gray font. In the repl, yellow font indicates a message produced by <code class="language-javascript">log(...)</code>.</p>
+
+    <div class="screenshot">
+    <img class="screenshot-repl" width="427" height="209" src="img/log.png">
+</div>    <ul data-step-header='27'></ul>
+</div>
+<script>
+ORDERING.push('note-log');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-log'>Step 27. Logging</a></div>
+        <div>    <code class="language-javascript no-left-margin">log(2 * 3)</code> logs <code class="language-none">6</code> to the repl
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-log-function'>
+    <div class='close-button'>×</div>
+    <h2>Step 27.1. log is a function</h2>
+
+    <script>
+        $('[data-step-header="27"]')
+            .append('<li><a href="#note-log-function">Step 27.1. log is a function</a></li>');
+    </script>    <p>    This is the first time we have encountered a function within this book.
+        <code class="language-javascript">log</code> is an example of a  &ldquo;function,&rdquo;
+        and <code class="language-javascript">log(2 * 3)</code> is an example of a 
+    &ldquo;function invocation.&rdquo;</p>
+
+    <p>We cover the topic of functions in Step TODO.</p>
+</div>
+    <div class='padded note' data-note-name='note-log2' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 28. More about logging</h2>    <p>Let&rsquo;s look at another example of using <code class="language-javascript">log(...)</code>. Use the <i>multiline input</i> button to enter the following code into the repl:</p>
+
+<pre class="language-javascript prejs"><code>var x = 1
+log(x)
+x = x * 2
+log(x)
+x = x * 2
+log(x)
+x = x * 2
+log(x)
+</code></pre>
+
+    <p>Your repl should look like this:</p>
+
+    <div class="screenshot">
+    <img class="screenshot-repl" width="425" height="426" src="img/log2.png">
+</div>
+    <p>Here, we can see that every time <code class="language-javascript">log(x)</code> appears, it logs a new message to the repl, containing the value of <code class="language-javascript">x</code> at that point in the code.</p>
+
+    <ul data-step-header='28'></ul>
+</div>
+<script>
+ORDERING.push('note-log2');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-log2'>Step 28. More about logging</a></div>
+        <div><pre class="language-javascript prejs"><code>var x = 1
+log(x)
+x = x * 2
+log(x)
+x = x * 2
+log(x)
+x = x * 2
+log(x)
+</code></pre>
+    <p>logs the following values to the repl: <code class="language-javascript">1</code>, <code class="language-javascript">2</code>, <code class="language-javascript">4</code>, <code class="language-javascript">8</code></p>
+        </div>
+    </div>`);
+</script>
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-7';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 7. If statements </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+    <div class='padded note' data-note-name='note-if' data-note-type='step' >
+    <h2 class='part-title-in-note'>Chapter 7. If statements</h2>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 29. If statements</h2>    <p>An <code class="language-javascript">if</code> statement looks like this:</p>
+
+<pre class="language-javascript prejs"><code>if (conditional) {
+    body
+}</code></pre>
+
+    <p> When JavaScript encounters an <code class="language-javascript">if</code> statement, it resolves the expression in the parentheses (the &ldquo;conditional&rdquo;). If the expression resolves to <code class="language-javascript">true</code>, then JavaScript executes the code inside the curly braces (the &ldquo;body&rdquo;). But, if the expression resolves to <code class="language-javascript">false</code>, then JavaScript skips over the the code inside the curly braces.</p>
+
+    <p>For example, enter the following into the repl:</p>
+
+<pre class="language-javascript prejs"><code>var x = 9
+log('before if')
+if (x === 9) {
+    log('x equals 9')
+}
+log('after if')</code></pre>    <p>You should see three logs messages in the repl:</p>
+
+    <div class="screenshot">
+    <img class="screenshot-repl" width="425" height="360" src="img/if-output.png">
+</div>
+    <p>Let&rsquo;s look at another example. This time we will modify the <code class="language-javascript">if</code> statement, to see  what happens if we declare <code class="language-javascript">var x == 100</code>:</p>
+
+<pre class="language-javascript prejs"><code>var x = 100
+log('before if')
+if (x === 9) {
+    log('x equals 9')
+}
+log('after if')</code></pre>
+    <p>If you run that code snippet, you should two log messages in the repl:</p>
+
+    <div class="screenshot">
+    <img class="screenshot-repl" width="423" height="337" src="img/if-output-2.png">
+</div>
+    <p>JavaScript skipped over the code inside the curly braces, because <code class="language-javascript">x === 9</code> resolved to <code class="language-javascript">false</code>.</p>
+    <ul data-step-header='29'></ul>
+</div>
+<script>
+ORDERING.push('note-if');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-if'>Step 29. If statements</a></div>
+        <div><pre class="language-javascript prejs"><code>var x = 9
+if (x === 9) {
+    log('x equals 9')
+}</code></pre> <p>logs the string <code class="language-javascript">'x equals 9'</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-ifcast'>
+    <div class='close-button'>×</div>
+    <h2>Step 29.1. Automatic type casting to boolean values</h2>
+
+    <script>
+        $('[data-step-header="29"]')
+            .append('<li><a href="#note-ifcast">Step 29.1. Automatic type casting to boolean values</a></li>');
+    </script><p>TODO</p>
+</div>
+    <div class='padded note' data-note-name='note-if-else' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 30. If-else statements</h2>    <p>An <code class='language-javascript'>if</code>-<code class='language-javascript'>else</code>  statement looks like this:</p>
+
+<pre class="language-javascript prejs"><code>if (conditional) {
+    body1
+} else {
+    body2
+}</code></pre>
+    <p> Similar to an <code class='language-javascript'>if</code> statement, when JavaScript encounters an <code class='language-javascript'>if</code>-<code class='language-javascript'>else</code> statement statement, it resolves the conditional. If the conditional resolves to <code class='language-javascript'>true</code>, then JavaScript executes the first body (&ldquo;body1&rdquo;).</p>
+
+    <p>Furthermore, they key to <code class='language-javascript'>if</code>-<code class='language-javascript'>else</code> statements is that if the conditional resolves to <code class='language-javascript'>false</code>, then JavaScript executes &ldquo;body2.&rdquo;</p>
+
+    <p>For example:</p>
+
+<pre class="language-javascript prejs"><code>var x = 100
+if (x === 9) {
+    log('x equals 9')
+} else {
+    log('x does not equal 9')
+}</code></pre>
+    <ul data-step-header='30'></ul>
+</div>
+<script>
+ORDERING.push('note-if-else');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-if-else'>Step 30. If-else statements</a></div>
+        <div><pre class="language-javascript prejs"><code>var x = 100
+if (x === 9) {
+    console.log('x equals 9')
+} else {
+    console.log('x does not equal 9')
+}</code></pre>  logs the string <code class='language-javascript'>'x does not equal 9'</code>        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-if-else-stmts' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 31. Multiple statements within if-else statements</h2>    <p>You can include multiple statements, within the body of an <code class='language-javascript'>if</code> statement and within the bodies of
+     <code class='language-javascript'>if</code>-<code class='language-javascript'>else</code> statements.</p>
+
+    <p>For example, the following <code class='language-javascript'>if</code>-<code class='language-javascript'>else</code> statement is perfectly valid:</p>
+
+<pre class="language-javascript prejs"><code>var x = 1
+if (x === 1) {
+    x = x + 1
+    x = x * 2
+} else {
+    x = 10
+    x = x - 5
+}</code></pre>    <ul data-step-header='31'></ul>
+</div>
+<script>
+ORDERING.push('note-if-else-stmts');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-if-else-stmts'>Step 31. Multiple statements within if-else statements</a></div>
+        <div><pre class="language-javascript prejs"><code>var x = 1
+if (x === 1) {
+    x = x + 1
+    x = x * 2
+} else {
+    x = 10
+    x = x - 5
+}</code></pre> sets the value of <code class='language-javascript'>x</code>  to  <code class='language-javascript'>4</code>        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-if-else-if' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 32. If-else-if statements</h2>    <p>It is possible to include <code class='language-javascript'>else if</code> &ldquo;clauses&rdquo; in <code class='language-javascript'>if</code> statements, like so:</p>
+
+<pre class="language-javascript prejs"><code>if (conditional1) {
+    body1
+} else if (conditional2) {
+    body2
+} else {
+    body3
+}</code></pre>
+    <p>When executing such <code class='language-javascript'>if</code> statements, JavaScript will begin by checking <code class='language-javascript'>conditional1</code>. If it resolves to <code class='language-javascript'>true</code>, then JavaScript will execute <code class='language-javascript'>body1</code>. Otherwise, JavaScript will check <code class='language-javascript'>conditional2</code>, and if that resolves to <code class='language-javascript'>true</code>, then JavaScript will execute <code class='language-javascript'>body2</code>. And if none of the above conditionals resolve to <code class='language-javascript'>true</code>, then JavaScript will execute <code class='language-javascript'>body3</code>.</p>
+
+    <p>For example:</p>
+
+<pre class="language-javascript prejs"><code>var x = 2
+if (x === 1) {
+    log('x equals one')
+} else if (x === 2) {
+    log('x equals two')
+} else {
+    log('x is neither one, nor two')
+}</code></pre>        
+    <p>If you execute the above code snippet, then JavaScript will log the string <code class='language-javascript'>'x equals two'</code>.</p>
+
+    <ul data-step-header='32'></ul>
+</div>
+<script>
+ORDERING.push('note-if-else-if');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-if-else-if'>Step 32. If-else-if statements</a></div>
+        <div><pre class="language-javascript prejs"><code>var x = 2
+if (x === 1) {
+    console.log('x equals one')
+} else if (x === 2) {
+    console.log('x equals two')
+} else {
+    console.log('x is neither one, nor two')
+}</code></pre> logs the string <code class='language-javascript'>'x equals two'</code>        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-if-else-if-multiple' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 33. Multiple else-if clauses</h2>    <p>It is possible to include more than one <code class='language-javascript'>else if</code> clause in an <code class='language-javascript'>if</code> statements, like so:</p>
+
+<pre class="language-javascript prejs"><code>if (conditional1) {
+    body1
+} else if (conditional2) {
+    body2
+} else if (conditional3) {
+    body3
+} else {
+    body4
+}</code></pre>
+    <ul data-step-header='33'></ul>
+</div>
+<script>
+ORDERING.push('note-if-else-if-multiple');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-if-else-if-multiple'>Step 33. Multiple else-if clauses</a></div>
+        <div><pre class="language-javascript prejs"><code>if (conditional1) {
+    body1
+} else if (conditional2) {
+    body2
+} else if (conditional3) {
+    body3
+} else {
+    body4
+}</code></pre>        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-if-else-if-exclude' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 34. Excluding an else clause</h2>    <p>It is possible to exclude an <code class='language-javascript'>else</code> clause from <code class='language-javascript'>if</code> statements, like so:</p>
+
+<pre class="language-javascript prejs"><code>if (conditional1) {
+    body1
+} else if (conditional2) {
+    body2
+} else if (conditional3) {
+    body3
+}</code></pre>    <ul data-step-header='34'></ul>
+</div>
+<script>
+ORDERING.push('note-if-else-if-exclude');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-if-else-if-exclude'>Step 34. Excluding an else clause</a></div>
+        <div><pre class="language-javascript prejs"><code>if (conditional1) {
+    body1
+} else if (conditional2) {
+    body2
+} else if (conditional3) {
+    body3
+}</code></pre>        </div>
+    </div>`);
+</script>
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-8';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 8. Objects </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+
+    <div class='padded note' data-note-name='note-obj-values' data-note-type='step' >
+    <h2 class='part-title-in-note'>Chapter 8. Objects</h2>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 35. Defining object values</h2>    <p>An <i>object</i> is a value that holds a collection of &ldquo;key-value pairs.&rdquo; Objects are basically containers for variables. Consider the following example:</p>
+
+<pre class="language-javascript prejs"><code>{
+    a: 10,
+    b: 20,
+    c: 30
+}</code></pre>
+
+    <p>The above example defines an object value with three key-value pairs:</p>
+
+    <ul>
+        <li>The key <code class="language-javascript">a</code> refers to the value <code class="language-javascript">10</code></li>
+        <li>The key <code class="language-javascript">b</code> refers to the value <code class="language-javascript">20</code></li>
+        <li>The key <code class="language-javascript">c</code> refers to the value <code class="language-javascript">30</code></li>
+    </ul>
+
+    <p>Key-value pairs are also known as &ldquo;members.&rdquo; Using this terminology, we could say that the above object has three members: <code class="language-javascript">a</code>, <code class="language-javascript">b</code>, and <code class="language-javascript">c</code>.</p>
+
+    <p>Also, when you define an object this way, the keys must be valid identifiers (See <a href='#note-identifiers' data-link-to-step-name='note-identifiers'>Step</a>). For instance, <code class="language-javascript">1c</code> is not valid key, when defining objects this way, because valid identifiers may not begin with a number.</p>
+
+    <p>If you&rsquo;d like, you can use the <i>multiline input</i> button to enter the object definition into the repl. Alternatively, you can enter that object definition in a single line in the repl, by removing &ldquo;whitespace&rdquo; from the object. Simply type it in like this: <code class="language-javascript">{ a: 10, b: 20, c: 30 }</code> (JavaScript doesn&rsquo;t care about the whitespace within object definitions).</p>
+
+    <p>If you were to type in the object definition (with whitespace removed), and hit enter, your repl should look like this:</p>
+
+    <div class="screenshot">
+    <img class="screenshot-repl" width="451" height="187" src="img/obj.png">
+</div>    <p>The repl&rsquo;s response, <code class="language-none">[object Object]</code> is the repl&rsquo;s weird way of saying: &ldquo;that&rsquo;s an object.&rdquo;
+
+    <p>In the next full step, we&rsquo;ll use the multiline-input button to enter object definitions another way.</p>
+
+    <ul data-step-header='35'></ul>
+</div>
+<script>
+ORDERING.push('note-obj-values');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-obj-values'>Step 35. Defining object values</a></div>
+        <div>    <code class="language-javascript no-left-margin">{ a: 10, b: 20, c: 30 }</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-obj-str-keys'>
+    <div class='close-button'>×</div>
+    <h2>Step 35.1. String keys for object definitions</h2>
+
+    <script>
+        $('[data-step-header="35"]')
+            .append('<li><a href="#note-obj-str-keys">Step 35.1. String keys for object definitions</a></li>');
+    </script>    <p>You can also define objects using quotes around the keys, like so:</p>
+
+<pre class="language-javascript prejs"><code>{
+    'a': 10,
+    'b': 20,
+    'c': 30
+}</code></pre>
+
+    <p>When you define key-value pairs this way, the keys may be any valid string, and it&rsquo;s perfectly OK
+                if a key is not a valid identifier. For example, the following object definition is perfectly fine:</p>
+<pre class="language-javascript prejs"><code>{
+    '1': 10,
+    '@': 20,
+    '#': 30
+}</code></pre>
+
+    <p>The only caveat, is that you cannot access such members using the &ldquo;dot operator&rdquo; (see <a href='#note-obj-dot' data-link-to-step-name='note-obj-dot'>Step</a>). Rather, you can only access such members using &ldquo;bracket operators&rdquo; (see <a href='#note-obj-brackets' data-link-to-step-name='note-obj-dot' data-substep-num='1'>SubStep</a>).
+</div>
+    <div class='padded note' data-note-name='note-obj-var' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 36. Variables can refer to objects</h2> <p>Objects are values, similar to any other type of value, such as number values and string values. Consequently, you can create variables that 
+        refer to object values. For example:</p>
+
+<pre class="language-javascript prejs"><code>var x = {
+    a: 10,
+    b: 20,
+    c: 30
+}</code></pre>
+
+    <ul data-step-header='36'></ul>
+</div>
+<script>
+ORDERING.push('note-obj-var');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-obj-var'>Step 36. Variables can refer to objects</a></div>
+        <div>    <code class="language-javascript no-left-margin">var x = { a: 10, b: 20, c: 30 }</code>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-obj-types' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 37. Object member types</h2>    <p>The members within any object may be of any type.</p>
+
+    <p>For example, the following object definition is perfectly valid:</p>
+
+<pre class="language-javascript prejs"><code>var x = {
+    abc: -1,
+    hello: true,
+    world: '1, 2, 3!'
+}</code></pre>
+    <ul data-step-header='37'></ul>
+</div>
+<script>
+ORDERING.push('note-obj-types');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-obj-types'>Step 37. Object member types</a></div>
+        <div><pre class="language-javascript prejs"><code>var x = {
+    abc: -1,
+    hello: true,
+    world: '1, 2, 3!'
+}</code></pre>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-obj-dot' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 38. Accessing members via the dot operator</h2>    <p>Recall: we can create variables that 
+        refer to object values. For example:</p>
+
+<pre class="language-javascript prejs"><code>var x = {
+    a: 10,
+    b: 20,
+    c: 30
+}</code></pre>
+
+    <p>You can &ldquo;access&rdquo; the members of the object, referred to by <code class="language-javascript">x</code> by using the &ldquo;dot operator.&rdquo; For example, to access the member <code class="language-javascript">a</code> you would simply type <code class="language-javascript">x.a</code>. The expression <code class="language-javascript">x.a</code> resolves to the value <code class="language-javascript">10</code>, and the expression <code class="language-javascript">x.b</code> resolves to <code class="language-javascript">20</code>.</p>
+    <ul data-step-header='38'></ul>
+</div>
+<script>
+ORDERING.push('note-obj-dot');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-obj-dot'>Step 38. Accessing members via the dot operator</a></div>
+        <div>    If you declare <code class="language-javascript">var x = { a: 10 }</code>, then the expression <code class="language-javascript">x.a</code> resolves to the value <code class="language-javascript">10</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-obj-brackets'>
+    <div class='close-button'>×</div>
+    <h2>Step 38.1. Accessing members via bracket operators</h2>
+
+    <script>
+        $('[data-step-header="38"]')
+            .append('<li><a href="#note-obj-brackets">Step 38.1. Accessing members via bracket operators</a></li>');
+    </script><p> <a href='#note-obj-str-keys' data-link-to-step-name='note-obj-values' data-substep-num='1'>SubStep</a> shows how we can define objects using quotes around the keys. For example:</p>
+
+<pre class="language-javascript prejs"><code>var y = {
+    '1': 10,
+    '@': 20,
+    '#': 30
+}</code></pre>
+
+    <p>This feature comes in handy, when we want to use a key that is not  a valid identifier (see <a href='#note-identifiers' data-link-to-step-name='note-identifiers'>Step</a>). But there&rsquo;s a catch: if a key is not a valid identifier, then we cannot use the dot operator to access members. Rather, we must use &ldquo;bracket operators.&rdquo;</p>
+
+    <p>For example, we can use bracket operators, like so, <code class="language-javascript">y['@']</code>, to access the <code class="language-javascript">'@'</code> member. In this case, the expression <code class="language-javascript">y['@']</code> resolves to <code class="language-javascript">20</code>.</p>
+
+    <p>Bracket operators also come in handy, if you want to access a member via an expression. For example, consider the following object definition:</p>
+
+<pre class="language-javascript prejs"><code>var z = {
+    abc: 99
+}</code></pre>
+
+    <p>Here, it is possible, via bracket operators, to access the member 
+    <code class="language-javascript">abc</code> via the following expression: <code class="language-javascript">z['a' + 'b' + 'c']</code>. The expression <code class="language-javascript">z['a' + 'b' + 'c']</code> resolves to the value <code class="language-javascript">99</code>.</p>
+</div>
+    <div class='padded note' data-note-name='note-obj-update' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 39. Updating members via the dot operator</h2>    <p>You can update the value of a member, similar to how you would update the value of any plain variable, using the assignment operator (see <a href='#note-assignment-op' data-link-to-step-name='note-assignment-op'>Step</a>). For instance, consider the following object definition:</p>
+
+    <pre class="language-javascript prejs"><code>var x = {
+    a: 10,
+    b: 20,
+    c: 30
+}</code></pre>
+
+    <p>You can set the member <code class="language-javascript">a</code> to refer to the value <code class="language-javascript">'Hello'</code> by executing <code class="language-javascript">x.a = 'Hello'</code>. Afterwards, the expression <code class="language-javascript">x.a</code> would resolve to the string <code class="language-javascript">'Hello'</code>.</p>
+    <ul data-step-header='39'></ul>
+</div>
+<script>
+ORDERING.push('note-obj-update');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-obj-update'>Step 39. Updating members via the dot operator</a></div>
+        <div>    If you declare <code class="language-javascript">var x = { a: 10 }</code>, then executing the expression <code class="language-javascript">x.a = 'Hello'</code> will cause the expression <code class="language-javascript">x.a</code> to resolve to the value <code class="language-javascript">'Hello'</code>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-obj-update-brackets'>
+    <div class='close-button'>×</div>
+    <h2>Step 39.1. Updating members via bracket operators</h2>
+
+    <script>
+        $('[data-step-header="39"]')
+            .append('<li><a href="#note-obj-update-brackets">Step 39.1. Updating members via bracket operators</a></li>');
+    </script>    <p>You can update the value of a member, using bracket operators. For instance, consider the following object definition:</p>
+
+<pre class="language-javascript prejs"><code>var x = {
+    '1': 10,
+    '@': 20,
+    '#': 30
+}</code></pre>
+
+    <p>You can set the member <code class="language-javascript">'#'</code> to refer to the value <code class="language-javascript">'Hello'</code> by executing <code class="language-javascript">x['#'] = 'Hello'</code>. Afterwards, the expression <code class="language-javascript">x['#']</code> would resolve to the string <code class="language-javascript">'Hello'</code>.</p>
+</div>
+    <div class='padded note' data-note-name='note-obj-dot-precedence' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 40. Dot operator precedence</h2>    <p>The dot operator has high precedence. The dot operator is only one level below the parentheses operators.</p>
+
+    <table class="precedence-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Parentheses</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>Dot operator</td>
+            <td><code class="language-javascript">.</code></td>   
+        </tr>
+         <tr>
+            <td>15</td>
+            <td>Not</td>
+            <td><code class="language-javascript">!</code> </td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Relational operators<br>
+            </td>
+            <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code> </td>   
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Equality operators</td>
+            <td><code class="language-javascript">===</code>, <code class="language-javascript">!==</code> </td>   
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>And</td>
+            <td><code class="language-javascript">&amp;&amp;</code></td>   
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Or</td>
+            <td><code class="language-javascript">||</code></td>   
+        </tr>
+    </table>
+    <ul data-step-header='40'></ul>
+</div>
+<script>
+ORDERING.push('note-obj-dot-precedence');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-obj-dot-precedence'>Step 40. Dot operator precedence</a></div>
+        <div>    The dot operator has high precedence. The dot operator is only one level below the parentheses operators.
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-obj-brackets-precedence'>
+    <div class='close-button'>×</div>
+    <h2>Step 40.1. Bracket operators precedence</h2>
+
+    <script>
+        $('[data-step-header="40"]')
+            .append('<li><a href="#note-obj-brackets-precedence">Step 40.1. Bracket operators precedence</a></li>');
+    </script>    <p>Bracket operators have the same precedence as the dot operator. That is, they are only one level below the parentheses operators.</p>
+
+    <table class="precedence-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Grouping</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>Dot operator, brackets</td>
+            <td><code class="language-javascript">.</code>, <code class="language-javascript">... [ ... ]</code></td>   
+        </tr>
+         <tr>
+            <td>15</td>
+            <td>Not</td>
+            <td><code class="language-javascript">!</code> </td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Relational operators<br>
+            </td>
+            <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code> </td>   
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Equality operators</td>
+            <td><code class="language-javascript">===</code>, <code class="language-javascript">!==</code> </td>   
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>And</td>
+            <td><code class="language-javascript">&amp;&amp;</code></td>   
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Or</td>
+            <td><code class="language-javascript">||</code></td>   
+        </tr>
+</table>
+</div>
+    <div class='padded note' data-note-name='note-references' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 41. Introduction to references and storage diagrams</h2>
+        <p>Throughout the rest of this book, we will use &ldquo;storage diagrams&rdquo; to visually represent variables, and other types of entities as well. These diagrams begin very simply, and then become complex as we progress through the steps.</p>
+
+        <p>To start, I will show you a storage diagram for what JavaScript looks like, on the inside, after you&rsquo;ve executed <code class="language-javascript">var zz = 11</code>:</p>
+
+        <div class="screenshot">
+    <img width="229" height="65" src="img/zz11.png">
+</div>
+        <p>After having executing <code class="language-javascript">var zz = 11</code>, say we were to execute <code class="language-javascript">var abc = 32</code>. Then, the diagram would look like this:
+
+        <div class="screenshot">
+    <img width="216" height="79" src="img/abc32.png">
+</div>
+        <p>But, after that, if we were to execute <code class="language-javascript">var x = 'Hello'</code>, then the storage diagram would look like:</p>
+
+        <div class="screenshot">
+    <img width="324" height="106" src="img/xhello.png">
+</div>
+        <p>The reason the diagram looks like this, is because JavaScript does not store string values inside variables. Rather, JavaScript stores &ldquo;references&rdquo; to strings inside variables. Thus, if you were to execute <code class="language-javascript">var q = x</code>, then the storage diagram would look like this:</p>
+
+        <div class="screenshot">
+    <img width="313" height="125" src="img/qhello.png">
+</div>
+        <p>Notice how both <code class="language-javascript">x</code> and <code class="language-javascript">q</code> point to (i.e. refer to) the same string. This is because when you assign a string variable, JavaScript doesn't actually make a duplicate of the string; rather, JavaScript just copies the <i>reference</i> to the string. We will see why references are important in the next step, when encounter &ldquo;objects.&rdquo;</p>
+    <ul data-step-header='41'></ul>
+</div>
+<script>
+ORDERING.push('note-references');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-references'>Step 41. Introduction to references and storage diagrams</a></div>
+        <div>    <div class="screenshot">
+    <img width="313" height="125" src="img/qhello.png">
+</div>        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-obj-ref' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 42. Object references and storage diagrams</h2>    <p>Recall from <a href='#note-references' data-link-to-step-name='note-references'>Step</a>, the following storage diagram matches the following code.</p>
+
+<pre class="language-javascript prejs"><code>var x = 'Hello'
+var q = x
+</code></pre>
+
+    <div class="screenshot">
+    <img width="305" height="83" src="img/xq.png">
+</div>
+    <p>Recall, also, from <a href='#note-references' data-link-to-step-name='note-references'>Step</a>, JavaScript does not store string values inside variables. Rather, JavaScript stores <i>references</i> to strings inside variables.</p>
+
+    <p>In a similar way, JavaScript does not store object values inside variables. Rather, JavaScript stores references to objects inside variables. Thus, here&rsquo;s what the storage diagram would look like if we defined an object as in the following code:</p>
+
+<pre class="language-javascript prejs"><code>var x = 'Hello'
+var q = x
+var obj = {
+    a: 10,
+    b: 20
+}
+</code></pre>
+
+    <div class="screenshot">
+    <img width="475" height="123" src="img/obj-diagram.png">
+</div>
+    <p>Notice, the variable <code class="language-javascript">obj</code> is not storing an object value directly. Rather, the variable <code class="language-javascript">obj</code> is storing a reference to an object value. There is a significant practical consequence of the fact that <code class="language-javascript">obj</code> is storing a reference, and not a value. Let&rsquo;s take a look.</p>
+
+    <p>If we were to copy the reference to the object value into another variable, then the storage diagram would look like this:</p>
+
+<pre class="language-javascript prejs"><code>var obj1 = {
+    a: 10,
+    b: 20
+}
+var obj2 = obj1
+</code></pre>
+
+    <div class="screenshot">
+    <img width="476" height="84" src="img/obj2-diagram.png">
+</div>
+    <p>The practical significance, here, is that if we were to update the object, by assigning a new value associated with one of the keys, then
+    both <code class="language-javascript">obj</code> and <code class="language-javascript">obj2</code> would each access the changed value. For example, if you were to run the following code in th repl, the repl would respond with <code class="language-javascript">true</code> </p>
+            
+
+<pre class="language-javascript prejs"><code>var obj1 = {
+    a: 10,
+    b: 20
+}
+var obj2 = obj1
+obj1.a = 99
+obj1.a === 99 && obj2.a === 99
+</code></pre>
+    
+    <p>Just to be clear, here  is what the storage diagram would look like:</p>
+
+    <div class="screenshot">
+    <img width="470" height="82" src="img/a99.png">
+</div>
+    <ul data-step-header='42'></ul>
+</div>
+<script>
+ORDERING.push('note-obj-ref');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-obj-ref'>Step 42. Object references and storage diagrams</a></div>
+        <div><pre class="language-javascript prejs"><code>var obj1 = {
+    a: 10,
+    b: 20
+}
+var obj2 = obj1
+obj1.a = 99
+</code></pre>, then <code class="language-javascript">obj1.a === 99 && obj2.a === 99</code> will resolve to <code class="language-javascript">true</code>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-mem-obj' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 43. Members can refer to objects</h2>
+    <p>Because any member can refer to any value (<a href='#note-obj-types' data-link-to-step-name='note-obj-types'>Step</a>), and because objects are values (<a href='#note-obj-values' data-link-to-step-name='note-obj-values'>Step</a>), then members can refer to objects. For example:</p>
+
+<pre class="language-javascript prejs"><code>var x = {
+    a: 10,
+    b: 20,
+    c: {
+        p: true
+        q: 'Hello',
+    }
+}</code></pre>
+
+    <p>If you executed the above code, and then executed <code class="language-javascript">x.c.p</code>, it would resolve to <code class="language-javascript">true</code>. Similarly, <code class="language-javascript">x.c.q</code>, would resolve to <code class="language-javascript">'Hello'</code>.</p>
+
+    <p>Here is the accompanying storage diagram:</p>
+
+    <div class="screenshot">
+    <img width="224" height="321" src="img/xcp.png">
+</div>    <p>TODO: more?</p>
+    <ul data-step-header='43'></ul>
+</div>
+<script>
+ORDERING.push('note-mem-obj');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-mem-obj'>Step 43. Members can refer to objects</a></div>
+        <div><pre class="language-javascript prejs"><code>var x = {
+    c: {
+        q: 'Hello',
+    }
+}</code></pre>
+then, <code class="language-javascript">x.c.q</code>, would resolve to <code class="language-javascript">'Hello'</code>
+        </div>
+    </div>`);
+</script>
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-9';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 9. Arrays </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+    <div class='padded note' data-note-name='note-intro-arrays' data-note-type='step' >
+    <h2 class='part-title-in-note'>Chapter 9. Arrays</h2>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 44. Introduction to arrays</h2>
+    <p>An array is a special kind of object, which you can define using a special syntax.
+    For example, <code class='language-javascript'>['a', 'b', 'c']</code> is an <i>array value</i>
+    that is <a href="#note-array-obj">similar to</a> the following object:</p>
+
+<pre class="language-javascript prejs"><code>{
+    '0': 'a',
+    '1': 'b',
+    '2': 'c' 
+}</code></pre>
+    <p>You can access the members of an array using <a href="#note-array-brackets">bracket operators</a>. For example, if you were to declare
+    <code class='language-javascript'>var x = ['a', 'b', 'c']</code>, then you could access the 
+        <code class='language-javascript'>'0'</code> member with: <code class='language-javascript'>x['0']</code>.</p>
+
+    <p>In this case <code class='language-javascript'>x['0']</code>    would resolve to <code class='language-javascript'>'a'</code>.</p>
+
+
+
+    <ul data-step-header='44'></ul>
+</div>
+<script>
+ORDERING.push('note-intro-arrays');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-intro-arrays'>Step 44. Introduction to arrays</a></div>
+        <div>    <p>TODO</p>
+        </div>
+    </div>`);
+</script>
+<!-- TODO: remove expand button from notes -->
+<div class='padded note' data-note-name='note-array-obj'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>The array value <code class='language-javascript'>['a', 'b', 'c']</code> is similar to the following object:</p>
+
+<pre class="language-javascript prejs"><code>{
+    '0': 'a',
+    '1': 'b',
+    '2': 'c' 
+}</code></pre>
+    <p>The primary difference between the array value <code class='language-javascript'>['a', 'b', 'c']</code> and the object value defined above,
+        is that the array value contains members beyond just <code class='language-javascript'>'0'</code>, 
+        <code class='language-javascript'>'1'</code>, and <code class='language-javascript'>'2'</code>.</p>
+
+    <p>For instance, the array value <code class='language-javascript'>['a', 'b', 'c']</code> defines an object
+        with a member named <code class='language-javascript'>'length'</code>, which we will see shortly
+    in the main narrative.</p>
+
+</div>
+<div class='padded note' data-note-name='note-array-brackets'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>    <p>If you dug into the sub-step from <a href='#note-obj-dot' data-link-to-step-name='note-obj-dot'>Step</a>, from the chapter on objects, you would
+        have encountered bracket operators already, in <a href='#note-obj-brackets' data-link-to-step-name='note-obj-dot' data-substep-num='1'>SubStep</a>. </p>
+
+    <p>Fortunately, there is no problem if you haven&rsquo;t studied that sidenote already.
+       The main narrative of this chapter on arrays is self-contained.</p>
+    </p>
+</div>
+
+    <div class='padded note' data-note-name='note-array-todo' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 45. TODO</h2>    <p>TODO: finish chapter on arrays</p>
+    <ul data-step-header='45'></ul>
+</div>
+<script>
+ORDERING.push('note-array-todo');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-array-todo'>Step 45. TODO</a></div>
+        <div>    <p>TODO</p>
+        </div>
+    </div>`);
+</script>
+
+
+    <div class='padded note' data-note-name='note-ax' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 46. </h2>
+    <ul data-step-header='46'></ul>
+</div>
+<script>
+ORDERING.push('note-ax');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-ax'>Step 46. </a></div>
+        <div>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-ay'>
+    <div class='close-button'>×</div>
+    <h2>Step 46.1. </h2>
+
+    <script>
+        $('[data-step-header="46"]')
+            .append('<li><a href="#note-ay">Step 46.1. </a></li>');
+    </script>
+</div>
+<div class='padded note' data-note-name='note-az'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>
+</div>
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-10';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 10. Functions </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+
+    <div class='padded note' data-note-name='note-func' data-note-type='step' >
+    <h2 class='part-title-in-note'>Chapter 10. Functions</h2>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 47. Introduction to functions</h2>    <p>To introduce you to functions in JavaScript, let’s first review functions in mathematics. Recall from algebra, you can have a function <i>g</i> that is defined like so:</p>
+
+    <center>
+    <div class='table-format'>
+    <table class='table-format'>
+        <tr>
+           <td><i>g</i>(<i>x</i>) =</td>
+           <td><i>x</i><sup>2</sup></td> 
+        </tr>
+    </table>
+    </div>
+    </center>
+
+    <p>You can then &ldquo;invoke&rdquo; the function <i>g</i> for various values of <i>x</i>. For example:</p>
+
+    <center>
+    <div class='table-format'>
+    <table>
+        <tr>
+           <td><i>g</i>(1) =</td>
+           <td>1</td> 
+        </tr>
+        <tr>
+           <td><i>g</i>(2) =</td>
+           <td>4</td> 
+        </tr>
+        <tr>
+           <td><i>g</i>(3) =</td>
+           <td>9</td> 
+        </tr>
+        <tr>
+           <td><i>g</i>(4) =</td>
+           <td>16</td> 
+        </tr>
+    </table>
+    </div>
+    </center>
+
+    <p>In JavaScript, functions are similar. In JavaScript, you can define a function <code class='language-javascript'>g</code> like so:
+
+<pre class="language-javascript prejs"><code>var g = function(x) {
+    return x * x
+}</code></pre>        
+    <p>#Once you&rsquo;ve entered the function declaration into the repl, you can &ldquo;invoke&rdquo; the function <code class='language-javascript'>g</code> for various values #of <code class='language-javascript'>x</code>, like so:
+   sub </p>
+
+    <p><code class='language-javascript'>g(1)</code> resolves to the value <code class='language-javascript'>1</code></p>
+    <p><code class='language-javascript'>g(2)</code> resolves to the value <code class='language-javascript'>4</code></p>
+    <p><code class='language-javascript'>g(3)</code> resolves to the value <code class='language-javascript'>9</code></p>
+    <p><code class='language-javascript'>g(4)</code> resolves to the value <code class='language-javascript'>16</code></p>
+
+    <p>Try it out on the repl.</p>
+
+    <p>In JavaScript jargon, we would say <code class='language-javascript'>g(4)</code> is a function invocation, and we would say <code class='language-javascript'>g(4)</code> invokes the function <code class='language-javascript'>g</code> on the value <code class='language-javascript'>g(4)</code>.
+    A function invocation is a type of expression.</p>
+    <ul data-step-header='47'></ul>
+</div>
+<script>
+ORDERING.push('note-func');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-func'>Step 47. Introduction to functions</a></div>
+        <div>
+<p>If you declare:</p>
+<pre class="language-javascript prejs"><code>var g = function(x) {
+    return x * x
+}</code></pre>    <p>, then <code class='language-javascript'>g(4)</code>  will resolve to <code class='language-javascript'>16</code></p>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-func-values'>
+    <div class='close-button'>×</div>
+    <h2>Step 47.1. Functions are values</h2>
+
+    <script>
+        $('[data-step-header="47"]')
+            .append('<li><a href="#note-func-values">Step 47.1. Functions are values</a></li>');
+    </script>    <p>Declare this function in the repl:</p>
+
+<pre class="language-javascript prejs"><code>var g = function(x) {
+    log('Hello')
+}</code></pre>    <p>Observe that declaring the function did not produce a log message in the repl.
+    This is because we have declared a function, but we have not executed it yet.</p>
+
+    <p>To help understand the difference between declaring a function and executing a function, I have highlighted part of the declaration:</p>
+
+    <div class="screenshot">
+    <img width="480" height="106" src="img/code-highlight.png">
+</div>
+    <p>The highlighted part is a <i>function value.</i> Functions are values, just like <code class='language-javascript'>7</code> is a value, and <code class='language-javascript'>'Hello'</code> is a value, and <code class='language-javascript'>{ a: 10 }</code> is a value. The entire declaration merely sets the variable <code class='language-javascript'>g</code> to refer to a particular function value.</p>
+
+    <p>To illustrate this point, the following storage diagram shows how
+        the variable <code class='language-javascript'>g</code> refers to a function value:</p>
+
+    <div class="screenshot">
+    <img width="282" height="139" src="img/fx.png">
+</div>
+    </div>
+<div class='padded note' data-note-name='note-paren-op'>
+    <div class='close-button'>×</div>
+    <h2>Step 47.2. Invocation parentheses are like operators</h2>
+
+    <script>
+        $('[data-step-header="47"]')
+            .append('<li><a href="#note-paren-op">Step 47.2. Invocation parentheses are like operators</a></li>');
+    </script>
+    <p>You use parentheses like operators in order to execute functions.</p>
+
+    <p>Recall from <a href='#note-binary' data-link-to-step-name='note-binary'>Step</a>, you can combine two number values with a binary operator.
+    For example: <code class='language-javascript'>1 + 2</code> resolves to <code class='language-javascript'>3</code>. And, you can compare number values with comparison operators.
+    For example: <code class='language-javascript'>1 === 2</code> resolves to <code class='language-javascript'>false</code>. And so on.</p>
+
+    <p>Although parentheses are not technically considered operators, parentheses
+    are like operators, in the sense that: we use parentheses to combine function values with other values, which resolve to new values.
+    Consider the following example:</p>
+
+<pre class="language-javascript prejs"><code>var g = function(x) {
+    return x * x
+}</code></pre>
+    <p>The expression <code class='language-javascript'>g(3)</code> combines the function <code class='language-javascript'>g</code> with the value <code class='language-javascript'>3</code>, which resolves to the value <code class='language-javascript'>9</code>.</p>
+</div>
+    <div class='padded note' data-note-name='note-fn-multi-invoke' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 48. Functions can be invoked multiple times</h2>
+    <p>Let&rsquo;s say we have declared the following function:</p>
+
+<pre class="language-javascript prejs"><code>var g = function(x) {
+    return x * x
+}</code></pre>
+    <p>Then we could invoke it once, like this, <code class='language-javascript'>g(2)</code>, which would
+         resolve to <code class='language-javascript'>g(4)</code>.</p>
+
+    <p>We can also invoke the function multiple times. For example, <code class='language-javascript'>g(2) + g(3)</code>    would resolve to <code class='language-javascript'>13</code>.</p>
+    <ul data-step-header='48'></ul>
+</div>
+<script>
+ORDERING.push('note-fn-multi-invoke');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-fn-multi-invoke'>Step 48. Functions can be invoked multiple times</a></div>
+        <div>    <code class='language-javascript'>g(2) + g(3)</code> resolves to <code class='language-javascript'>13</code>        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-fn-statements' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 49. Function statements</h2>
+    <p>So far, we have been defining functions by declaring a variable to refer
+    to a function value. For instance, in the previous steps we declared a variable, <code class='language-javascript'>g</code>,
+    to refer 
+        to a function value, <code class='language-javascript'>function(x) {...}</code>, like so:
+    </p>
+
+<pre class="language-javascript prejs"><code>var g = function(x) {
+    return x * x
+}</code></pre>
+    <p>However, we can also declare functions another way&mdash;a way that is actually more
+        commonly used in practice. This new way of declaring functions utilizes
+        &ldquo;function statements.&rdquo; For example, the following snippet of code contains a 
+        function statement, that defines <code class='language-javascript'>g</code> to refer to a function:
+
+<pre class="language-javascript prejs"><code>function g(x) {
+    return x * x
+}</code></pre>
+    <p>If you were to declare a function this way, then you could invoke it the same way as before.
+        I.e., <code class='language-javascript'>g(2) + g(3)</code> would still resolve to <code class='language-javascript'>13</code>
+    <p>When you define a function this way (using a function statement), then
+        the name of the function must be a valid identifier (see <a href='#note-identifiers' data-link-to-step-name='note-identifiers'>Step</a>).
+
+    <ul data-step-header='49'></ul>
+</div>
+<script>
+ORDERING.push('note-fn-statements');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-fn-statements'>Step 49. Function statements</a></div>
+        <div>If you define a function like this:
+<pre class="language-javascript prejs"><code>function g(x) {
+    return x * x
+}</code></pre>, then <code class='language-javascript'>g(2) + g(3)</code> would resolve to <code class='language-javascript'>13</code>.
+
+        </div>
+    </div>`);
+</script>
+
+    <div class='padded note' data-note-name='note-return' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 50. Return statements</h2>
+    <p>When you have a function like this one:</p>
+
+<pre class="language-javascript prejs"><code>function g(x) {
+    return x * x
+}</code></pre>
+    <p>, the second line is referred to as a &ldquo;return statement.&rdquo;
+    The <i>return statement</i> within a function determines what the function&rsquo;s
+    invocation will resolve to. For instance, if we declared:</p>
+
+<pre class="language-javascript prejs"><code>function g(x) {
+    return x + 1
+}</code></pre>
+    <p>, then <code class='language-javascript'>g(5)</code> would resolve to <code class='language-javascript'>6</code>.</p>
+
+    <ul data-step-header='50'></ul>
+</div>
+<script>
+ORDERING.push('note-return');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-return'>Step 50. Return statements</a></div>
+        <div>    <p>If you declare:</p>
+
+<pre class="language-javascript prejs"><code>function g(x) {
+    return x + 1
+}</code></pre>
+    <p>, then <code class='language-javascript'>g(5)</code> will resolve to <code class='language-javascript'>6</code>.</p>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-return-multiple'>
+    <div class='close-button'>×</div>
+    <h2>Step 50.1. Functions may contain multiple return statements</h2>
+
+    <script>
+        $('[data-step-header="50"]')
+            .append('<li><a href="#note-return-multiple">Step 50.1. Functions may contain multiple return statements</a></li>');
+    </script>
+    <p>Consider the following function:</p>
+<pre class="language-javascript prejs"><code>function g(x) {
+    if (x === 5) {
+        return 'Five'
+    } else {
+        return 'Not five'
+    }
+}</code></pre>
+    <p>If you were to declare that function, then <code class='language-javascript'>g(5)</code> would resolve to <code class='language-javascript'>'Five'</code>, and <code class='language-javascript'>g(6)</code> would resolve to <code class='language-javascript'>'Not five'</code>.</p>
+
+</div>
+<div class='padded note' data-note-name='note-return-zero'>
+    <div class='close-button'>×</div>
+    <h2>Step 50.2. Functions may contain zero return statements</h2>
+
+    <script>
+        $('[data-step-header="50"]')
+            .append('<li><a href="#note-return-zero">Step 50.2. Functions may contain zero return statements</a></li>');
+    </script>TODO
+</div>
+    <div class='padded note' data-note-name='note-fn-stmts' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 51. Every function contains zero, or more statements</h2>
+    <p>If you declare:</p>
+
+<pre class="language-javascript prejs"><code>function g(x) {
+    var y = x + 1
+    var z = y * 2
+    return z
+}</code></pre>
+    <p>, then <code class='language-javascript'>g(2)</code> will resolve to <code class='language-javascript'>6</code>.</p>
+
+    <ul data-step-header='51'></ul>
+</div>
+<script>
+ORDERING.push('note-fn-stmts');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-fn-stmts'>Step 51. Every function contains zero, or more statements</a></div>
+        <div>    <p>If you declare:</p>
+
+<pre class="language-javascript prejs"><code>function g(x) {
+    var y = x + 1
+    var z = y * 2
+    return z
+}</code></pre>
+    <p>, then <code class='language-javascript'>g(2)</code> will resolve to <code class='language-javascript'>6</code></p>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-params' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 52. Parameters</h2>
+    <p>Every function accepts zero or more &ldquo;parameters,&rdquo; also known as &ldquo;arguments.&rdquo;</p>
+
+    <p>For example, the following function accepts three parameters,  <code class='language-javascript'>x</code>,<code class='language-javascript'>y</code>, and <code class='language-javascript'>z</code>:</p>
+
+<pre class="language-javascript prejs"><code>function g(x, y, z) {
+    return x * y + z
+}</code></pre>
+    <p>Then, you would invoke the function like this: <code class='language-javascript'>g(2,3,4)</code>, which
+        would resolve to <code class='language-javascript'>10</code>.</p>
+
+
+    <p>For another example, the following function accepts zero parameters:</p>
+
+<pre class="language-javascript prejs"><code>function g() {
+    return 'Hello'
+}</code></pre>
+    <p>Then, you would invoke the function like this: <code class='language-javascript'>g()</code>, which
+        would resolve to <code class='language-javascript'>'Hello'</code>.</p>
+
+    <ul data-step-header='52'></ul>
+</div>
+<script>
+ORDERING.push('note-params');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-params'>Step 52. Parameters</a></div>
+        <div>    <p>If you declare a function with three parameters, like so:</p>
+
+<pre class="language-javascript prejs"><code>function g(x, y, z) {
+    return x * y + z
+}</code></pre>
+    <p>, then you could invoke the function like this: <code class='language-javascript'>g(2,3,4)</code>, which
+        would resolve to <code class='language-javascript'>10</code></p>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-param-expr' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 53. Using expressions as parameters</h2>    <p>TODO: should this be a substep?</p>
+
+    <p>Let&rsquo;s say you have declared the following function:</p>
+
+<pre class="language-javascript prejs"><code>function g(x, y) {
+    return x + y
+}</code></pre>
+    <p>Then, you could invoke it using expressions instead of values. For example:</p>
+
+    <ol>
+        <li><code class='language-javascript'>g(1 + 2, 5 - 4)</code> would resolve to <code class='language-javascript'>4</code></li>
+    </ol>
+    <ul data-step-header='53'></ul>
+</div>
+<script>
+ORDERING.push('note-param-expr');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-param-expr'>Step 53. Using expressions as parameters</a></div>
+        <div>If you declare:
+<pre class="language-javascript prejs"><code>function g(x, y) {
+    return x + y
+}</code></pre>, then <code class='language-javascript'>g(1 + 2, 5 - 4)</code> would resolve to <code class='language-javascript'>4</code>        </div>
+    </div>`);
+</script>
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-11';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 11. Global variables and local variables </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+    <div class='padded note' data-note-name='note-scope-intro' data-note-type='step' >
+    <h2 class='part-title-in-note'>Chapter 11. Global variables and local variables</h2>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 54. Introduction</h2>    <p>A <i>global variable</i> is any variable declared <i>outside</i> of a function. In contrast, a
+    <i>local variable</i> is any variable declared <i>inside</i> a function.</p>
+
+    <p>In the following example, <code class='language-javascript'>x</code> is a global variable and <code class='language-javascript'>y</code>  is a local variable.</p>
+
+<pre class="language-javascript prejs"><code>var x = 5
+function f(y) {
+    return y + 1
+}</code></pre>    <ul data-step-header='54'></ul>
+</div>
+<script>
+ORDERING.push('note-scope-intro');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-scope-intro'>Step 54. Introduction</a></div>
+        <div>In the following code snippet, <pre class="language-javascript prejs"><code>var x = 5
+function f(y) {
+    return y + 1
+}</code></pre>, <code class='language-javascript'>x</code> is a <i>global</i> variable and <code class='language-javascript'>y</code>  is a <i>local</i> variable
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-access-global' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 55. Accessing global variables from within functions</h2>    <p>Statements and expressions inside a function can access global variables.
+    Consider the example below:</p>
+
+<pre class="language-javascript prejs"><code>var x = 5
+function f(y) {
+    return y + x
+}</code></pre>
+    <p>The expression <code class='language-javascript'>f(3)</code> will resolve to <code class='language-javascript'>8</code>.</p>
+    <ul data-step-header='55'></ul>
+</div>
+<script>
+ORDERING.push('note-access-global');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-access-global'>Step 55. Accessing global variables from within functions</a></div>
+        <div>    <p>If you declare, </p>
+
+<pre class="language-javascript prejs"><code>var x = 5
+function f(y) {
+    return y + x
+}</code></pre>
+    <p>, then the expression <code class='language-javascript'>f(3)</code> will resolve to <code class='language-javascript'>8</code>.</p>
+
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-no-access-local' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 56. Statements and expressions outside of functions cannot access local variables</h2><p>If a statement, or expression, is outside of a function, then it cannot access the local variables of a function.</p>
+
+<p>For example, if you were to try to execute the code snippet below, the repl would report an error,
+because <code class='language-javascript'>log(y)</code> is an invalid expression, since  <code class='language-javascript'>y</code> is not accessible outside the function <code class='language-javascript'>f</code>.</p>
+
+<pre class="language-javascript prejs"><code>var x = 5
+function f(y) {
+    return y + x
+}
+log(y)</code></pre>
+    <ul data-step-header='56'></ul>
+</div>
+<script>
+ORDERING.push('note-no-access-local');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-no-access-local'>Step 56. Statements and expressions outside of functions cannot access local variables</a></div>
+        <div>The code below is invalid, because  <code class='language-javascript'>y</code> is not accessible outside the function <code class='language-javascript'>f</code>:
+<pre class="language-javascript prejs"><code>var x = 5
+function f(y) {
+    return y + x
+}
+log(y)</code></pre>        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-share-names' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 57. A global variable and a local variable can share the same name</h2>    <p>TODO: substep?</p>
+
+    <p>It is possible for a global variable and a local variable to share the same name. For example, if
+    there is a global variable named <code class='language-javascript'>x</code> and a local variable also named <code class='language-javascript'>x</code>,
+    then they are two distinct, independent variables, that happen to share the same name. Within
+    the function, the name <code class='language-javascript'>x</code> refers to the local variable, and outside the function, 
+    <code class='language-javascript'>x</code> refers to the global variable.</p>
+
+
+    <p>Consider the following example:</p>
+
+<pre class="language-javascript prejs"><code>var x = 5
+function f(x) {
+    return x + 2;
+}
+log(x)
+log(f(10))
+log(x)</code></pre>
+    <p>Executing this code will log three lines to the repl: <code class='language-javascript'>5</code>, then <code class='language-javascript'>12</code>, then <code class='language-javascript'>5</code> again.</p>
+    <ul data-step-header='57'></ul>
+</div>
+<script>
+ORDERING.push('note-share-names');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-share-names'>Step 57. A global variable and a local variable can share the same name</a></div>
+        <div>    <p>If you declare:</p>
+
+<pre class="language-javascript prejs"><code>var x = 5
+function f(x) {
+    return x + 2;
+}
+log(x)
+log(f(10))
+log(x)</code></pre>
+    <p>, then executing this code will log three lines to the repl: <code class='language-javascript'>5</code>, then <code class='language-javascript'>12</code>, then <code class='language-javascript'>5</code> again.</p>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-fn-scope' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 58. Each function has its own space for local variables</h2>
+    <p>If you have one function, say <code class='language-javascript'>g</code>, and another function, say <code class='language-javascript'>f</code>,
+        then <code class='language-javascript'>g</code> and <code class='language-javascript'>f</code> can have local variables that share the same name,
+        but are in fact distinct, independent variables. For example:</p>
+
+    <pre class="language-javascript prejs"><code>function g(x) {
+    var y = x + 1;
+    return y * 2;
+};
+
+function f(x) {
+    var y = x - 1;
+    return y * 2;
+};
+
+log(g(3))
+log(f(3))</code></pre>
+    <p>If you execute the above code in the repl, then the repl will display a log for <code class='language-javascript'>8</code>, followed by a log for <code class='language-javascript'>4</code>.
+    <ul data-step-header='58'></ul>
+</div>
+<script>
+ORDERING.push('note-fn-scope');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-fn-scope'>Step 58. Each function has its own space for local variables</a></div>
+        <div><pre class="language-javascript prejs"><code>function g(x) {
+    var y = x + 1;
+    return y * 2;
+};
+
+function f(x) {
+    var y = x - 1;
+    return y * 2;
+};
+
+log(g(3))
+log(f(3))</code></pre>
+    <p>If you execute the above code in the repl, then the repl will display a log for <code class='language-javascript'>8</code>, followed by a log for <code class='language-javascript'>4</code>.
+
+        </div>
+    </div>`);
+</script>
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-12';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 12. Recursion </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+    <div class='padded note' data-note-name='note-invoke-other' data-note-type='step' >
+    <h2 class='part-title-in-note'>Chapter 12. Recursion</h2>
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 59. Functions can invoke other functions</h2>
+    <p>Functions can invoke other functions. For example, say we have declared the following
+    two functions:</p>
+
+<pre class="language-javascript prejs"><code>function square(x) {
+    return x * x
+}
+
+function doubleSquare(x) {
+    return square(x) + square(x)
+}</code></pre>
+    <p>Then, <code class='language-javascript'>doubleSquare(3)</code> will resolve to <code class='language-javascript'>18</code></p>
+
+    <ul data-step-header='59'></ul>
+</div>
+<script>
+ORDERING.push('note-invoke-other');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-invoke-other'>Step 59. Functions can invoke other functions</a></div>
+        <div> <p>If you declare:</p>
+
+<pre class="language-javascript prejs"><code>function square(x) {
+    return x * x
+}
+
+function doubleSquare(x) {
+    return square(x) + square(x)
+}</code></pre>    <p>Then, <code class='language-javascript'>doubleSquare(3)</code> will resolve to <code class='language-javascript'>18</code>        </div>
+    </div>`);
+</script></p>
+
+    <div class='padded note' data-note-name='note-invoke-self' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 60. Mathematical recursion</h2>
+    <p>In JavaScript, a function can even invoke itself. This capability is known as &ldquo;recursion,&rdquo; and requires a bit of explanation.
+    But, rather than attempting to elucidate the concept of recursion in English, let’s begin by diving into a classic example of recursion in mathematics: the <i>factorial</i> mathematical function.
+    </p>
+    
+    <center>
+    <div class='table-format'>
+    <table>
+        <tr>
+           <td><i>factorial</i>(1) =</td>
+           <td>1</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(2) =</td>
+           <td>1 &times; 2 = 2</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(3) =</td>
+           <td>1 &times; 2 &times; 3 = 6</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(4) =</td>
+           <td>1 &times; 2 &times; 3 &times; 4 = 24</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(5) =</td>
+           <td>1 &times; 2 &times; 3 &times; 4 &times; 5 = 120</td> 
+        </tr>
+    </table>
+    </div>
+    </center>
+
+    <p>As you can see, <i>factorial</i>(<i>n</i>) is a function of <i>n</i>, equal to
+        <i>n</i> multiplied by <i>n</i> - 1 multiplied by <i>n</i> - 2, and so on, until
+        we reach the number 1.</p>
+
+    <p>We also define the factorial function, recursively:</p>
+
+        <p><center><i>factorial</i>(<i>n</i>) = factorial</i>(<i>n</i> - 1) &times; <i>n</i></center></p>
+
+    <p>, except when <i>n</i> = 1. In that case, the factorial is defined as follows:</p>
+
+        <p><center><i>factorial</i>(1) = 1</center></p>
+
+    <p>Let&rsquo;s take a look at the recursive definition of the factorial function: </p>
+
+    <center>
+    <div class='table-format'>
+    <table>
+        <tr>
+           <td><i>factorial</i>(1) =</td>
+           <td>1</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(2) =</td>
+           <td><i>factorial</i>(1) &times; 2 = 2</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(3) =</td>
+           <td><i>factorial</i>(2) &times;  3 = 6</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(4) =</td>
+           <td><i>factorial</i>(3) &times; 4 = 24</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(5) =</td>
+           <td><i>factorial</i>(4) &times;  5 = 120</td> 
+        </tr>
+    </table>
+    </div>
+    </center>
+
+    <ul data-step-header='60'></ul>
+</div>
+<script>
+ORDERING.push('note-invoke-self');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-invoke-self'>Step 60. Mathematical recursion</a></div>
+        <div><center>
+    <div class='table-format'>
+    <table>
+        <tr>
+           <td><i>factorial</i>(1) =</td>
+           <td>1</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(2) =</td>
+           <td><i>factorial</i>(1) &times; 2 = 2</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(3) =</td>
+           <td><i>factorial</i>(2) &times;  3 = 6</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(4) =</td>
+           <td><i>factorial</i>(3) &times; 4 = 24</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(5) =</td>
+           <td><i>factorial</i>(4) &times;  5 = 120</td> 
+        </tr>
+    </table>
+    </div>
+    </center>
+        </div>
+    </div>`);
+</script>
+    <div class='padded note' data-note-name='note-js-recursion' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 61. JavaScript recursion</h2>    
+    <p>Here&rsquo;s one version of what the factorial function can look like in JavaScript:</p>
+
+<pre class="language-javascript prejs"><code>function factorial(n) {
+    if (n === 1) {
+        return 1
+    } else {
+        return n * factorial(n - 1)
+    }
+}</code></pre>
+    <p>If you were to declare the above function in the repl, then <code class='language-javascript'>factorial(5)</code>    would resolve to <code class='language-javascript'>120</code>.
+
+    <p>Now, let&rsquo;s take a look at how it actually works. Whenever a function is invoked
+        recursively, JavaScript operates as if each function invocation creates a clone of the function. I.e.,
+        invoking <code class='language-javascript'>factorial(3)</code> would look like this:
+    </p>
+
+<pre class="language-javascript prejs"><code>function factorial(n) {
+    if (n === 1) {
+        return 1
+    } else {
+        return n * factorial_B(n - 1)
+    }
+}
+
+function factorial_B(n) {
+    if (n === 1) {
+        return 1
+    } else {
+        return n * factorial_C(n - 1)
+    }
+}
+
+function factorial_C(n) {
+    if (n === 1) {
+        return 1
+    } else {
+        return n * factorial_D(n - 1)
+    }
+}</code></pre>
+    <p>Thus, <code class='language-javascript'>factorial(3)</code> would lead to an invocation of
+        <code class='language-javascript'>factorial_B(2)</code>.</p>
+    <p>That would lead to an invocation of
+        <code class='language-javascript'>factorial_C(1)</code>.</p>
+    <p>Then, <code class='language-javascript'>factorial_D</code> wouldn&rsquo;t be invoked. Rather, <code class='language-javascript'>factorial_C(1)</code> would return <code class='language-javascript'>1</code>.</p>
+
+    <p>So then <code class='language-javascript'>factorial_B(2)</code> would return <code class='language-javascript'>2</code>.</p>
+    <p>Finally, <code class='language-javascript'>factorial(3)</code> would return <code class='language-javascript'>6</code>.</p>
+    <ul data-step-header='61'></ul>
+</div>
+<script>
+ORDERING.push('note-js-recursion');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-js-recursion'>Step 61. JavaScript recursion</a></div>
+        <div><pre class="language-javascript prejs"><code>function factorial(n) {
+    if (n === 1) {
+        return 1
+    } else {
+        return n * factorial(n - 1)
+    }
+}</code></pre>
+    <p>If you were to declare the above function in the repl, then <code class='language-javascript'>factorial(5)</code>    would resolve to <code class='language-javascript'>120</code>.
+        </div>
+    </div>`);
+</script>
+
+    <div class='padded note' data-note-name='note-x' data-note-type='step' >
+    
+    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <h2>Step 62. </h2>
+    <ul data-step-header='62'></ul>
+</div>
+<script>
+ORDERING.push('note-x');
+
+$(SNIPPETS_TABLE).append(`<div class='snippet-div'>
+        <div><a href='#note-x'>Step 62. </a></div>
+        <div>
+        </div>
+    </div>`);
+</script>
+<div class='padded note' data-note-name='note-y'>
+    <div class='close-button'>×</div>
+    <h2>Step 62.1. </h2>
+
+    <script>
+        $('[data-step-header="62"]')
+            .append('<li><a href="#note-y">Step 62.1. </a></li>');
+    </script>
+</div>
+<div class='padded note' data-note-name='note-z'>
+    <div class='close-button'>×</div>
+    <h2>Note</h2>
+</div>
+<script>
+SNIPPETS_TABLE = '#snippets-table-part-13';
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<p class='snippets-part-number'>Chapter 13.  </p>`);
+
+$(SNIPPETS_TABLE_WRAPPER).append(`<div id='${SNIPPETS_TABLE.substr(1)}' class='snippets-table'>
+</div>`);
+
+</script>
+
+<script>
+// For each steplink(), fill in the step number
+for (var i = 0; i < ORDERING.length; i++) {
+    var stepName = ORDERING[i];
+    var stepNum = i + 1;
+    $('[data-link-to-step-name="' + stepName + '"]')
+        .each(function(i, elem){
+            var substepNum = $(elem).data('substep-num');
+            if (substepNum) {
+                $(elem).html('Step ' + stepNum + '.' + substepNum);
+            } else {
+                $(elem).html('Step ' + stepNum);
+            }
+        })
+}
+</script>
+
+</div> <!-- end #staging-area -->
+        </main>
+    </body>
+    <script type='text/javascript'>
+        var SIDENOTE = undefined;
+        var log = undefined;
+        $(window).on('load', function() {
+            SIDENOTE = new ReplSidenote(ORDERING);
+            setupLinksToNotes(SIDENOTE);
+            setupScrollAnchors(SIDENOTE);
+            colorSnippets();
+
+            // Note sure why this timeout is needed,
+            // but makes loadViewFromUrl in my dev
+            // environment
+            setTimeout(function(){
+                SIDENOTE.loadViewFromUrl();
+            }, 0);
+
+            $("#num-steps").append(ORDERING.length);
+        });
+    </script>
+</html>

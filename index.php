@@ -2828,12 +2828,85 @@ stepheader('note-share-names', 'A global variable and a local variable can share
 <? pre('var x = 5
 function f(x) {
     return x + 2;
-};
+}
 log(x)
 log(f(10))
 log(x)') ?>
 
     <p>Executing this code will log three lines to the repl: <? code('5') ?>, then <? code('12') ?>, then <? code('5') ?> again.</p>
+<? stepoverview(); ?>
+    <p>If you declare:</p>
+
+<? pre('var x = 5
+function f(x) {
+    return x + 2;
+}
+log(x)
+log(f(10))
+log(x)') ?>
+
+    <p>, then executing this code will log three lines to the repl: <? code('5') ?>, then <? code('12') ?>, then <? code('5') ?> again.</p>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-fn-scope', 'Each function has its own space for local variables'); ?>
+
+    <p>If you have one function, say <?code('g')?>, and another function, say <?code('f')?>,
+        then <?code('g')?> and <?code('f')?> can have local variables that share the same name,
+        but are in fact distinct, independent variables. For example:</p>
+
+    <? pre('function g(x) {
+    var y = x + 1;
+    return y * 2;
+};
+
+function f(x) {
+    var y = x - 1;
+    return y * 2;
+};
+
+log(g(3))
+log(f(3))') ?>
+
+    <p>If you execute the above code in the repl, then the repl will display a log for <?code('8')?>, followed by a log for <?code('4')?>.
+<? stepoverview(); ?>
+<? pre('function g(x) {
+    var y = x + 1;
+    return y * 2;
+};
+
+function f(x) {
+    var y = x - 1;
+    return y * 2;
+};
+
+log(g(3))
+log(f(3))') ?>
+
+    <p>If you execute the above code in the repl, then the repl will display a log for <?code('8')?>, followed by a log for <?code('4')?>.
+
+<? stepfooter(); ?>
+
+<?
+################################################################################
+partheader('Recursion'); #######################################################
+################################################################################
+?>
+
+<? #############################################################################
+stepheader('note-invoke-other', 'Functions can invoke other functions'); ?>
+
+    <p>Functions can invoke other functions. For example, say we have declared the following
+    two functions:</p>
+
+<? pre("function square(x) {
+    return x * x;
+}
+
+function doubleSquare()
+
+") ?>
+
 <? stepoverview(); ?>
 
 <? stepfooter(); ?>

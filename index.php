@@ -2913,7 +2913,7 @@ function doubleSquare(x) {
 <? stepoverview(); ?>
  <p>If you declare:</p>
 
- <? pre("function square(x) {
+<? pre("function square(x) {
     return x * x
 }
 
@@ -2921,9 +2921,112 @@ function doubleSquare(x) {
     return square(x) + square(x)
 }
 ") ?>
-
     <p>Then, <? code('doubleSquare(3)') ?> will resolve to <? code('18') ?>
 <? stepfooter(); ?></p>
+
+<? #############################################################################
+stepheader('note-invoke-self', 'Mathematical recursion'); ?>
+
+    <p>In JavaScript, a function can even invoke itself. This capability is known as &ldquo;recursion,&rdquo; and requires a bit of explanation.
+    But, rather than attempting to elucidate the concept of recursion in English, let’s begin by diving into a classic example of recursion in mathematics: the <i>factorial</i> mathematical function.
+    </p>
+    
+    <center>
+    <div class='table-format'>
+    <table>
+        <tr>
+           <td><i>factorial</i>(1) =</td>
+           <td>1</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(2) =</td>
+           <td>1 &times; 2 = 2</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(3) =</td>
+           <td>1 &times; 2 &times; 3 = 6</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(4) =</td>
+           <td>1 &times; 2 &times; 3 &times; 4 = 24</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(5) =</td>
+           <td>1 &times; 2 &times; 3 &times; 4 &times; 5 = 120</td> 
+        </tr>
+    </table>
+    </div>
+    </center>
+
+    <p>As you can see, <i>factorial</i>(<i>n</i>) is a function of <i>n</i>, equal to
+        <i>n</i> multiplied by <i>n</i> - 1 multiplied by <i>n</i> - 2, and so on, until
+        we reach the number 1.</p>
+
+    <p>We also define the factorial function, recursively:</p>
+
+        <p><center><i>factorial</i>(<i>n</i>) = factorial</i>(<i>n</i> - 1) &times; <i>n</i></center></p>
+
+    <p>, except when <i>n</i> = 1. In that case, the factorial is defined as follows:</p>
+
+        <p><center><i>factorial</i>(1) = 1</center></p>
+
+    <p>Let&rsquo;s take a look at the recursive definition of the factorial function: </p>
+
+    <center>
+    <div class='table-format'>
+    <table>
+        <tr>
+           <td><i>factorial</i>(1) =</td>
+           <td>1</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(2) =</td>
+           <td><i>factorial</i>(1) &times; 2 = 2</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(3) =</td>
+           <td><i>factorial</i>(2) &times;  3 = 6</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(4) =</td>
+           <td><i>factorial</i>(3) &times; 4 = 24</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(5) =</td>
+           <td><i>factorial</i>(4) &times;  5 = 120</td> 
+        </tr>
+    </table>
+    </div>
+    </center>
+
+<? stepoverview(); ?>
+<center>
+    <div class='table-format'>
+    <table>
+        <tr>
+           <td><i>factorial</i>(1) =</td>
+           <td>1</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(2) =</td>
+           <td><i>factorial</i>(1) &times; 2 = 2</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(3) =</td>
+           <td><i>factorial</i>(2) &times;  3 = 6</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(4) =</td>
+           <td><i>factorial</i>(3) &times; 4 = 24</td> 
+        </tr>
+        <tr>
+           <td><i>factorial</i>(5) =</td>
+           <td><i>factorial</i>(4) &times;  5 = 120</td> 
+        </tr>
+    </table>
+    </div>
+    </center>
+<? stepfooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

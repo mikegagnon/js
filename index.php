@@ -203,8 +203,7 @@ function codestr($line) {
         <script src='js/codemirror.js'></script>
         <script src='js/javascript.js'></script>
         <!--<script src='js/jquery-2.2.4.min.js'></script>-->
-        <script src='js/jquery-2.2.4.min.js'></script>
-        <!--<script src='js/jquery-1.12.4.min.js'></script>-->
+        <script src='js/jquery-1.12.4.min.js'></script>
         <script src='js/prism.js'></script>
         <script src='js/popper.min.js'></script>
         <script src='js/bootstrap.js'></script>

@@ -2462,7 +2462,7 @@ stepheader('note-intro-arrays', 'Introduction to arrays'); ?>
 
 
 <? stepoverview(); ?>
-
+    <p>TODO</p>
 <? stepfooter(); ?>
 
 <!-- TODO: remove expand button from notes -->
@@ -2495,6 +2495,15 @@ noteheader('note-array-brackets'); ?>
        The main narrative of this chapter on arrays is self-contained.</p>
     </p>
 <? notefooter(); ?>
+
+
+<? #############################################################################
+stepheader('note-array-todo', 'TODO'); ?>
+    <p>TODO: finish chapter on arrays</p>
+<? stepoverview(); ?>
+    <p>TODO</p>
+<? stepfooter(); ?>
+
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

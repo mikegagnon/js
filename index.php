@@ -2896,20 +2896,36 @@ partheader('Recursion'); #######################################################
 <? #############################################################################
 stepheader('note-invoke-other', 'Functions can invoke other functions'); ?>
 
+    <p>TODO: previous step showing how you can invoke a function multiple times</p>
+
     <p>Functions can invoke other functions. For example, say we have declared the following
     two functions:</p>
 
 <? pre("function square(x) {
-    return x * x;
+    return x * x
 }
 
-function doubleSquare()
-
+function doubleSquare(x) {
+    return square(x) + square(x)
+}
 ") ?>
 
-<? stepoverview(); ?>
+    <p>Then, <? code('doubleSquare(3)') ?> will resolve to <? code('18') ?></p>
 
-<? stepfooter(); ?>
+<? stepoverview(); ?>
+ <p>If you declare:</p>
+
+ <? pre("function square(x) {
+    return x * x
+}
+
+function doubleSquare(x) {
+    return square(x) + square(x)
+}
+") ?>
+
+    <p>Then, <? code('doubleSquare(3)') ?> will resolve to <? code('18') ?>
+<? stepfooter(); ?></p>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

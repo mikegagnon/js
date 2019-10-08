@@ -123,14 +123,22 @@ class Sidenote {
         if ((scrollBottom + this.setup.jitMargin) >= top) {
             const index = this.ordering.findIndex(n => n === noteName);
             if (index === this.ordering.length - 1) {
+                this.removeExpandButton(columnNumber);
                 return false;
             } else {
                 this.expandBelowSingle(index + 1, columnNumber);
+                this.removeExpandButton(columnNumber);
                 return true;
             }
         }
 
         return false;
+    }
+
+    removeExpandButton(columnNumber) {
+        const columnSelector = `[data-column='${columnNumber}']`;
+        const expandButtonSelector = `${columnSelector} .expand-button`;
+        $(expandButtonSelector).remove();
     }
 
     perhapsLoadNoteAbove(scrollTop, column, note) {
@@ -141,9 +149,11 @@ class Sidenote {
         if ((scrollTop - this.setup.jitMargin) <= top) {
             const index = this.ordering.findIndex(n => n === noteName);
             if (index === 0) {
+                this.removeExpandButton(columnNumber);
                 return false;
             } else {
                 this.expandAboveSingle(index - 1, columnNumber);
+                this.removeExpandButton(columnNumber);
                 return true;
             }
         }
@@ -307,10 +317,7 @@ class Sidenote {
                 this.expandBelow(index, columnNumber);
             }
         }
-
-        const columnSelector = `[data-column='${columnNumber}']`;
-        const expandButtonSelector = `${columnSelector} .expand-button`;
-        $(expandButtonSelector).remove();
+        this.removeExpandButton(columnNumber);
     }
 
     expandAbove(index, columnNumber) {

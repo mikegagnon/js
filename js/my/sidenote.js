@@ -160,14 +160,23 @@ function () {
         });
 
         if (index === this.ordering.length - 1) {
+          this.removeExpandButton(columnNumber);
           return false;
         } else {
           this.expandBelowSingle(index + 1, columnNumber);
+          this.removeExpandButton(columnNumber);
           return true;
         }
       }
 
       return false;
+    }
+  }, {
+    key: "removeExpandButton",
+    value: function removeExpandButton(columnNumber) {
+      var columnSelector = "[data-column='".concat(columnNumber, "']");
+      var expandButtonSelector = "".concat(columnSelector, " .expand-button");
+      $(expandButtonSelector).remove();
     }
   }, {
     key: "perhapsLoadNoteAbove",
@@ -182,9 +191,11 @@ function () {
         });
 
         if (index === 0) {
+          this.removeExpandButton(columnNumber);
           return false;
         } else {
           this.expandAboveSingle(index - 1, columnNumber);
+          this.removeExpandButton(columnNumber);
           return true;
         }
       }
@@ -361,9 +372,7 @@ function () {
         }
       }
 
-      var columnSelector = "[data-column='".concat(columnNumber, "']");
-      var expandButtonSelector = "".concat(columnSelector, " .expand-button");
-      $(expandButtonSelector).remove();
+      this.removeExpandButton(columnNumber);
     }
   }, {
     key: "expandAbove",

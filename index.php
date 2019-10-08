@@ -2613,8 +2613,7 @@ stepheader('note-return', 'Return statements'); ?>
 
     <p>When you have a function like this one:</p>
 
-<? pre("
-    var g = function(x) {
+<? pre("function g(x) {
     return x * x
 }") ?>
 
@@ -2622,29 +2621,27 @@ stepheader('note-return', 'Return statements'); ?>
     The <i>return statement</i> within a function determines what the function&rsquo;s
     invocation will resolve to. For instance, if we declared:</p>
 
-<? pre("
-    var g = function(x) {
+<? pre("function g(x) {
     return x + 1
 }") ?>
 
-    <p>, then <?code('g(5)')?> would resolve to <?code('g(6)')?>.</p>
+    <p>, then <?code('g(5)')?> would resolve to <?code('6')?>.</p>
 
 <? stepoverview(); ?>
     <p>If you declare:</p>
 
-<? pre("
-    var g = function(x) {
+<? pre("function g(x) {
     return x + 1
 }") ?>
 
-    <p>, then <?code('g(5)')?> will resolve to <?code('g(6)')?>.</p>
+    <p>, then <?code('g(5)')?> will resolve to <?code('6')?>.</p>
 <? stepfooter(); ?>
 
 <? #############################################################################
 substepheader('note-return-multiple', 'Functions may contain multiple return statements'); ?>
 
     <p>Consider the following function:</p>
-<? pre("var g = function(x) {
+<? pre("function g(x) {
     if (x === 5) {
         return 'Five'
     } else {
@@ -2667,26 +2664,24 @@ stepheader('note-fn-stmts', 'Every function contains zero, or more statements');
 
     <p>If you declare:</p>
 
-<? pre("
-var g = function(x) {
+<? pre("function g(x) {
     var y = x + 1
     var z = y * 2
     return z
 }") ?>
 
-    <p>, then <?code('g(2)')?> will resolve to <?code('g(6)')?>.</p>
+    <p>, then <?code('g(2)')?> will resolve to <?code('6')?>.</p>
 
 <? stepoverview(); ?>
     <p>If you declare:</p>
 
-<? pre("
-var g = function(x) {
+<? pre("function g(x) {
     var y = x + 1
     var z = y * 2
     return z
 }") ?>
 
-    <p>, then <?code('g(2)')?> will resolve to <?code('g(6)')?></p>
+    <p>, then <?code('g(2)')?> will resolve to <?code('6')?></p>
 <? stepfooter(); ?>
 
 <? #############################################################################
@@ -2696,8 +2691,7 @@ stepheader('note-params', 'Parameters'); ?>
 
     <p>For example, the following function accepts three parameters,  <?code('x')?>,<?code('y')?>, and <?code('z')?>:</p>
 
-<? pre("
-var g = function(x, y, z) {
+<? pre("function g(x, y, z) {
     return x * y + z
 }") ?>
 
@@ -2707,8 +2701,7 @@ var g = function(x, y, z) {
 
     <p>For another example, the following function accepts zero parameters:</p>
 
-<? pre("
-var g = function() {
+<? pre("function g() {
     return 'Hello'
 }") ?>
 
@@ -2718,8 +2711,7 @@ var g = function() {
 <? stepoverview(); ?>
     <p>If you declare a function with three parameters, like so:</p>
 
-<? pre("
-var g = function(x, y, z) {
+<? pre("function g(x, y, z) {
     return x * y + z
 }") ?>
 
@@ -2733,8 +2725,7 @@ stepheader('note-param-expr', 'Using expressions as parameters'); ?>
 
     <p>Let&rsquo;s say you have declared the following function:</p>
 
-<? pre("
-var g = function(x, y) {
+<? pre("function g(x, y) {
     return x + y
 }") ?>
 
@@ -2744,8 +2735,8 @@ var g = function(x, y) {
         <li><? code("g(1 + 2, 5 - 4)")?> would resolve to <?code('4')?></li>
     </ol>
 <? stepoverview(); ?>
-If you declare: <? pre("
-var g = function(x, y) {
+If you declare:
+<? pre("function g(x, y) {
     return x + y
 }") ?>
 , then <? code("g(1 + 2, 5 - 4)")?> would resolve to <?code('4')?>

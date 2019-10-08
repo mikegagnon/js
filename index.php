@@ -236,15 +236,20 @@ function codestr($line) {
         <div class='padded'>
             <h2>Preface</h2>
 
-            <p>This book represents the first volume in a series of three. This series, and this book in particular, is for you if you&rsquo;ve never programmed before and you would like to learn JavaScript. By the conclusion of this first book, you will have learned 100% of the JavaScript you need to know in order to write a chess game, complete with an AI. And, by the conclusion of the third book, we will have programmed the game and AI, together.</p>
+            <p>This book represents the first volume in a series of three. This series, and this book in particular, is for you if you&rsquo;ve never programmed before and you would like to learn JavaScript. By the conclusion of this first book, you will have learned 100% of the JavaScript you need to know in order to write a chess game, complete with an AI. And, by the conclusion of the third book, we will have programmed a chess game and AI, together.</p>
 
             <h3>Shallow-deep learning</h3>
 
             <p>JavaScript is a gnarly language. There are many nooks and crannies
             that book authors can either explore or ignore. Consequently,
-             JavaScript books tend to either skip over the nitty-gritty details of the language, or they tediously expound upon the minutiae.</p>
+             JavaScript books tend to either skip over the nitty-gritty details of the language, or they tediously expound upon the minutiae.
+             In contrast, this book skips over all the details, while simultaneously presenting many of the finer details of JavaScript. How?
+         </p>
 
-            <p>This book presents the big picture, along with the option to ignore, skim, or scrutinize many of the finer details of JavaScript. The way I&rsquo;ve managed to pull this off, is that I&rsquo;ve made extensive use of sidenotes.</p>
+            <p>The main narrative of this book presents the big picture, and explains
+                everything you need to know to write a chess AI. Additionally, this
+                book makes extensive use of unobtrusive sidenotes, which provides you
+                 the option to ignore, skim, or scrutinize many of the finer details of JavaScript.</p>
 
             <p>
                 If you&rsquo;re inclined, feel free to enrich your understanding of JavaScript by diving deep into the sidenotes. Or, feel free to stay shallow, which is all you need for us to build a chess AI together.
@@ -260,7 +265,7 @@ function codestr($line) {
 
             <p>But, with the hybrid lazy-eager approach, perhaps you skip a few steps and work backwards from there. Or, perhaps you skim the material until you reach a point where you&rsquo;re confused, and then go back and study the material you have already skimmed over.</p>
 
-            <p>I think the lazy-eager approach might be a great way to learn JavaScript, and I wrote this book for lazy-eager learning.</p>
+            <p>I think the lazy-eager approach might be a great way to learn JavaScript, and I constructed this book for lazy-eager learning.</p>
 
         </div>
 

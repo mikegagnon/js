@@ -88,7 +88,7 @@ function substepheader($noteName, $substepTitle) {
     $thisSubStepLink = "<li><a href=\"#$noteName\">Step $stepNum.$subStepNum. $substepTitle</a></li>";
     $text = <<<html
 <div class='padded note' data-note-name='$noteName'>
-    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <div class='close-button'>×</div>
     <h2>Step $stepNum.$subStepNum. $substepTitle</h2>
 
     <script>
@@ -105,7 +105,7 @@ function noteheader($noteName) {
 
     $text = <<<html
 <div class='padded note' data-note-name='$noteName'>
-    <div class='close-button'>×</div> <div class='expand-button'>⋮</div>
+    <div class='close-button'>×</div>
     <h2>Note</h2>
 html;
 

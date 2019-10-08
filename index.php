@@ -236,36 +236,27 @@ function codestr($line) {
         <div class='padded'>
             <h2>Preface</h2>
 
-            <p>This book represents the first volume in a series of three. This series, and this book in particular, is for you if you&rsquo;ve never programmed before and you would like to learn JavaScript. By the conclusion of this first book, you will have learned 100% of the JavaScript you need to know in order to write a chess game, complete with an AI. And, by the conclusion of the third book, we will have programmed a chess game and AI, together.</p>
+            <p>This book represents the first volume in a series of three. This series, and this book in particular, is for you if you&rsquo;ve never programmed before and you would like to learn JavaScript. By the conclusion of this first book, you will have learned 100% of the JavaScript you need to know in order to write a chess  AI. And, by the conclusion of the third book, we will have programmed a chess AI, together.</p>
 
-            <h3>Shallow-deep learning</h3>
+            <h3>Shallow vs. deep learning</h3>
 
-            <p>JavaScript is a gnarly language. There are many nooks and crannies
-            that book authors can either explore or ignore. Consequently,
-             JavaScript books tend to either skip over the nitty-gritty details of the language, or they tediously expound upon the minutiae.
-             In contrast, this book skips over all the details, while simultaneously presenting many of the finer details of JavaScript. How?
+            <p>JavaScript is a gnarly language. There are many nooks and crannies.
+            This book skips over all the details, while simultaneously presenting many of the finer points of JavaScript. How?
          </p>
 
-            <p>The main narrative of this book presents the big picture, and explains
-                everything you need to know to write a chess AI. Additionally, this
-                book makes extensive use of unobtrusive sidenotes, which provides you
-                 the option to ignore, skim, or scrutinize many of the finer details of JavaScript.</p>
+            <p>The main narrative of this book is shallow; it presents only the minimum of what you need to know to write a chess AI. At the same time, this
+                book is sprinkled with detailed sidenotes&mdash;providing you
+                 the option to dive deep into some of JavaScript&rsquo;s minutiae.</p>
 
-            <p>
-                If you&rsquo;re inclined, feel free to enrich your understanding of JavaScript by diving deep into the sidenotes. Or, feel free to stay shallow, which is all you need for us to build a chess AI together.
-            </p>
-
-            <h3>Lazy-eager learning</h3>
+            <h3>Lazy vs. eager learning</h3>
 
             <p>Broadly speaking, there are three approaches to learning: <i>lazy</i> learning, <i>eager</i> learning, and a hybrid approach&mdash;<i>lazy-eager</i> learning.</p>
 
-            <p>With the lazy approach, you skip straight to the last page of your textbook, and work backwards from there.</p>
-
-            <p>With the eager approach, you refuse to move on to the next step, until you&rsquo;ve convinced yourself that you&rsquo;ve mastered the current step.</p>
+            <p>With the lazy approach, you skip straight to the last page of your textbook, and work backwards from there. With the eager approach, you refuse to move on to the next step, until you&rsquo;ve convinced yourself that you&rsquo;ve mastered the current step.</p>
 
             <p>But, with the hybrid lazy-eager approach, perhaps you skip a few steps and work backwards from there. Or, perhaps you skim the material until you reach a point where you&rsquo;re confused, and then go back and study the material you have already skimmed over.</p>
 
-            <p>I think the lazy-eager approach might be a great way to learn JavaScript, and I constructed this book for lazy-eager learning.</p>
+            <p>I think the lazy-eager approach might be a great way to learn JavaScript, and I designed this book for lazy-eager learning.</p>
 
         </div>
 

@@ -2794,7 +2794,8 @@ function f(y) {
 stepheader('note-no-access-local', 'Statements and expressions outside of functions cannot access local variables'); ?>
 <p>If a statement, or expression, is outside of a function, then it cannot access the local variables of a function.</p>
 
-<p>Consider the example below:</p>
+<p>For example, if you were to try to execute the code snippet below, the repl would report an error,
+because <? code('log(y)') ?> is an invalid expression, since  <? code('y') ?> is not accessible outside the function <? code('f') ?>.</p>
 
 <? pre('var x = 5
 function f(y) {
@@ -2803,6 +2804,15 @@ function f(y) {
 log(y)') ?>
 
 <? stepoverview(); ?>
+The code below is invalid, because  <? code('y') ?> is not accessible outside the function <? code('f') ?>:
+<? pre('var x = 5
+function f(y) {
+    return y + x
+}
+log(y)') ?>
+
+
+
 
 <? stepfooter(); ?>
 

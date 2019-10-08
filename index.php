@@ -2437,7 +2437,8 @@ partheader('Arrays'); ##########################################################
 <? #############################################################################
 stepheader('note-intro-arrays', 'Introduction to arrays'); ?>
 
-    <p>An array is a special kind of object. For example, <? code("['a', 'b', 'c']") ?> is an <i>array value</i>
+    <p>An array is a special kind of object, which you can define using a special syntax.
+    For example, <? code("['a', 'b', 'c']") ?> is an <i>array value</i>
     that is <a href="#note-array-obj">similar to</a> the following object:</p>
 
 <? pre("{
@@ -2470,18 +2471,22 @@ noteheader('note-array-obj'); ?>
     '2': 'c' 
 } ") ?>
 
-    <p>The difference between the array value and the object value defined above,
+    <p>The primary difference between the array value <? code("['a', 'b', 'c']") ?> and the object value defined above,
         is that the array value contains members beyond just <? code("'0'") ?>, 
         <? code("'1'") ?>, and <? code("'2'") ?>.</p>
+
+    <p>For instance, the array value <? code("['a', 'b', 'c']") ?> defines an object
+        with a member named <? code("'length'") ?>, which we will see shortly
+    in the main narrative.</p>
 
 <? notefooter(); ?>
 
 <? #############################################################################
 noteheader('note-array-brackets'); ?>
-    <p>If you dug into the sidenotes from the chapter on objects, you might
+    <p>If you dug into the sub-step from <? steplink('note-obj-dot') ?>, from the chapter on objects, you would
         have encountered bracket operators already, in <? substepref('note-obj-dot', 'note-obj-brackets', 1) ?>. </p>
 
-    <p>There is no problem, if you haven&rsquo;t studied that sidenote already.
+    <p>Fortunately, there is no problem if you haven&rsquo;t studied that sidenote already.
        The main narrative of this chapter on arrays is self-contained.</p>
     </p>
 <? notefooter(); ?>

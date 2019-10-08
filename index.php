@@ -2742,6 +2742,70 @@ If you declare:
 , then <? code("g(1 + 2, 5 - 4)")?> would resolve to <?code('4')?>
 <? stepfooter(); ?>
 
+<?
+################################################################################
+partheader('Global variables and local variables'); ############################
+################################################################################
+?>
+
+<? #############################################################################
+stepheader('note-scope-intro', 'Introduction'); ?>
+    <p>A <i>global variable</i> is any variable declared <i>outside</i> of a function. In contrast, a
+    <i>local variable</i> is any variable declared <i>inside</i> a function.</p>
+
+    <p>In the following example, <? code('x') ?> is a global variable and <? code('y') ?>  is a local variable.</p>
+
+<? pre('var x = 5
+function f(y) {
+    return y + 1
+}') ?>
+<? stepoverview(); ?>
+In the following code snippet, <? pre('var x = 5
+function f(y) {
+    return y + 1
+}') ?>
+, <? code('x') ?> is a <i>global</i> variable and <? code('y') ?>  is a <i>local</i> variable
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-access-global', 'Accessing global variables from within functions'); ?>
+    <p>Statements and expressions inside a function can access global variables.
+    Consider the example below:</p>
+
+<? pre('var x = 5
+function f(y) {
+    return y + x
+}') ?>
+
+    <p>The expression <? code('f(3)') ?> will resolve to <? code('8') ?>.</p>
+<? stepoverview(); ?>
+    <p>If you declare, </p>
+
+<? pre('var x = 5
+function f(y) {
+    return y + x
+}') ?>
+
+    <p>, then the expression <? code('f(3)') ?> will resolve to <? code('8') ?>.</p>
+
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-no-access-local', 'Statements and expressions outside of functions cannot access local variables'); ?>
+<p>If a statement, or expression, is outside of a function, then it cannot access the local variables of a function.</p>
+
+<p>Consider the example below:</p>
+
+<? pre('var x = 5
+function f(y) {
+    return y + x
+}
+log(y)') ?>
+
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

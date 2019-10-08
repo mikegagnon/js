@@ -220,3 +220,8 @@ a:hover {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.book-footer {
+    margin: 10px;
+    font-size: 80%;
+}

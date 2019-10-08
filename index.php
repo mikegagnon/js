@@ -267,7 +267,11 @@ function codestr($line) {
         <div id='snippets' class='padded' >
         </div>
 
+    <p class='book-footer'>Except where otherwise noted, the contents of this book (and related source code) is copyrighted by Michael N. Gagnon, 2019. The owl logo is copyrighted by <a href="https://twemoji.twitter.com/content/twemoji-twitter/en.html">Twitter</a>, and licensed via  <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>.</p>
+
     </div>
+
+
 </div> <!-- end data-column='0' -->
 </div> <!-- end #sidenote -->
 
@@ -3220,6 +3224,7 @@ partheader(''); ################################################################
 # END ##########################################################################
 ################################################################################
 ?>
+
 
 <script>
 // For each steplink(), fill in the step number

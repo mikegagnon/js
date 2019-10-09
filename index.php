@@ -2389,6 +2389,7 @@ obj1.a === 99 && obj2.a === 99
     <? screenshot('a99.png'); ?>
 
 <? stepoverview(); ?>
+If you execute
 <pre class="language-javascript prejs"><code>var obj1 = {
     a: 10,
     b: 20
@@ -2417,7 +2418,6 @@ stepheader('note-mem-obj', 'Members can refer to objects'); ?>
     <p>Here is the accompanying storage diagram:</p>
 
     <? screenshot('xcp.png') ?>
-    <p>TODO: more?</p>
 <? stepoverview(); ?>
 <pre class="language-javascript prejs"><code>var x = {
     c: {
@@ -2615,13 +2615,39 @@ x[1] === 50 && y[1] === 50
     <? screenshot('array-50.png'); ?>
 
 <? stepoverview(); ?>
-<pre class="language-javascript prejs"><code>var obj1 = {
-    a: 10,
-    b: 20
-}
-var obj2 = obj1
-obj1.a = 99
-</code></pre>, then <code class="language-javascript">obj1.a === 99 && obj2.a === 99</code> will resolve to <code class="language-javascript">true</code>
+If you execute
+<? pre("var x = ['aaa', 'bbb', 'ccc']
+var y = x
+x[1] = 50
+") ?>, then <code class="language-javascript">x[1] === 50 && y[1] === 50
+</code> will resolve to <code class="language-javascript">true</code>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-multi-array', 'Arrays can store references to other arrays'); ?>
+
+    <p>Because any value within an array can refer to any other value (<? steplink('note-array-types'); ?>), and because arrays are values (<? steplink('note-intro-arrays')?>), then values within arrays can refer to arrays. For example:</p>
+
+<? pre("var x = [
+    ['a', 'b', 'c'],
+    ['d', 'e', 'f'],
+    ['g', 'h', 'i']
+]
+")?>
+
+    <p>If you executed the above code, and then executed <code class="language-javascript">x[1][2]</code>, it would resolve to <code class="language-javascript">'f'</code>. Similarly, <code class="language-javascript">x[2][1]</code>, would resolve to <code class="language-javascript">'h'</code>.</p>
+
+    <p>Here is the accompanying storage diagram:</p>
+
+    <? screenshot('array-multi.png') ?>
+
+<? stepoverview(); ?>
+<pre class="language-javascript prejs"><code>var x = {
+    c: {
+        q: 'Hello',
+    }
+}</code></pre>
+then, <code class="language-javascript">x.c.q</code>, would resolve to <code class="language-javascript">'Hello'</code>
 <? stepfooter(); ?>
 
 

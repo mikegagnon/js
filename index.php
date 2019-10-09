@@ -2102,25 +2102,6 @@ stepheader('note-obj-var', 'Variables can refer to objects'); ?>
 <? stepfooter(); ?>
 
 <? #############################################################################
-stepheader('note-obj-types', 'Object member types'); ?>
-    <p>The members within any object may be of any type.</p>
-
-    <p>For example, the following object definition is perfectly valid:</p>
-
-<pre class="language-javascript prejs"><code>var x = {
-    abc: -1,
-    hello: true,
-    world: '1, 2, 3!'
-}</code></pre>
-<? stepoverview(); ?>
-<pre class="language-javascript prejs"><code>var x = {
-    abc: -1,
-    hello: true,
-    world: '1, 2, 3!'
-}</code></pre>
-<? stepfooter(); ?>
-
-<? #############################################################################
 stepheader('note-obj-dot', 'Accessing members via the dot operator'); ?>
     <p>Recall: we can create variables that 
         refer to object values. For example:</p>
@@ -2309,6 +2290,25 @@ substepheader('note-obj-brackets-precedence', 'Bracket operators precedence'); ?
 <? substepfooter() ?>
 
 <? #############################################################################
+stepheader('note-obj-types', 'Object member types'); ?>
+    <p>The members within any object may be of any type.</p>
+
+    <p>For example, the following object definition is perfectly valid:</p>
+
+<pre class="language-javascript prejs"><code>var x = {
+    abc: -1,
+    hello: true,
+    world: '1, 2, 3!'
+}</code></pre>
+<? stepoverview(); ?>
+<pre class="language-javascript prejs"><code>var x = {
+    abc: -1,
+    hello: true,
+    world: '1, 2, 3!'
+}</code></pre>
+<? stepfooter(); ?>
+
+<? #############################################################################
 stepheader('note-references', 'Introduction to references and storage diagrams'); ?>
 <? $chapterRef = $chapterNum ?>
 
@@ -2436,6 +2436,37 @@ partheader('Arrays'); ##########################################################
 
 <? #############################################################################
 stepheader('note-intro-arrays', 'Introduction to arrays'); ?>
+    <p>An <i>array</i> is a value that holds a collection of “indexed” values. Like objects, 
+    arrays are basically containers for storing variables. Consider the following example:</p>
+
+<? pre("['first', 'second', 'third'] ") ?>
+
+    <p>The above example defines an array value, containing three indexed values:</p>
+
+    <ul>
+        <li>The index <code class="language-javascript">0</code> refers to the value <code class="language-javascript">'first'</code></li>
+        <li>The index <code class="language-javascript">1</code> refers to the value <code class="language-javascript">'second'</code></li>
+        <li>The index <code class="language-javascript">2</code> refers to the value <code class="language-javascript">'third'</code></li>
+    </ul>
+
+<? stepoverview(); ?>
+    <p>TODO</p>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-array-var', 'Variables can refer to arrays'); ?>
+ <p>Arrays are values, similar to any other type of value, such as numbers, strings, and objects. Consequently, as you might expect, you can create variables that 
+        refer to array values. For example:</p>
+
+<? pre("var x = ['first', 'second', 'third'] ") ?>
+
+<? stepoverview(); ?>
+    <? code("var x = ['first', 'second', 'third'] ") ?>
+<? stepfooter(); ?>
+
+
+<? #############################################################################
+stepheader('note-intro-arrays2', 'Introduction to arrays'); ?>
 
     <p>An array is a special kind of object, which you can define using a special syntax.
     For example, <? code("['a', 'b', 'c']") ?> is an <i>array value</i>

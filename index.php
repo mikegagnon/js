@@ -229,7 +229,8 @@ function codestr($line) {
             <div class='subtitle'>Overview &amp; Details</div>
             <div><? screenshot('owl.png') ?></div>
             <div class='subtitle'>Volume 1</div>
-            <div class='author'>Michael N. Gagnon, 2019</div>
+            <div class='author'>&copy; Michael N. Gagnon, 2019</div>
+            <div class='author'>This book represents an early, incomplete, rough draft. However, I&rsquo;m posting this draft online now, just to demonstrate the overall approach I&rsquo;m taking with the book.</div>
         </div>
         <div id="spacer" style="width: 1; height: 1px;">
         </div>

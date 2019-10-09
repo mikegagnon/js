@@ -2112,7 +2112,7 @@ stepheader('note-obj-dot', 'Accessing members via the dot operator'); ?>
     c: 30
 }</code></pre>
 
-    <p>You can &ldquo;access&rdquo; the members of the object, referred to by <code class="language-javascript">x</code> by using the &ldquo;dot operator.&rdquo; For example, to access the member <code class="language-javascript">a</code> you would simply type <code class="language-javascript">x.a</code>. The expression <code class="language-javascript">x.a</code> resolves to the value <code class="language-javascript">10</code>, and the expression <code class="language-javascript">x.b</code> resolves to <code class="language-javascript">20</code>.</p>
+    <p>You can &ldquo;access&rdquo; the members of the object, by using the &ldquo;dot operator.&rdquo; For example, to access the member <code class="language-javascript">a</code> you would simply type <code class="language-javascript">x.a</code>. The expression <code class="language-javascript">x.a</code> resolves to the value <code class="language-javascript">10</code>, and the expression <code class="language-javascript">x.b</code> resolves to <code class="language-javascript">20</code>.</p>
 <? stepoverview(); ?>
     If you declare <code class="language-javascript">var x = { a: 10 }</code>, then the expression <code class="language-javascript">x.a</code> resolves to the value <code class="language-javascript">10</code>
 <? stepfooter(); ?>
@@ -2439,14 +2439,14 @@ stepheader('note-intro-arrays', 'Introduction to arrays'); ?>
     <p>An <i>array</i> is a value that holds a collection of “indexed” values. Like objects, 
     arrays are basically containers for storing variables. Consider the following example:</p>
 
-<? pre("['first', 'second', 'third'] ") ?>
+<? pre("['aaa', 'bbb', 'ccc'] ") ?>
 
     <p>The above example defines an array value, containing three indexed values:</p>
 
     <ul>
-        <li>The index <code class="language-javascript">0</code> refers to the value <code class="language-javascript">'first'</code></li>
-        <li>The index <code class="language-javascript">1</code> refers to the value <code class="language-javascript">'second'</code></li>
-        <li>The index <code class="language-javascript">2</code> refers to the value <code class="language-javascript">'third'</code></li>
+        <li>The index <code class="language-javascript">0</code> refers to the value <code class="language-javascript">'aaa'</code></li>
+        <li>The index <code class="language-javascript">1</code> refers to the value <code class="language-javascript">'bbb'</code></li>
+        <li>The index <code class="language-javascript">2</code> refers to the value <code class="language-javascript">'ccc'</code></li>
     </ul>
 
 <? stepoverview(); ?>
@@ -2458,10 +2458,32 @@ stepheader('note-array-var', 'Variables can refer to arrays'); ?>
  <p>Arrays are values, similar to any other type of value, such as numbers, strings, and objects. Consequently, as you might expect, you can create variables that 
         refer to array values. For example:</p>
 
-<? pre("var x = ['first', 'second', 'third'] ") ?>
+<? pre("var x = ['aaa', 'bbb', 'ccc'] ") ?>
 
 <? stepoverview(); ?>
-    <? code("var x = ['first', 'second', 'third'] ") ?>
+    <? code("var x = ['aaa', 'bbb', 'ccc'] ") ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-array-brackets', 'Accessing values via bracket operators'); ?>
+    <p>Recall: we can create variables that 
+        refer to array values. For example:</p>
+
+    <? pre("var x = ['aaa', 'bbb', 'ccc'] ") ?>
+
+    <p>You can access the values within an array, by using &ldquo;bracket operators.&rdquo; For example:</p>
+
+    <ul>
+        <li><code class="language-javascript">x[0]</code> resolves to the value <code class="language-javascript">'aaa'</code></li>
+        <li><code class="language-javascript">x[1]</code> resolves to the value <code class="language-javascript">'bbb'</code></li>
+        <li><code class="language-javascript">x[2]</code> resolves to the value <code class="language-javascript">'ccc'</code></li>
+    </ul>
+
+    <p>The number inside the brackets is referred to as an <i>index</i>.</p>
+
+    <p>Note, the <i>n</i>th value within an array is indexed by <i>n</i> - 1. So, to access the four-hundredth value in an array <?code('z')?>, you would type <?code('z[399]')?>.</p>
+<? stepoverview(); ?>
+    If you declare <code class="language-javascript">var x = { a: 10 }</code>, then the expression <code class="language-javascript">x.a</code> resolves to the value <code class="language-javascript">10</code>
 <? stepfooter(); ?>
 
 
@@ -2478,7 +2500,7 @@ stepheader('note-intro-arrays2', 'Introduction to arrays'); ?>
     '2': 'c' 
 } ") ?>
 
-    <p>You can access the members of an array using <a href="#note-array-brackets">bracket operators</a>. For example, if you were to declare
+    <p>You can access the members of an array using <a href="#note-array-brackets2">bracket operators</a>. For example, if you were to declare
     <? code("var x = ['a', 'b', 'c']") ?>, then you could access the 
         <? code("'0'") ?> member with: <? code("x['0']") ?>.</p>
 
@@ -2513,7 +2535,7 @@ noteheader('note-array-obj'); ?>
 <? notefooter(); ?>
 
 <? #############################################################################
-noteheader('note-array-brackets'); ?>
+noteheader('note-array-brackets2'); ?>
     <p>If you dug into the sub-step from <? steplink('note-obj-dot') ?>, from the chapter on objects, you would
         have encountered bracket operators already, in <? substepref('note-obj-dot', 'note-obj-brackets', 1) ?>. </p>
 

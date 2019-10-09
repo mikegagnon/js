@@ -2143,7 +2143,7 @@ substepheader('note-obj-brackets', 'Accessing members via bracket operators'); ?
 
 <? #############################################################################
 stepheader('note-obj-update', 'Updating members via the dot operator'); ?>
-    <p>You can update the value of a member, similar to how you would update the value of any plain variable, using the assignment operator (see <? steplink('note-assignment-op') ?>). For instance, consider the following object definition:</p>
+    <p>You can update the value of a member, similar to how you would update the value of any plain variable, i.e. by using the assignment operator (see <? steplink('note-assignment-op') ?>). For instance, consider the following object definition:</p>
 
     <pre class="language-javascript prejs"><code>var x = {
     a: 10,
@@ -2483,7 +2483,98 @@ stepheader('note-array-brackets', 'Accessing values via bracket operators'); ?>
 
     <p>Note, the <i>n</i>th value within an array is indexed by <i>n</i> - 1. So, to access the four-hundredth value in an array <?code('z')?>, you would type <?code('z[399]')?>.</p>
 <? stepoverview(); ?>
+    TODO
     If you declare <code class="language-javascript">var x = { a: 10 }</code>, then the expression <code class="language-javascript">x.a</code> resolves to the value <code class="language-javascript">10</code>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-array-update', 'Updating values via bracket operators'); ?>
+    <p>You can update the value within an array, similar to how you would update the value of any plain variable, i.e. by using the assignment operator (see <? steplink('note-assignment-op') ?>). For instance, consider the following array definition:</p>
+
+<!-- TODO: consistent usage of declaration vs. definition -->
+
+    <? pre("var x = ['aaa', 'bbb', 'ccc'] ") ?>
+
+    <p>You can set the third value within <code class="language-javascript">x</code> to refer to the value <code class="language-javascript">'Hello'</code> by executing <code class="language-javascript">x[2] = 'Hello'</code>. Afterwards, the expression <code class="language-javascript">x[2]</code> would resolve to the string <code class="language-javascript">'Hello'</code>.</p>
+<? stepoverview(); ?>
+    If you declare <code class="language-javascript">var x = { a: 10 }</code>, then executing the expression <code class="language-javascript">x.a = 'Hello'</code> will cause the expression <code class="language-javascript">x.a</code> to resolve to the value <code class="language-javascript">'Hello'</code>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-array-brackets-precedence', 'Bracket operators precedence'); ?>
+    <p>Bracket operators have the same precedence as the dot operator. That is, they are only one level below the parentheses operators.</p>
+
+    <table class="precedence-table">
+        <tr class="header-row">
+            <th>Precedence</th>
+            <th>Operator type</th>
+            <th>Operators</th>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>Grouping</td>
+            <td><code class="language-javascript">( ... )</code></td>   
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>Dot operator, brackets</td>
+            <td><code class="language-javascript">.</code>, <code class="language-javascript">... [ ... ]</code></td>   
+        </tr>
+         <tr>
+            <td>15</td>
+            <td>Not</td>
+            <td><code class="language-javascript">!</code> </td>   
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Multiplication and division</td>
+            <td><code class="language-javascript">*</code>, <code class="language-javascript">/</code> </td>   
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Addition and subtraction</td>
+            <td><code class="language-javascript">+</code>, <code class="language-javascript">-</code> </td>   
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Relational operators<br>
+            </td>
+            <td><code class="language-javascript">&gt;</code>, <code class="language-javascript">&gt;=</code>, <code class="language-javascript">&lt;</code>, <code class="language-javascript">&lt;=</code> </td>   
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Equality operators</td>
+            <td><code class="language-javascript">===</code>, <code class="language-javascript">!==</code> </td>   
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>And</td>
+            <td><code class="language-javascript">&amp;&amp;</code></td>   
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Or</td>
+            <td><code class="language-javascript">||</code></td>   
+        </tr>
+</table>
+<? stepoverview() ?>
+    <p>Bracket operators have the same precedence as the dot operator. That is, they are only one level below the parentheses operators.</p>
+<? stepfooter() ?>
+
+<? #############################################################################
+stepheader('note-array-types', 'Array values types'); ?>
+    <p>The values within any array may be of any type.</p>
+
+    <p>For example, the following array definition is perfectly valid:</p>
+
+<? pre("var x = [5, false, { a: 'Hello'} ]") ?>
+
+    <p>To access the object indexed by 2, you would type <? code('x[2]') ?>, and to access
+        the member <? code('a') ?> within <? code('x[2]') ?>, you would type
+        <? code('x[2].a') ?>, which would resolve to <? code('Hello') ?>.</p>
+<? stepoverview(); ?>
+<? code("var x = [5, false, { a: 'Hello'} ]") ?>
+
 <? stepfooter(); ?>
 
 

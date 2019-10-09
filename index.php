@@ -2310,7 +2310,6 @@ stepheader('note-obj-types', 'Object member types'); ?>
 
 <? #############################################################################
 stepheader('note-references', 'Introduction to references and storage diagrams'); ?>
-<? $chapterRef = $chapterNum ?>
 
         <p>Throughout the rest of this book, we will use &ldquo;storage diagrams&rdquo; to visually represent variables, and other types of entities as well. These diagrams begin very simply, and then become complex as we progress through the steps.</p>
 
@@ -2579,6 +2578,50 @@ stepheader('note-array-types', 'Array values types'); ?>
 <? stepoverview(); ?>
 <? code("var x = [5, false, { a: 'Hello'} ]") ?>
 
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-array-ref', 'Array references and storage diagrams'); ?>
+
+    <p>Recall from <? steplink('note-obj-ref') ?>, JavaScript does not store object values inside variables. Rather, JavaScript stores <i>references</i> to objects inside variables.</p>
+
+    <p>In a similar way, JavaScript does not store array values inside variables. Rather, JavaScript stores references to arrays inside variables. Thus, here&rsquo;s what the storage diagram would look like if we defined an array as in the following code:</p>
+
+<? pre("var x = ['aaa', 'bbb', 'ccc'] ") ?>
+
+    <? screenshot('array-storage.png'); ?>
+
+    <p>Notice, the variable <code class="language-javascript">x</code> is not storing an array value directly. Rather, the variable <code class="language-javascript">x</code> is storing a reference to an array value. There is a significant practical consequence of the fact that <code class="language-javascript">obj</code> is storing a reference, and not a value. Let&rsquo;s take a look.</p>
+
+    <p>If we were to copy the reference to the array value into another variable, then the storage diagram would look like this:</p>
+
+<? pre("var x = ['aaa', 'bbb', 'ccc']
+var y = x
+") ?>
+
+    <? screenshot('array-storage-2.png'); ?>
+
+    <p>The practical significance, here, is that if we were to update the array, by assigning a new value associated with one of the indices, then
+    both <code class="language-javascript">x</code> and <code class="language-javascript">y</code> would each access the changed value. For example, if you were to run the following code in th repl, the repl would respond with <code class="language-javascript">true</code> </p>
+            
+<? pre("var x = ['aaa', 'bbb', 'ccc']
+var y = x
+x[1] = 50
+x[1] === 50 && y[1] === 50
+") ?>
+
+    <p>Just to be clear, here  is what the storage diagram would look like:</p>
+
+    <? screenshot('array-50.png'); ?>
+
+<? stepoverview(); ?>
+<pre class="language-javascript prejs"><code>var obj1 = {
+    a: 10,
+    b: 20
+}
+var obj2 = obj1
+obj1.a = 99
+</code></pre>, then <code class="language-javascript">obj1.a === 99 && obj2.a === 99</code> will resolve to <code class="language-javascript">true</code>
 <? stepfooter(); ?>
 
 

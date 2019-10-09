@@ -1706,6 +1706,78 @@ stepheader('note-more-assignment-op', 'More about the assignment operator'); ?>
 
 <?
 ################################################################################
+partheader('Increment and decrement operators'); ###############################
+################################################################################
+?>
+
+<? #############################################################################
+stepheader('note-increment', 'Increment'); ?>
+    
+    <p>Let&rsquo;s say you have a variable named <? code('x')?> that refers to a number:</p>
+
+<? pre("var x = 3")?>
+
+    <p>You can &ldquo;increment&rdquo; the variable <? code('x') ?> using the expression:
+        <? code('x++') ?>. The term <i>increment</i> means &ldquo;increase by one.&rdquo;
+        Thus, after you increment <? code('x')?>, then the value of <? code('x')?> becomes <? code('4')?>.
+    </p>
+
+    <p>Just to be clear, if you execute:</p>
+
+<? pre("var x = 3
+x++
+")?>
+
+    <p>, then afterwards <? code("x")?> will resolve to <? code("4")?>.</p>
+
+    <p>To give another example, if you execute:</p>
+
+<? pre("var x = 5
+x++
+x++
+")?>
+    
+    <p>, then afterwards <? code("x") ?> would resolve to <? code("7")?>.</p>
+<? stepoverview(); ?>
+    <p><? code('x++') ?> increases the value of <? code('x') ?> by one</p>
+<? stepfooter(); ?>
+<? #############################################################################
+stepheader('note-decrement', 'Decrement'); ?>
+    
+    <p>&ldquo;Decrement&rdquo; is the dual to increment. Whereas incrementing a variable <i>increases</i> its value by one,
+    decrementing a variable <i>decreases</i> its value by one.</p>
+
+    <p>Let&rsquo;s say you have a variable named <? code('x')?> that refers to a number:</p>
+
+<? pre("var x = 3")?>
+
+    <p>You can decrement the variable <? code('x') ?> using the expression:
+        <? code('x--') ?>. Thus, after you decrement <? code('x')?>, then the value of <? code('x')?> becomes <? code('2')?>.
+    </p>
+
+    <p>Just to be clear, if you execute:</p>
+
+<? pre("var x = 3
+x--
+")?>
+
+    <p>, then afterwards <? code("x")?> will resolve to <? code("2")?>.</p>
+
+    <p>To give another example, if you execute:</p>
+
+<? pre("var x = 10
+x--
+x--
+")?>
+    
+    <p>, then afterwards <? code("x") ?> would resolve to <? code("8")?>.</p>
+
+<? stepoverview(); ?>
+    <p><? code('x--') ?> decreases the value of <? code('x') ?> by one</p>
+<? stepfooter(); ?>
+
+<?
+################################################################################
 partheader('Multiline input and logging'); #####################################
 ################################################################################
 ?>

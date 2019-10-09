@@ -2153,7 +2153,7 @@ stepheader('note-obj-update', 'Updating members via the dot operator'); ?>
 
     <p>You can set the member <code class="language-javascript">a</code> to refer to the value <code class="language-javascript">'Hello'</code> by executing <code class="language-javascript">x.a = 'Hello'</code>. Afterwards, the expression <code class="language-javascript">x.a</code> would resolve to the string <code class="language-javascript">'Hello'</code>.</p>
 <? stepoverview(); ?>
-    If you declare <code class="language-javascript">var x = { a: 10 }</code>, then executing the expression <code class="language-javascript">x.a = 'Hello'</code> will cause the expression <code class="language-javascript">x.a</code> to resolve to the value <code class="language-javascript">'Hello'</code>
+    If you declare <code class="language-javascript">var x = { a: 10 }</code>, then executing the expression <code class="language-javascript">x.a = 'Hello'</code> will henceforth cause the expression <code class="language-javascript">x.a</code> to resolve to the value <code class="language-javascript">'Hello'</code>
 <? stepfooter(); ?>
 
 <? #############################################################################
@@ -2450,7 +2450,7 @@ stepheader('note-intro-arrays', 'Introduction to arrays'); ?>
     </ul>
 
 <? stepoverview(); ?>
-    <p>TODO</p>
+<? code("['aaa', 'bbb', 'ccc'] ") ?>
 <? stepfooter(); ?>
 
 <? #############################################################################
@@ -2483,8 +2483,9 @@ stepheader('note-array-brackets', 'Accessing values via bracket operators'); ?>
 
     <p>Note, the <i>n</i>th value within an array is indexed by <i>n</i> - 1. So, to access the four-hundredth value in an array <?code('z')?>, you would type <?code('z[399]')?>.</p>
 <? stepoverview(); ?>
-    TODO
-    If you declare <code class="language-javascript">var x = { a: 10 }</code>, then the expression <code class="language-javascript">x.a</code> resolves to the value <code class="language-javascript">10</code>
+    If you declare,
+    <? pre("var x = ['aaa', 'bbb', 'ccc'] ") ?>
+    , then the expression <? code('x[2]') ?> resolves to the value <code class="language-javascript">'ccc'</code>
 <? stepfooter(); ?>
 
 <? #############################################################################
@@ -2497,7 +2498,10 @@ stepheader('note-array-update', 'Updating values via bracket operators'); ?>
 
     <p>You can set the third value within <code class="language-javascript">x</code> to refer to the value <code class="language-javascript">'Hello'</code> by executing <code class="language-javascript">x[2] = 'Hello'</code>. Afterwards, the expression <code class="language-javascript">x[2]</code> would resolve to the string <code class="language-javascript">'Hello'</code>.</p>
 <? stepoverview(); ?>
-    If you declare <code class="language-javascript">var x = { a: 10 }</code>, then executing the expression <code class="language-javascript">x.a = 'Hello'</code> will cause the expression <code class="language-javascript">x.a</code> to resolve to the value <code class="language-javascript">'Hello'</code>
+    If you declare,
+    <? pre("var x = ['aaa', 'bbb', 'ccc'] ") ?>
+    , then executing the expression <code class="language-javascript">x[2] = 'Hello'</code>
+    will henceforth cause the expression <code class="language-javascript">x[2]</code> to resolve to <code class="language-javascript">'Hello'</code>
 <? stepfooter(); ?>
 
 <? #############################################################################

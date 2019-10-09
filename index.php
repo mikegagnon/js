@@ -2622,6 +2622,29 @@ stepheader('note-arrays-are-objects', 'Arrays are objects'); ?>
 <? stepfooter(); ?>
 
 <? #############################################################################
+stepheader('note-array-length', 'Array length'); ?>
+<!-- TODO: use 'element' instead of value within an array -->
+
+    <p>Every array has a member named <? code('length')?>, which is always equal
+    to the number of values within the array.</p>
+
+    <p>For example, if we defined the following array:</p>
+
+<? pre("var x = ['a', 'b', 'c']
+") ?>
+
+    <p>Then, <? code('x.length') ?> would resolve to <? code('3')?>.</p>
+
+<? stepoverview(); ?>
+    <p>If we defined the following array:</p>
+
+<? pre("var x = ['a', 'b', 'c']
+") ?>
+
+    <p>Then, <? code('x.length') ?> would resolve to <? code('3')?>.</p>
+<? stepfooter(); ?>
+
+<? #############################################################################
 stepheader('note-array-ref', 'Array references and storage diagrams'); ?>
 
     <p>Recall from <? steplink('note-obj-ref') ?>, JavaScript does not store object values inside variables. Rather, JavaScript stores <i>references</i> to objects inside variables.</p>

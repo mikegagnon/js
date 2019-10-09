@@ -2452,33 +2452,7 @@ stepheader('note-intro-arrays', 'Introduction to arrays'); ?>
 <? code("['aaa', 'bbb', 'ccc'] ") ?>
 <? stepfooter(); ?>
 
-<? #############################################################################
-substepheader('note-arrays-are-objects', 'Arrays are objects'); ?>
 
-    <p>An array is actually a special kind of <i>object</i>, which you define using a special syntax.
-    For example, <? code("['a', 'b', 'c']") ?> is an <i>array value</i>
-    that is similar to the following object:</p>
-
-<? pre("{
-    '0': 'a',
-    '1': 'b',
-    '2': 'c' 
-} ") ?>
-
-    <p>The primary difference between the array value <? code("['a', 'b', 'c']") ?> and the object value defined above,
-        is that the array value contains members beyond just <? code("'0'") ?>, 
-        <? code("'1'") ?>, and <? code("'2'") ?>. For instance, every array value
-        has a member named <? code("'length'") ?>, which we will see shortly
-    in Step TODO.</p>
-
-    <p>In two steps from now, (in <? steplink('note-array-brackets') ?>), we will see how we can
-     access the members of an array using array bracket operators. Array bracket operators are actually the exact same thing as object bracket operators (<? substepref('note-obj-dot', 'note-obj-brackets', 1) ?>). For example, if you were to declare
-    <? code("var x = ['a', 'b', 'c']") ?>, then you could access the 
-        <? code("'0'") ?> member with: <? code("x['0']") ?>. In this case, <? code("x['0']") ?>
-    would resolve to <? code("'a'") ?>.</p>
-
-
-<? substepfooter(); ?>
 
 <? #############################################################################
 stepheader('note-array-var', 'Variables can refer to arrays'); ?>
@@ -2605,6 +2579,39 @@ stepheader('note-array-types', 'Array values types'); ?>
         <? code('x[2].a') ?>, which would resolve to <? code('Hello') ?>.</p>
 <? stepoverview(); ?>
 <? code("var x = [5, false, { a: 'Hello'} ]") ?>
+
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-arrays-are-objects', 'Arrays are objects'); ?>
+
+    <p>An array is actually a special kind of <i>object</i>, which you define using a special syntax.
+    For example, <? code("['a', 'b', 'c']") ?> is an <i>array value</i>
+    that is similar to the following object:</p>
+
+<? pre("{
+    '0': 'a',
+    '1': 'b',
+    '2': 'c' 
+} ") ?>
+
+    <p>The primary difference between the array value <? code("['a', 'b', 'c']") ?> and the object value defined above,
+        is that the array value contains members beyond just <? code("'0'") ?>, 
+        <? code("'1'") ?>, and <? code("'2'") ?>. For instance, every array value
+        has a member named <? code("'length'") ?>, which we will see in the next step (Step TODO).</p>
+
+    <p>Array bracket operators are actually the exact same thing as object bracket operators (<? substepref('note-obj-dot', 'note-obj-brackets', 1) ?>). For example, if you were to declare
+    <? code("var x = ['a', 'b', 'c']") ?>, then you could access the 
+        <? code("'0'") ?> member with: <? code("x['0']") ?>. In this case, <? code("x['0']") ?>
+    would resolve to <? code("'a'") ?>.</p>
+
+    <p>One last thing: when we access (or update) a value within an array, we can use either numeric or string indices. E.g., 
+        <? code('x[0] = 1') ?> is identical to <? code("x['0'] = 1") ?>. As long as the index can be converted to a string index,
+        JavaScript will access (or update) the indexed value within the array just fine.
+    </p>
+
+<? stepoverview() ?>
+    TODO
 
 <? stepfooter(); ?>
 

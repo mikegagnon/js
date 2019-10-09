@@ -2652,7 +2652,9 @@ then, <code class="language-javascript">x.c.q</code>, would resolve to <code cla
 
 
 <? #############################################################################
-stepheader('note-intro-arrays2', 'Introduction to arrays'); ?>
+substepheader('note-intro-arrays2', 'Introduction to arrays'); ?>
+
+    TODO: finish and place somewhere better
 
     <p>An array is a special kind of object, which you can define using a special syntax.
     For example, <? code("['a', 'b', 'c']") ?> is an <i>array value</i>
@@ -2671,11 +2673,7 @@ stepheader('note-intro-arrays2', 'Introduction to arrays'); ?>
     <p>In this case <? code("x['0']") ?>
     would resolve to <? code("'a'") ?>.</p>
 
-
-
-<? stepoverview(); ?>
-    <p>TODO</p>
-<? stepfooter(); ?>
+<? substepfooter(); ?>
 
 <!-- TODO: remove expand button from notes -->
 <? #############################################################################
@@ -2708,13 +2706,6 @@ noteheader('note-array-brackets2'); ?>
     </p>
 <? notefooter(); ?>
 
-
-<? #############################################################################
-stepheader('note-array-todo', 'TODO'); ?>
-    <p>TODO: finish chapter on arrays</p>
-<? stepoverview(); ?>
-    <p>TODO</p>
-<? stepfooter(); ?>
 
 
 <? ########################################################################## ?>

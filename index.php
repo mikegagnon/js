@@ -2611,8 +2611,14 @@ stepheader('note-arrays-are-objects', 'Arrays are objects'); ?>
     </p>
 
 <? stepoverview() ?>
-    TODO
+<? code("['a', 'b', 'c']") ?> is an array value
+    that is similar to the following object:</p>
 
+<? pre("{
+    '0': 'a',
+    '1': 'b',
+    '2': 'c' 
+} ") ?>
 <? stepfooter(); ?>
 
 <? #############################################################################

@@ -2453,6 +2453,34 @@ stepheader('note-intro-arrays', 'Introduction to arrays'); ?>
 <? stepfooter(); ?>
 
 <? #############################################################################
+substepheader('note-arrays-are-objects', 'Arrays are objects'); ?>
+
+    <p>An array is actually a special kind of <i>object</i>, which you define using a special syntax.
+    For example, <? code("['a', 'b', 'c']") ?> is an <i>array value</i>
+    that is similar to the following object:</p>
+
+<? pre("{
+    '0': 'a',
+    '1': 'b',
+    '2': 'c' 
+} ") ?>
+
+    <p>The primary difference between the array value <? code("['a', 'b', 'c']") ?> and the object value defined above,
+        is that the array value contains members beyond just <? code("'0'") ?>, 
+        <? code("'1'") ?>, and <? code("'2'") ?>. For instance, every array value
+        has a member named <? code("'length'") ?>, which we will see shortly
+    in Step TODO.</p>
+
+    <p>In two steps from now, (in <? steplink('note-array-brackets') ?>), we will see how we can
+     access the members of an array using array bracket operators. Array bracket operators are actually the exact same thing as object bracket operators (<? substepref('note-obj-dot', 'note-obj-brackets', 1) ?>). For example, if you were to declare
+    <? code("var x = ['a', 'b', 'c']") ?>, then you could access the 
+        <? code("'0'") ?> member with: <? code("x['0']") ?>. In this case, <? code("x['0']") ?>
+    would resolve to <? code("'a'") ?>.</p>
+
+
+<? substepfooter(); ?>
+
+<? #############################################################################
 stepheader('note-array-var', 'Variables can refer to arrays'); ?>
  <p>Arrays are values, similar to any other type of value, such as numbers, strings, and objects. Consequently, as you might expect, you can create variables that 
         refer to array values. For example:</p>
@@ -2651,29 +2679,7 @@ then, <code class="language-javascript">x.c.q</code>, would resolve to <code cla
 <? stepfooter(); ?>
 
 
-<? #############################################################################
-substepheader('note-intro-arrays2', 'Introduction to arrays'); ?>
 
-    TODO: finish and place somewhere better
-
-    <p>An array is a special kind of object, which you can define using a special syntax.
-    For example, <? code("['a', 'b', 'c']") ?> is an <i>array value</i>
-    that is <a href="#note-array-obj">similar to</a> the following object:</p>
-
-<? pre("{
-    '0': 'a',
-    '1': 'b',
-    '2': 'c' 
-} ") ?>
-
-    <p>You can access the members of an array using <a href="#note-array-brackets2">bracket operators</a>. For example, if you were to declare
-    <? code("var x = ['a', 'b', 'c']") ?>, then you could access the 
-        <? code("'0'") ?> member with: <? code("x['0']") ?>.</p>
-
-    <p>In this case <? code("x['0']") ?>
-    would resolve to <? code("'a'") ?>.</p>
-
-<? substepfooter(); ?>
 
 <!-- TODO: remove expand button from notes -->
 <? #############################################################################

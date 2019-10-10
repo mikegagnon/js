@@ -195,6 +195,10 @@ li {
     margin-bottom: 20px;
 }
 
+.stacked-li li {
+    margin-bottom: 0px;
+}
+
 .table-format {
     padding-bottom: 20px;
 }

@@ -3498,8 +3498,71 @@ partheader('For loops'); #######################################################
 <? #############################################################################
 stepheader('note-for-intro', 'Introduction to for loops'); ?>
     <p>For loops allow you to repeatedly execute the same piece of code multiple times, but each time differently.</p>
+
+    <p>For example:</p>
+
+<? pre("for (var i = 0; i < 3; i++) {
+    log(i)
+} ")?>
+
+    <p>If you execute this code in the repl, the repl will log three messages: <? code('0') ?>, <? code('1') ?>, and <? code('2') ?>.</p>
+<? stepoverview(); ?>
+    <p>If you execute this code in the repl:</p>
+<? pre("for (var i = 0; i < 3; i++) {
+    log(i)
+} ")?>
+
+    <p>, then the repl will log three messages: <? code('0') ?>, <? code('1') ?>, and <? code('2') ?>.</p>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-for-iterate', 'Iterating over an array'); ?>
+    <p>For loops are commonly used to &ldquo;iterate&rdquo; over arrays.</p>
+
+    <p>For example:</p>
+
+<? pre("var x = ['p', 'q', 'r', 's']
+for (var i = 0; i < x.length; i++) {
+    log(x[i])
+}")?>
+
+    <p>If you execute this code in the repl, the repl will log four messages: <? code('p') ?>, <? code('q') ?>, <? code('r') ?>, and <? code('s') ?>.</p>
+<? stepoverview(); ?>
+    <p>If you execute this code in the repl:</p>
+<? pre("var x = ['p', 'q', 'r', 's']
+for (var i = 0; i < x.length; i++) {
+    log(x[i])
+}")?>
+
+    <p>, then the repl will log four messages: <? code('p') ?>, <? code('q') ?>, <? code('r') ?>, and <? code('s') ?>.</p>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-for-explained', 'How for loops behave'); ?>
+Every for loop has four parts (labeled here as <? code('a') ?>, <? code('b') ?>, <? code('c') ?>, and <? code('d') ?>):
+<? pre("for (a; b; d) {
+    c
+}")?>
+
+    <ol class='stacked-li'>
+        <li>First, JavaScript executes <? code('a') ?></li>
+        <li>Second, JavaScript resolves <? code('b') ?>
+            <ol type='a'>
+                <li>If <? code('b') ?> resolves to <? code('false') ?>, then JavaScript exits the for loop</li>
+                <li>But, if <? code('b') ?> resolves to <? code('true') ?>, then JavaScript continues to step 3</li>
+            </ol>
+        <li>Third, JavaScript executes <? code('c') ?></li>
+        <li>Fourth, JavaScript executes <? code('d') ?></li>
+        <li>Next, JavaScript jumps back to step 2 of this list of steps</li>
+
+        </li>
+
+
+    </ol>
+
 <? stepoverview(); ?>
 <? stepfooter(); ?>
+
 
 
 

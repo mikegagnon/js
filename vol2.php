@@ -1,5 +1,10 @@
 <?
 include 'sidenote.php';
+
+function iframe($filename) {
+    echo "<iframe src='$filename' width='480px' height='300px'></iframe>";
+}
+
 ?><!doctype html>
 <html lang='en'>
     <head>
@@ -115,7 +120,7 @@ partheader('Chapter teste'); ###################################################
 
 <? #############################################################################
 stepheader('note-test', 'Test step'); ?>
-    <iframe src="step1.html" width="480px"></iframe>
+    <? iframe('step1.html') ?>
 <? stepoverview(); ?>
     <p>Overview</p>
 <? stepfooter(); ?>

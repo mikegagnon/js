@@ -138,7 +138,7 @@ partheader('Setup your development environment'); ##############################
 ?>
 
 <? #############################################################################
-stepheader('note-codepen', 'Introduction to Codepen.io'); ?>
+stepheader('note-codepen', 'Introduction to CodePen'); ?>
     
     <p>We are going to write a bunch of code together. To do that, you need
     a <i>development environment</i>, a place where you can type in code,
@@ -172,20 +172,31 @@ stepheader('note-codepen', 'Introduction to Codepen.io'); ?>
 <? #############################################################################
 stepheader('note-codepen-howto', 'CodePen panes'); ?>
     <p>Visit <a target="_blank" href="https://codepen.io/pen">https://codepen.io/pen</a>.
-    You might see something like this:
+    You should see something that looks similar to:
     </p>
 
     <? screenshot_vol2('codepen-blank.png', True, True) ?>
 
-    <p>There is a possibility, though, that the white area on the bottom is missing. In which case,
-    continue to follow these instructions, and the white area on the bottom will automatically appear soon.</p>
-
-    <p>There are four panes:</p>
+    <p>From this &ldquo;view,&rdquo; you can see three panes:</p>
 
     <? screenshot_vol2('codepen-panes.png', True, True) ?>
 
-    <p>The first three panes are for &ldquo;HTML,&rdquo; &ldquo;CSS,&rdquo; and JavaScript.
-    I have labeled the fourth pane, &ldquo;Webpage.&rdquo;</p>
+    <p>But, there&rsquo;s a fourth pane that we can&rsquo;t see yet. To view all four panes,
+        click the <i>change view</i> button:</p>
+
+    <? screenshot_vol2('codepen-change-view.png', True, True) ?>
+
+    <p>The <i>editor-layout</i> menu should pop up. Then click the left-most option:</p>
+
+    <? screenshot_vol2('codepen-editor-layout.png', True, True) ?>
+
+    <p>Now, your CodePen page should look like this:</p>
+
+    <? screenshot_vol2('codepen-four-panes.png', True, True) ?>
+
+
+
+
 
     <p>The way it works is: you will construct a web page by typing in (or pasting) code into the first three panes.
         Then, a web page (your web page) will automatically appear in the fourth pane.</p>

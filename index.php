@@ -50,7 +50,11 @@ include 'sidenote.php';
         <div class='padded'>
             <h2>Preface</h2>
 
-            <p>This book represents the first volume in a series of three. This series, and this book in particular, is for you if you&rsquo;ve never programmed before and you would like to learn JavaScript. By the conclusion of this first book, you will have learned 100% of the JavaScript you need to know in order to write a chess  AI. And, by the conclusion of the third book, we will have programmed a chess AI, together.</p>
+            <p>This book represents the first volume in a series of three.
+                The second volume is located <a target="_blank" href="/vol2.php">here</a>.
+            </p>
+
+             <p>This series, and this book in particular, is for you if you&rsquo;ve never programmed before and you would like to learn JavaScript. By the conclusion of this first book, you will have learned 100% of the JavaScript you need to know in order to write a chess  AI. And, by the conclusion of the third book, we will have programmed a chess AI, together.</p>
 
             <h3>Shallow vs. deep learning</h3>
 

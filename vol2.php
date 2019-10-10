@@ -47,7 +47,7 @@ function iframe($filename) {
             <h1 class='title'>JavaScript</h1>
             <div class='subtitle'>Overview &amp; Details</div>
             <div><? screenshot('owl.png') ?></div>
-            <div class='subtitle'>Volume 1</div>
+            <div class='subtitle'>Volume 2</div>
             <div class='author'>&copy; Michael N. Gagnon, 2019</div>
             <div class='author'>This book represents an early, incomplete, rough draft. However, I&rsquo;m posting this draft online now, just to demonstrate the overall approach I&rsquo;m taking with the book.</div>
         </div>
@@ -56,33 +56,18 @@ function iframe($filename) {
         <div class='padded'>
             <h2>Preface</h2>
 
-            <p>This book represents the first volume in a series of three. This series, and this book in particular, is for you if you&rsquo;ve never programmed before and you would like to learn JavaScript. By the conclusion of this first book, you will have learned 100% of the JavaScript you need to know in order to write a chess  AI. And, by the conclusion of the third book, we will have programmed a chess AI, together.</p>
+            <p>This book is the second volume in a series of three. The first volume is located <a target="_blank" href="/">here</a>.</p>
 
-            <h3>Shallow vs. deep learning</h3>
-
-            <p>JavaScript is a gnarly language. There are many nooks and crannies.
-            This book skips over all the details, while simultaneously presenting many of the finer points of JavaScript. How?
-         </p>
-
-            <p>The main narrative of this book is shallow; it presents only the minimum of what you need to know to write a chess AI. At the same time, this
-                book is sprinkled with detailed sidenotes&mdash;providing you
-                 the option to dive deep into some of JavaScript&rsquo;s minutiae.</p>
-
-            <h3>Lazy vs. eager learning</h3>
-
-            <p>Broadly speaking, there are three approaches to learning: <i>lazy</i> learning, <i>eager</i> learning, and a hybrid approach&mdash;<i>lazy-eager</i> learning.</p>
-
-            <p>With the lazy approach, you skip straight to the last page of your textbook, and work backwards from there. With the eager approach, you refuse to move on to the next step, until you&rsquo;ve convinced yourself that you&rsquo;ve mastered the current step.</p>
-
-            <p>But, with the hybrid lazy-eager approach, perhaps you skip a few steps and work backwards from there. Or, perhaps you skim the material until you reach a point where you&rsquo;re confused, and then go back and study the material you have already skimmed over.</p>
-
-            <p>I think the lazy-eager approach might be a great way to learn JavaScript, and I designed this book for lazy-eager learning.</p>
-
+            <p>By the conclusion of Volume 2, this book, we will have programmed a tic-tac-toe AI, together.
+            Building a tic-tac-toe AI is a worthy intermediate step towards developing a chess AI, because
+            building tic tac toe is simpler, and because our chess AI will leverage many of
+            the techniques we will use to build our tic-tac-toe AI. 
+        </p>
         </div>
 
         <h1 class='part-title'><a name='snippets'>Contents</a></h1>
 
-        <p class='padded'>For each of the <span id='num-steps'></span> steps of this book, the table of contents contains a link to that step, as well as a short snippet of code from that step.</p>
+        <!--<p class='padded'>For each of the <span id='num-steps'></span> steps of this book, the table of contents contains a link to that step, as well as a short snippet of code from that step.</p>-->
 
         <div id='snippets' class='padded' >
         </div>
@@ -114,13 +99,37 @@ $(SNIPPETS).append(`<div id='${SNIPPETS_TABLE_WRAPPER.substr(1)}'></div>`);
 
 <?
 ################################################################################
-partheader('Chapter test'); ###################################################
+partheader('Setup your development environment'); ##############################
 ################################################################################
 ?>
 
 <? #############################################################################
-stepheader('note-test', 'Test step'); ?>
-    <? iframe('step1.html') ?>
+stepheader('note-codepen', 'Introduction to Codepen.io'); ?>
+    
+    <p>We are going to write a bunch of code together. To do that, you need
+    a <i>development environment</i>, a place where you can type in code,
+    test your code, and view the fruits of your labor.</p>
+
+    <p>You have several options. For example, you could download a &ldquo;text
+        editor,&rdquo; such as <a target="_blank" href="https://www.sublimetext.com/">Sublime</a>
+        and manually organize files and directories on your
+        file system, then use your browser to execute your code.
+        The problem with that approach, is it&rsquo;s just a little bit more 
+        complicated than it needs to be, for our purposes.
+    </p>
+
+    <p>Instead, I recommend using <a target="_blank" href="https://codepen.io/pen">CodePen</a>.
+        CodePen is a web application that lets you develop JavaScript applications
+        without needing to download any software your computer. Another benefit
+        of CodePen is that you can easily share your creations across the Web.</p>
+
+    <p>
+        This feature is particularly helpful while learning JavaScript because 
+        when your code is buggy, when it&rsquo;s not working the way you want
+        it to, you can share your code with more experience programmers, who
+        can help you identify where your bugs are.
+    </p>
+
 <? stepoverview(); ?>
     <p>Overview</p>
 <? stepfooter(); ?>

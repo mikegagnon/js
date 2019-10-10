@@ -133,7 +133,7 @@ $(SNIPPETS).append(`<div id='${SNIPPETS_TABLE_WRAPPER.substr(1)}'></div>`);
 
 <?
 ################################################################################
-partheader('Setup your development environment'); ##############################
+partheader('CodePen'); ##############################
 ################################################################################
 ?>
 
@@ -207,16 +207,53 @@ stepheader('note-codepen-howto', 'CodePen panes'); ?>
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 
+<?
+################################################################################
+partheader('HTML'); ##############################
+################################################################################
+?>
+
 <? #############################################################################
 stepheader('note-intro-html', 'Introduction to HTML'); ?>
 
+    <p>Whereas JavaScript is a programming language, HTML is <i>markup language</i>.
+    That is, HTML is a language that allows us to “mark up” documents.
+    Let’s look at some examples.</p>
+
     <p>In the HTML pane for <a target="_blank" href="https://codepen.io/pen">CodePen</a>, type in the following:</p>
 
-<? prehtml("<h1>This is an example of HTML</h1>") ?>
+<? prehtml("This is just some plain text.") ?>
+
+    <p>The text you entered should automatically appear in the web-page pane:</p>
+
+    <? screenshot_vol2('codepen-plaintext.png', True, True) ?>
 
 <? stepoverview(); ?>
-
 <? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-i-b', 'Italics and bold'); ?>
+
+    <p>In the HTML pane, replace the old text with this new text:</p>
+
+<? prehtml("This is just some plain text.
+<i>This text is italicized.</i>
+<b>This text is bolded.</b>
+<i><b>This text is italicized and bolded.</b></i>") ?>
+
+    <? screenshot_vol2('codepen-i-b.png', True, True) ?>
+
+    <p><? codehtml('<i>') ?> is a &ldquo;tag,&rdquo; and <? codehtml('</i>') ?> is a &ldquo;closing tag.&rdquo;
+        Similarly, <? codehtml('<b>') ?> is a tag, and <? codehtml('</b>') ?> is a closing tag.</p>
+
+    <p><? codehtml('<i>') ?> tags create italicized text, and <? codehtml('<b>') ?> tags create bold text.</p>
+
+    <p>Notice how in the HTML pane, each sentence is on its own line, yet in the web-page pane each sentence appears one after the other.</p>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+
 
 
 
@@ -231,7 +268,6 @@ stepheader('note-intro-html', 'Introduction to HTML'); ?>
 stepheader('note-x', ''); ?>
 
 <? stepoverview(); ?>
-
 <? stepfooter(); ?>
 
 <? #############################################################################

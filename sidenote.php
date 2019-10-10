@@ -199,4 +199,13 @@ function codestr($line) {
     return "<code class='language-javascript'>$line</code>";
 }
 
+function codehtml($line) {
+    echo codestrhtml($line);
+}
+
+function codestrhtml($line) {
+    $x = htmlspecialchars($line);
+    return "<code class='language-html'>$x</code>";
+}
+
 ?>

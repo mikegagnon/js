@@ -1,5 +1,5 @@
 <?
-include 'sidenote.php';
+include '../sidenote.php';
 
 function iframe($filename) {
     echo "<iframe src='$filename' width='480px' height='300px'></iframe>";
@@ -11,25 +11,25 @@ function iframe($filename) {
         <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
         <title>JavaScript: Overview &amp; Details</title>
-        <link rel='stylesheet' href='style/codemirror.css'>
-        <link rel='stylesheet' href='style/solarized.css'>
-        <link href='style/bootstrap.css' rel='stylesheet'>
-        <link href='style/prism.css' rel='stylesheet'>
-        <link href='style/repl-dark.css' rel='stylesheet'>
-        <link href='style/book.css' rel='stylesheet'>
+        <link rel='stylesheet' href='../style/codemirror.css'>
+        <link rel='stylesheet' href='../style/solarized.css'>
+        <link href='../style/bootstrap.css' rel='stylesheet'>
+        <link href='../style/prism.css' rel='stylesheet'>
+        <link href='../style/repl-dark.css' rel='stylesheet'>
+        <link href='../style/book.css' rel='stylesheet'>
         <link href='style/vol2.css' rel='stylesheet'>
-        <link href='style/sidenote.css' rel='stylesheet'>
-        <script src='js/codemirror.js'></script>
-        <script src='js/javascript.js'></script>
+        <link href='../style/sidenote.css' rel='stylesheet'>
+        <script src='../js/codemirror.js'></script>
+        <script src='../js/javascript.js'></script>
         <!--<script src='js/jquery-2.2.4.min.js'></script>-->
-        <script src='js/jquery-1.12.4.min.js'></script>
-        <script src='js/prism.js'></script>
-        <script src='js/popper.min.js'></script>
-        <script src='js/bootstrap.js'></script>
-        <script src='js/my/repl.js'></script>
-        <script src='js/my/sidenote.js'></script>
-        <script src='js/my/repl-sidenote.js'></script>
-        <script src='js/my/book.js'></script>
+        <script src='../js/jquery-1.12.4.min.js'></script>
+        <script src='../js/prism.js'></script>
+        <script src='../js/popper.min.js'></script>
+        <script src='../js/bootstrap.js'></script>
+        <script src='../js/my/repl.js'></script>
+        <script src='../js/my/sidenote.js'></script>
+        <script src='../js/my/repl-sidenote.js'></script>
+        <script src='../js/my/book.js'></script>
     </head>
     <body>
         <main>

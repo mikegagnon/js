@@ -115,7 +115,7 @@ partheader('Chapter teste'); ###################################################
 
 <? #############################################################################
 stepheader('note-test', 'Test step'); ?>
-    <iframe src="step1.html"></iframe>
+    <iframe src="step1.html" width="480px"></iframe>
 <? stepoverview(); ?>
     <p>Overview</p>
 <? stepfooter(); ?>

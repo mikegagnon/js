@@ -125,7 +125,7 @@ ORDERING.push('$currentStepName');
 
 $(SNIPPETS_TABLE).append(`<div class='snippet-div'>
         <div><a href='#$currentStepName'>Step $stepNum. $currentStepTitle</a></div>
-        <div>
+        <!--<div>
 html;
 
     echo $text;
@@ -133,7 +133,7 @@ html;
 
 function stepfooter() {
     $text = <<<html
-        </div>
+        </div>-->
     </div>`);
 </script>
 html;
@@ -263,7 +263,7 @@ function codestr($line) {
 
         <h1 class='part-title'><a name='snippets'>Contents</a></h1>
 
-        <p class='padded'>For each of the <span id='num-steps'></span> steps of this book, the table of contents contains a link to that step, as well as a short snippet of code from that step.</p>
+        <!--<p class='padded'>For each of the <span id='num-steps'></span> steps of this book, the table of contents contains a link to that step, as well as a short snippet of code from that step.</p>-->
 
         <div id='snippets' class='padded' >
         </div>

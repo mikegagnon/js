@@ -124,7 +124,7 @@ stepheader('note-codepen', 'Introduction to Codepen.io'); ?>
 
     <p>Instead, I recommend using <a target="_blank" href="https://codepen.io/pen">CodePen</a>.
         CodePen is a web application that lets you develop JavaScript applications
-        without needing to download any software your computer. Another benefit
+        without needing to download any software onto your computer. Another benefit
         of CodePen is that you can easily share your creations across the Web.</p>
 
     <p>
@@ -134,8 +134,9 @@ stepheader('note-codepen', 'Introduction to Codepen.io'); ?>
         can help you identify where your bugs are.
     </p>
 
+    <!-- TODO: link to forums -->
+
 <? stepoverview(); ?>
-    <p>Overview</p>
 <? stepfooter(); ?>
 
 <? ########################################################################## ?>

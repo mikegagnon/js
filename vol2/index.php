@@ -170,21 +170,45 @@ stepheader('note-codepen', 'Introduction to Codepen.io'); ?>
 <? stepfooter(); ?>
 
 <? #############################################################################
-stepheader('note-codepen-howto', 'How to use CodePen'); ?>
+stepheader('note-codepen-howto', 'CodePen panes'); ?>
     <p>Visit <a target="_blank" href="https://codepen.io/pen">https://codepen.io/pen</a>.
-    You will see something like:
+    You might see something like this:
     </p>
 
     <? screenshot_vol2('codepen-blank.png', True, True) ?>
 
+    <p>There is a possibility, though, that the white area on the bottom is missing. In which case,
+    continue to follow these instructions, and the white area on the bottom will automatically appear soon.</p>
 
     <p>There are four panes:</p>
 
     <? screenshot_vol2('codepen-panes.png', True, True) ?>
 
+    <p>The first three panes are for &ldquo;HTML,&rdquo; &ldquo;CSS,&rdquo; and JavaScript.
+    I have labeled the fourth pane, &ldquo;Webpage.&rdquo;</p>
+
+    <p>The way it works is: you will construct a web page by typing in (or pasting) code into the first three panes.
+        Then, a web page (your web page) will automatically appear in the fourth pane.</p>
+
+    <p>Let&rsquo;s build our first web page in the next step.</p>
+
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-intro-html', 'Introduction to HTML'); ?>
+
+    <p>In the HTML pane for <a target="_blank" href="https://codepen.io/pen">CodePen</a>, type in the following:</p>
+
+<? prehtml("<h1>This is an example of HTML</h1>") ?>
+
+<? stepoverview(); ?>
+
+<? stepfooter(); ?>
+
+
+
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

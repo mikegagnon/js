@@ -19,6 +19,18 @@ html;
     return $text;
 }
 
+function prehtml($body) {
+    echo prestrhtml($body);
+}
+
+function prestrhtml($body) {
+    $trimmed = htmlspecialchars(trim($body));
+    $text = <<<html
+<pre class="language-html prejs"><code>$trimmed</code></pre>
+html;
+    return $text;
+}
+
 function replshot($filename) {
     $fullFilename = $_SERVER['DOCUMENT_ROOT'] . '/img/' . $filename;  
     $width = getimagesize($fullFilename)[0] / 2;

@@ -31,13 +31,13 @@ html;
     echo $text;
 }
 
-function screenshot($filename) {
+function screenshot($filename, $prefix="") {
     $fullFilename = $_SERVER['DOCUMENT_ROOT'] . '/img/' . $filename;  
     $width = getimagesize($fullFilename)[0] / 2;
     $height = getimagesize($fullFilename)[1] / 2;
     $text = <<<html
 <div class="screenshot">
-    <img width="$width" height="$height" src="img/$filename">
+    <img width="$width" height="$height" src="{$prefix}img/$filename">
 </div>
 html;
     echo $text;

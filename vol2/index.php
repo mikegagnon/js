@@ -5,6 +5,10 @@ function iframe($filename) {
     echo "<iframe src='$filename' width='480px' height='300px'></iframe>";
 }
 
+function screenshot_up($filename) {
+    screenshot($filename, "../");
+}
+
 ?><!doctype html>
 <html lang='en'>
     <head>
@@ -46,7 +50,7 @@ function iframe($filename) {
         <div class='title-page'>
             <h1 class='title'>JavaScript</h1>
             <div class='subtitle'>Overview &amp; Details</div>
-            <div><? screenshot('owl.png') ?></div>
+            <div><? screenshot_up('owl.png') ?></div>
             <div class='subtitle'>Volume 2</div>
             <div class='author'>&copy; Michael N. Gagnon, 2019</div>
             <div class='author'>This book represents an early, incomplete, rough draft. However, I&rsquo;m posting this draft online now, just to demonstrate the overall approach I&rsquo;m taking with the book.</div>

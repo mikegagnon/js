@@ -9,6 +9,35 @@ function screenshot_up($filename) {
     screenshot($filename, "../");
 }
 
+function screenshot_vol2($filename, $border=False, $enlarageable=False) {
+    $fullFilename = $_SERVER['DOCUMENT_ROOT'] . '/vol2/img/' . $filename;  
+    $width = 480.0;
+    $p = $width / getimagesize($fullFilename)[0];
+    $height = getimagesize($fullFilename)[1] * $p;
+
+    if ($border) {
+        $border = " img_border";
+    } else {
+        $border = "";
+    }
+
+    if ($enlarageable) {
+        $text = <<<html
+<div class="screenshot $border">
+    <a href="/vol2/img/$filename" target="_blank"><img width="$width" height="$height" src="/vol2/img/$filename"></a>
+</div>
+    <p class="caption">Click to enlarge in another window</p>
+html;
+    } else {
+        $text = <<<html
+<div class="screenshot $border">
+    <img width="$width" height="$height" src="/vol2/img/$filename">
+</div>
+html;
+    }
+    echo $text;
+}
+
 ?><!doctype html>
 <html lang='en'>
     <head>
@@ -21,7 +50,7 @@ function screenshot_up($filename) {
         <link href='../style/prism.css' rel='stylesheet'>
         <link href='../style/repl-dark.css' rel='stylesheet'>
         <link href='../style/book.css' rel='stylesheet'>
-        <link href='style/vol2.css' rel='stylesheet'>
+        <link href='../vol2/style/vol2.css' rel='stylesheet'>
         <link href='../style/sidenote.css' rel='stylesheet'>
         <script src='../js/codemirror.js'></script>
         <script src='../js/javascript.js'></script>
@@ -37,6 +66,7 @@ function screenshot_up($filename) {
     </head>
     <body>
         <main>
+
 <div id='sidenote'>
 <div id='repl-console-wrapper'>
 <div class='note repl-note' id='repl-console'>
@@ -135,6 +165,23 @@ stepheader('note-codepen', 'Introduction to Codepen.io'); ?>
     </p>
 
     <!-- TODO: link to forums -->
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-codepen-howto', 'How to use CodePen'); ?>
+    <p>Visit <a target="_blank" href="https://codepen.io/pen">https://codepen.io/pen</a>.
+    You will see something like:
+    </p>
+
+    <? screenshot_vol2('codepen-blank.png', True, True) ?>
+
+
+    <p>There are four panes:</p>
+
+    <? screenshot_vol2('codepen-panes.png', True, True) ?>
+
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>

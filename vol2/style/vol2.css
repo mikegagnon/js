@@ -1,3 +1,13 @@
 iframe {
     border: 1px solid #888;
 }
+
+.img_border {
+    outline: 1px solid #888;
+}
+
+.caption {
+    font-size: 80%;
+    text-align: center;
+    margin-top: -20px;
+}

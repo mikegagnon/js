@@ -125,7 +125,7 @@ ORDERING.push('$currentStepName');
 
 $(SNIPPETS_TABLE).append(`<div class='snippet-div'>
         <div><a href='#$currentStepName'>Step $stepNum. $currentStepTitle</a></div>
-        <div>
+        <!--<div>
 html;
 
     echo $text;
@@ -133,7 +133,7 @@ html;
 
 function stepfooter() {
     $text = <<<html
-        </div>
+        </div>-->
     </div>`);
 </script>
 html;

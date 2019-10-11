@@ -451,7 +451,7 @@ stepheader('note-three-success', 'Three cells (success)'); ?>
 
     <p>Building on top of <a href="#note-first-cell">the same CSS from the previous step</a>,
         and <a href="#note-three-html">the same HTML from the previous step</a>,
-        modify the CSS, by adding <? codecss('margin-top: 5px;')?> to the bottom.</p>
+        modify the CSS, by adding <? codecss('margin-bottom: 5px;')?> to the bottom.</p>
 
     <p>Your CSS should read as follows:</p>
 
@@ -459,7 +459,7 @@ stepheader('note-three-success', 'Three cells (success)'); ?>
     height: 60px;
     width: 60px;
     background-color: lightgray;
-    margin-top: 5px;
+    margin-bottom: 5px;
 }") ?>
 
     <p>And, your preview pane should look something like:</p>
@@ -483,7 +483,7 @@ noteheader('note-three-html'); ?>
 <? notefooter(); ?>
 
 <? #############################################################################
-stepheader('note-three-row', 'One row of three squares (attempt)'); ?>
+stepheader('note-three-row-attempt', 'One row of three squares (attempt)'); ?>
 
     <p>Now, let’s create a row of squares, instead of a column.</p>
 
@@ -497,7 +497,7 @@ stepheader('note-three-row', 'One row of three squares (attempt)'); ?>
     height: 60px;
     width: 60px;
     background-color: lightgray;
-    margin-top: 5px;
+    margin-bottom: 5px;
     float: left;
 }") ?>
 
@@ -528,9 +528,58 @@ noteheader('note-three-success-css'); ?>
     height: 60px;
     width: 60px;
     background-color: lightgray;
-    margin-top: 5px;
+    margin-bottom: 5px;
 }") ?>
 <? notefooter(); ?>
+
+<? #############################################################################
+stepheader('note-three-row-success', 'One row of three squares (success)'); ?>
+
+<p>Building upon <a href="#note-three-row-attempt-css">the CSS</a> and
+    <a href="#note-three-row-attempt-html">the HTML</a> from the previous step,
+    modify the CSS by adding <? codecss('margin-right: 5px;')?> to the bottom.</p>
+
+    <p>Your CSS should read as follows:</p>
+
+<? precss(".cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+}") ?>
+
+    <p>Your preview pane should look something like:</p>
+
+<div class="html-page">
+    <div class='cell_4'></div>
+    <div class='cell_4'></div>
+    <div class='cell_4'></div>
+    <div style="clear:both;"></div>
+</div>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-three-row-attempt-html'); ?>
+<? prehtml("<div class='cell'></div>
+<div class='cell'></div>
+<div class='cell'></div>") ?>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-three-row-attempt-css'); ?>
+<? precss(".cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    float: left;
+}") ?>
+<? notefooter(); ?>
+
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

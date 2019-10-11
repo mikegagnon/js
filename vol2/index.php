@@ -1,8 +1,14 @@
 <?
 include '../sidenote.php';
 
-function iframe($filename) {
-    echo "<iframe src='$filename' width='480px' height='300px'></iframe>";
+function iframe($filename, $width=null, $height=null) {
+    if ($width == null) {
+        $width = 480;
+    }
+    if ($height == null) {
+        $height = 300;
+    }
+    echo "<iframe src='$filename' width='{$width}px' height='${height}px'></iframe>";
 }
 
 function screenshot_up($filename) {
@@ -250,6 +256,20 @@ stepheader('note-i-b', 'Italics and bold'); ?>
 
     <p>Notice how in the HTML pane, each sentence is on its own line, yet in the web-page pane each sentence appears one after the other.</p>
 
+    <p>I assume, at this point, that you have gotten the hang of using CodePen.
+        Therefore, henceforth, I will not display screenshots of CodePen. Rather,
+    I will just display what the web-page pane should show. For example, for this step,
+    the web-page pane should look something like:</p>
+
+
+    <div class="html-page">
+This is just some plain text.
+<i>This text is italicized.</i>
+<b>This text is bolded.</b>
+<i><b>This text is italicized and bolded.</b></i>
+    </div>
+
+
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 
@@ -264,6 +284,15 @@ stepheader('note-p-tag', 'Paragraphs'); ?>
 <p>
   <b>This text is bolded.</b>
 </p>") ?>
+
+    <div class="html-page">
+<p>
+  <i>This text is italicized.</i>
+</p>
+<p>
+  <b>This text is bolded.</b>
+</p>
+    </div>
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>

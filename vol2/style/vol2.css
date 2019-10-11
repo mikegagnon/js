@@ -11,3 +11,13 @@ iframe {
     text-align: center;
     margin-top: -20px;
 }
+
+.html-page {
+    border: 1px solid #888;
+    padding: 10px;
+}
+
+.html-page p {
+    /* reset to default */
+    margin: 1em 0px !important;
+}

@@ -401,11 +401,84 @@ stepheader('note-cell', 'Creating a cell class'); ?>
     background-color: lightgray;
 }") ?>
 
-    <p>Your</p>
+    <p>Your preview pane should look something like this:</p>
 
+<div class="html-page">
+    <div class='cell_1'></div>
+</div>
+
+    <p>That gray square represents the first of nine squares (AKA the first of nine cells) that will
+        constitute our tic-tac-toe board.
+        Throughout the rest of this chapter, we will continually make modifications
+        to the <? codenone('cell') ?> class, and also to the HTML, to construct
+    a complete tic-tac-toe board.</p>
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-three-attempt', 'Three cells (attempt)'); ?>
+
+    <p>Using <a href="#note-first-cell">the same CSS from the previous step</a>, modify the HTML, so you have three <? codenone('cell') ?> divs. Edit your <a target="_blank" href="https://codepen.io/pen">HTML pane</a>, to contain the following code:</p>
+
+<? prehtml("<div class='cell'></div>
+<div class='cell'></div>
+<div class='cell'></div>") ?>
+
+    <p>Your preview pane should look like this:</p>
+<div class="html-page">
+    <div class='cell_1'></div>
+    <div class='cell_1'></div>
+    <div class='cell_1'></div>
+</div>
+
+    <p>Observe, the three cells are place one atop the other, but there is no
+    space between them, so it looks like one long rectangle.</p>
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-first-cell'); ?>
+<? precss(".cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+}") ?>
+<? notefooter(); ?>
+
+<? #############################################################################
+stepheader('note-three-success', 'Three cells (success)'); ?>
+
+    <p>Building on top of <a href="#note-first-cell">the same CSS from the previous step</a>,
+        and <a href="#note-three-html">the same HTML from the previous step</a>,
+        modify the CSS, by adding <? codecss('margin-top: 5px;')?> to the bottom.</p>
+
+    <p>Your CSS should read as follows:</p>
+
+<? precss(".cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-top: 5px;
+}") ?>
+
+    <p>And, your preview pane should look something like:</p>
+
+<div class="html-page">
+    <div class='cell_2'></div>
+    <div class='cell_2'></div>
+    <div class='cell_2'></div>
+</div>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-three-html'); ?>
+<? prehtml("<div class='cell'></div>
+<div class='cell'></div>
+<div class='cell'></div>") ?>
+<? notefooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

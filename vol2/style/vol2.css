@@ -22,3 +22,17 @@ iframe {
     /* reset to default */
     margin: 1em 0px !important;
 }
+/******************************************************************************/
+
+.cell_1 {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+}
+
+.cell_2 {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-top: 5px;
+}

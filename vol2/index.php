@@ -253,7 +253,20 @@ stepheader('note-i-b', 'Italics and bold'); ?>
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 
+<? #############################################################################
+stepheader('note-p-tag', 'Paragraphs'); ?>
 
+    <p>You can use <? codehtml('<p>') ?> tags to put text into separate paragraphs.</p>
+
+<? prehtml("<p>
+  <i>This text is italicized.</i>
+</p>
+<p>
+  <b>This text is bolded.</b>
+</p>") ?>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
 
 
 

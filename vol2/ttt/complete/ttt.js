@@ -1,14 +1,18 @@
 
-var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+var currentPlayer = 'X'
+var boardState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-/*
-document.querySelector('.cell').addEventListener('click', function(){
-
-});
-*/
 function cellClick(locationNumber) {
-    var text = document.createTextNode("X");
-    document.querySelector('#location-' + locationNumber).appendChild(text);
+    if (boardState[locationNumber] === 0) {
+        boardState[locationNumber] = currentPlayer
+        var text = document.createTextNode(currentPlayer)
+        document.querySelector('#location-' + locationNumber).appendChild(text)
+        if (currentPlayer === 'X') {
+            currentPlayer = 'O'
+        } else {
+            currentPlayer = 'X'
+        }
+    }
 }
 
 function makeMove(location) {

@@ -624,6 +624,25 @@ stepheader('note-grid', 'Three rows of three squares'); ?>
     <div class='cell'></div>
 </div>") ?>
 
+<div class="html-page">
+    <div class='row'>
+        <div class='cell_4'></div>
+        <div class='cell_4'></div>
+        <div class='cell_4'></div>
+    </div>
+    <div class='row'>
+        <div class='cell_4'></div>
+        <div class='cell_4'></div>
+        <div class='cell_4'></div>
+    </div>
+    <div class='row'>
+        <div class='cell_4'></div>
+        <div class='cell_4'></div>
+        <div class='cell_4'></div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 
@@ -638,6 +657,51 @@ noteheader('note-three-row-success-css'); ?>
     margin-right: 5px;
 }") ?>
 <? notefooter(); ?>
+
+<? #############################################################################
+stepheader('note-x-and-o', 'Add X\'s and O\'s'); ?>
+
+    <p>Building upon <a href="#note-grid-css">the CSS</a> and
+    <a href="#note-grid-html">the HTML</a> from the previous step...</p>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-grid-css'); ?>
+<? precss(".row {
+    clear: left;
+}
+
+.cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+}") ?>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-grid-html'); ?>
+<? prehtml("<div class='row'>
+    <div class='cell'></div>
+    <div class='cell'></div>
+    <div class='cell'></div>
+</div>
+<div class='row'>
+    <div class='cell'></div>
+    <div class='cell'></div>
+    <div class='cell'></div>
+</div>
+<div class='row'>
+    <div class='cell'></div>
+    <div class='cell'></div>
+    <div class='cell'></div>
+</div>") ?>
+<? notefooter(); ?>
+
 
 
 <? ########################################################################## ?>

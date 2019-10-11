@@ -53,3 +53,7 @@ iframe {
     float: left;
     margin-right: 5px;
 }
+
+.row {
+    clear: left;
+}

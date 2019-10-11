@@ -150,23 +150,15 @@ stepheader('note-codepen', 'Introduction to CodePen'); ?>
     a <i>development environment</i>, a place where you can type in code,
     test your code, and view the fruits of your labor.</p>
 
-    <p>You have several options. For example, you could download a &ldquo;text
-        editor,&rdquo; such as <a target="_blank" href="https://www.sublimetext.com/">Sublime</a>
-        and manually organize files and directories on your
-        file system, then use your browser to execute your code.
-        The problem with that approach, is it&rsquo;s just a little bit more 
-        complicated than it needs to be, for our purposes.
-    </p>
-
-    <p>Instead, I recommend using <a target="_blank" href="https://codepen.io/pen">CodePen</a>.
+    <p>I recommend using &ldquo;CodePen.&rdquo;
         CodePen is a web application that lets you develop JavaScript applications
         without needing to download any software onto your computer. Another benefit
         of CodePen is that you can easily share your creations across the Web.</p>
 
     <p>
         This feature is particularly helpful while learning JavaScript because 
-        when your code is buggy, when it&rsquo;s not working the way you want
-        it to, you can share your code with more experience programmers, who
+        when your code isn&rsquo;t not working the way you want,
+        you can easily share your code with more experience programmers, who
         can help you identify where your bugs are.
     </p>
 
@@ -240,7 +232,7 @@ stepheader('note-intro-html', 'Introduction to HTML'); ?>
 <? #############################################################################
 stepheader('note-i-b', 'Italics and bold'); ?>
 
-    <p>In the HTML pane, replace the old text with this new text:</p>
+    <p>In the HTML pane for <a target="_blank" href="https://codepen.io/pen">CodePen</a>, replace the old text with this new text:</p>
 
 <? prehtml("This is just some plain text.
 <i>This text is italicized.</i>
@@ -279,7 +271,7 @@ stepheader('note-p-tag', 'The div tag'); ?>
     <p>You can use <? codehtml('<div>') ?> tags to put text into separate &ldquo;divisions,&rdquo;
     more commonly known simply as &ldquo;divs.&rdquo;</p>
 
-    <p>In the HTML pane of CodePen, type (or paste) the following code:</p>
+    <p>In the HTML pane of <a target="_blank" href="https://codepen.io/pen">CodePen</a>, type (or paste) the following code:</p>
 
 <? prehtml("<div><i>This text is italicized.</i></div>
 <div><b>This text is bold.</b></div>") ?>
@@ -309,7 +301,7 @@ stepheader('note-intro-css', 'Introduction to CSS'); ?>
     <p>CSS lets you add &ldquo;style&rdquo; to HTML web pages. For instance
     you can use CSS to change the background color of divs.</p>
 
-    <p>In the HTML pane of CodePen, type (or paste) the following code:</p>
+    <p>In the HTML pane of <a target="_blank" href="https://codepen.io/pen">CodePen</a>, type (or paste) the following code:</p>
 
 <? prehtml("<div style='background-color:wheat'>
     The background of this div is wheat.
@@ -348,7 +340,7 @@ stepheader('note-css-pane', 'The CSS pane'); ?>
     <p>However, we will mostly be using another approach for sprinkling CSS upon our HTML.
     Namely, we will use CSS &ldquo;classes&rdquo; in conjunction with CodePen&rsquo;s CSS pane.</p>
 
-    <p>For example, in the CSS pane, enter the following:</p>
+    <p>For example, in the CSS pane of <a target="_blank" href="https://codepen.io/pen">CodePen</a>, enter the following:</p>
 
 <? precss(".first {
     background: turquoise;
@@ -384,7 +376,7 @@ stepheader('note-css-pane', 'The CSS pane'); ?>
 
 <?
 ################################################################################
-partheader('Creating a Tic Tac Toe board'); ####################################
+partheader('Creating a tic-tac-toe board'); ####################################
 ################################################################################
 ?>
 
@@ -395,7 +387,7 @@ stepheader('note-cell', 'Creating a cell class'); ?>
         our tic-tac-toe board.
     </p>
 
-    <p>In the HTML pane of CodePen</p>
+    <p>In the HTML pane of <a target="_blank" href="https://codepen.io/pen">CodePen</a></p>
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 

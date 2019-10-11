@@ -383,11 +383,27 @@ partheader('Creating a tic-tac-toe board'); ####################################
 <? #############################################################################
 stepheader('note-cell', 'Creating a cell class'); ?>
     <p>In this chapter, we will create a tic-tac-toe board using HTML and CSS.
-        We begin by defining a cell class, which will form the backbone of 
+        We begin by defining a <? codenone('cell') ?> class, which will form the backbone of 
         our tic-tac-toe board.
     </p>
 
-    <p>In the HTML pane of <a target="_blank" href="https://codepen.io/pen">CodePen</a></p>
+    <p>In the HTML pane of <a target="_blank" href="https://codepen.io/pen">CodePen</a>,
+    type (or paste) the following:
+    </p>
+
+<? prehtml("<div class='cell'></div>") ?>
+
+    <p>Next, in the CSS pane, enter the following:</p>
+
+<? precss(".cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+}") ?>
+
+    <p>Your</p>
+
+
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 

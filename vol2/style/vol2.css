@@ -36,3 +36,11 @@ iframe {
     background-color: lightgray;
     margin-top: 5px;
 }
+
+.cell_3 {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-top: 5px;
+    float: left;
+}

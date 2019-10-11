@@ -431,7 +431,7 @@ stepheader('note-three-attempt', 'Three cells (attempt)'); ?>
     <div class='cell_1'></div>
 </div>
 
-    <p>Observe, the three cells are place one atop the other, but there is no
+    <p>Oops. The three cells are place one atop the other, but there is no
     space between them, so it looks like one long rectangle.</p>
 
 <? stepoverview(); ?>
@@ -470,6 +470,8 @@ stepheader('note-three-success', 'Three cells (success)'); ?>
     <div class='cell_2'></div>
 </div>
 
+    <p>Now, we add a margin to the top of each div, so we get three squares instead of one rectangle.</p>
+
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 
@@ -478,6 +480,56 @@ noteheader('note-three-html'); ?>
 <? prehtml("<div class='cell'></div>
 <div class='cell'></div>
 <div class='cell'></div>") ?>
+<? notefooter(); ?>
+
+<? #############################################################################
+stepheader('note-three-row', 'One row of three squares (attempt)'); ?>
+
+    <p>Now, let’s create a row of squares, instead of a column.</p>
+
+    <p>Building upon <a href="#note-three-success-css">the CSS</a> and
+    <a href="#note-three-success-html">the HTML</a> from the previous step,
+    modify the CSS by adding <? codecss('float: left;')?> to the bottom.</p>
+
+    <p>Your CSS should read as follows:</p>
+
+<? precss(".cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-top: 5px;
+    float: left;
+}") ?>
+
+    <p>Your preview pane should look something like:</p>
+
+<div class="html-page">
+    <div class='cell_3'></div>
+    <div class='cell_3'></div>
+    <div class='cell_3'></div>
+    <div style="clear:both;"></div>
+</div>
+
+    <p>Oops. The squares blend together to make one large, horizontal rectangle.</p>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-three-success-html'); ?>
+<? prehtml("<div class='cell'></div>
+<div class='cell'></div>
+<div class='cell'></div>") ?>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-three-success-css'); ?>
+<? precss(".cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-top: 5px;
+}") ?>
 <? notefooter(); ?>
 
 <? ########################################################################## ?>

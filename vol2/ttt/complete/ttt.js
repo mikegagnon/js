@@ -70,7 +70,3 @@ function checkVictory(player) {
         return false
     }
 }
-
-function makeMove(location) {
-    gameState[location] = 'X'
-}

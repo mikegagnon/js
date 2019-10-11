@@ -341,11 +341,11 @@ stepheader('note-css-pane', 'The CSS pane'); ?>
 
     <p>There are several ways to sprinkle CSS upon our HTML.</p>
 
-    <p>One of the ways is using <? codenone('style="..."') ?> inside an HTML tag (as in the example
-    from the previous step.</p>
+    <p>One way is to use <? codenone('style="..."') ?> inside an HTML tag (as in the example
+    from the previous step).</p>
 
     <p>However, we will mostly be using another approach for sprinkling CSS upon our HTML.
-    Namely, we will use CSS &ldquo;classes&rdquo; in conjunction with the CSS pane.</p>
+    Namely, we will use CSS &ldquo;classes&rdquo; in conjunction with CodePen&rsquo;s CSS pane.</p>
 
     <p>For example, in the CSS pane, enter the following:</p>
 

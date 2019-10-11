@@ -310,27 +310,76 @@ stepheader('note-intro-css', 'Introduction to CSS'); ?>
 
     <p>In the HTML pane of CodePen, type (or paste) the following code:</p>
 
-<? prehtml("<p style='background-color:green'>
-    The background of this paragraph is green.
+<? prehtml("<p style='background-color:wheat'>
+    The background of this paragraph is wheat.
 </p>
-<p style='background-color:gold'>
-    The background of this paragraph is gold.
+<p style='background-color:gray'>
+    The background of this paragraph is gray.
 </p>") ?>
 
     <p>Your CodePen web-page pane should look something like:</p>
 
     <div class="html-page">
-<p style='background-color:green'>
-    The background of this paragraph is green.
+<p style='background-color:wheat'>
+    The background of this paragraph is wheat.
 </p>
-<p style='background-color:gold'>
-    The background of this paragraph is gold.
+<p style='background-color:gray'>
+    The background of this paragraph is gray.
+</p>
+    </div>
+
+    <p>In this example, the CSS is embedded <i>inside</i> the HTML. Specifically,
+        <? codenone('background-color:wheat') ?> is an example of CSS. Also,
+        <? codenone('background-color:gray') ?> is another example of CSS.
+    </p>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-css-pane', 'The CSS pane'); ?>
+
+    <p>There are several ways to sprinkle CSS upon our HTML.</p>
+
+    <p>One of the ways is using <? codenone('style="..."') ?> inside an HTML tag (as in the example
+    from the previous step.</p>
+
+    <p>However, we will mostly be using another approach for sprinkling CSS upon our HTML.
+    Namely, we will use CSS &ldquo;classes&rdquo; in conjunction with the CSS pane.</p>
+
+    <p>For example, in the CSS pane, enter the following:</p>
+
+<? precss(".first {
+    background: turquoise;
+}
+.second {
+    background: darkkhaki;
+}") ?>
+
+    <p>Then, in the HTML pane, enter the following:</p>
+
+<? prehtml("<p class='first'>
+    The background of this paragraph is turquoise.
+</p>
+<p class='second'>
+    The background of this paragraph is dark khaki.
+</p>") ?>
+
+
+
+<p>Your CodePen web-page pane should look something like:</p>
+
+    <div class="html-page">
+<p style='background-color:turquoise'>
+    The background of this paragraph is turquoise.
+</p>
+<p style='background-color:darkkhaki'>
+    The background of this paragraph is dark khaki.
 </p>
     </div>
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>
-
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

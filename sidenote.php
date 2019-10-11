@@ -26,7 +26,19 @@ function prehtml($body) {
 function prestrhtml($body) {
     $trimmed = htmlspecialchars(trim($body));
     $text = <<<html
-<pre class="language-html prejs"><code>$trimmed</code></pre>
+<pre class="language-html prejs prehtml"><code>$trimmed</code></pre>
+html;
+    return $text;
+}
+
+function precss($body) {
+    echo prestrcss($body);
+}
+
+function prestrcss($body) {
+    $trimmed = trim($body);
+    $text = <<<html
+<pre class="language-css prejs"><code>$trimmed</code></pre>
 html;
     return $text;
 }
@@ -199,6 +211,15 @@ function codestr($line) {
     return "<code class='language-javascript'>$line</code>";
 }
 
+function codenone($line) {
+    echo codestrnone($line);
+}
+
+function codestrnone($line) {
+    return "<code class='language-none'>$line</code>";
+}
+
+
 function codehtml($line) {
     echo codestrhtml($line);
 }
@@ -207,5 +228,14 @@ function codestrhtml($line) {
     $x = htmlspecialchars($line);
     return "<code class='language-html'>$x</code>";
 }
+
+function codecss($line) {
+    echo codestrhtml($line);
+}
+
+function codestrcss($line) {
+    return "<code class='language-css'>$line</code>";
+}
+
 
 ?>

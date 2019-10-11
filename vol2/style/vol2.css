@@ -15,6 +15,7 @@ iframe {
 .html-page {
     border: 1px solid #888;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 .html-page p {

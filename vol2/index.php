@@ -624,18 +624,21 @@ stepheader('note-grid', 'Three rows of three squares'); ?>
     <div class='cell'></div>
 </div>") ?>
 
+    <p>Your preview pane should look something like:</p>
+
+
 <div class="html-page">
-    <div class='row'>
+    <div class='row_1'>
         <div class='cell_4'></div>
         <div class='cell_4'></div>
         <div class='cell_4'></div>
     </div>
-    <div class='row'>
+    <div class='row_1'>
         <div class='cell_4'></div>
         <div class='cell_4'></div>
         <div class='cell_4'></div>
     </div>
-    <div class='row'>
+    <div class='row_1'>
         <div class='cell_4'></div>
         <div class='cell_4'></div>
         <div class='cell_4'></div>
@@ -659,10 +662,50 @@ noteheader('note-three-row-success-css'); ?>
 <? notefooter(); ?>
 
 <? #############################################################################
-stepheader('note-x-and-o', 'Add X\'s and O\'s'); ?>
+stepheader('note-x-and-o', 'Add X&rsquo;s and O&rsquo;s'); ?>
 
     <p>Building upon <a href="#note-grid-css">the CSS</a> and
-    <a href="#note-grid-html">the HTML</a> from the previous step...</p>
+    <a href="#note-grid-html">the HTML</a> from the previous step, add some X&rsquo;s and O&rsquo;s
+    to the tic-tac-toe board. For example:
+    </p>
+
+<? prehtml("<div class='row'>
+    <div class='cell'>X</div>
+    <div class='cell'>O</div>
+    <div class='cell'>X</div>
+</div>
+<div class='row'>
+    <div class='cell'>O</div>
+    <div class='cell'>X</div>
+    <div class='cell'>O</div>
+</div>
+<div class='row'>
+    <div class='cell'>X</div>
+    <div class='cell'>O</div>
+    <div class='cell'>X</div>
+</div>") ?>
+
+    <p>Your preview pane should look something like:</p>
+
+
+<div class="html-page">
+    <div class='row_1'>
+        <div class='cell_4'>X</div>
+        <div class='cell_4'>O</div>
+        <div class='cell_4'>X</div>
+    </div>
+    <div class='row_1'>
+        <div class='cell_4'>O</div>
+        <div class='cell_4'>X</div>
+        <div class='cell_4'>O</div>
+    </div>
+    <div class='row_1'>
+        <div class='cell_4'>X</div>
+        <div class='cell_4'>O</div>
+        <div class='cell_4'>X</div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>

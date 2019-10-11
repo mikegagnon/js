@@ -197,7 +197,7 @@ stepheader('note-codepen-howto', 'CodePen panes'); ?>
 
 
     <p>The way it works is: you will construct a web page by typing in (or pasting) code into the first three panes.
-        Then, a web page (your web page) will automatically appear in the fourth pane.</p>
+        Then, a web page (your web page) will automatically appear in the fourth pane, the &ldquo;preview pane.&rdquo;</p>
 
     <p>Let&rsquo;s build our first web page in the next step.</p>
 
@@ -222,7 +222,7 @@ stepheader('note-intro-html', 'Introduction to HTML'); ?>
 
 <? prehtml("This is just some plain text.") ?>
 
-    <p>The text you entered should automatically appear in the web-page pane:</p>
+    <p>The text you entered should automatically appear in the preview pane:</p>
 
     <? screenshot_vol2('codepen-plaintext.png', True, True) ?>
 
@@ -246,12 +246,12 @@ stepheader('note-i-b', 'Italics and bold'); ?>
 
     <p><? codehtml('<i>') ?> tags create italicized text, and <? codehtml('<b>') ?> tags create bold text.</p>
 
-    <p>Notice how in the HTML pane, each sentence is on its own line, yet in the web-page pane each sentence appears one after the other.</p>
+    <p>Notice how in the HTML pane, each sentence is on its own line, yet in the preview pane each sentence appears one after the other.</p>
 
     <p>On another note, I assume, at this point, that you have gotten the hang of using CodePen.
         Therefore, henceforth, I will not display screenshots of CodePen. Rather,
-    I will just display what the web-page pane should show. For example, for this step,
-    the web-page pane should look something like:</p>
+    I will just display what the preview pane should show. For example, for this step,
+    the preview pane should look something like:</p>
 
 
     <div class="html-page">
@@ -276,7 +276,7 @@ stepheader('note-p-tag', 'The div tag'); ?>
 <? prehtml("<div><i>This text is italicized.</i></div>
 <div><b>This text is bold.</b></div>") ?>
 
-    <p>Your CodePen web-page pane should look something like:</p>
+    <p>Your CodePen preview pane should look something like:</p>
 
     <div class="html-page">
 <div>
@@ -310,7 +310,7 @@ stepheader('note-intro-css', 'Introduction to CSS'); ?>
     The background of this div is gray.
 </div>") ?>
 
-    <p>Your CodePen web-page pane should look something like:</p>
+    <p>Your CodePen preview pane should look something like:</p>
 
     <div class="html-page">
 <div style='background-color:wheat'>
@@ -360,7 +360,7 @@ stepheader('note-css-pane', 'The CSS pane'); ?>
 
 
 
-<p>Your CodePen web-page pane should look something like:</p>
+<p>Your CodePen preview pane should look something like:</p>
 
     <div class="html-page">
 <div style='background-color:turquoise'>

@@ -1,0 +1,16 @@
+.row {
+    clear: left;
+}
+
+.cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 60px;
+    cursor: pointer;
+}

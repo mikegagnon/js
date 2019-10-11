@@ -274,24 +274,25 @@ This is just some plain text.
 <? stepfooter(); ?>
 
 <? #############################################################################
-stepheader('note-p-tag', 'Paragraphs'); ?>
+stepheader('note-p-tag', 'The div tag'); ?>
 
-    <p>You can use <? codehtml('<p>') ?> tags to put text into separate paragraphs.</p>
+    <p>You can use <? codehtml('<div>') ?> tags to put text into separate &ldquo;divisions,&rdquo;
+    more commonly known simply as &ldquo;divs.&rdquo;</p>
 
     <p>In the HTML pane of CodePen, type (or paste) the following code:</p>
 
-<? prehtml("<p><i>This text is italicized.</i></p>
-<p><b>This text is bold.</b></p>") ?>
+<? prehtml("<div><i>This text is italicized.</i></div>
+<div><b>This text is bold.</b></div>") ?>
 
     <p>Your CodePen web-page pane should look something like:</p>
 
     <div class="html-page">
-<p>
+<div>
   <i>This text is italicized.</i>
-</p>
-<p>
+</div>
+<div>
   <b>This text is bold.</b>
-</p>
+</div>
     </div>
 
 <? stepoverview(); ?>
@@ -306,26 +307,26 @@ partheader('CSS'); #############################################################
 <? #############################################################################
 stepheader('note-intro-css', 'Introduction to CSS'); ?>
     <p>CSS lets you add &ldquo;style&rdquo; to HTML web pages. For instance
-    you can use CSS to change the background color of paragraphs.</p>
+    you can use CSS to change the background color of divs.</p>
 
     <p>In the HTML pane of CodePen, type (or paste) the following code:</p>
 
-<? prehtml("<p style='background-color:wheat'>
-    The background of this paragraph is wheat.
-</p>
-<p style='background-color:gray'>
-    The background of this paragraph is gray.
-</p>") ?>
+<? prehtml("<div style='background-color:wheat'>
+    The background of this div is wheat.
+</div>
+<div style='background-color:gray'>
+    The background of this div is gray.
+</div>") ?>
 
     <p>Your CodePen web-page pane should look something like:</p>
 
     <div class="html-page">
-<p style='background-color:wheat'>
-    The background of this paragraph is wheat.
-</p>
-<p style='background-color:gray'>
-    The background of this paragraph is gray.
-</p>
+<div style='background-color:wheat'>
+    The background of this div is wheat.
+</div>
+<div style='background-color:gray'>
+    The background of this div is gray.
+</div>
     </div>
 
     <p>In this example, the CSS is embedded <i>inside</i> the HTML. Specifically,
@@ -358,26 +359,32 @@ stepheader('note-css-pane', 'The CSS pane'); ?>
 
     <p>Then, in the HTML pane, enter the following:</p>
 
-<? prehtml("<p class='first'>
-    The background of this paragraph is turquoise.
-</p>
-<p class='second'>
-    The background of this paragraph is dark khaki.
-</p>") ?>
+<? prehtml("<div class='first'>
+    The background of this div is turquoise.
+</div>
+<div class='second'>
+    The background of this div is dark khaki.
+</div>") ?>
 
 
 
 <p>Your CodePen web-page pane should look something like:</p>
 
     <div class="html-page">
-<p style='background-color:turquoise'>
-    The background of this paragraph is turquoise.
-</p>
-<p style='background-color:darkkhaki'>
-    The background of this paragraph is dark khaki.
-</p>
+<div style='background-color:turquoise'>
+    The background of this div is turquoise.
+</div>
+<div style='background-color:darkkhaki'>
+    The background of this div is dark khaki.
+</div>
     </div>
 
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-cell', 'Creating a cell class'); ?>
+    
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 

@@ -57,3 +57,14 @@ iframe {
 .row_1 {
     clear: left;
 }
+
+
+.cell_5 {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+    text-align: center;
+}

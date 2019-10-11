@@ -278,8 +278,12 @@ stepheader('note-p-tag', 'Paragraphs'); ?>
 
     <p>You can use <? codehtml('<p>') ?> tags to put text into separate paragraphs.</p>
 
+    <p>In the HTML pane of CodePen, type (or paste) the following code:</p>
+
 <? prehtml("<p><i>This text is italicized.</i></p>
 <p><b>This text is bold.</b></p>") ?>
+
+    <p>Your CodePen web-page pane should look something like:</p>
 
     <div class="html-page">
 <p>
@@ -293,7 +297,39 @@ stepheader('note-p-tag', 'Paragraphs'); ?>
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 
+<?
+################################################################################
+partheader('CSS'); #############################################################
+################################################################################
+?>
 
+<? #############################################################################
+stepheader('note-intro-css', 'Introduction to CSS'); ?>
+    <p>CSS lets you add &ldquo;style&rdquo; to HTML web pages. For instance
+    you can use CSS to change the background color of paragraphs.</p>
+
+    <p>In the HTML pane of CodePen, type (or paste) the following code:</p>
+
+<? prehtml("<p style='background-color:green'>
+    The background of this paragraph is green.
+</p>
+<p style='background-color:gold'>
+    The background of this paragraph is gold.
+</p>") ?>
+
+    <p>Your CodePen web-page pane should look something like:</p>
+
+    <div class="html-page">
+<p style='background-color:green'>
+    The background of this paragraph is green.
+</p>
+<p style='background-color:gold'>
+    The background of this paragraph is gold.
+</p>
+    </div>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
 
 
 <? ########################################################################## ?>

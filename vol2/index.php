@@ -913,6 +913,93 @@ noteheader('note-horiz-center-html'); ?>
 <? notefooter(); ?>
 
 
+<? #############################################################################
+stepheader('note-font-size', 'Increase the size of the X’s and O’s'); ?>
+
+    <p>Building upon <a href="#note-vert-center-css">the CSS</a> and
+    <a href="#note-vert-center-html">the HTML</a> from the previous step,
+    modify the CSS by adding <? codecss('font-size: 60px;')?> to the bottom
+    of the <?codenone('cell')?> class. Your CSS pane should read as follows:
+    </p>
+
+<? precss(".row {
+    clear: left;
+}
+
+.cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 60px;
+}") ?>
+
+    <p>Your preview pane should look something like:</p>
+
+<div class="html-page">
+    <div class='row_1'>
+        <div class='cell_7'>X</div>
+        <div class='cell_7'>O</div>
+        <div class='cell_7'>X</div>
+    </div>
+    <div class='row_1'>
+        <div class='cell_7'>O</div>
+        <div class='cell_7'>X</div>
+        <div class='cell_7'>O</div>
+    </div>
+    <div class='row_1'>
+        <div class='cell_7'>X</div>
+        <div class='cell_7'>O</div>
+        <div class='cell_7'>X</div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-vert-center-css'); ?>
+<? precss(".row {
+    clear: left;
+}
+
+.cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 60px;
+}") ?>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-vert-center-html'); ?>
+<? prehtml("<div class='row'>
+    <div class='cell'>X</div>
+    <div class='cell'>O</div>
+    <div class='cell'>X</div>
+</div>
+<div class='row'>
+    <div class='cell'>O</div>
+    <div class='cell'>X</div>
+    <div class='cell'>O</div>
+</div>
+<div class='row'>
+    <div class='cell'>X</div>
+    <div class='cell'>O</div>
+    <div class='cell'>X</div>
+</div>") ?>
+<? notefooter(); ?>
+
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

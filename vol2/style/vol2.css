@@ -79,3 +79,15 @@ iframe {
     text-align: center;
     line-height: 60px;
 }
+
+.cell_7 {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 60px;
+}

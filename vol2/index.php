@@ -580,6 +580,65 @@ noteheader('note-three-row-attempt-css'); ?>
 }") ?>
 <? notefooter(); ?>
 
+<? #############################################################################
+stepheader('note-grid', 'Three rows of three squares'); ?>
+
+    <p>Building upon <a href="#note-three-row-success-css">the CSS</a> and
+    discarding the HTML from the previous step,
+    first modify the CSS by adding a new class to the CSS pane:</p>
+
+<? precss(".row {
+    clear: left;
+}") ?>
+
+    <p>Altogether, your CSS pane should contain the following code:</p>
+
+<? precss(".row {
+    clear: left;
+}
+
+.cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+}") ?>
+
+    <p>Next, update the HTML pane so it reads as follows:</p>
+
+<? prehtml("<div class='row'>
+    <div class='cell'></div>
+    <div class='cell'></div>
+    <div class='cell'></div>
+</div>
+<div class='row'>
+    <div class='cell'></div>
+    <div class='cell'></div>
+    <div class='cell'></div>
+</div>
+<div class='row'>
+    <div class='cell'></div>
+    <div class='cell'></div>
+    <div class='cell'></div>
+</div>") ?>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-three-row-success-css'); ?>
+<? precss(".cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+}") ?>
+<? notefooter(); ?>
+
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

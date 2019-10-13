@@ -2,32 +2,40 @@
 var gameState = {
     player: 'X',
     board: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    gameResult: 'game is not over' 
 }
 
 function cellClick(locationNumber) {
+    if (gameState.gameResult !== 'game is not over') {
+        return;
+    }
+
     if (gameState.board[locationNumber] === 0) {
         gameState.board[locationNumber] = gameState.player
         
         var text = document.createTextNode(gameState.player)
         document.querySelector('#location-' + locationNumber).appendChild(text)
 
-        var gameResult = getGameResult(gameState)
+        gameState.gameResult = getGameResult(gameState)
 
-        if (gameResult === 'tie') {
+        if (gameState.gameResult === 'tie') {
             alert('Tie!')
-        } else if (gameResult === 'X') {
+        } else if (gameState.gameResult === 'X') {
             alert('X wins!')
-        } else if (gameResult === 'O') {
+        } else if (gameState.gameResult === 'O') {
             alert('O wins!')
         } else {
             switchPlayer(gameState)
         }
 
-        /*
-        locationNumber = getBestMoveForO(gameState)
-        gameState.board[locationNumber] = gameState.player
+        if (gameState.gameResult !== 'game is not over') {
+            return;
+        }
+
+        locationNumber = getBestMoveForO(gameState).move
+        gameState.board[locationNumber] = 'O'
         
-        var text = document.createTextNode(gameState.player)
+        var text = document.createTextNode('O')
         document.querySelector('#location-' + locationNumber).appendChild(text)
 
         var gameResult = getGameResult(gameState)
@@ -41,7 +49,6 @@ function cellClick(locationNumber) {
         } else {
             switchPlayer(gameState)
         }
-        */
     }
 }
 
@@ -113,7 +120,7 @@ function isVictory(board, player) {
         return false
     }
 }
-/*
+
 function cloneGameState(gameState) {
     var newBoard = gameState.board.slice(0)
     return {
@@ -131,22 +138,35 @@ function getBestMoveForX(gameState) {
         if (gameState.board[i] === 0) {
             var clone = cloneGameState(gameState)
             clone.board[i] = 'X'
-            clone.player = 'O'
-            var result = getBestMoveForO(clone)
-            if (result.victor === 'X') {
+            if (isVictory(clone.board, 'X')) {
                 return {
                     victor: 'X',
                     move: i
                 }
-            } else if (result.victor === 'tie') {
+            } else if (isTie(clone)) {
                 bestMove = {
                     victor: 'tie',
                     move: i
                 }
-            } else if (bestMove === undefined) {
-                bestMove = {
-                    victor: 'O',
-                    move: i
+            } else {
+                clone.player = 'O'
+                var result = getBestMoveForO(clone)
+
+                if (result.victor === 'X') {
+                    return {
+                        victor: 'X',
+                        move: i
+                    }
+                } else if (result.victor === 'tie') {
+                    bestMove = {
+                        victor: 'tie',
+                        move: i
+                    }
+                } else if (bestMove === undefined) {
+                    bestMove = {
+                        victor: 'O',
+                        move: i
+                    }
                 }
             }
         }
@@ -155,10 +175,8 @@ function getBestMoveForX(gameState) {
     return bestMove
 }
 
-// Assuming it is X's turn
+
 function getBestMoveForO(gameState) {
-
-
 
     var bestMove = undefined;
 
@@ -166,27 +184,35 @@ function getBestMoveForO(gameState) {
         if (gameState.board[i] === 0) {
             var clone = cloneGameState(gameState)
             clone.board[i] = 'O'
-
-            if (isVictory(clone)) {
-                return 
-            }
-
-            clone.player = 'X'
-            var result = getBestMoveForX(clone)
-            if (result.victor === 'O') {
+            if (isVictory(clone.board, 'O')) {
                 return {
                     victor: 'O',
                     move: i
                 }
-            } else if (result.victor === 'tie') {
+            } else if (isTie(clone)) {
                 bestMove = {
                     victor: 'tie',
                     move: i
                 }
-            } else if (bestMove === undefined) {
-                bestMove = {
-                    victor: 'X',
-                    move: i
+            } else {
+                clone.player = 'X'
+                var result = getBestMoveForX(clone)
+
+                if (result.victor === 'O') {
+                    return {
+                        victor: 'O',
+                        move: i
+                    }
+                } else if (result.victor === 'tie') {
+                    bestMove = {
+                        victor: 'tie',
+                        move: i
+                    }
+                } else if (bestMove === undefined) {
+                    bestMove = {
+                        victor: 'X',
+                        move: i
+                    }
                 }
             }
         }
@@ -194,4 +220,3 @@ function getBestMoveForO(gameState) {
 
     return bestMove
 }
-*/

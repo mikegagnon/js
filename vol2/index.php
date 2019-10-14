@@ -1173,6 +1173,30 @@ stepheader('note-draw-xo', 'Drawing X&rsquo;s and O&rsquo;s with JavaScript'); ?
         page. To add the text to your page, we will begin by using the <? code('document') ?> object
     to obtain a reference for the precise spot on the page we would like to insert the text.</p>
 
+    <p>Let&rsquo;s say we want to draw an X in the center cell. That cell has an id equal to
+        <? code("'cell-4'") ?>. Then, to retrieve a reference to that cell we would invoke:</p>
+
+<? pre("var cellRef = document.getElementById('cell-4')") ?>
+
+    <p>The variable <? code("cellRef") ?> is an object that refers to the cell in the center
+        of the board.</p>
+
+    <p>Finally, to draw our X, we would invoke a function (that is a member of the cellRef object), as so:</p>
+
+<? pre("cellRef.appendChild(text)") ?>
+
+    <p>Altogether, you add the following code to your JavaScript pane, to draw an X in the center 
+        of the board.</p>
+
+<? pre("var text = document.createTextNode('X')
+var cellRef = document.getElementById('cell-4')
+cellRef.appendChild(text)") ?>
+
+
+
+
+
+
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 

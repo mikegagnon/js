@@ -1,14 +1,14 @@
+AI_GOES_FIRST = true;
 
 var gameState = {
     player: 'X',
     board: [
-         0,   0,  0,
-         0,   0,  0,
-         0,   0,  0],
+         0,   0,   0,
+         0,   0,   0,
+         0,   0,   0],
     gameResult: 'game is not over' 
 }
 
-AI_GOES_FIRST = false;
 
 for (var i = 0; i < gameState.board.length; i++) {
     var player = gameState.board[i]

@@ -187,8 +187,36 @@ var GAME_STATE = {
     gameResult: 'game is not over' 
 }
 
-drawInitialBoard()
+var MODE = 'Test offense 2'
 
-if (AI_GOES_FIRST) {
+if (MODE === 'Test defense') {
+    GAME_STATE.board = [
+        'O', '-', '-',
+        '-', 'X', '-',
+        '-', '-', 'X']
+    drawInitialBoard()
+    GAME_STATE.player = 'O'
     aiMove()
+} else if (MODE === 'Test offense 1') {
+    GAME_STATE.board = [
+        '-', '-', '-',
+        '-', '-', 'X',
+        'X', 'O', 'O']
+    drawInitialBoard()
+    GAME_STATE.player = 'O'
+    aiMove()
+} else if (MODE === 'Test offense 2') {
+    GAME_STATE.board = [
+        '-', '-', '-',
+        '-', '-', 'X',
+        '-', '-', 'O']
+    drawInitialBoard()
+    GAME_STATE.player = 'O'
+    aiMove()
+} else {
+    drawInitialBoard()
+
+    if (AI_GOES_FIRST) {
+        aiMove()
+    }    
 }

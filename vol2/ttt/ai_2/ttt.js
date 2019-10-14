@@ -167,6 +167,15 @@ function getBestMove(gameState) {
     return bestMove
 }
 
+function drawInitialBoard() {
+    for (var i = 0; i < GAME_STATE.board.length; i++) {
+        var player = GAME_STATE.board[i]
+        if (player !== 0) {
+            drawLetter(i, player)
+        }
+    }
+}
+
 AI_GOES_FIRST = false;
 
 var GAME_STATE = {
@@ -178,12 +187,8 @@ var GAME_STATE = {
     gameResult: 'game is not over' 
 }
 
-for (var i = 0; i < GAME_STATE.board.length; i++) {
-    var player = GAME_STATE.board[i]
-    if (player !== 0) {
-        drawLetter(i, player)
-    }
-}
+drawInitialBoard()
+
 
 if (AI_GOES_FIRST) {
     aiMove()

@@ -8,6 +8,8 @@ var gameState = {
     gameResult: 'game is not over' 
 }
 
+AI_GOES_FIRST = false;
+
 for (var i = 0; i < gameState.board.length; i++) {
     var player = gameState.board[i]
     if (player !== 0) {
@@ -20,53 +22,36 @@ function drawLetter(location, letter) {
     document.querySelector('#location-' + location).appendChild(text)
 }
 
-aiMove()
-
 
 function cellClick(locationNumber) {
-    if (gameState.gameResult !== 'game is not over') {
-        return
-    }
-
-    if (gameState.board[locationNumber] === 0) {
-        gameState.board[locationNumber] = gameState.player
+    if (gameState.gameResult === 'game is not over' && 
+        gameState.board[locationNumber] === 0) {
         
-        drawLetter(locationNumber, gameState.player)
+        makeMove(locationNumber)
 
-        gameState.gameResult = getGameResult(gameState)
-
-        if (gameState.gameResult === 'tie') {
-            alert('Tie!')
-        } else if (gameState.gameResult === 'X') {
-            alert('X wins!')
-        } else if (gameState.gameResult === 'O') {
-            alert('O wins!')
-        } else {
-            switchPlayer(gameState)
+        if (gameState.gameResult === 'game is not over') {
+            aiMove()
         }
-
-        if (gameState.gameResult !== 'game is not over') {
-            return
-        }
-
-        aiMove()
     }
 }
 
 function aiMove() {
     locationNumber = getBestMove(gameState).move
+    makeMove(locationNumber)
+}
+
+function makeMove(locationNumber) {
     gameState.board[locationNumber] = gameState.player
-    
-    var text = document.createTextNode(gameState.player)
-    document.querySelector('#location-' + locationNumber).appendChild(text)
 
-    var gameResult = getGameResult(gameState)
+    drawLetter(locationNumber, gameState.player)
 
-    if (gameResult === 'tie') {
+    gameState.gameResult = getGameResult(gameState)
+
+    if (gameState.gameResult === 'tie') {
         alert('Tie!')
-    } else if (gameResult === 'X') {
+    } else if (gameState.gameResult === 'X') {
         alert('X wins!')
-    } else if (gameResult === 'O') {
+    } else if (gameState.gameResult === 'O') {
         alert('O wins!')
     } else {
         switchPlayer(gameState)
@@ -202,3 +187,8 @@ function getBestMove(gameState) {
 
     return bestMove
 }
+
+if (AI_GOES_FIRST) {
+    aiMove()
+}
+

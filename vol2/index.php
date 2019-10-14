@@ -1185,17 +1185,12 @@ stepheader('note-draw-xo', 'Drawing X&rsquo;s and O&rsquo;s with JavaScript'); ?
 
 <? pre("cellRef.appendChild(text)") ?>
 
-    <p>Altogether, you add the following code to your JavaScript pane, to draw an X in the center 
+    <p>Altogether, you can add the following code to your JavaScript pane, to draw an X in the center 
         of the board.</p>
 
 <? pre("var text = document.createTextNode('X')
 var cellRef = document.getElementById('cell-4')
 cellRef.appendChild(text)") ?>
-
-
-
-
-
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>

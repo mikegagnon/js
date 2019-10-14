@@ -1093,17 +1093,92 @@ noteheader('note-font-size-html'); ?>
 </div>") ?>
 <? notefooter(); ?>
 
+<?
+################################################################################
+partheader('Two-player tic tac toe'); #########################################
+################################################################################
+?>
+
+<? #############################################################################
+stepheader('note-cell-ids', 'Give each cell a unique ID'); ?>
+
+    <p>In the next step (<?steplink('note-draw-xo')?>), we will use JavaScript
+    to draw X&rsquo;s and O&rsquo;s to the board. In order to be able to do this,
+    we will need to give each cell an ID. That way, we can write JavaScript
+    code that essentially says, for example, &ldquo;draw an X in the cell that has its ID equal to 5.&rdquo;
+    </p>
+
+    <p>Let&rsquo;s begin by removing the X&rsquo;s and O&rsquo;s from our HTML. Your <a target="_blank" href="https://codepen.io/pen">HTML pane</a> should contain the following code:</p>
+
+<? prehtml("<div class='row'>
+    <div class='cell'></div>
+    <div class='cell'></div>
+    <div class='cell'></div>
+</div>
+<div class='row'>
+    <div class='cell'></div>
+    <div class='cell'></div>
+    <div class='cell'></div>
+</div>
+<div class='row'>
+    <div class='cell'></div>
+    <div class='cell'></div>
+    <div class='cell'></div>
+</div>") ?>
+
+    <p>Then, modify the HTML so that each cell has an ID, starting from 0 and ending at 8:</p>
+
+<? prehtml("<div class='row'>
+    <div class='cell' id='cell-0'></div>
+    <div class='cell' id='cell-1'></div>
+    <div class='cell' id='cell-2'></div>
+</div>
+<div class='row'>
+    <div class='cell' id='cell-3'></div>
+    <div class='cell' id='cell-4'></div>
+    <div class='cell' id='cell-5'></div>
+</div>
+<div class='row'>
+    <div class='cell' id='cell-6'></div>
+    <div class='cell' id='cell-7'></div>
+    <div class='cell' id='cell-8'></div>
+</div>") ?>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-draw-xo', 'Drawing X&rsquo;s and O&rsquo;s with JavaScript'); ?>
+    <p>We are going to use JavaScript to draw X&rsquo;s and O&rsquo;s to the board.
+    For example, when a player clicks a cell, our JavaScript code will draw either an X or an O
+    onto the board. Or, in a later chapter (Step TODO), when the AI makes a move,
+    our JavaScript code will draw either an X or an O on the board.</p>
+
+    <p>To accomplish this feat, we will utilize JavaScript&rsquo;s <? code('document') ?>
+    object. JavaScript automatically creates a special object for you, named <? code('document') ?>,
+    that refers to your entire HTML web page, in a format that is accessible via JavaScript. Furthermore,
+    the object refers to functions you can use to change the HTML page on the fly.</p> 
+    </p>
+
+    <p>To begin, <? code('document.createTextNode') ?> refers to a function
+    that you can use to create new text for your page. For example, to add
+    an X to your page, you would invoke the function like this:</p>
+
+<? pre("var text = document.createTextNode('X')") ?>
+
+    <p>But note, this function invocation just creates the text; it does not add the next to your 
+        page. To add the text to your page, we begin using the <? code('document') ?> object
+    to obtain a reference for the precise spot on the page we would like to insert the text.</p>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 
-<? #############################################################################
-stepheader('note-x', ''); ?>
-
-<? stepoverview(); ?>
-<? stepfooter(); ?>
 
 <? #############################################################################
 substepheader('note-y', ''); ?>

@@ -1,26 +1,7 @@
-AI_GOES_FIRST = false;
-
-var GAME_STATE = {
-    player: 'X',
-    board: [
-         0,   0,   0,
-         0,   0,   0,
-         0,   0,   0],
-    gameResult: 'game is not over' 
-}
-
-for (var i = 0; i < GAME_STATE.board.length; i++) {
-    var player = GAME_STATE.board[i]
-    if (player !== 0) {
-        drawLetter(i, player)
-    }
-}
-
 function drawLetter(move, letter) {
     var text = document.createTextNode(letter)
     document.querySelector('#cell-' + move).appendChild(text)
 }
-
 
 function cellClick(move) {
     if (GAME_STATE.gameResult === 'game is not over' && 
@@ -184,6 +165,24 @@ function getBestMove(gameState) {
     }
 
     return bestMove
+}
+
+AI_GOES_FIRST = false;
+
+var GAME_STATE = {
+    player: 'X',
+    board: [
+         0,   0,   0,
+         0,   0,   0,
+         0,   0,   0],
+    gameResult: 'game is not over' 
+}
+
+for (var i = 0; i < GAME_STATE.board.length; i++) {
+    var player = GAME_STATE.board[i]
+    if (player !== 0) {
+        drawLetter(i, player)
+    }
 }
 
 if (AI_GOES_FIRST) {

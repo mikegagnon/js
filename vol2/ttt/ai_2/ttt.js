@@ -1,6 +1,6 @@
 AI_GOES_FIRST = true;
 
-var gameState = {
+var GAME_STATE = {
     player: 'X',
     board: [
          0,   0,   0,
@@ -9,9 +9,8 @@ var gameState = {
     gameResult: 'game is not over' 
 }
 
-
-for (var i = 0; i < gameState.board.length; i++) {
-    var player = gameState.board[i]
+for (var i = 0; i < GAME_STATE.board.length; i++) {
+    var player = GAME_STATE.board[i]
     if (player !== 0) {
         drawLetter(i, player)
     }
@@ -24,54 +23,54 @@ function drawLetter(location, letter) {
 
 
 function cellClick(locationNumber) {
-    if (gameState.gameResult === 'game is not over' && 
-        gameState.board[locationNumber] === 0) {
+    if (GAME_STATE.gameResult === 'game is not over' && 
+        GAME_STATE.board[locationNumber] === 0) {
         
         makeMove(locationNumber)
 
-        if (gameState.gameResult === 'game is not over') {
+        if (GAME_STATE.gameResult === 'game is not over') {
             aiMove()
         }
     }
 }
 
 function aiMove() {
-    locationNumber = getBestMove(gameState).move
+    locationNumber = getBestMove(GAME_STATE).move
     makeMove(locationNumber)
 }
 
 function makeMove(locationNumber) {
-    gameState.board[locationNumber] = gameState.player
+    GAME_STATE.board[locationNumber] = GAME_STATE.player
 
-    drawLetter(locationNumber, gameState.player)
+    drawLetter(locationNumber, GAME_STATE.player)
 
-    gameState.gameResult = getGameResult(gameState)
+    GAME_STATE.gameResult = getGameResult(GAME_STATE)
 
-    if (gameState.gameResult === 'tie') {
+    if (GAME_STATE.gameResult === 'tie') {
         alert('Tie!')
-    } else if (gameState.gameResult === 'X') {
+    } else if (GAME_STATE.gameResult === 'X') {
         alert('X wins!')
-    } else if (gameState.gameResult === 'O') {
+    } else if (GAME_STATE.gameResult === 'O') {
         alert('O wins!')
     } else {
-        switchPlayer(gameState)
+        switchPlayer()
     }
 }
 
-function switchPlayer(gameState) {
-    if (gameState.player === 'X') {
-        gameState.player = 'O'
+function switchPlayer() {
+    if (GAME_STATE.player === 'X') {
+        GAME_STATE.player = 'O'
     } else {
-        gameState.player = 'X'
+        GAME_STATE.player = 'X'
     }
 }
 
-function getGameResult(gameState) {
-    if (isTie(gameState)) {
+function getGameResult() {
+    if (isTie(GAME_STATE)) {
         return 'tie'
-    } else if (isVictory(gameState.board, 'X')) {
+    } else if (isVictory(GAME_STATE.board, 'X')) {
         return 'X'
-    } else if (isVictory(gameState.board, 'O')) {
+    } else if (isVictory(GAME_STATE.board, 'O')) {
         return 'O'
     } else {
         return 'game is not over' 

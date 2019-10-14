@@ -5,7 +5,7 @@ function drawLetter(move, letter) {
 
 function cellClick(move) {
     if (GAME_STATE.gameResult === 'game is not over' && 
-        GAME_STATE.board[move] === 0) {
+        GAME_STATE.board[move] === '-') {
         
         makeMove(move)
 
@@ -60,7 +60,7 @@ function getGameResult() {
 
 function isTie(gameState) {
     for (var i = 0; i < gameState.board.length; i++) {
-        if (gameState.board[i] === 0) {
+        if (gameState.board[i] === '-') {
             return false
         }
     }
@@ -127,7 +127,7 @@ function getBestMove(gameState) {
     }
 
     for (var i = 0; i < gameState.board.length; i++) {
-        if (gameState.board[i] === 0) {
+        if (gameState.board[i] === '-') {
             var clone = cloneGameState(gameState)
             clone.board[i] = gameState.player
             if (isVictory(clone.board, gameState.player)) {
@@ -169,9 +169,9 @@ function getBestMove(gameState) {
 
 function drawInitialBoard() {
     for (var i = 0; i < GAME_STATE.board.length; i++) {
-        var player = GAME_STATE.board[i]
-        if (player !== 0) {
-            drawLetter(i, player)
+        var move = GAME_STATE.board[i]
+        if (move !== '-') {
+            drawLetter(i, move)
         }
     }
 }
@@ -181,16 +181,14 @@ AI_GOES_FIRST = false;
 var GAME_STATE = {
     player: 'X',
     board: [
-         0,   0,   0,
-         0,   0,   0,
-         0,   0,   0],
+        '-', '-', '-',
+        '-', '-', '-',
+        '-', '-', '-'],
     gameResult: 'game is not over' 
 }
 
 drawInitialBoard()
 
-
 if (AI_GOES_FIRST) {
     aiMove()
 }
-

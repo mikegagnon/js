@@ -1234,6 +1234,51 @@ noteheader('note-cell-id-html'); ?>
 </div>") ?>
 <? notefooter(); ?>
 
+<? #############################################################################
+stepheader('note-draw-fn', 'Creating a drawLetter(...) function'); ?>
+
+    <p>Building upon <a href="#note-cell-id-html">the HTML</a>
+        and <a href="#note-glove-css">the CSS</a> from the previous step,
+    let&rsquo;s take the JavaScript code from our previous step, and turn
+    it into a function, like so:</p>
+
+<? pre("function drawLetter(cellNumber, letter) {
+    var text = document.createTextNode(letter)
+    var cellId = 'cell-' + cellNumber
+    var cellRef = document.getElementById(cellId)
+    cellRef.appendChild(text)
+}") ?>
+
+    <p>The <?code('drawLetter')?> function takes two parameters: (1) the cell&rsquo;s
+    number (which must be between 0 and 8, inclusive), and (2) a letter (which
+should be either X or O), then draws the letter upon the specified cell.</p>
+
+    <p>To test to see if this function works, edit your JavaScript pane so that it contains the function
+    declaration, followed by two invocations of the function:</p>
+
+<? pre("drawLetter(4, 'X')
+drawLetter(0, 'O')") ?>
+
+    <p>Your JavaScript pane should contain only <a href="#note-draw-fn-js">the code listed here</a>.</p>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+<? #############################################################################
+noteheader('note-draw-fn-js'); ?>
+<? pre("function drawLetter(cellNumber, letter) {
+    var text = document.createTextNode(letter)
+    var cellId = 'cell-' + cellNumber
+    var cellRef = document.getElementById(cellId)
+    cellRef.appendChild(text)
+}
+
+drawLetter(4, 'X')
+drawLetter(0, 'O')") ?>
+<? notefooter(); ?>
+
+
+
+
 <? ########################################################################## ?>
 <? ########################################################################## ?>
 <? ############################ COPY AREA ################################### ?>

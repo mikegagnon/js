@@ -1,4 +1,4 @@
-AI_GOES_FIRST = true;
+AI_GOES_FIRST = false;
 
 var GAME_STATE = {
     player: 'X',
@@ -16,17 +16,17 @@ for (var i = 0; i < GAME_STATE.board.length; i++) {
     }
 }
 
-function drawLetter(location, letter) {
+function drawLetter(move, letter) {
     var text = document.createTextNode(letter)
-    document.querySelector('#location-' + location).appendChild(text)
+    document.querySelector('#cell-' + move).appendChild(text)
 }
 
 
-function cellClick(locationNumber) {
+function cellClick(move) {
     if (GAME_STATE.gameResult === 'game is not over' && 
-        GAME_STATE.board[locationNumber] === 0) {
+        GAME_STATE.board[move] === 0) {
         
-        makeMove(locationNumber)
+        makeMove(move)
 
         if (GAME_STATE.gameResult === 'game is not over') {
             aiMove()
@@ -35,14 +35,14 @@ function cellClick(locationNumber) {
 }
 
 function aiMove() {
-    locationNumber = getBestMove(GAME_STATE).move
-    makeMove(locationNumber)
+    move = getBestMove(GAME_STATE).move
+    makeMove(move)
 }
 
-function makeMove(locationNumber) {
-    GAME_STATE.board[locationNumber] = GAME_STATE.player
+function makeMove(move) {
+    GAME_STATE.board[move] = GAME_STATE.player
 
-    drawLetter(locationNumber, GAME_STATE.player)
+    drawLetter(move, GAME_STATE.player)
 
     GAME_STATE.gameResult = getGameResult(GAME_STATE)
 
@@ -134,7 +134,6 @@ function cloneGameState(gameState) {
     }
 }
 
-// Assuming it is X's turn
 function getBestMove(gameState) {
 
     var bestMove = undefined

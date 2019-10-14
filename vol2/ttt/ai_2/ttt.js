@@ -9,7 +9,8 @@ function cellClick(move) {
         
         makeMove(move)
 
-        if (GAME_STATE.gameResult === 'game is not over') {
+        if (MODE !== 'Two player' &&
+            GAME_STATE.gameResult === 'game is not over') {
             aiMove()
         }
     }
@@ -176,8 +177,6 @@ function drawInitialBoard() {
     }
 }
 
-AI_GOES_FIRST = false;
-
 var GAME_STATE = {
     player: 'X',
     board: [
@@ -187,7 +186,8 @@ var GAME_STATE = {
     gameResult: 'game is not over' 
 }
 
-var MODE = 'Test offense 2'
+var MODE = 'Single player'
+var AI_GOES_FIRST = true;
 
 if (MODE === 'Test defense') {
     GAME_STATE.board = [
@@ -213,6 +213,8 @@ if (MODE === 'Test defense') {
     drawInitialBoard()
     GAME_STATE.player = 'O'
     aiMove()
+} else if (MODE === 'Two player') {
+    drawInitialBoard()
 } else {
     drawInitialBoard()
 

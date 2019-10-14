@@ -49,10 +49,8 @@ function switchPlayer() {
 function getGameResult() {
     if (isTie(GAME_STATE)) {
         return 'tie'
-    } else if (isVictory(GAME_STATE.board, 'X')) {
-        return 'X'
-    } else if (isVictory(GAME_STATE.board, 'O')) {
-        return 'O'
+    } else if (isVictory(GAME_STATE)) {
+        return GAME_STATE.player
     } else {
         return 'game is not over' 
     }
@@ -68,7 +66,9 @@ function isTie(gameState) {
     return true
 }
 
-function isVictory(board, player) {
+function isVictory(gameState) {
+    var board = gameState.board
+    var player = gameState.player
     if (board[0] === player &&
         board[1] === player &&
         board[2] === player) {
@@ -130,7 +130,7 @@ function getBestMove(gameState) {
         if (gameState.board[i] === '-') {
             var clone = cloneGameState(gameState)
             clone.board[i] = gameState.player
-            if (isVictory(clone.board, gameState.player)) {
+            if (isVictory(clone)) {
                 return {
                     victor: gameState.player,
                     move: i

@@ -1100,7 +1100,7 @@ partheader('Two-player tic tac toe'); #########################################
 ?>
 
 <? #############################################################################
-stepheader('note-cell-ids', 'Give each cell a unique ID'); ?>
+stepheader('note-cell-id', 'Give each cell a unique ID'); ?>
 
     <p>In the next step (<?steplink('note-draw-xo')?>), we will use JavaScript
     to draw X&rsquo;s and O&rsquo;s to the board. In order to be able to do this,
@@ -1149,7 +1149,10 @@ stepheader('note-cell-ids', 'Give each cell a unique ID'); ?>
 
 <? #############################################################################
 stepheader('note-draw-xo', 'Drawing X&rsquo;s and O&rsquo;s with JavaScript'); ?>
-    <p>We are going to use JavaScript to draw X&rsquo;s and O&rsquo;s to the board.
+    
+    <p>Building upon <a href="#note-cell-id-html">the HTML</a> from the previous step,
+        and <a href="#note-glove-css">the CSS</a> from <? steplink('note-glove')?>,
+    we are going to use JavaScript to draw X&rsquo;s and O&rsquo;s to the board.
     For example, when a player clicks a cell, our JavaScript code will draw either an X or an O
     onto the board. Or, in a later chapter (Step TODO), when the AI makes a move,
     our JavaScript code will draw either an X or an O on the board.</p>
@@ -1160,18 +1163,57 @@ stepheader('note-draw-xo', 'Drawing X&rsquo;s and O&rsquo;s with JavaScript'); ?
     the object refers to functions you can use to change the HTML page on the fly.</p> 
     </p>
 
-    <p>To begin, <? code('document.createTextNode') ?> refers to a function
+    <p>To start, <? code('document.createTextNode') ?> refers to a function
     that you can use to create new text for your page. For example, to add
     an X to your page, you would invoke the function like this:</p>
 
 <? pre("var text = document.createTextNode('X')") ?>
 
-    <p>But note, this function invocation just creates the text; it does not add the next to your 
-        page. To add the text to your page, we begin using the <? code('document') ?> object
+    <p>But note, this function invocation just creates the text; it does not add the text to your 
+        page. To add the text to your page, we will begin by using the <? code('document') ?> object
     to obtain a reference for the precise spot on the page we would like to insert the text.</p>
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>
+
+<? #############################################################################
+noteheader('note-glove-css'); ?>
+<? precss(".row {
+    clear: left;
+}
+
+.cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 60px;
+    cursor: pointer;
+}") ?>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-cell-id-html'); ?>
+<? prehtml("<div class='row'>
+    <div class='cell' id='cell-0'></div>
+    <div class='cell' id='cell-1'></div>
+    <div class='cell' id='cell-2'></div>
+</div>
+<div class='row'>
+    <div class='cell' id='cell-3'></div>
+    <div class='cell' id='cell-4'></div>
+    <div class='cell' id='cell-5'></div>
+</div>
+<div class='row'>
+    <div class='cell' id='cell-6'></div>
+    <div class='cell' id='cell-7'></div>
+    <div class='cell' id='cell-8'></div>
+</div>") ?>
+<? notefooter(); ?>
 
 <? ########################################################################## ?>
 <? ########################################################################## ?>

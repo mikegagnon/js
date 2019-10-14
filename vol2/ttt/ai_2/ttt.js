@@ -1,6 +1,7 @@
 function drawLetter(move, letter) {
     var text = document.createTextNode(letter)
-    document.querySelector('#cell-' + move).appendChild(text)
+    var cellId = 'cell-' + move
+    document.getElementById(cellId).appendChild(text)
 }
 
 function cellClick(move) {

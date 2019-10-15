@@ -1339,6 +1339,66 @@ drawLetter(4, 'X')
 drawLetter(0, 'O')") ?>
 <? notefooter(); ?>
 
+<? #############################################################################
+noteheader('note-draw-fn-html'); ?>
+<? prehtml("<div class='row'>
+    <div class='cell' id='cell-0'></div>
+    <div class='cell' id='cell-1'></div>
+    <div class='cell' id='cell-2'></div>
+</div>
+<div class='row'>
+    <div class='cell' id='cell-3'></div>
+    <div class='cell' id='cell-4'></div>
+    <div class='cell' id='cell-5'></div>
+</div>
+<div class='row'>
+    <div class='cell' id='cell-6'></div>
+    <div class='cell' id='cell-7'></div>
+    <div class='cell' id='cell-8'></div>
+</div>") ?>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-draw-fn-css'); ?>
+<? precss(".row {
+    clear: left;
+}
+
+.cell {
+    height: 60px;
+    width: 60px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 60px;
+    cursor: pointer;
+}") ?>
+<? notefooter(); ?>
+
+<? #############################################################################
+stepheader('note-click', 'Clickable cells'); ?>
+    
+    <p>Building upon
+        <a href="#note-draw-fn-html">the HTML</a>,
+        <a href="#note-draw-fn-css">the CSS</a>, and
+        the  <a href="#note-draw-fn-js">the JavaScript</a>
+         from the previous step, let&rsquo;s begin by clearing the board, by
+        removing the invocations to <?code('drawLetter')?> from the JavaScript pane.
+        Thus, your JavaScript pane should contain only:
+    </p>
+<? pre("function drawLetter(cellNumber, letter) {
+    var text = document.createTextNode(letter)
+    var cellId = 'cell-' + cellNumber
+    var cellRef = document.getElementById(cellId)
+    cellRef.appendChild(text)
+}") ?>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
 
 
 

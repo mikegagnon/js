@@ -139,7 +139,7 @@ $(SNIPPETS).append(`<div id='${SNIPPETS_TABLE_WRAPPER.substr(1)}'></div>`);
 
 <?
 ################################################################################
-partheader('CodePen'); ##############################
+partheader('Setup your development environment'); ##############################
 ################################################################################
 ?>
 
@@ -163,6 +163,23 @@ stepheader('note-codepen', 'Introduction to CodePen'); ?>
     </p>
 
     <!-- TODO: link to forums -->
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-codepen-account', 'Create a CodePen account'); ?>
+
+    <p>I encourage you to sign up for a free account with CodePen, though it&rsquo;s
+    not strictly necessary. Just follow <a target="_blank" href="https://codepen.io/accounts/signup/user/free">this link</a>. For the purpose of following this book, creating an account with CodePen is beneficial
+    for thee reasons:</p>
+
+    <ol>
+        <li>You can save your &ldquo;pens,&rdquo; i.e. your code that you enter into CodePen</li>
+        <li>You can share your pens with more experienced programmers, allowing you to receive feedback and help</li>
+        <li>You can save your settings. In particular, you can save your &ldquo;Auto Update Preview&rdquo; setting, which
+        will create substantial convenience for you, as we&rsquo;ll discuss in Step TODO</li>
+    </ol>
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>
@@ -201,6 +218,12 @@ stepheader('note-codepen-howto', 'CodePen panes'); ?>
 
     <p>Let&rsquo;s build our first web page in the next step.</p>
 
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
+
+<? #############################################################################
+stepheader('note-codepen-2', 'CodePen panes'); ?>
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>

@@ -1144,12 +1144,35 @@ stepheader('note-cell-id', 'Give each cell a unique ID'); ?>
     <div class='cell' id='cell-8'></div>
 </div>") ?>
 
+    <p>Your preview pane should look something like:</p>
+
+<div class="html-page">
+    <div class='row_1'>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+    </div>
+    <div class='row_1'>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+    </div>
+    <div class='row_1'>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 
 <? #############################################################################
 stepheader('note-draw-xo', 'Drawing X&rsquo;s and O&rsquo;s with JavaScript'); ?>
     
+    <!-- TODO: use method terminology -->
+
     <p>Building upon <a href="#note-cell-id-html">the HTML</a> from the previous step,
         and <a href="#note-glove-css">the CSS</a> from <? steplink('note-glove')?>,
     we are going to use JavaScript to draw X&rsquo;s and O&rsquo;s to the board.
@@ -1191,6 +1214,27 @@ stepheader('note-draw-xo', 'Drawing X&rsquo;s and O&rsquo;s with JavaScript'); ?
 <? pre("var text = document.createTextNode('X')
 var cellRef = document.getElementById('cell-4')
 cellRef.appendChild(text)") ?>
+
+    <p>Your preview pane should look something like:</p>
+
+<div class="html-page">
+    <div class='row_1'>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+    </div>
+    <div class='row_1'>
+        <div class='cell_8'></div>
+        <div class='cell_8'>X</div>
+        <div class='cell_8'></div>
+    </div>
+    <div class='row_1'>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>
@@ -1259,8 +1303,27 @@ should be either X or O), then draws the letter upon the specified cell.</p>
 <? pre("drawLetter(4, 'X')
 drawLetter(0, 'O')") ?>
 
-    <p>Your JavaScript pane should contain only <a href="#note-draw-fn-js">the code listed here</a>.</p>
+    <p>Your JavaScript pane should look like <a href="#note-draw-fn-js">the code listed here</a>, and
+    your preview pane should look something like:</p>
 
+<div class="html-page">
+    <div class='row_1'>
+        <div class='cell_8'>O</div>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+    </div>
+    <div class='row_1'>
+        <div class='cell_8'></div>
+        <div class='cell_8'>X</div>
+        <div class='cell_8'></div>
+    </div>
+    <div class='row_1'>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+        <div class='cell_8'></div>
+    </div>
+    <div style="clear:both;"></div>
+</div>
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 <? #############################################################################

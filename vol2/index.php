@@ -1396,6 +1396,8 @@ stepheader('note-click', 'Clickable cells'); ?>
     cellRef.appendChild(text)
 }") ?>
 
+    <p>Then, we modify the HTML
+
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 

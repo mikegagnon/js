@@ -205,25 +205,80 @@ stepheader('note-codepen-howto', 'CodePen panes'); ?>
 
     <? screenshot_vol2('codepen-editor-layout.png', True, True) ?>
 
-    <p>Now, your CodePen page should look like this:</p>
+    <p>At this point, there&rsquo;s a chance your CodePen window looks like this (a)...</p>
 
     <? screenshot_vol2('codepen-four-panes.png', True, True) ?>
 
+    <p>... and there&rsquo;s also a chance your CodePen window looks like this (b)...</p>
 
+    <? screenshot_vol2('codepen-four-panes-hidden-preview.png', True, True) ?>
 
-
-
-    <p>The way it works is: you will construct a web page by typing in (or pasting) code into the first three panes.
-        Then, a web page (your web page) will automatically appear in the fourth pane, the &ldquo;preview pane.&rdquo;</p>
-
-    <p>Let&rsquo;s build our first web page in the next step.</p>
+    <p>If your CodePen window looks like screenshot (a), then great, no problem. But,
+        if your CodePen window looks like screenshot (b), then you need to grab
+        the vertical bar on the left side of the preview pane, and then slide
+    that bar to the left, until it looks like screenshot (a).</p>
 
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 
+
 <? #############################################################################
-stepheader('note-codepen-2', 'CodePen panes'); ?>
+stepheader('note-codepen-auto-update', 'Disable &ldquo;Auto Update Preview&rdquo;'); ?>
+
+    <p>By default, the way CodePen works is: you construct a web page by typing in (or pasting) code into the first three panes (HTML, CSS, and JavaScript). Then, a web page (your web page) will automatically appear in the fourth pane, the &ldquo;preview pane.&rdquo;
+        Furthermore, whenever you edit the code in any of the first three panes, then CodePen will automatically update the 
+    preview pane, taking your new edits into account. This functionality is known as the &ldquo;Auto Update Preview&rdquo; feature of CodePen.</p>
+    </p>
+
+    <p>While the Auto Update Preview feature is useful, it actually becomes problematic once we get to <? steplink('note-click')?>.
+        The reason it becomes problematic, is because at <? steplink('note-click')?>, and onwards, you will want to be able to
+    update the preview manually, at the click of a button, without having to edit code in order to trigger an automatic update.</p>
+
+    <p>Thus, I recommend disabling the Auto Update Preview feature. There are two ways to disable Auto Update. The first approach, disables
+    Auto Update for the current pen, and works whether or not you have signed up for an account on CodePen. The second approach, the preferred way, disables Auto Update for the current pen, and for future pens you might create. The second approach is only available to you if you 
+    have signed up for  a CodePen account.</p>
+
+    <h3>The first approach</h3>
+
+    <p>To disable Auto Update for the current pen, click the Settings button.</p>
+
+    <? screenshot_vol2('codepen-settings.png', True, True) ?>
+
+    <p>Then, click &ldquo;Behavior&rdquo;</p>
+
+    <? screenshot_vol2('codepen-behavior.png', True, True) ?>
+
+    <p>Finally, under Auto Update Preview, un-check the Enabled check box, to
+        disable Auto Update Preview.</p>
+
+    <? screenshot_vol2('codepen-auto-enabled.png', True, True) ?>
+
+    <p>To finish up, click the close button for the 
+    Pen Settings dialog box.</p>
+
+    <p>Now, whenever you want CodePen to run your code (HTML, CSS, and JavaScript),
+    you must click the Run button at the top of your window.</p>
+
+    <h3>The second approach</h3>
+
+    <p>To disable Auto Update for your current pen, and for your future pens, begin
+        by logging into CodePen (you must have a CodePen account for
+    this approach to work). Then click your avatar icon in the top-right corner.</p>
+
+    <? screenshot_vol2('codepen-avatar.png', True, True) ?>
+
+    <p>Then, click Settings from the drop-down menu.</p>
+
+    <? screenshot_vol2('codepen-avatar-settings.png', True, True) ?>
+
+    <p>Finally, scroll down and un-check the Auto Update Preview check box, to
+        disable Auto Update Preview.</p>
+
+    <? screenshot_vol2('codepen-avatar-settings-auto.png', True, True) ?>
+
+    <p>Now, whenever you want CodePen to run your code (HTML, CSS, and JavaScript),
+    you must click the Run button at the top of your window.</p>
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>

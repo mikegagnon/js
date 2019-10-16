@@ -272,10 +272,17 @@ stepheader('note-codepen-auto-update', 'Disable &ldquo;Auto Update Preview&rdquo
 
     <? screenshot_vol2('codepen-avatar-settings.png', True, True) ?>
 
-    <p>Finally, scroll down and un-check the Auto Update Preview check box, to
+    <p>Next, scroll down and un-check the Auto Update Preview check box, to
         disable Auto Update Preview.</p>
 
     <? screenshot_vol2('codepen-avatar-settings-auto.png', True, True) ?>
+
+    <p>Last, scroll up to the top and click the green button (in the top
+        right corner) that says
+    &ldquo;Save All Settings.&rdquo;</p>
+
+    <? screenshot_vol2('codepen-save-settings.png', True, True) ?>
+
 
     <p>Now, whenever you want CodePen to run your code (HTML, CSS, and JavaScript),
     you must click the Run button at the top of your window.</p>
@@ -292,7 +299,7 @@ partheader('HTML'); ##############################
 <? #############################################################################
 stepheader('note-intro-html', 'Introduction to HTML'); ?>
 
-    <p>Whereas JavaScript is a programming language, HTML is <i>markup language</i>.
+    <p>Whereas JavaScript is a programming language, HTML is a <i>markup language</i>.
     That is, HTML is a language that allows us to “mark up” documents.
     Let’s look at some examples.</p>
 
@@ -300,7 +307,7 @@ stepheader('note-intro-html', 'Introduction to HTML'); ?>
 
 <? prehtml("This is just some plain text.") ?>
 
-    <p>The text you entered should automatically appear in the preview pane:</p>
+    <p>Then, click the Run button (at the top of the window), wait a few seconds, and the text you entered should appear in the preview pane:</p>
 
     <? screenshot_vol2('codepen-plaintext.png', True, True) ?>
 
@@ -310,7 +317,7 @@ stepheader('note-intro-html', 'Introduction to HTML'); ?>
 <? #############################################################################
 stepheader('note-i-b', 'Italics and bold'); ?>
 
-    <p>In the HTML pane for <a target="_blank" href="https://codepen.io/pen">CodePen</a>, replace the old text with this new text:</p>
+    <p>In the HTML pane for <a target="_blank" href="https://codepen.io/pen">CodePen</a>, replace the old text with this new text, and click the Run button:</p>
 
 <? prehtml("This is just some plain text.
 <i>This text is italicized.</i>
@@ -354,7 +361,7 @@ stepheader('note-p-tag', 'The div tag'); ?>
 <? prehtml("<div><i>This text is italicized.</i></div>
 <div><b>This text is bold.</b></div>") ?>
 
-    <p>Your CodePen preview pane should look something like:</p>
+    <p>After you click the Run button, your CodePen preview pane should look something like:</p>
 
     <div class="html-page">
 <div>
@@ -388,7 +395,7 @@ stepheader('note-intro-css', 'Introduction to CSS'); ?>
     The background of this div is gray.
 </div>") ?>
 
-    <p>Your CodePen preview pane should look something like:</p>
+    <p>After you click the Run button, your CodePen preview pane should look something like:</p>
 
     <div class="html-page">
 <div style='background-color:wheat'>
@@ -438,7 +445,7 @@ stepheader('note-css-pane', 'The CSS pane'); ?>
 
 
 
-<p>Your CodePen preview pane should look something like:</p>
+<p>After you click the Run button, your CodePen preview pane should look something like:</p>
 
     <div class="html-page">
 <div style='background-color:turquoise'>
@@ -479,7 +486,7 @@ stepheader('note-cell', 'Creating a cell class'); ?>
     background-color: lightgray;
 }") ?>
 
-    <p>Your preview pane should look something like this:</p>
+    <p>After you click Run, your preview pane should look something like this:</p>
 
 <div class="html-page">
     <div class='cell_1'></div>
@@ -502,7 +509,7 @@ stepheader('note-three-attempt', 'Three cells (attempt)'); ?>
 <div class='cell'></div>
 <div class='cell'></div>") ?>
 
-    <p>Your preview pane should look like this:</p>
+    <p>After you click Run, your preview pane should look like this:</p>
 <div class="html-page">
     <div class='cell_1'></div>
     <div class='cell_1'></div>
@@ -540,7 +547,7 @@ stepheader('note-three-success', 'Three cells (success)'); ?>
     margin-bottom: 5px;
 }") ?>
 
-    <p>And, your preview pane should look something like:</p>
+    <p>And, after you click Run, your preview pane should look something like:</p>
 
 <div class="html-page">
     <div class='cell_2'></div>

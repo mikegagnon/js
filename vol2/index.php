@@ -1481,12 +1481,103 @@ stepheader('note-click', 'Clickable cells'); ?>
     cellRef.appendChild(text)
 }") ?>
 
-    <p>Then, we modify the HTML
+    <p>Then, we declare a new function  in the JavaScript pane:</p>
+
+<? pre("
+function cellClick(cellNumber) {
+    drawLetter(cellNumber, 'X')
+}") ?>
+
+    <p>Thus, your JavaScript pane should thus contain <a href='#note-click-js'>this code</a>.</p>
+
+
+    <p>Next, we will wire our HTML code to this <? code('cellClick(...)') ?> function.
+        This way, whenever you click a cell, the browser will invoke the <? code('cellClick(...)') ?> function,
+        which will invoke the <? code('drawLetter(...)') ?> function, which will draw
+        an X over the cell that was clicked.
+       </p>
+
+
+
+    <p>To wire our HTML code to the <? code('cellClick(...)') ?> function,
+        modify the HTML pane as so:</p>
+<? prehtml("<div class='row'>
+    <div class='cell' id='cell-0'
+         onclick='cellClick(0)'></div>
+    <div class='cell' id='cell-1'
+         onclick='cellClick(1)'></div>
+    <div class='cell' id='cell-2'
+         onclick='cellClick(2)'></div>
+</div>
+<div class='row'>
+    <div class='cell' id='cell-3'
+         onclick='cellClick(3)'></div>
+    <div class='cell' id='cell-4'
+         onclick='cellClick(4)'></div>
+    <div class='cell' id='cell-5'
+         onclick='cellClick(5)'></div>
+</div>
+<div class='row'>
+    <div class='cell' id='cell-6'
+         onclick='cellClick(6)'></div>
+    <div class='cell' id='cell-7'
+         onclick='cellClick(7)'></div>
+    <div class='cell' id='cell-8'
+         onclick='cellClick(8)'></div>
+</div>") ?>
+
+
 
 <? stepoverview(); ?>
 <? stepfooter(); ?>
 
+<? #############################################################################
+noteheader('note-click-js'); ?>
+<? pre("function drawLetter(cellNumber, letter) {
+    var text = document.createTextNode(letter)
+    var cellId = 'cell-' + cellNumber
+    var cellRef = document.getElementById(cellId)
+    cellRef.appendChild(text)
+}
 
+function cellClick(cellNumber) {
+    drawLetter(cellNumber, 'X')
+}") ?>
+<? notefooter(); ?>
+
+<? #############################################################################
+noteheader('note-click-html'); ?>
+<? prehtml("<div class='row'>
+    <div class='cell' id='cell-0'
+         onclick='cellClick(0)'></div>
+    <div class='cell' id='cell-1'
+         onclick='cellClick(1)'></div>
+    <div class='cell' id='cell-2'
+         onclick='cellClick(2)'></div>
+</div>
+<div class='row'>
+    <div class='cell' id='cell-3'
+         onclick='cellClick(3)'></div>
+    <div class='cell' id='cell-4'
+         onclick='cellClick(4)'></div>
+    <div class='cell' id='cell-5'
+         onclick='cellClick(5)'></div>
+</div>
+<div class='row'>
+    <div class='cell' id='cell-6'
+         onclick='cellClick(6)'></div>
+    <div class='cell' id='cell-7'
+         onclick='cellClick(7)'></div>
+    <div class='cell' id='cell-8'
+         onclick='cellClick(8)'></div>
+</div>") ?>
+<? notefooter(); ?>
+
+<? #############################################################################
+stepheader('note-alternate', 'Alternate X&rsquo;s and O&rsquo;s'); ?>
+
+<? stepoverview(); ?>
+<? stepfooter(); ?>
 
 
 <? ########################################################################## ?>
